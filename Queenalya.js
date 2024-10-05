@@ -18842,7 +18842,7 @@ break;
             let latensie = speed() - timestampe
             let a = db.data.users[sender]
             let me = m.sender
-            let xmenu_oh2 = `╔═━━━━✦❘༻ 𝗪𝗘𝗟𝗖𝗢𝗠𝗘 ༺❘✦━━━━═╗
+            let alyamenu = `╔═━━━━✦❘༻ 𝗪𝗘𝗟𝗖𝗢𝗠𝗘 ༺❘✦━━━━═╗
    Hi, ${pushname}! 👋 ${alyatimewisher} 😄${readmore}
 ╚━━━━━━━━━━━━━━━━━━━━━━━╝
 
@@ -18901,13 +18901,13 @@ break;
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -18925,14 +18925,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -18942,7 +18942,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -18953,7 +18953,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -18968,7 +18968,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -18990,7 +18990,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -19006,7 +19006,7 @@ if (typemenu === 'v1') {
       } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -19045,7 +19045,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -19099,7 +19099,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -19171,7 +19171,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh2
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -19325,17 +19325,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
             case 'allmenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${allmenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${allmenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -19353,14 +19353,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -19370,7 +19370,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -19381,7 +19381,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -19396,7 +19396,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -19418,7 +19418,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -19435,7 +19435,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -19474,7 +19474,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -19528,7 +19528,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -19600,7 +19600,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -19675,17 +19675,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
             case 'ownermenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${ownermenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${ownermenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -19703,14 +19703,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -19720,7 +19720,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -19731,7 +19731,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -19746,7 +19746,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -19768,7 +19768,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -19785,7 +19785,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -19824,7 +19824,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -19878,7 +19878,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -19950,7 +19950,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -20025,17 +20025,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'othermenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${othermenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${othermenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -20053,14 +20053,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -20070,7 +20070,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -20081,7 +20081,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -20096,7 +20096,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -20118,7 +20118,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -20135,7 +20135,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -20174,7 +20174,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -20228,7 +20228,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -20300,7 +20300,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -20375,17 +20375,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'downloadmenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${downloadmenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${downloadmenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -20403,14 +20403,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -20420,7 +20420,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -20431,7 +20431,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -20446,7 +20446,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -20468,7 +20468,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -20485,7 +20485,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -20524,7 +20524,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -20578,7 +20578,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -20650,7 +20650,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -20725,17 +20725,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'groupmenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${groupmenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${groupmenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -20753,14 +20753,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -20770,7 +20770,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -20781,7 +20781,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -20796,7 +20796,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -20818,7 +20818,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -20835,7 +20835,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -20874,7 +20874,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -20928,7 +20928,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -21000,7 +21000,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -21075,17 +21075,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'gamemenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${gamemenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${gamemenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -21103,14 +21103,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -21120,7 +21120,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -21131,7 +21131,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -21146,7 +21146,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -21168,7 +21168,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -21185,7 +21185,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -21224,7 +21224,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -21278,7 +21278,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -21350,7 +21350,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -21425,17 +21425,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'funmenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${funmenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${funmenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -21453,14 +21453,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -21470,7 +21470,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -21481,7 +21481,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -21496,7 +21496,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -21518,7 +21518,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -21535,7 +21535,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -21574,7 +21574,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -21628,7 +21628,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -21700,7 +21700,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -21775,17 +21775,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'stalkermenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${stalkermenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${stalkermenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -21803,14 +21803,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -21820,7 +21820,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -21831,7 +21831,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -21846,7 +21846,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -21868,7 +21868,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -21885,7 +21885,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -21924,7 +21924,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -21978,7 +21978,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -22050,7 +22050,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -22125,17 +22125,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'randomphotomenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${randphotomenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${randphotomenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -22153,14 +22153,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -22170,7 +22170,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -22181,7 +22181,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -22196,7 +22196,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -22218,7 +22218,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -22235,7 +22235,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -22274,7 +22274,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -22328,7 +22328,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -22400,7 +22400,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -22475,17 +22475,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'randomvideomenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${randvideomenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${randvideomenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -22503,14 +22503,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -22520,7 +22520,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -22531,7 +22531,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -22546,7 +22546,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -22568,7 +22568,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -22585,7 +22585,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -22624,7 +22624,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -22678,7 +22678,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -22750,7 +22750,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -22825,17 +22825,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'nsfwmenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${nsfwmenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${nsfwmenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -22853,14 +22853,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -22870,7 +22870,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -22881,7 +22881,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -22896,7 +22896,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -22918,7 +22918,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -22935,7 +22935,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -22974,7 +22974,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -23028,7 +23028,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -23100,7 +23100,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -23175,17 +23175,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'animemenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${animemenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${animemenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -23203,14 +23203,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -23220,7 +23220,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -23231,7 +23231,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -23246,7 +23246,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -23268,7 +23268,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -23285,7 +23285,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -23324,7 +23324,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -23378,7 +23378,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -23450,7 +23450,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -23525,17 +23525,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'stickermenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${stickermenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${stickermenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -23553,14 +23553,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -23570,7 +23570,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -23581,7 +23581,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -23596,7 +23596,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -23618,7 +23618,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -23635,7 +23635,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -23674,7 +23674,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -23728,7 +23728,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -23800,7 +23800,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -23875,17 +23875,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'databasemenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${databasemenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${databasemenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -23903,14 +23903,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -23920,7 +23920,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -23931,7 +23931,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -23946,7 +23946,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -23968,7 +23968,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -23985,7 +23985,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -24024,7 +24024,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -24078,7 +24078,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -24150,7 +24150,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -24225,17 +24225,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'searchmenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${searchmenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${searchmenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -24253,14 +24253,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -24270,7 +24270,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -24281,7 +24281,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -24296,7 +24296,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -24318,7 +24318,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -24335,7 +24335,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -24374,7 +24374,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -24428,7 +24428,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -24500,7 +24500,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -24575,17 +24575,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'storemenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${storemenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${storemenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -24603,14 +24603,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -24620,7 +24620,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -24631,7 +24631,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -24646,7 +24646,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -24668,7 +24668,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -24685,7 +24685,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -24724,7 +24724,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -24778,7 +24778,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -24850,7 +24850,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -24925,17 +24925,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'aimenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${aimenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${aimenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -24953,14 +24953,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -24970,7 +24970,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -24981,7 +24981,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -24996,7 +24996,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -25018,7 +25018,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -25035,7 +25035,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -25074,7 +25074,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -25128,7 +25128,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -25200,7 +25200,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -25275,17 +25275,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'religionmenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${religionmenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${religionmenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -25303,14 +25303,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -25320,7 +25320,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -25331,7 +25331,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -25346,7 +25346,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -25368,7 +25368,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -25385,7 +25385,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -25424,7 +25424,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -25478,7 +25478,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -25550,7 +25550,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -25625,17 +25625,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'listmenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${listmenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${listmenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -25653,14 +25653,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -25670,7 +25670,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -25681,7 +25681,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -25696,7 +25696,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -25718,7 +25718,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -25735,7 +25735,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -25774,7 +25774,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -25828,7 +25828,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -25900,7 +25900,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -25975,17 +25975,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'convertmenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${convertmenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${convertmenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -26003,14 +26003,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -26020,7 +26020,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -26031,7 +26031,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -26046,7 +26046,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -26068,7 +26068,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -26085,7 +26085,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -26124,7 +26124,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -26178,7 +26178,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -26250,7 +26250,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -26325,17 +26325,17 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
 case 'bugmenu': {
-let xmenu_oh = `Hi ${pushname}${readmore}\n\n${bugmenu(prefix, hituet)}`
+let alyamenu = `Hi ${pushname}${readmore}\n\n${bugmenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
                     AlyaBotInc.sendMessage(m.chat, {
-                        text: xmenu_oh,
+                        text: alyamenu,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
@@ -26353,14 +26353,14 @@ if (typemenu === 'v1') {
                 }   if (typemenu === 'v3') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh
+                        caption: alyamenu
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
                     AlyaBotInc.sendMessage(m.chat, {
                         video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         gifPlayback: true
                     }, {
                         quoted: m
@@ -26370,7 +26370,7 @@ if (typemenu === 'v1') {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
-                            title: xmenu_oh
+                            title: alyamenu
                         }
                     }, { quoted: m })
                 } else if (typemenu === 'v6') {
@@ -26381,7 +26381,7 @@ if (typemenu === 'v1') {
                           requestFrom: m.sender,
                           noteMessage: {
                              extendedTextMessage: {
-                                text: xmenu_oh,
+                                text: alyamenu,
                                 contextInfo: {
                                    externalAdReply: {
                                        showAdAttribution: true
@@ -26396,7 +26396,7 @@ if (typemenu === 'v1') {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
-                        caption: xmenu_oh,
+                        caption: alyamenu,
                         mimetype: 'application/zip',
                         fileName: ownername,
                         fileLength: "99999999999",
@@ -26418,7 +26418,7 @@ if (typemenu === 'v1') {
                 	AlyaBotInc.sendMessage(m.chat, {
       video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
       gifPlayback: true,
-      caption: xmenu_oh,
+      caption: alyamenu,
       contextInfo: {
       externalAdReply: {
       title: botname,
@@ -26435,7 +26435,7 @@ if (typemenu === 'v1') {
                     } else if (typemenu === 'v9') {
                 	AlyaBotInc.sendMessage(m.chat, {
 video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: xmenu_oh,
+caption: alyamenu,
 gifPlayback: true,
 contextInfo: {
 forwardingScore: 999,
@@ -26474,7 +26474,7 @@ let msg = generateWAMessageFromContent(from, {
             text: botname
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: xmenu_oh,
+            title: alyamenu,
             subtitle: themeemoji,
             hasMediaAttachment: false
           }),
@@ -26528,7 +26528,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: xmenu_oh
+                  text: alyamenu
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -26600,7 +26600,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xmenu_oh
+            text: alyamenu
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
