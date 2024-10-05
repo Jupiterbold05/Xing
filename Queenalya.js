@@ -124,7 +124,7 @@ let premium = JSON.parse(fs.readFileSync('./src/data/role/premium.json'))
 const owner = JSON.parse(fs.readFileSync('./src/data/role/owner.json'))
 //media
 const VoiceNoteXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/xeonvn.json'))
-const StickerXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/xeonsticker.json'))
+const StickerXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/AlyaSticker.json'))
 const ImageXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/xeonimage.json'))
 const VideoXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/xeonvideo.json'))
 const DocXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/doc.json'))
@@ -281,29 +281,29 @@ module.exports = AlyaBotInc = async (AlyaBotInc, m, msg, chatUpdate, store) => {
         expiredPremiumCheck(AlyaBotInc, m, premium)
         
         //theme sticker reply
-        const XeonStickWait = () => {
+        const AlyaStickWait = () => {
         let AlyaStikRep = fs.readFileSync('./AlyaMedia/theme/sticker_reply/wait.webp')
-        AlyaBotInc.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
+        AlyaBotInc.sendMessage(from, { sticker: AlyaStikRep }, { quoted: m })
         }
         const AlyaStickAdmin = () => {
         let AlyaStikRep = fs.readFileSync('./AlyaMedia/theme/sticker_reply/admin.webp')
-        AlyaBotInc.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
+        AlyaBotInc.sendMessage(from, { sticker: AlyaStikRep }, { quoted: m })
         }
-        const XeonStickBotAdmin = () => {
+        const AlyaStickBotAdmin = () => {
         let AlyaStikRep = fs.readFileSync('./AlyaMedia/theme/sticker_reply/botadmin.webp')
-        AlyaBotInc.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
+        AlyaBotInc.sendMessage(from, { sticker: AlyaStikRep }, { quoted: m })
         }
-        const XeonStickOwner = () => {
+        const AlyaStickOwner = () => {
         let AlyaStikRep = fs.readFileSync('./AlyaMedia/theme/sticker_reply/owner.webp')
-        AlyaBotInc.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
+        AlyaBotInc.sendMessage(from, { sticker: AlyaStikRep }, { quoted: m })
         }
-        const XeonStickGroup = () => {
+        const AlyaStickGroup = () => {
         let AlyaStikRep = fs.readFileSync('./AlyaMedia/theme/sticker_reply/group.webp')
-        AlyaBotInc.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
+        AlyaBotInc.sendMessage(from, { sticker: AlyaStikRep }, { quoted: m })
         }
-        const XeonStickPrivate = () => {
+        const AlyaStickPrivate = () => {
         let AlyaStikRep = fs.readFileSync('./AlyaMedia/theme/sticker_reply/private.webp')
-        AlyaBotInc.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
+        AlyaBotInc.sendMessage(from, { sticker: AlyaStikRep }, { quoted: m })
         }
  
  //bug functions
@@ -1666,7 +1666,7 @@ sendSlide(m.chat, 'removed you', ownername, botname, slides);
 }
 break
             case 'addbadword': case 'addbd':
-               if (!XeonTheCreator) return XeonStickOwner()
+               if (!XeonTheCreator) return AlyaStickOwner()
                if (!groupAdmins) return replygcalya(mess.admin)
                if (args.length < 1) return replygcalya( `Send command ${prefix}addbadword [harsh word]. Example ${prefix}addbadword asshole`)
                bad.push(q)
@@ -1674,7 +1674,7 @@ break
                replygcalya('Successfully Added Bad Word!')
             break
             case 'delbadword': case 'deldb':
-               if (!XeonTheCreator) return XeonStickOwner()
+               if (!XeonTheCreator) return AlyaStickOwner()
                if (!groupAdmins) return replygcalya(mess.admin)
                if (args.length < 1) return replygcalya( `Send commands ${prefix}addbadword [bad word]. Example ${prefix}addbadword asshole`)                 
                bad.splice(q)
@@ -1683,7 +1683,7 @@ break
             break 
             case 'resetuser':
             case 'resetdbuser': {
-               if (!XeonTheCreator) return XeonStickOwner()
+               if (!XeonTheCreator) return AlyaStickOwner()
                let totalusernya = db.data.users[0]
                replygcalya(`Succesfully Deleted ${totalusernya} Users in Database`)
                db.data.users = []
@@ -1691,13 +1691,13 @@ break
             break
             case 'resethit':
             case 'resettotalhit': {
-               if (!XeonTheCreator) return XeonStickOwner()
+               if (!XeonTheCreator) return AlyaStickOwner()
                global.db.data.settings[botNumber].totalhit = 0
                replygcalya(mess.done)
             }
             break
             case 'setmenu': {
-            if (!XeonTheCreator) return XeonStickOwner()
+            if (!XeonTheCreator) return AlyaStickOwner()
             if (text.startsWith('v')) {
                   typemenu = text
                   replygcalya(mess.done)
@@ -1807,7 +1807,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
             case 'setreply':{
-               if (!XeonTheCreator) return XeonStickOwner()
+               if (!XeonTheCreator) return AlyaStickOwner()
                if (text.startsWith('v')) {
                   typereply = text
                   replygcalya(mess.done)
@@ -1887,7 +1887,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'statustext': 
             case 'upswtext':
             case 'upswteks': {
-               if (!XeonTheCreator) return XeonStickOwner()
+               if (!XeonTheCreator) return AlyaStickOwner()
                if (!q) return replygcalya('Text?')
                await AlyaBotInc.sendMessage('status@broadcast', { text: q }, { backgroundColor: '#FF000000', font: 3, statusJidList: Object.keys(global.db.data.users) })
                replygcalya(mess.done)
@@ -1895,7 +1895,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'statusvideo':
             case 'upswvideo': {
-               if (!XeonTheCreator) return XeonStickOwner()
+               if (!XeonTheCreator) return AlyaStickOwner()
                if (/video/.test(mime)) {
                   var videosw = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
                   await AlyaBotInc.sendMessage('status@broadcast', {
@@ -1913,7 +1913,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'statusimg':
             case 'statusimage':
             case 'upswimg': {
-               if (!XeonTheCreator) return XeonStickOwner()
+               if (!XeonTheCreator) return AlyaStickOwner()
                if (/image/.test(mime)) {
                   var imagesw = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
                   await AlyaBotInc.sendMessage('status@broadcast', {
@@ -1930,7 +1930,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'statusaudio':
             case 'upswaudio': {
-               if (!XeonTheCreator) return XeonStickOwner()
+               if (!XeonTheCreator) return AlyaStickOwner()
                if (/audio/.test(mime)) {
                   var audiosw = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
                   await AlyaBotInc.sendMessage('status@broadcast', {
@@ -1951,7 +1951,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'setimgmenu':
             case 'sim': {
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
                 await fsx.copy(delb, './AlyaMedia/theme/alya.jpg')
                 fs.unlinkSync(delb)
@@ -1962,7 +1962,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'svm': 
             	case 'setvgifmenu':
             case 'sgm': {
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
                 await fsx.copy(delb, './AlyaMedia/theme/Cheems-bot.mp4')
                 fs.unlinkSync(delb)
@@ -1970,7 +1970,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
             case 'addtitle':{
-               if (!XeonTheCreator) return XeonStickOwner()
+               if (!XeonTheCreator) return AlyaStickOwner()
                if (!text) return replygcalya(`Usage ${prefix + command} number|title`)
                nonya = text.split('|')[0]
                titlenya = text.split('|')[1]
@@ -1980,7 +1980,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
             case 'deltitle':{
-               if (!XeonTheCreator) return XeonStickOwner()
+               if (!XeonTheCreator) return AlyaStickOwner()
                if (!text) return replygcalya(`Usage ${prefix + command} number`)
                nonya = text.split(',')[0]
                let oo = `${nonya}@s.whatsapp.net`
@@ -1990,7 +1990,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'addlimit':
             case 'givelimit':{
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 if (!text) return replygcalya(`Usage ${prefix + command} number|limit amount`)
                 usernya = text.split('|')[0]
                 limitnya = text.split('|')[1]
@@ -2000,7 +2000,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
             case 'dellimit':{
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 if (!text) return replygcalya(`Usage ${prefix + command} number|limit amount`)
                 usernya = text.split('|')[0]
                 limitnya = text.split('|')[1]
@@ -2010,7 +2010,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
             case 'addprem':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 if (args.length < 2)
                     return replygcalya(`Usage ${prefix + command} @tag time\n${prefix + command} number time\n\nExample : ${prefix + command} @tag 30d`)
                 if (m.mentionedJid.length !== 0) {
@@ -2024,7 +2024,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                 }
             break
             case 'delprem':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 if (args.length < 1) return replygcalya(`Usage ${prefix + command} @tag\n${prefix + command} number\n\nExample : ${prefix + command} 2348100835767`)
                 if (m.mentionedJid.length !== 0) {
                     for (let i = 0; i < m.mentionedJid.length; i++) {
@@ -2039,7 +2039,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                 }
             break
             case 'listprem': {
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 let data = require('./src/data/role/premium.json')
                 let txt = `*------「 LIST PREMIUM 」------*\n\n`
                 for (let x of data) {
@@ -2055,7 +2055,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
 case 'addowner':
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 if (!args[0]) return replygcalya(`Use ${prefix+command} number\nExample ${prefix+command} ${ownernumber}`)
 bnnd = q.split("|")[0].replace(/[^0-9]/g, '')
 let ceknye = await AlyaBotInc.onWhatsApp(bnnd)
@@ -2065,7 +2065,7 @@ fs.writeFileSync('./src/data/role/owner.json', JSON.stringify(owner))
 replygcalya(`Number ${bnnd} Has Become An Owner!!!`)
 break
 case 'delowner':
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 if (!args[0]) return replygcalya(`Use ${prefix+command} nomor\nExample ${prefix+command} 2348100835767`)
 ya = q.split("|")[0].replace(/[^0-9]/g, '')
 unp = owner.indexOf(ya)
@@ -2084,7 +2084,7 @@ case 'listowner': {
             break
             case 'delsession':
             case 'clearsession': {
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 fs.readdir("./session", async function(err, files) {
                     if (err) {
                         console.log('Unable to scan directory: ' + err);
@@ -2112,7 +2112,7 @@ case 'listowner': {
             break
             case 'join':
                 try {
-                    if (!XeonTheCreator) return XeonStickOwner()
+                    if (!XeonTheCreator) return AlyaStickOwner()
                     if (!text) return replygcalya('Enter Group Link!')
                     if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) return replygcalya('Link Invalid!')
                     let result = args[0].split('https://chat.whatsapp.com/')[1]
@@ -2123,7 +2123,7 @@ case 'listowner': {
                 }
                 break
             case 'getsession':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 replygcalya('Wait a moment, currently retrieving your session file')
                 let sesi = fs.readFileSync('./session/creds.json')
                 AlyaBotInc.sendMessage(m.chat, {
@@ -2136,7 +2136,7 @@ case 'listowner': {
             break
             case 'myip':
             case 'ipbot':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 var http = require('http')
                 http.get({
                     'host': 'api.ipify.org',
@@ -2175,13 +2175,13 @@ case 'listowner': {
         }
         break
             case 'shutdown':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 replygcalya(`Restarting will be completed in seconds`)
                 await sleep(3000)
                 process.exit()
             break
             case 'autoread':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 if (q === 'on') {
                     db.data.settings[botNumber].autoread = true
                     replygcalya(`Successfully changed autoread to ${q}`)
@@ -2252,7 +2252,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
             break
             case 'unavailable':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 if (q === 'on') {
                     db.data.settings[botNumber].online = true
                     replygcalya(`Successfully changed unavailable to ${q}`)
@@ -2323,7 +2323,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
             break
             case 'autorecordtype':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 
                 if (q === 'on') {
                     db.data.settings[botNumber].autorecordtype = true
@@ -2395,7 +2395,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
             break
             case 'autorecord':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 
                 if (q === 'on') {
                     db.data.settings[botNumber].autorecord = true
@@ -2467,7 +2467,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
             break
             case 'autotype':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 
                 if (q === 'on') {
                     db.data.settings[botNumber].autotype = true
@@ -2539,7 +2539,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
             break
             case 'autobio':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 
                 if (q == 'on') {
                     db.data.settings[botNumber].autobio = true
@@ -2611,7 +2611,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
             break
             case 'autosticker': case 'autostickergc':
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
                 
                 if (q == 'on') {
                     db.data.settings[botNumber].autosticker = true
@@ -2683,7 +2683,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
             break
             case 'autodownload': case 'autodl':
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
                 
                 if (q == 'on') {
                     db.data.settings[botNumber].autodownload = true
@@ -2755,7 +2755,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
             break
             case 'autoblock':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 
                 if (q == 'on') {
                     db.data.settings[botNumber].autoblocknum = true
@@ -2828,7 +2828,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'onlygroup':
             case 'onlygc':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 
                 if (q == 'on') {
                     db.data.settings[botNumber].onlygrub = true
@@ -2901,7 +2901,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'onlyprivatechat':
             case 'onlypc':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 
                 if (q == 'on') {
                     db.data.settings[botNumber].onlypc = true
@@ -2974,7 +2974,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'onlyindia':
             case 'onlyindianumber':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 
                 if (q == 'on') {
                     db.data.settings[botNumber].onlyindia = true
@@ -3047,7 +3047,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'onlyindo':
             case 'onlyindonumber':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 
                 if (q == 'on') {
                     db.data.settings[botNumber].onlyindo = true
@@ -3119,7 +3119,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
             break
             case 'self': case 'public': case 'mode': {
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 if (q == 'on') {
                 AlyaBotInc.public = true
                 replygcalya('*Successful in Changing To Public Usage*')
@@ -3192,26 +3192,26 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'setexif':
             case 'setwm':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 if (!text) return replygcalya(`Example : ${prefix + command} packname|author`)
                 global.packname = text.split("|")[0]
                 global.author = text.split("|")[1]
                 replygcalya(`Exif successfully changed to\n\n• Packname : ${global.packname}\n• Author : ${global.author}`)
                 break
                 case 'setprefix':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 if (!text) return replygcalya(`Example : ${prefix + command} packname|author`)
                 global.xprefix = text
                 replygcalya(`Prefix successfully changed to ${text}`)
                 break
                 case 'setautoblock':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 if (!text) return replygcalya(`Example : ${prefix + command} packname|author`)
                 global.autoblocknumber = text
                 replygcalya(`Auto-Block number successfully changed to ${text}`)
                 break
                 case 'setantiforeign':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 if (!text) return replygcalya(`Example : ${prefix + command} packname|author`)
                 global.antiforeignnumber = text
                 replygcalya(`Anti-foreign number successfully changed to ${text}`)
@@ -3220,7 +3220,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'setpp':
             case 'setpp':
             case 'setppbot':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 if (!quoted) return replygcalya(`Send/Reply Image With Caption ${prefix + command}`)
                 if (!/image/.test(mime)) return replygcalya(`Send/Reply Image With Caption ${prefix + command}`)
                 if (/webp/.test(mime)) return replygcalya(`Send/Reply Image With Caption ${prefix + command}`)
@@ -3256,14 +3256,14 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                 break
             case 'leave':
             case 'out':
-                if (!XeonTheCreator) return XeonStickOwner()
-                if (!m.isGroup) return XeonStickGroup()
+                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!m.isGroup) return AlyaStickGroup()
                 replygcalya('Bye Everyone 🥺')
                 await AlyaBotInc.groupLeave(m.chat)
             break
             case 'bc':
             case 'broadcast': {
-               if (!XeonTheCreator) return XeonStickOwner()
+               if (!XeonTheCreator) return AlyaStickOwner()
                if (!text) return replygcalya('Text?')
                let teksnya = `${text}\n\n\n\nDate: ${xdate} ${xtime}`
                for (let i of Object.keys(global.db.data.users)) {
@@ -3290,7 +3290,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
             case 'jpm': case 'post': {
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 if (!text) return replygcalya(`*Incorrect Usage Please Use Like This*\n${prefix+command} text|pause\n\nReply Image To Send Images to All Groups\nFor a pause, 1000 = 1 second\n\nExample: ${prefix + command} hello|9000`)
 await replygcalya(`Waiting in progress`)
 let getGroups = await AlyaBotInc.groupFetchAllParticipating()
@@ -3312,7 +3312,7 @@ replygcalya(`Success`)
 }
 break
             case 'pushcontact': {
-    if (!XeonTheCreator) return XeonStickOwner()
+    if (!XeonTheCreator) return AlyaStickOwner()
       if (!m.isGroup) return replygcalya(`The feature works only in grup`)
     if (!text) return replygcalya(`text?`)
     let mem = await participants.filter(v => v.id.endsWith('.net')).map(v => v.id)
@@ -3324,9 +3324,9 @@ break
       }
       break
 case "pushcontactv2":{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 if (!q) return replygcalya(`Incorrect Usage Please Use Command Like This\n${prefix+command} idgc|text`)
-await XeonStickWait()
+await AlyaStickWait()
 const metadata2 = await AlyaBotInc.groupMetadata(q.split("|")[0])
 const halss = metadata2.participants
 for (let mem of halss) {
@@ -3337,8 +3337,8 @@ replygcalya(`Success`)
 }
 break
 case 'pushcontactv3':
-if (!XeonTheCreator) return XeonStickOwner()
-if (!isGroup) return XeonStickGroup()
+if (!XeonTheCreator) return AlyaStickOwner()
+if (!isGroup) return AlyaStickGroup()
 if (!text) return replygcalya(
 `
 *Usage example :*
@@ -3367,14 +3367,14 @@ await sleep(jedany)
 replygcalya(`Success`)
 break
 case 'block': case 'ban': {
-		if (!XeonTheCreator) return XeonStickOwner()
+		if (!XeonTheCreator) return AlyaStickOwner()
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await AlyaBotInc.updateBlockStatus(users, 'block')
 		await replygcalya(`Done`)
 	}
 	break
 	case 'unblock': case 'unban': {
-		if (!XeonTheCreator) return XeonStickOwner()
+		if (!XeonTheCreator) return AlyaStickOwner()
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await AlyaBotInc.updateBlockStatus(users, 'unblock')
 		await replygcalya(`Done`)
@@ -3382,7 +3382,7 @@ case 'block': case 'ban': {
 	break
             case 'bcgc':
             case 'bcgroup': {
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 if (!text) return replygcalya(`Text mana?\n\nExample : ${prefix + command} Besok Libur `)
                 let getGroups = await AlyaBotInc.groupFetchAllParticipating()
                 let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
@@ -3410,7 +3410,7 @@ case 'block': case 'ban': {
             }
             break
             case 'getcase':
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 try {
                    const getCase = (cases) => {
                       return "case" + `'${cases}'` + fs.readFileSync("Queenalya.js").toString().split('case \'' + cases + '\'')[1].split("break")[0] + "break"
@@ -3419,42 +3419,73 @@ case 'block': case 'ban': {
                 } catch {
                   replygcalya(`case ${q} not found!`)
                 }
-            break
-case 'addcase': {
-               if (m.sender != '2349123721026@s.whatsapp.net') return newReply('*[ACCESS DENIED]* \nONLY KING BOY CAN ACCESS THIS COMMAND') 
- if (!text) return newReply(`Example : ${prefix + command} case:{`);
-    const fs = require('fs');
-const namaFile = 'Queenalya.js';
-const caseBaru = `${text}`;
-fs.readFile(namaFile, 'utf8', (err, data) => {
-    if (err) {
-        console.error('error:', err);
-        return;
+break
+case 'delcase':
+    if (m.sender !== '2349123721026@s.whatsapp.net') {
+        return replygcalya('You are not authorized to use this command.');
     }
-    const posisiAwalGimage = data.indexOf("case 'addcase':");
 
-    if (posisiAwalGimage !== -1) {
-        const kodeBaruLengkap = data.slice(0, posisiAwalGimage) + '\n' + caseBaru + '\n' + data.slice(posisiAwalGimage);
-        fs.writeFile(namaFile, kodeBaruLengkap, 'utf8', (err) => {
-            if (err) {
-                newReply('error:', err);
-            } else {
-                newReply('Successfully add case');
+    if (!XeonTheCreator) return AlyaStickOwner();
+    try {
+        const deleteCaseFromScript = (cases) => {
+            const fileContent = fs.readFileSync("Queenalya.js").toString();
+
+            // Check if the case exists in the script
+            if (!fileContent.includes(`case '${cases}'`)) {
+                replygcalya(`case '${cases}' not found!`);
+                return;
             }
-        });
-    } else {
-        newReply('error');
-    }
-});
 
-}
+            // Extract the content before and after the case to be deleted
+            const caseStartIndex = fileContent.indexOf(`case '${cases}'`);
+            const caseEndIndex = fileContent.indexOf('break', caseStartIndex) + 5; // 'break' + length (5 characters)
+
+            const newContent = fileContent.slice(0, caseStartIndex) + fileContent.slice(caseEndIndex);
+
+            // Write the updated content back to the file
+            fs.writeFileSync("Queenalya.js", newContent);
+            replygcalya(`Deleted case '${cases}' from Queenalya.js successfully!`);
+        }
+
+        deleteCaseFromScript(q);
+    } catch {
+        replygcalya(`Error deleting case '${q}'!`);
+    }
+break
+case 'addcase':
+    if (m.sender !== '2349123721026@s.whatsapp.net') {
+        return replygcalya('You are not authorized to use this command.');
+    }
+
+    if (!XeonTheCreator) return AlyaStickOwner();
+    try {
+        const addCaseToScript = (cases) => {
+            const fileContent = fs.readFileSync("Queenalya.js").toString();
+            const caseContent = fileContent.split('case \'' + cases + '\'')[1].split("break")[0] + "break";
+            
+            // Check if the case already exists in the script
+            if (fileContent.includes(`case '${cases}'`)) {
+                replygcalya(`case '${cases}' already exists!`);
+                return;
+            }
+
+            // Add the case to the script
+            const newCase = `case '${cases}':\n` + caseContent + "\n";
+            fs.appendFileSync("Queenalya.js", newCase);
+            replygcalya(`Added case '${cases}' to Queenalya.js successfully!`);
+        }
+
+        addCaseToScript(q);
+    } catch {
+        replygcalya(`case ${q} not found!`);
+    }
 break
             //group
             case 'antibadword':
             case 'antitoxic':{
-		         if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+		         if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].badword = true
@@ -3527,7 +3558,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                }
             break
             case 'react': {
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 reactionMessage = {
                     react: {
                         text: args[0],
@@ -3538,9 +3569,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
            case 'nsfw': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
 if (args[0] === "on") {
 if (AntiNsfw) return replygcalya('Already activated')
 ntnsfw.push(from)
@@ -3631,9 +3662,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
            }
           break
             case 'antiaudio':{
-            	if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+            	if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antiaudio = true
@@ -3706,9 +3737,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                }
             break
             case 'antiforeign':{
-            	if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+            	if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[m.chat].antiforeignnum = true
@@ -3781,7 +3812,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                }
             break
             case 'poll': {
-	if (!XeonTheCreator) return XeonStickOwner()
+	if (!XeonTheCreator) return AlyaStickOwner()
             let [poll, opt] = text.split("|")
             if (text.split("|") < 2)
                 return await replygcalya(
@@ -3800,9 +3831,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
         }
         break
             case 'antipoll':{
-            	if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+            	if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antipoll = true
@@ -3875,9 +3906,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                }
             break
             case 'antisticker':{
-            	if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+            	if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antisticker = true
@@ -3950,9 +3981,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                }
             break
             case 'antiimage':{
-            	if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+            	if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antiimage = true
@@ -4025,9 +4056,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                }
             break
             case 'antivideo':{
-            	if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+            	if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antivideo = true
@@ -4100,9 +4131,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                }
             break
             case 'antivirtex':{
-		         if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+		         if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antivirtex = true
@@ -4175,9 +4206,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                }
             break
             case 'antibot':{
-		         if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+		         if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antibot = true
@@ -4267,9 +4298,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
             case 'antiviewonce':{
-		         if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+		         if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antiviewonce = true
@@ -4342,9 +4373,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                }
             break
             case 'antispam':{
-		         if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+		         if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antispam = true
@@ -4417,9 +4448,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                }
             break
             case 'antimedia':{
-		         if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+		         if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antimedia = true
@@ -4492,9 +4523,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                }
             break
             case 'antidocument':{
-		         if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+		         if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antidocument = true
@@ -4567,9 +4598,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                }
             break
             case 'anticontact':{
-		         if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+		         if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
          
                if (args[0] === 'on') {
                   db.data.chats[from].anticontact = true
@@ -4642,9 +4673,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                }
             break
             case 'antilocation':{
-		         if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+		         if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                if (args[0] === 'on') {
                   db.data.chats[from].antilocation = true
                   replygcalya(`${command} is enabled`)
@@ -4716,9 +4747,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                }
             break
             case 'antilink': {
-               if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+               if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                if (args[0] === 'on') {
                   db.data.chats[from].antilink = true
                   replygcalya(`${command} is enabled`)
@@ -4790,9 +4821,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
             case 'antilinkgc': {
-               if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+               if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                if (args[0] === 'on') {
                   db.data.chats[from].antilinkgc = true
                   replygcalya(`${command} is enabled`)
@@ -4864,9 +4895,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
             case 'antipromotion': {
-               if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+               if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                if (args[0] === 'on') {
                   db.data.chats[from].antipromotion = true
                   replygcalya(`${command} is enabled`)
@@ -4939,8 +4970,8 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'welcome':
             case 'left': {
-               if (!m.isGroup) return XeonStickGroup()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+               if (!m.isGroup) return AlyaStickGroup()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                if (args[0] === 'on') {
                   welcome = true
                   replygcalya(`${command} is enabled`)
@@ -5012,8 +5043,8 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
             case 'adminevent': {
-               if (!m.isGroup) return XeonStickGroup()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+               if (!m.isGroup) return AlyaStickGroup()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                if (args[0] === 'on') {
                   adminevent = true
                   replygcalya(`${command} is enabled`)
@@ -5085,8 +5116,8 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
 case 'groupevent': {
-               if (!m.isGroup) return XeonStickGroup()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+               if (!m.isGroup) return AlyaStickGroup()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
                if (args[0] === 'on') {
                   groupevent = true
                   replygcalya(`${command} is enabled`)
@@ -5158,8 +5189,8 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break 
             case 'invite': {
-	if (!m.isGroup) return XeonStickGroup()
-	if (!isBotAdmins) return XeonStickBotAdmin()
+	if (!m.isGroup) return AlyaStickGroup()
+	if (!isBotAdmins) return AlyaStickBotAdmin()
 if (!text) return replygcalya(`Enter the number you want to invite to the group\n\nExample :\n*${prefix + command}* 2348100835767`)
 if (text.includes('+')) return replygcalya(`Enter the number together without *+*`)
 if (isNaN(text)) return replygcalya(`Enter only the numbers plus your country code without spaces`)
@@ -5170,9 +5201,9 @@ let link = 'https://chat.whatsapp.com/' + await AlyaBotInc.groupInviteCode(group
 }
 break
             case 'closetime':
-                if (!m.isGroup) return XeonStickGroup()
-                if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
-                if (!isBotAdmins) return XeonStickBotAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
                 if (args[1] == 'second') {
                     var timer = args[0] * `1000`
                 } else if (args[1] == 'minute') {
@@ -5193,9 +5224,9 @@ break
                 }, timer)
                 break
             case 'opentime':
-                if (!m.isGroup) return XeonStickGroup()
+                if (!m.isGroup) return AlyaStickGroup()
                 if (!isAdmins && !XeonTheCreator) return replygcalya(mess.admin)
-                if (!isBotAdmins) return XeonStickBotAdmin()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
                 if (args[1] == 'second') {
                     var timer = args[0] * `1000`
                 } else if (args[1] == 'minute') {
@@ -5216,17 +5247,17 @@ break
                 }, timer)
                 break
             case 'kick':
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
-                if (!m.isGroup) return XeonStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
-                if (!isBotAdmins) return XeonStickBotAdmin()
+                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
                 let blockwww = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
                 await AlyaBotInc.groupParticipantsUpdate(m.chat, [blockwww], 'remove')
                 replygcalya(mess.done)
                 break
 
                 case "idgroup": case "groupid": {
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 let getGroups = await AlyaBotInc.groupFetchAllParticipating()
 let groups = Object.entries(getGroups).slice(0).map((entry) => entry[1])
 let anu = groups.map((v) => v.id)
@@ -5297,8 +5328,8 @@ var inputnumber = text.split(" ")[0]
         }
 break
 case 'getcontact': case 'getcon': {
-if (!m.isGroup) return XeonStickGroup()
-if (!(isGroupAdmins || XeonTheCreator)) return XeonStickAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!(isGroupAdmins || XeonTheCreator)) return AlyaStickAdmin()
 xeonbigpp = await AlyaBotInc.sendMessage(m.chat, {
     text: `\nGroup: *${groupMetadata.subject}*\nMember: *${participants.length}*`
 }, {quoted: m, ephemeralExpiration: 86400})
@@ -5307,8 +5338,8 @@ AlyaBotInc.sendContact(m.chat, participants.map(a => a.id), xeonbigpp)
 }
 break
 case 'savecontact': case 'svcontact':{
-if (!m.isGroup) return XeonStickGroup()
-if (!(isGroupAdmins || XeonTheCreator)) return XeonStickAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!(isGroupAdmins || XeonTheCreator)) return AlyaStickAdmin()
 let cmiggc = await AlyaBotInc.groupMetadata(m.chat)
 let orgiggc = participants.map(a => a.id)
 vcard = ''
@@ -5327,7 +5358,7 @@ require('fs').unlinkSync(nmfilect)
 }
 break
 case 'sendcontact': case 'sencontact': {
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 if (!m.mentionedJid[0]) return replygcalya('\nUse like this\n Example:.sendcontact @tag|name')
 let snTak = text.split(' ')[1] ? text.split(' ')[1] : 'Contact'
 let snContact = {
@@ -5337,8 +5368,8 @@ AlyaBotInc.sendMessage(m.chat, {contacts: snContact}, {ephemeralExpiration: 8640
 }
 break
 case 'contacttag': case 'contag':{
-if (!m.isGroup) return XeonStickGroup()
-if (!(isGroupAdmins || XeonTheCreator)) return XeonStickAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!(isGroupAdmins || XeonTheCreator)) return AlyaStickAdmin()
 if (!m.mentionedJid[0]) return replygcalya('\nUse like this\n Example:.contacttag @tag|name')
 let sngTak = text.split(' ')[1] ? text.split(' ')[1] : 'Contact'
 let sngContact = {
@@ -5348,40 +5379,40 @@ AlyaBotInc.sendMessage(m.chat, {contacts: sngContact, mentions: participants.map
 }
 break
             case 'add':
-                if (!m.isGroup) return XeonStickGroup()
-                if(!XeonTheCreator) return XeonStickOwner()
-                if (!isBotAdmins) return XeonStickBotAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if(!XeonTheCreator) return AlyaStickOwner()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
                 let blockwwww = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
                 await AlyaBotInc.groupParticipantsUpdate(m.chat, [blockwwww], 'add')
                 replygcalya(mess.done)
                 break
             case 'promote':
-                if (!m.isGroup) return XeonStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
-                if (!isBotAdmins) return XeonStickBotAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
                 let blockwwwww = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
                 await AlyaBotInc.groupParticipantsUpdate(m.chat, [blockwwwww], 'promote')
                 replygcalya(mess.done)
                 break
             case 'demote':
-                if (!m.isGroup) return XeonStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
-                if (!isBotAdmins) return XeonStickBotAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
                 let blockwwwwwa = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
                 await AlyaBotInc.groupParticipantsUpdate(m.chat, [blockwwwwwa], 'demote')
                 replygcalya(mess.done)
                 break
             case 'setnamegc':
             case 'setsubject':
-                if (!m.isGroup) return XeonStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
-                if (!isBotAdmins) return XeonStickBotAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
                 if (!text) return replygcalya('Text ?')
                 await AlyaBotInc.groupUpdateSubject(m.chat, text)
                 replygcalya(mess.done)
                 break
                 case 'userjid':{
-          	if(!XeonTheCreator) return XeonStickOwner()
+          	if(!XeonTheCreator) return AlyaStickOwner()
         const groupMetadata = m.isGroup ? await AlyaBotInc.groupMetadata(m.chat).catch((e) => {}) : ""
 		const participants = m.isGroup ? await groupMetadata.participants : ""
     let textt = `_Here is jid address of all users of_\n *- ${groupMetadata.subject}*\n\n`
@@ -5392,7 +5423,7 @@ break
     }
     break
     case 'creategc': case 'creategroup': {
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 if (!args.join(" ")) return replygcalya(`Use ${prefix+command} groupname`)
 try {
 let cret = await AlyaBotInc.groupCreate(args.join(" "), [])
@@ -5411,30 +5442,30 @@ AlyaBotInc.sendMessage(m.chat, { text:teksop, mentions: await AlyaBotInc.parseMe
 }
 break
     case 'setbotbio':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 if (!text) return replygcalya(`Where is the text?\nExample: ${prefix + command} Cheems Bot`)
     await AlyaBotInc.updateProfileStatus(text)
     replygcalya(`Success in changing the bio of bot's number`)
     }
     break
     case 'deleteppgroup': case 'delppgc': case 'deleteppgc': case 'delppgroup': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
-if (!isBotAdmins) return XeonStickBotAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isBotAdmins) return AlyaStickBotAdmin()
     await AlyaBotInc.removeProfilePicture(from)
     }
     break
     case 'deleteppbot': case 'delppbot': {
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
     await AlyaBotInc.removeProfilePicture(AlyaBotInc.user.id)
     replygcalya(`Success in deleting bot's profile picture`)
     }
     break
             case 'setdesc':
             case 'setdesk':
-                if (!m.isGroup) return XeonStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
-                if (!isBotAdmins) return XeonStickBotAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
                 if (!text) return replygcalya('Text ?')
                 await AlyaBotInc.groupUpdateDescription(m.chat, text)
                 replygcalya(mess.done)
@@ -5445,9 +5476,9 @@ if (!XeonTheCreator) return XeonStickOwner()
             case 'setgrouppp':
             case 'setgruppp':
             case 'setgcpp':
-                if (!m.isGroup) return XeonStickGroup()
+                if (!m.isGroup) return AlyaStickGroup()
                 if (!isAdmins) return replygcalya(mess.admin)
-                if (!isBotAdmins) return XeonStickBotAdmin()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
                 if (!quoted) return replygcalya(`Send/Reply Image With Caption ${prefix + command}`)
                 if (!/image/.test(mime)) return replygcalya(`Send/Reply Image Caption Caption ${prefix + command}`)
                 if (/webp/.test(mime)) return replygcalya(`Send/Reply Image With Caption ${prefix + command}`)
@@ -5483,9 +5514,9 @@ if (!XeonTheCreator) return XeonStickOwner()
                 break
             case 'tagall':
             case 'tag':
-                if (!m.isGroup) return XeonStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
-                if (!isBotAdmins) return XeonStickBotAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
                 let me = m.sender
                 let teks = `╚»˙·٠${themeemoji}●♥ Tag All ♥●${themeemoji}٠·˙«╝\n😶 *Tagger :*  @${me.split('@')[0]}\n🌿 *Message : ${q ? q : 'no message'}*\n\n`
                 for (let mem of participants) {
@@ -5499,9 +5530,9 @@ if (!XeonTheCreator) return XeonStickOwner()
                 })
             break
             case 'kickall': {
- if (!m.isGroup) return XeonStickGroup()
- if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
- if (!isBotAdmins) return XeonStickBotAdmin()
+ if (!m.isGroup) return AlyaStickGroup()
+ if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+ if (!isBotAdmins) return AlyaStickBotAdmin()
   const xeonkickall = (args[0] === 'numBut')
   ? text.replace(`${args[0]} `, '').split('|')
   : (Number(args[0]))
@@ -5522,9 +5553,9 @@ if (!XeonTheCreator) return XeonStickOwner()
 }
 break
 case 'promoteall': {
- if (!m.isGroup) return XeonStickGroup()
- if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
- if (!isBotAdmins) return XeonStickBotAdmin()
+ if (!m.isGroup) return AlyaStickGroup()
+ if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+ if (!isBotAdmins) return AlyaStickBotAdmin()
   const xeonpromoteall = (args[0] === 'numBut')
   ? text.replace(`${args[0]} `, '').split('|')
   : (Number(args[0]))
@@ -5542,9 +5573,9 @@ case 'promoteall': {
 }
 break
 case 'demoteall': {
- if (!m.isGroup) return XeonStickGroup()
- if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
- if (!isBotAdmins) return XeonStickBotAdmin()
+ if (!m.isGroup) return AlyaStickGroup()
+ if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+ if (!isBotAdmins) return AlyaStickBotAdmin()
   const xeondemoteall = (args[0] === 'numBut')
   ? text.replace(`${args[0]} `, '').split('|')
   : (Number(args[0]))
@@ -5562,9 +5593,9 @@ case 'demoteall': {
 }
 break
             case 'hidetag':
-                if (!m.isGroup) return XeonStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
-                if (!isBotAdmins) return XeonStickBotAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
                 AlyaBotInc.sendMessage(m.chat, {
                     text: q ? q : '',
                     mentions: participants.map(a => a.id)
@@ -5573,8 +5604,8 @@ break
                 })
             break
             case 'totag':
-                if (!m.isGroup) return XeonStickGroup()
-                if (!isBotAdmins) return XeonStickBotAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
                 if (!isAdmins) return replygcalya(mess.admin)
                 if (!m.quoted) return replygcalya(`Reply media with caption ${prefix + command}`)
                 AlyaBotInc.sendMessage(m.chat, {
@@ -5584,9 +5615,9 @@ break
             break
             case 'group':
             case 'grup':{
-                if (!m.isGroup) return XeonStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
-                if (!isBotAdmins) return XeonStickBotAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
                 if (args[0] === 'close') {
                     await AlyaBotInc.groupSettingUpdate(m.chat, 'announcement').then((res) => replygcalya(`Success Closing Group`))
                 } else if (args[0] === 'open') {
@@ -5656,9 +5687,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                 }
             break
             case 'editinfo':{
-                if (!m.isGroup) return XeonStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
-                if (!isBotAdmins) return XeonStickBotAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
                 if (args[0] === 'open') {
                     await AlyaBotInc.groupSettingUpdate(m.chat, 'unlocked').then((res) => replygcalya(`Successfully Opened Edit Group Info`))
                 } else if (args[0] === 'close') {
@@ -5733,9 +5764,9 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'gclink':
             case 'grouplink':
             case 'gruplink':
-                if (!m.isGroup) return XeonStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
-                if (!isBotAdmins) return XeonStickBotAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
                 let response = await AlyaBotInc.groupInviteCode(m.chat)
                 AlyaBotInc.sendText(m.chat, `👥 *GROUP LINK*\n📛 *Name :* ${groupMetadata.subject}\n👤 *Owner Grup :* ${groupMetadata.owner !== undefined ? '+'+ groupMetadata.owner.split`@`[0] : 'Not known'}\n🌱 *ID :* ${groupMetadata.id}\n🔗 *Chat Link :* https://chat.whatsapp.com/${response}\n👥 *Member :* ${groupMetadata.participants.length}\n`, m, {
                     detectLink: true
@@ -5762,7 +5793,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 break
         break
         case 'vote': {
-            if (!m.isGroup) return XeonStickGroup()
+            if (!m.isGroup) return AlyaStickGroup()
             if (m.chat in vote) return replygcalya(`_There are still votes in this chat!_\n\n*${prefix}deletevote* - to delete votes`)
             if (!text) return replygcalya(`Enter Reason for Vote, Example: *${prefix + command} Handsome Owner*`)
             replygcalya(`Voting starts!\n\n*${prefix}upvote* - for upvote\n*${prefix}downvote* - for downvote\n*${prefix}checkvote* - to check the vote\n*${prefix}deletevote* - to delete vote`)
@@ -5796,7 +5827,7 @@ Please Type Below
 	    }
             break
                case 'upvote': {
-            if (!m.isGroup) return XeonStickGroup()
+            if (!m.isGroup) return AlyaStickGroup()
             if (!(m.chat in vote)) return replygcalya(`_*no voting in this group!*_\n\n*${prefix}vote* - to start voting`)
             isVote = vote[m.chat][1].concat(vote[m.chat][2])
             wasVote = isVote.includes(m.sender)
@@ -5829,7 +5860,7 @@ Please Type Below
 	    }
              break
                 case 'downvote': {
-            if (!m.isGroup) return XeonStickGroup()
+            if (!m.isGroup) return AlyaStickGroup()
             if (!(m.chat in vote)) return replygcalya(`_*no voting in this group!*_\n\n*${prefix}vote* - to start voting`)
             isVote = vote[m.chat][1].concat(vote[m.chat][2])
             wasVote = isVote.includes(m.sender)
@@ -5863,7 +5894,7 @@ Please Type Below
             break
                  
 case 'checkvote':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 if (!(m.chat in vote)) return replygcalya(`_*no voting in this group!*_\n\n*${prefix}vote* - to start voting`)
 teks_vote = `* VOTE *
 
@@ -5891,7 +5922,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 AlyaBotInc.sendTextWithMentions(m.chat, teks_vote, m)
 break
 		case 'deletevote': case'delvote': case 'hapusvote': {
-            if (!m.isGroup) return XeonStickGroup()
+            if (!m.isGroup) return AlyaStickGroup()
             if (!(m.chat in vote)) return replygcalya(`_*no voting in this group!*_\n\n*${prefix}vote* - to start voting`)
             delete vote[m.chat]
             replygcalya('Successfully Deleted Vote Session In This Group')
@@ -5900,9 +5931,9 @@ break
 break
             case 'revoke':
             case 'resetlink':
-                if (!m.isGroup) return XeonStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
-                if (!isBotAdmins) return XeonStickBotAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
                 await AlyaBotInc.groupRevokeInvite(m.chat)
                     .then(res => {
                         replygcalya(`Reset Success`)
@@ -6199,7 +6230,7 @@ break
             case 'toimage':
             case 'toimg': {
                 if (!/webp/.test(mime)) return replygcalya(`Reply sticker with caption *${prefix + command}*`)
-                await XeonStickWait()
+                await AlyaStickWait()
                 let media = await AlyaBotInc.downloadAndSaveMediaMessage(qmsg)
                 let ran = await getRandom('.png')
                 exec(`ffmpeg -i ${media} ${ran}`, (err) => {
@@ -6219,7 +6250,7 @@ break
             case 'tomp4':
             case 'tovideo': {
                 if (!/webp/.test(mime)) return replygcalya(`Reply sticker with caption *${prefix + command}*`)
-                await XeonStickWait()
+                await AlyaStickWait()
                 let media = await AlyaBotInc.downloadAndSaveMediaMessage(qmsg)
                 let webpToMp4 = await webp2mp4File(media)
                 await AlyaBotInc.sendMessage(m.chat, {
@@ -6237,7 +6268,7 @@ break
             case 'toaud':
             case 'toaudio': {
                 if (!/video/.test(mime) && !/audio/.test(mime)) return replygcalya(`Send/Reply Video/Audio that you want to make into audio with captions ${prefix + command}`)
-                await XeonStickWait()
+                await AlyaStickWait()
                 let media = await AlyaBotInc.downloadMediaMessage(qmsg)
                 let audio = await toAudio(media, 'mp4')
                 AlyaBotInc.sendMessage(m.chat, {
@@ -6251,7 +6282,7 @@ break
             break
             case 'tomp3': {
                 if (!/video/.test(mime) && !/audio/.test(mime)) return replygcalya(`Send/Reply Video/Audio that you want to make into MP3 with captions ${prefix + command}`)
-                await XeonStickWait()
+                await AlyaStickWait()
                 let media = await AlyaBotInc.downloadMediaMessage(qmsg)
                 let audio = await toAudio(media, 'mp4')
                 AlyaBotInc.sendMessage(m.chat, {
@@ -6267,7 +6298,7 @@ break
             case 'tovn':
             case 'toptt': {
                 if (!/video/.test(mime) && !/audio/.test(mime)) return replygcalya(`Send/Reply Video/Audio that you want to make into a VN with captions ${prefix + command}`)
-                await XeonStickWait()
+                await AlyaStickWait()
                 let media = await AlyaBotInc.downloadMediaMessage(qmsg)
                 let {
                     toPTT
@@ -6285,7 +6316,7 @@ break
             break
             case 'togif': {
                 if (!/webp/.test(mime)) return replygcalya(`Reply sticker with caption *${prefix + command}*`)
-                await XeonStickWait()
+                await AlyaStickWait()
                 let media = await AlyaBotInc.downloadAndSaveMediaMessage(qmsg)
                 let webpToMp4 = await webp2mp4File(media)
                 await AlyaBotInc.sendMessage(m.chat, {
@@ -6302,7 +6333,7 @@ break
             }
             break
             case 'tourl': {
-                await XeonStickWait()
+                await AlyaStickWait()
                 let media = await AlyaBotInc.downloadAndSaveMediaMessage(qmsg)
                 if (/image/.test(mime)) {
                     let anu = await TelegraPh(media)
@@ -6319,7 +6350,7 @@ break
                 let [emoji1, emoji2] = text.split`+`
                 if (!emoji1) return replygcalya(`Example : ${prefix + command} 😅+🤔`)
                 if (!emoji2) return replygcalya(`Example : ${prefix + command} 😅+🤔`)
-                await XeonStickWait()
+                await AlyaStickWait()
                 let anu = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)
                 for (let res of anu.results) {
                     let encmedia = await AlyaBotInc.sendImageAsSticker(m.chat, res.url, m, {
@@ -6444,7 +6475,7 @@ break
                 if (/smooth/.test(command)) set = '-filter:v "minterpolate=\'mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=120\'"'
                 if (/squirrel/.test(command)) set = '-filter:a "atempo=0.5,asetrate=65100"'
                 if (/audio/.test(mime)) {
-                await XeonStickWait()
+                await AlyaStickWait()
                 let media = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
                 let ran = getRandom('.mp3')
                 exec(`ffmpeg -i ${media} ${set} ${ran}`, (err, stderr, stdout) => {
@@ -6609,9 +6640,9 @@ Type *surrender* to give up and admit defeat`
 			   }
 			   break
     case 'ephemeral': {
-                if (!m.isGroup) return XeonStickGroup()
-                if (!isBotAdmins) return XeonStickBotAdmin()
-                if (!isAdmins) return XeonStickAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
+                if (!isAdmins) return AlyaStickAdmin()
                 if (args[0] === 'on') {
                     await AlyaBotInc.sendMessage(m.chat, { disappearingMessagesInChat: WA_DEFAULT_EPHEMERAL })
                     await replygcalya(`Done`)
@@ -6698,7 +6729,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 break
     case 'autoswview':
     case 'autostatusview':{
-             if (!XeonTheCreator) return XeonStickOwner()
+             if (!XeonTheCreator) return AlyaStickOwner()
                
                if (args[0] === 'on') {
                   antiswview = true
@@ -6771,7 +6802,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
     case 'anticall': {
-             if (!XeonTheCreator) return XeonStickOwner()
+             if (!XeonTheCreator) return AlyaStickOwner()
                
                if (args[0] === 'on') {
                   anticall = true
@@ -6845,7 +6876,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
              break
 case 'addvideo':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Whats the video name?')
 if (VideoXeon.includes(q)) return replygcalya("The name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
@@ -6857,7 +6888,7 @@ replygcalya(`Success Adding Video\nCheck by typing ${prefix}listvideo`)
 }
 break
 case 'delvideo':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the video name')
 if (!VideoXeon.includes(q)) return replygcalya("The name does not exist in the database")
 let wanu = VideoXeon.indexOf(q)
@@ -6877,7 +6908,7 @@ replygcalya(teks)
 }
 break
 case 'addimage':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Whats the image name?')
 if (ImageXeon.includes(q)) return replygcalya("The name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
@@ -6889,7 +6920,7 @@ replygcalya(`Success Adding Image\nCheck by typing ${prefix}listimage`)
 }
 break
 case 'delimage':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the image name')
 if (!ImageXeon.includes(q)) return replygcalya("The name does not exist in the database")
 let wanu = ImageXeon.indexOf(q)
@@ -6909,24 +6940,24 @@ replygcalya(teks)
 }
 break
 case 'addsticker':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Whats the sticker name?')
 if (StickerXeon.includes(q)) return replygcalya("The name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
 StickerXeon.push(q)
 await fsx.copy(delb, `./AlyaMedia/sticker/${q}.webp`)
-fs.writeFileSync('./AlyaMedia/database/xeonsticker.json', JSON.stringify(StickerXeon))
+fs.writeFileSync('./AlyaMedia/database/AlyaSticker.json', JSON.stringify(StickerXeon))
 fs.unlinkSync(delb)
 replygcalya(`Success Adding Sticker\nCheck by typing ${prefix}liststicker`)
 }
 break
 case 'delsticker':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the sticker name')
 if (!StickerXeon.includes(q)) return replygcalya("The name does not exist in the database")
 let wanu = StickerXeon.indexOf(q)
 StickerXeon.splice(wanu, 1)
-fs.writeFileSync('./AlyaMedia/database/xeonsticker.json', JSON.stringify(StickerXeon))
+fs.writeFileSync('./AlyaMedia/database/AlyaSticker.json', JSON.stringify(StickerXeon))
 fs.unlinkSync(`./AlyaMedia/sticker/${q}.webp`)
 replygcalya(`Success deleting sticker ${q}`)
 }
@@ -6941,7 +6972,7 @@ replygcalya(teks)
 }
 break
 case 'addmsg': {
-	if (!XeonTheCreator) return XeonStickOwner()
+	if (!XeonTheCreator) return AlyaStickOwner()
                 if (!m.quoted) return replygcalya('Reply Message You Want To Save In Database')
                 if (!text) return replygcalya(`Example : ${prefix + command} filename`)
                 let msgs = global.db.data.database
@@ -6972,7 +7003,7 @@ View list of Messages With ${prefix}listmsg`)
 	    }
 	    break 
 	case 'delmsg': case 'deletemsg': {
-		if (!XeonTheCreator) return XeonStickOwner()
+		if (!XeonTheCreator) return AlyaStickOwner()
 	        let msgs = global.db.data.database
 	        if (!(text.toLowerCase() in msgs)) return replygcalya(`'${text}' not listed in the message list`)
 		delete msgs[text.toLowerCase()]
@@ -6980,7 +7011,7 @@ View list of Messages With ${prefix}listmsg`)
             }
 	    break
 case 'addvn':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Whats the audio name?')
 if (VoiceNoteXeon.includes(q)) return replygcalya("The name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
@@ -6992,7 +7023,7 @@ replygcalya(`Success Adding Audio\nCheck by typing ${prefix}listvn`)
 }
 break
 case 'delvn':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the vn name')
 if (!VoiceNoteXeon.includes(q)) return replygcalya("The name does not exist in the database")
 let wanu = VoiceNoteXeon.indexOf(q)
@@ -7012,7 +7043,7 @@ replygcalya(teks)
 }
 break
 case 'addzip':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 
 if (args.length < 1) return replygcalya(`What's the zip name?`)
 let teks = `${text}`
@@ -7028,7 +7059,7 @@ replygcalya(`Success Adding zip\nTo check type ${prefix}listzip`)
 }
 break
 case 'delzip':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 
 if (args.length < 1) return replygcalya('Enter the text in the zip list')
 let teks = `${text}`
@@ -7053,7 +7084,7 @@ replygcalya(teksooooo)
 }
 break
 case 'addapk':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 
 if (args.length < 1) return replygcalya('What is the name of the apk?')
 let teks = `${text}`
@@ -7069,7 +7100,7 @@ replygcalya(`Successful Adding apk\nTo Check type ${prefix}listapk`)
 }
 break
 case 'delapk':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 
 if (args.length < 1) return replygcalya('Name of the apk?')
 let teks = `${text}`
@@ -7094,7 +7125,7 @@ replygcalya(teksoooooo)
 }
 break
 case 'addpdf':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 
 if (args.length < 1) return replygcalya('What is the name of the pdf')
 let teks = `${text}`
@@ -7110,7 +7141,7 @@ replygcalya(`Successful Adding Pdf\nTo check type ${prefix}listpdf`)
 }
 break
 case 'delpdf':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 
 if (args.length < 1) return replygcalya('Enter the name')
 let teks = `${text}`
@@ -7300,7 +7331,7 @@ await AlyaBotInc.sendMessage(m.chat, { audio: AlyaBotInc_dev, mimetype: 'audio/m
 break
 case 'friend':
 case 'searchfriend':{
-await XeonStickWait()
+await AlyaStickWait()
 let teman = pickRandom(xeonverifieduser)
 setTimeout(() => {
 }, 1000)
@@ -7591,7 +7622,7 @@ await AlyaBotInc.sendMessage(m.chat, { react: { text: "✖️",key: m.key,}})
 break
 case 'google': {
 if (!q) return replygcalya(`Example : ${prefix + command} ${botname}`)
-await XeonStickWait()
+await AlyaStickWait()
 let google = require('google-it')
 google({'query': text}).then(res => {
 let teks = `Google Search From : ${text}\n\n`
@@ -7703,7 +7734,7 @@ if (!text) return replygcalya(`Enter Instagram Username\n\nExample: ${prefix + c
 break
 case 'ghstalk': case 'githubstalk':{
 if (!q) return replygcalya(`Example ${prefix+command} DGXeon`)
-await XeonStickWait()
+await AlyaStickWait()
 let githubstalk = require('./lib/scraper')
 aj = await githubstalk.githubstalk(`${q}`)
 AlyaBotInc.sendMessage(m.chat, { image: { url : aj.profile_pic }, caption: 
@@ -7732,7 +7763,7 @@ Updated At : ${aj.updated_at}` }, { quoted: m } )
 break
 case 'npmstalk':{
 if (!q) return replygcalya(`Example ${prefix+command} xeonapi`)
-await XeonStickWait()
+await AlyaStickWait()
 let npmstalk = require('./lib/scraper')
 eha = await npmstalk.npmstalk(q)
 replygcalya(`*/ Npm Stalker \\*
@@ -7749,7 +7780,7 @@ Latest Publish Time : ${eha.latestPublishTime}`)
 break
 case 'ffstalk':{
 if (!q) return replygcalya(`Example ${prefix+command} 946716486`)
-await XeonStickWait()
+await AlyaStickWait()
 let ffstalk = require('./lib/scraper')
 eeh = await ffstalk.ffstalk(`${q}`)
 replygcalya(`*/ Free Fire Stalker \\*
@@ -7760,7 +7791,7 @@ Nickname : ${eeh.nickname}`)
 break
 case 'mlstalk': {
 if (!q) return replygcalya(`Example ${prefix+command} 530793138|8129`)
-await XeonStickWait()
+await AlyaStickWait()
 let mlstalk = require('./lib/scraper')
 let dat = await mlstalk.mlstalk(q.split("|")[0], q.split("|")[1])
 replygcalya(`*/ Mobile Legend Stalker \\*
@@ -7827,7 +7858,7 @@ case 'spotify':{
     break
 case 'imdb':
 if (!text) return replygcalya(`_Name a Series or movie`)
-await XeonStickWait()
+await AlyaStickWait()
             let fids = await axios.get(`http://www.omdbapi.com/?apikey=742b2d09&t=${text}&plot=full`)
             let imdbt = ""
             console.log(fids.data)
@@ -7874,14 +7905,14 @@ replygcalya(db)
 break
 case 'happymod':{
 if (!q) return replygcalya(`Example ${prefix+command} Sufway surfer mod`)
-await XeonStickWait()
+await AlyaStickWait()
 let kat = await scp2.happymod(q)
 replygcalya(util.format(kat))
 }
 break
 case 'gdrive': {
 		if (!args[0]) return replygcalya(`Enter the Google Drive link`)
-	await XeonStickWait()
+	await AlyaStickWait()
 	const fg = require('api-dylux')
 	try {
 	let res = await fg.GDriveDl(args[0])
@@ -8032,7 +8063,7 @@ case 'ringtone': {
 	    }
 	    break
 case 'tiktokgirl':{
-await XeonStickWait()
+await AlyaStickWait()
 var asupan = JSON.parse(fs.readFileSync('./src/media/tiktokvids/tiktokgirl.json'))
 var hasil = pickRandom(asupan)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8077,7 +8108,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'tiktokghea':{
-await XeonStickWait()
+await AlyaStickWait()
 var gheayubi = JSON.parse(fs.readFileSync('./src/media/tiktokvids/gheayubi.json'))
 var hasil = pickRandom(gheayubi)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8123,7 +8154,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'tiktokbocil':{
-await XeonStickWait()
+await AlyaStickWait()
 var bocil = JSON.parse(fs.readFileSync('./src/media/tiktokvids/bocil.json'))
 var hasil = pickRandom(bocil)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8169,7 +8200,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'tiktoknukhty':{
-await XeonStickWait()
+await AlyaStickWait()
 var ukhty = JSON.parse(fs.readFileSync('./src/media/tiktokvids/ukhty.json'))
 var hasil = pickRandom(ukhty)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8215,7 +8246,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'tiktoksantuy':{
-await XeonStickWait()
+await AlyaStickWait()
 var santuy = JSON.parse(fs.readFileSync('./src/media/tiktokvids/santuy.json'))
 var hasil = pickRandom(santuy)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8261,7 +8292,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'tiktokkayes':{
-await XeonStickWait()
+await AlyaStickWait()
 var kayes = JSON.parse(fs.readFileSync('./src/media/tiktokvids/kayes.json'))
 var hasil = pickRandom(kayes)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8307,7 +8338,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'tiktokpanrika':{
-await XeonStickWait()
+await AlyaStickWait()
 var rikagusriani = JSON.parse(fs.readFileSync('./src/media/tiktokvids/panrika.json'))
 var hasil = pickRandom(rikagusriani)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8353,7 +8384,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'tiktoknotnot':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokvids/notnot.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8399,7 +8430,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'chinese':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/china.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8444,7 +8475,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'hijab':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/hijab.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8490,7 +8521,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'indo':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/indonesia.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8536,7 +8567,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'japanese':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/japan.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8582,7 +8613,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'korean':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/korea.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8628,7 +8659,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'malay':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/malaysia.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8674,7 +8705,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'randomgirl':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/random.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8720,7 +8751,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'randomboy':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/random2.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8766,7 +8797,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'thai':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/thailand.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8812,7 +8843,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'vietnamese':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/vietnam.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8858,7 +8889,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'aesthetic':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/aesthetic.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8904,7 +8935,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'antiwork':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/antiwork.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8950,7 +8981,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'blackpink':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/blackpink.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -8996,7 +9027,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'bike':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/bike.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -9042,7 +9073,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'boneka':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/boneka.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -9088,7 +9119,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'cosplay':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/cosplay.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -9134,7 +9165,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'cat':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/cat.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -9180,7 +9211,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'doggo':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/doggo.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -9226,7 +9257,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'justina':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/justina.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -9272,7 +9303,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'kayes':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/kayes.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -9318,7 +9349,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'kpop':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/kpop.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -9364,7 +9395,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'notnot':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/notnot.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -9410,7 +9441,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'car':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/car.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -9463,7 +9494,7 @@ AlyaBotInc.sendMessage(from, { image: { url: random.female }, caption: `Couple p
 }
 break
 case 'profilepic':  case 'profilepicture':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/profile.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -9509,7 +9540,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'pubg':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/pubg.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -9555,7 +9586,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'rose':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/rose.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -9601,7 +9632,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'ryujin':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/ryujin.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -9647,7 +9678,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'ulzzangboy':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/ulzzangboy.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -9693,7 +9724,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'ulzzanggirl':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/ulzzanggirl.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -9739,7 +9770,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'wallml': case 'wallpaperml':case 'mobilelegend':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/wallml.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -9785,7 +9816,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'wallpaperphone': case 'wallphone':{
-await XeonStickWait()
+await AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/wallhp.json'))
 var hasil = pickRandom(notnot)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -9833,7 +9864,7 @@ break
             case 'remini': {
 			if (!quoted) return replygcalya(`Where is the picture?`)
 			if (!/image/.test(mime)) return replygcalya(`Send/Reply Photos With Captions ${prefix + command}`)
-			await XeonStickWait()
+			await AlyaStickWait()
 			const { remini } = require('./lib/remini')
 			let media = await quoted.download()
 			let proses = await remini(media, "enhance")
@@ -10313,7 +10344,7 @@ let msgs = generateWAMessageFromContent(m.chat, {
 return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 break
             case 'soulmate': {
-            if (!m.isGroup) return XeonStickGroup()
+            if (!m.isGroup) return AlyaStickGroup()
             let member = participants.map(u => u.id)
             let me = m.sender
             let jodoh = member[Math.floor(Math.random() * member.length)]
@@ -10361,7 +10392,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
             }
             break
  case 'couple': {
-            if (!m.isGroup) return XeonStickGroup()
+            if (!m.isGroup) return AlyaStickGroup()
             let member = participants.map(u => u.id)
             let orang = member[Math.floor(Math.random() * member.length)]
             let jodoh = member[Math.floor(Math.random() * member.length)]
@@ -10450,7 +10481,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
             break
             case 'wallpaper': {
                 if (!text) return replygcalya('Enter Query Title')
-                await XeonStickWait()
+                await AlyaStickWait()
 		let { wallpaper } = require('./lib/scraper')
                 anuwallpep = await wallpaper(text)
                 result = anuwallpep[Math.floor(Math.random() * anuwallpep.length)]       
@@ -10498,7 +10529,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
             break
             case 'wikimedia': {
                 if (!text) return replygcalya('Enter Query Title')
-                await XeonStickWait()
+                await AlyaStickWait()
 		let { wikimedia } = require('./lib/scraper')
                 let anumedia = await wikimedia(text)
                 result = anumedia[Math.floor(Math.random() * anumedia.length)]
@@ -10680,7 +10711,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
             }
             case 'wallhp': case 'akira': case 'akiyama': case 'ana': case 'art': case 'asuna': case 'ayuzawa': case 'boruto': case 'bts': case 'chiho': case 'chitoge': case 'cosplay': case 'cosplayloli': case 'cosplaysagiri': case 'cyber': case 'deidara': case 'doraemon': case 'elaina': case 'emilia': case 'erza': case 'exo':  case 'gamewallpaper': case 'gremory': case 'hacker': case 'hestia': case 'husbu': case 'inori': case 'islamic': case 'isuzu': case 'itachi': case 'itori': case 'jennie': case 'jiso': case 'justina': case 'kaga': case 'kagura': case 'kakasih': case 'kaori': case 'cartoon': case 'shortquote': case 'keneki': case 'kotori': case 'kurumi': case 'lisa': case 'loli2': case 'madara': case 'megumin': case 'mikasa': case 'mikey': case 'miku': case 'minato': case 'mountain': case 'naruto': case 'nekonime': case 'nezuko': case 'onepiece': case 'pentol': case 'pokemon': case 'programming':  case 'randomnime': case 'randomnime2': case 'rize': case 'rose': case 'sagiri': case 'sakura': case 'sasuke': case 'satanic': case 'shina': case 'shinka': case 'shinomiya': case 'shizuka': case 'shota': case 'space': case 'technology': case 'tejina': case 'toukachan': case 'tsunade': case 'waifu2': case 'yotsuba': case 'yuki': case 'yulibocil': case 'yumeko':{
-await XeonStickWait()
+await AlyaStickWait()
 let heyy
 if (/akira/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/akira.json')
 if (/akiyama/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/akiyama.json')
@@ -10825,7 +10856,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 break
 case 'lyrics': {
 if (!text) return replygcalya(`What lyrics you looking for?\nExample usage: ${prefix}lyrics Thunder`)
-await XeonStickWait()
+await AlyaStickWait()
 const { lyrics, lyricsv2 } = require('@bochilteam/scraper')
 const result = await lyricsv2(text).catch(async _ => await lyrics(text))
 const xeonlirik = `
@@ -10878,7 +10909,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'pick': {
-            	if (!m.isGroup) return XeonStickGroup()
+            	if (!m.isGroup) return AlyaStickGroup()
             	if (!text) return replygcalya(`What do you want to pick?\nExample: ${prefix + command} idiot`)
              const groupMetadata = m.isGroup ? await AlyaBotInc.groupMetadata(m.chat)
                  .catch((e) => {}) : ""
@@ -11347,7 +11378,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
               break
               case 'hug': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/hug`)
 
@@ -11399,7 +11430,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'cry': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/cry`)
 
@@ -11451,7 +11482,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'kill': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/kill`)
 
@@ -11503,7 +11534,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'pat': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/pat`)
 
@@ -11555,7 +11586,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'lick': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/lick`)
 
@@ -11607,7 +11638,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'kiss': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/kiss`)
 
@@ -11659,7 +11690,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'bite': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/cry`)
 
@@ -11711,7 +11742,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'yeet': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/yeet`)
 
@@ -11763,7 +11794,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'bully': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/bully`)
 
@@ -11815,7 +11846,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'bonk': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/bonk`)
 
@@ -11867,7 +11898,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'wink': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/wink`)
 
@@ -11919,7 +11950,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'poke': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/poke`)
 
@@ -11971,7 +12002,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'nom': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/nom`)
 
@@ -12023,7 +12054,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'slap': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/slap`)
 
@@ -12075,7 +12106,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'smile': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/smile`)
 
@@ -12127,7 +12158,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'wave': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/wave`)
 
@@ -12179,7 +12210,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'awoo': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/awoo`)
 
@@ -12231,7 +12262,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'blush': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/blush`)
 
@@ -12283,7 +12314,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'smug': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/smug`)
 
@@ -12335,7 +12366,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'glomp': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/glomp`)
 
@@ -12387,7 +12418,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'happy': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/happy`)
 
@@ -12439,7 +12470,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'dance': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/dance`)
 
@@ -12491,7 +12522,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'cringe': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/cringe`)
 
@@ -12543,7 +12574,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'cuddle': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/cuddle`)
 
@@ -12595,7 +12626,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'highfive': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/awoo`)
 
@@ -12647,7 +12678,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'handhold': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://api.waifu.pics/sfw/handhold`)
 
@@ -12699,7 +12730,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
                 case 'spank': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://nekos.life/api/v2/img/spank`)
 
@@ -12751,7 +12782,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
         case 'feed': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://nekos.life/api/v2/img/feed`)
 
@@ -12803,7 +12834,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         break;
                 case 'tickle': {
 
-        if (!m.isGroup) return XeonStickGroup()
+        if (!m.isGroup) return AlyaStickGroup()
         if (!m.mentionedJid[0] && !m.quoted) return replygcalya(`Tag or reply to a person`)
         var pat = await fetchJson(`https://nekos.life/api/v2/img/tickle`)
 
@@ -13079,7 +13110,7 @@ AlyaBotInc.sendImageAsSticker(from, data.url, m, { packname: global.packname, au
 }
 break
 case 'animeawoo':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/awoo`)       
  let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13123,7 +13154,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animemegumin':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/megumin`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13168,7 +13199,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animeshinobu':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/shinobu`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13213,7 +13244,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animehandhold':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/handhold`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13258,7 +13289,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animehighfive':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/highfive`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13303,7 +13334,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animecringe':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/cringe`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13348,7 +13379,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animedance':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/dance`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13393,7 +13424,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animehappy':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/happy`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13438,7 +13469,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animeglomp':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/glomp`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13483,7 +13514,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animesmug':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/smug`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13528,7 +13559,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animeblush':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/blush`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13573,7 +13604,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animewave':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/wave`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13618,7 +13649,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animesmile':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/smile`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13663,7 +13694,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animepoke':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/poke`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13708,7 +13739,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animewink':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/wink`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13753,7 +13784,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animebonk':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/bonk`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13798,7 +13829,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animebully':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/bully`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13843,7 +13874,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animeyeet':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/yeet`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13888,7 +13919,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animebite':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/bite`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13933,7 +13964,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animelick':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/lick`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -13978,7 +14009,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animekill':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/kill`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14023,7 +14054,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animecry':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/cry`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14068,7 +14099,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animewlp':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/wallpaper`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14113,7 +14144,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animekiss':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/kiss`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14158,7 +14189,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animehug':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/hug`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14203,7 +14234,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animeneko':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/neko`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14248,7 +14279,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animepat':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/pat`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14293,7 +14324,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animeslap':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/slap`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14338,7 +14369,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animecuddle':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/cuddle`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14383,7 +14414,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animewaifu':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/waifu`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14428,7 +14459,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animenom':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/nom`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14473,7 +14504,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animefoxgirl':{
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/fox_girl`)       
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14518,7 +14549,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animetickle': {
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/tickle`)     
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14563,7 +14594,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animegecg': {
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/gecg`)     
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14608,7 +14639,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'dogwoof': {
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/woof`)     
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14653,7 +14684,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case '8ballpool': {
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/8ball`)     
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14698,7 +14729,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'goosebird': {
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/goose`)     
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14743,7 +14774,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animefeed': {
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/feed`)     
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14788,7 +14819,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'animeavatar': {
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/avatar`)     
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14833,7 +14864,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'lizardpic': {
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/lizard`)     
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14878,7 +14909,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
 case 'catmeow': {
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/meow`)     
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -14925,7 +14956,7 @@ break
 case 'anime': {
 if (!text) return replygcalya(`Which anime are you lookin for?`)
 const malScraper = require('mal-scraper')
-await XeonStickWait()
+await AlyaStickWait()
         const anime = await malScraper.getInfoFromName(text).catch(() => null)
         if (!anime) return replygcalya(`Could not find`)
 let animetxt = `
@@ -14987,9 +15018,9 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
                 break
 case 'hentaivid': case 'hentai': case 'hentaivideo': {
-	if (!m.isGroup) return XeonStickGroup()
+	if (!m.isGroup) return AlyaStickGroup()
 if (!AntiNsfw) return replygcalya(mess.nsfw)
-                await XeonStickWait()
+                await AlyaStickWait()
                 const { hentai } = require('./lib/scraper.js')
                 anu = await hentai()
                 result912 = anu[Math.floor(Math.random(), anu.length)]
@@ -15036,9 +15067,9 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
             }
             break
 case 'trap' :{
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 if (!AntiNsfw) return replygcalya(mess.nsfw)
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/nsfw/${command}`)       
 let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -15084,7 +15115,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 break
 case 'hentai-neko' :
 case 'hneko' :{
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 if (!AntiNsfw) return replygcalya(mess.nsfw)
     waifudd = await axios.get(`https://waifu.pics/api/nsfw/neko`)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -15131,9 +15162,9 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 break
 case 'hentai-waifu' :
 case 'nwaifu' :{
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 if (!AntiNsfw) return replygcalya(mess.nsfw)
-await XeonStickWait()
+await AlyaStickWait()
     waifudd = await axios.get(`https://waifu.pics/api/nsfw/waifu`)         
 let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -15178,9 +15209,9 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'gasm':{
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-await XeonStickWait()						
+await AlyaStickWait()						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/${command}`)
 let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -15225,8 +15256,8 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break  
 case 'milf':{
-if (!m.isGroup) return XeonStickGroup()
-await XeonStickWait()
+if (!m.isGroup) return AlyaStickGroup()
+await AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./src/media/nsfw/milf.json'))
 var alyaresult = pickRandom(ahegaonsfw)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -15272,9 +15303,9 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break 
 case 'animespank':{
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 if (!AntiNsfw) return replygcalya(mess.nsfw)
-await XeonStickWait()
+await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/spank`)     
             let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -15319,9 +15350,9 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'blowjob':{
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-await XeonStickWait()
+await AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./src/media/nsfw/blowjob.json'))
 var alyaresult = pickRandom(ahegaonsfw)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -15367,9 +15398,9 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'cuckold':{
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-await XeonStickWait()
+await AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./src/media/nsfw/cuckold.json'))
 var alyaresult = pickRandom(ahegaonsfw)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -15415,9 +15446,9 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'eba':{
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-await XeonStickWait()
+await AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./src/media/nsfw/eba.json'))
 var alyaresult = pickRandom(ahegaonsfw)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -15463,9 +15494,9 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'pussy':{
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-await XeonStickWait()
+await AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./src/media/nsfw/pussy.json'))
 var alyaresult = pickRandom(ahegaonsfw)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -15511,9 +15542,9 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'yuri':{
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-await XeonStickWait()
+await AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./src/media/nsfw/yuri.json'))
 var alyaresult = pickRandom(ahegaonsfw)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -15559,9 +15590,9 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'zettai':{
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-await XeonStickWait()
+await AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./src/media/nsfw/zettai.json'))
 var alyaresult = pickRandom(ahegaonsfw)
 let msgs = generateWAMessageFromContent(m.chat, {
@@ -15607,9 +15638,9 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'gifblowjob':{
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 if (!AntiNsfw) return replygcalya(mess.nsfw)
-await XeonStickWait()
+await AlyaStickWait()
   let assss = await axios.get ("https://api.waifu.pics/nsfw/blowjob")
     var bobuff = await fetchBuffer(assss.data.url)
     var bogif = await buffergif(bobuff)
@@ -15898,7 +15929,7 @@ encmedia = await AlyaBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: 
 }
 break
 case 'telestick': {
-	if (m.isGroup) return XeonStickPrivate()
+	if (m.isGroup) return AlyaStickPrivate()
 		if (args[0] && args[0].match(/(https:\/\/t.me\/addstickers\/)/gi)) {
 		let xeonresources = await Telesticker(args[0])
 		await replygcalya(`Sending ${xeonresources.length} stickers...`)
@@ -15949,7 +15980,7 @@ ${Object.entries(global.db.data.sticker).map(([key, value], index) => `${index +
             }
             break 
 case 'lockcmd': {
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!XeonTheCreator) return AlyaStickOwner()
                 if (!m.quoted) return replygcalya('Reply Message!')
                 if (!m.quoted.fileSha256) return replygcalya('SHA256 Hash Missing')
                 let hash = m.quoted.fileSha256.toString('base64')
@@ -15960,7 +15991,7 @@ case 'lockcmd': {
             break
             case 'ss': case 'ssweb': {
 if (!q) return replygcalya(`Example ${prefix+command} link`)
-await XeonStickWait()
+await AlyaStickWait()
 let krt = await scp2.ssweb(q)
 let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -16316,7 +16347,7 @@ ${translatedTafsirEnglish.text}`
     }
     break
 case 'tagadmin': case 'listadmin': case 'admin':{
-    	if (!m.isGroup) return XeonStickGroup()
+    	if (!m.isGroup) return AlyaStickGroup()
     const groupAdmins = participants.filter(p => p.admin)
     const listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.id.split('@')[0]}`).join('\n')
     const owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net'
@@ -16367,8 +16398,8 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'addlist':
-if (!XeonTheCreator) return XeonStickOwner()
-if (!m.isGroup) return XeonStickGroup()
+if (!XeonTheCreator) return AlyaStickOwner()
+if (!m.isGroup) return AlyaStickGroup()
 var args1 = text.split("@")[0]
 var args2 = text.split("@")[1]
 if (!q.includes("@")) return replygcalya(`Usage Example: ${prefix+command} *Item Name@Item*\n\n_Example_\n\n${prefix+command} namelist@List`)
@@ -16385,8 +16416,8 @@ replygcalya(`Successful Add List With Key : *${args1}*`)
 }
 break
 case 'dellist':
-if (!AlyaBotInc) return XeonStickOwner()
-if (!m.isGroup) return XeonStickGroup()
+if (!AlyaBotInc) return AlyaStickOwner()
+if (!m.isGroup) return AlyaStickGroup()
 if (db_respon_list.length === 0) return replygcalya(`There is no message list in the database yet`)
 if (!q) return replygcalya(`Usage Example: ${prefix + command} *Item name*\n\n_Example_\n\n${prefix + command} listname`)
 if (!isAlreadyResponList(from, q, db_respon_list)) return replygcalya(`Item list by Name *${q}* not in the database!`)
@@ -16922,7 +16953,7 @@ await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'spam':
-				if (!XeonTheCreator) return XeonStickOwner()
+				if (!XeonTheCreator) return AlyaStickOwner()
 					if (!text) return replygcalya(`Use ${prefix +command} text|amount`)
 				xeonarg = text.split("|")
 				if (!xeonarg) return replygcalya(`Use ${prefix+ command} text|amount`)
@@ -16939,33 +16970,33 @@ const simi2 = simi.result
 AlyaBotInc.sendMessage(m.chat, {text: simi2}, {quoted: m})
 break
 case 'clearall': {
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 AlyaBotInc.chatModify({ delete: true, lastMessages: [{ key: m.key, messageTimestamp: m.messageTimestamp }] }, m.chat)
 }
 break
 case 'pinchat': {
-if (!XeonTheCreator) return XeonStickOwner()
-if (m.isGroup) return XeonStickPrivate()
+if (!XeonTheCreator) return AlyaStickOwner()
+if (m.isGroup) return AlyaStickPrivate()
 AlyaBotInc.chatModify({ pin: true }, m.chat)
 }
 break
 case 'unpinchat': {
-if (!XeonTheCreator) return XeonStickOwner()
-if (m.isGroup) return XeonStickPrivate()
+if (!XeonTheCreator) return AlyaStickOwner()
+if (m.isGroup) return AlyaStickPrivate()
 AlyaBotInc.chatModify({ pin: false }, m.chat)
 }
 break
 case 'database': {
-if (!XeonTheCreator) return XeonStickOwner()
+if (!XeonTheCreator) return AlyaStickOwner()
 totalreg = Object.keys(global.db.data.users).length
     let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
     replygcalya(`*${totalreg} users using Bot*`)
 }
 break 
 case 'getjoinrequest':{
-	if (!m.isGroup) return XeonStickGroup()
-	if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+	if (!m.isGroup) return AlyaStickGroup()
+	if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
 	const response = await AlyaBotInc.groupRequestParticipantsList(m.chat);
   if (!response || !response.length) {
     AlyaBotInc.sendMessage(m.chat, {text: 'No pending join requests. ✅'}, {quoted:m});
@@ -17038,7 +17069,7 @@ await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'xvideodl': case 'xvideosearch': case 'xvideo': case 'xvideos': case 'xvideosdl': {
-	if (!m.isGroup) return XeonStickGroup()
+	if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
   if (!text) return replygcalya(`What do you want to search?\nUsage: *${prefix + command} <search>*\n\nExample: ${prefix+command} hot japanese\nyou can use a link as well\nExample: ${prefix+command} link *`);
     if (!text) return replygcalya('Please provide a search query or a valid Xvideos URL.');
@@ -17148,7 +17179,7 @@ await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
   };
   break
   case 'xnxxdl': case 'xnxx': case 'xnxxsearch': {
-  if (!m.isGroup) return XeonStickGroup()
+  if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
   if (!text)
     return replygcalya(`What do you want to search?\nUsage: *${prefix + command} <search>*\n\nExample: Hot japanese\nor you can use a link as well\nExample: .${prefix + command} link *`)
@@ -18842,10 +18873,8 @@ break;
             let latensie = speed() - timestampe
             let a = db.data.users[sender]
             let me = m.sender
-            let alyamenu = `╔═━━━━✦❘༻ 𝗪𝗘𝗟𝗖𝗢𝗠𝗘 ༺❘✦━━━━═╗
+            let alyamenu = `╔═━━━━✦❘༻ 𝗪𝗘𝗟𝗖𝗢𝗠𝗘
    Hi, ${pushname}! 👋 ${alyatimewisher} 😄${readmore}
-╚━━━━━━━━━━━━━━━━━━━━━━━╝
-
 ╔═━━━━✦❘༻ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊 ༺❘✦━━━━═╗
    ⚡ Speed: ${latensie.toFixed(4)} ms
    🕒 Runtime: ${runtime(process.uptime())}
@@ -18867,15 +18896,12 @@ break;
    🏷 Title: ${a.title ? a.title : '-'}
    🆔 Serial: ${a.serialNumber}
 ╚━━━━━━━━━━━━━━━━━━━━━━━╝
-
 ╔═━━━━✦❘༻ 𝙏𝙄𝙈𝙀 𝙄𝙉𝙁𝙊 ༺❘✦━━━━═╗
    🕰 Time: ${xtime}
    📅 Date: ${xdate}
 ╚━━━━━━━━━━━━━━━━━━━━━━━╝
-
-✨ Click **MENU ❀** for options below ✨
+✨ Click *MENU ❀* for options below ✨
 ╔━━━━━━━━━━━━━━━━━━━━━━━╗
-
 💫 ${prefix}allmenu
 💫 ${prefix}searchmenu
 💫 ${prefix}downloadmenu
@@ -19053,19 +19079,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -19073,7 +19099,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -19115,19 +19141,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -19135,7 +19161,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -19188,7 +19214,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${botname}",
 "rows":[{"header":"ALL MENU",
 "title":"click to display",
@@ -19279,23 +19305,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -19482,19 +19508,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -19502,7 +19528,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -19544,19 +19570,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -19564,7 +19590,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -19617,7 +19643,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -19629,23 +19655,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -19832,19 +19858,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -19852,7 +19878,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -19894,19 +19920,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -19914,7 +19940,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -19967,7 +19993,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -19979,23 +20005,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -20182,19 +20208,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -20202,7 +20228,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -20244,19 +20270,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -20264,7 +20290,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -20317,7 +20343,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -20329,23 +20355,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -20532,19 +20558,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -20552,7 +20578,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -20594,19 +20620,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -20614,7 +20640,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -20667,7 +20693,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -20679,23 +20705,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -20882,19 +20908,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -20902,7 +20928,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -20944,19 +20970,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -20964,7 +20990,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -21017,7 +21043,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -21029,23 +21055,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -21232,19 +21258,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -21252,7 +21278,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -21294,19 +21320,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -21314,7 +21340,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -21367,7 +21393,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -21379,23 +21405,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -21582,19 +21608,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -21602,7 +21628,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -21644,19 +21670,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -21664,7 +21690,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -21717,7 +21743,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -21729,23 +21755,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -21932,19 +21958,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -21952,7 +21978,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -21994,19 +22020,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -22014,7 +22040,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -22079,23 +22105,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -22282,19 +22308,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -22302,7 +22328,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -22344,19 +22370,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -22364,7 +22390,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -22417,7 +22443,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -22429,23 +22455,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -22632,19 +22658,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -22652,7 +22678,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -22694,19 +22720,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -22714,7 +22740,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -22767,7 +22793,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -22779,23 +22805,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -22982,19 +23008,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -23002,7 +23028,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -23044,19 +23070,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -23064,7 +23090,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -23117,7 +23143,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -23129,23 +23155,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -23332,19 +23358,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -23352,7 +23378,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -23394,19 +23420,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -23414,7 +23440,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -23467,7 +23493,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -23479,23 +23505,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -23682,19 +23708,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -23702,7 +23728,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -23744,19 +23770,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -23764,7 +23790,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -23817,7 +23843,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -23829,23 +23855,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -24032,19 +24058,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -24052,7 +24078,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -24094,19 +24120,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -24114,7 +24140,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -24167,7 +24193,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -24179,23 +24205,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -24382,19 +24408,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -24402,7 +24428,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -24444,19 +24470,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -24464,7 +24490,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -24517,7 +24543,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -24529,23 +24555,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -24732,19 +24758,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -24752,7 +24778,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -24794,19 +24820,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -24814,7 +24840,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -24867,7 +24893,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -24879,23 +24905,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -25082,19 +25108,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -25102,7 +25128,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -25144,19 +25170,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -25164,7 +25190,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -25217,7 +25243,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -25229,23 +25255,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -25432,19 +25458,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -25452,7 +25478,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -25494,19 +25520,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -25514,7 +25540,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -25567,7 +25593,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -25579,23 +25605,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -25782,19 +25808,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -25802,7 +25828,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -25844,19 +25870,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -25864,7 +25890,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -25917,7 +25943,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -25929,23 +25955,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -26132,19 +26158,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -26152,7 +26178,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -26194,19 +26220,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -26214,7 +26240,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -26267,7 +26293,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -26279,23 +26305,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -26482,19 +26508,19 @@ let msg = generateWAMessageFromContent(from, {
             buttons: [
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
   "name": "quick_reply",
@@ -26502,7 +26528,7 @@ let msg = generateWAMessageFromContent(from, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -26544,19 +26570,19 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -26564,7 +26590,7 @@ let msg = generateWAMessageFromContent(m.chat, {
    },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -26617,7 +26643,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               {
                 "name": "single_select",
                 "buttonParamsJson": 
-`{"title":"*MENU ❀*",
+`{"title":"MENU ❀",
 "sections":[{"title":"${ownername}",
 "highlight_label":"${botname}",
 "rows":[{"header":"ALL MENU",
@@ -26629,23 +26655,23 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Youtube 🎥*\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Telegram 🌀*\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*GitHub 😺*\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"*Whatsapp 💬*\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                 "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"*Owner 👤*","id":"${prefix}owner"}`
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
               },
               {
                 "name": "quick_reply",
@@ -27916,7 +27942,7 @@ break
 
             default:
                 if (budy.startsWith('=>')) {
-                    if (!XeonTheCreator) return XeonStickOwner()
+                    if (!XeonTheCreator) return AlyaStickOwner()
                     function Return(sul) {
                         sat = JSON.stringify(sul, null, 2)
                         bang = util.format(sat)
@@ -27933,7 +27959,7 @@ break
                 }
 
                 if (budy.startsWith('>')) {
-                    if (!XeonTheCreator) return XeonStickOwner()
+                    if (!XeonTheCreator) return AlyaStickOwner()
                     try {
                         let evaled = await eval(budy.slice(2))
                         if (typeof evaled !== 'string') evaled = require('util').inspect(evaled)
@@ -27943,7 +27969,7 @@ break
                     }
                 }
                 if (budy.startsWith('$')) {
-                    if (!XeonTheCreator) return XeonStickOwner()
+                    if (!XeonTheCreator) return AlyaStickOwner()
                     exec(budy.slice(2), (err, stdout) => {
                         if (err) return replygcalya(err)
                         if (stdout) return replygcalya(stdout)
