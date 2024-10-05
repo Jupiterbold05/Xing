@@ -390,7 +390,7 @@ caption: `${starking + alyatext1}`,
                             body: ownername,
                             previewType: "PHOTO",
                             thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                            sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D
+                            sourceUrl: wagc
                         }
                     },
                     text: teks
@@ -3399,7 +3399,7 @@ case 'block': case 'ban': {
                                 title: botname,
                                 body: `Sent in ${i.length} Group`,
                                 thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -5973,7 +5973,7 @@ case 'p': {
                             showAdAttribution: true,
                             title: "Queen alya Status",
                             thumbnailUrl: 'https://i.ibb.co/hLdW1MR/IMG-20240906-154741-714.jpg',
-                            sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                            sourceUrl: wagc,
                             renderLargerThumbnail: true
                         }
                     }
@@ -6031,7 +6031,7 @@ break
                             title: botname,
                             body: ownername,
                             thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-                            sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                            sourceUrl: wagc,
                             mediaType: 1,
                             renderLargerThumbnail: true
                         }
@@ -6069,7 +6069,7 @@ break
                                 title: botname,
                                 body: ownername,
                                 thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -6085,7 +6085,7 @@ break
                                 title: botname,
                                 body: ownername,
                                 thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -6106,7 +6106,7 @@ break
                             title: botname,
                             body: ownername,
                             thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-                            sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                            sourceUrl: wagc,
                             mediaType: 1,
                             renderLargerThumbnail: true
                         }
@@ -6150,7 +6150,7 @@ break
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -18914,7 +18914,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -18978,7 +18978,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -19342,7 +19342,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -19406,7 +19406,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -19692,7 +19692,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -19756,7 +19756,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -20042,7 +20042,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -20106,7 +20106,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -20392,7 +20392,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -20456,7 +20456,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -20742,7 +20742,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -20806,7 +20806,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -21092,7 +21092,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -21156,7 +21156,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -21442,7 +21442,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -21506,7 +21506,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -21792,7 +21792,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -21856,7 +21856,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -22142,7 +22142,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -22206,7 +22206,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -22492,7 +22492,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -22556,7 +22556,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -22842,7 +22842,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -22906,7 +22906,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -23192,7 +23192,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -23256,7 +23256,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -23542,7 +23542,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -23606,7 +23606,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -23892,7 +23892,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -23956,7 +23956,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -24242,7 +24242,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -24306,7 +24306,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -24592,7 +24592,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -24656,7 +24656,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -24942,7 +24942,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -25006,7 +25006,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -25292,7 +25292,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -25356,7 +25356,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -25642,7 +25642,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -25706,7 +25706,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -25992,7 +25992,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -26056,7 +26056,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -26342,7 +26342,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -26406,7 +26406,7 @@ if (typemenu === 'v1') {
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D,
+                                sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
