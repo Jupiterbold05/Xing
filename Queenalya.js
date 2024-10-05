@@ -3387,7 +3387,7 @@ case 'block': case 'ban': {
                 let getGroups = await AlyaBotInc.groupFetchAllParticipating()
                 let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
                 let anu = groups.map(v => v.id)
-                ,,(`Sending Broadcast To ${anu.length} Group Chat, End Time ${anu.length * 1.5} seconds`)
+                (`Sending Broadcast To ${anu.length} Group Chat, End Time ${anu.length * 1.5} seconds`)
                 for (let i of anu) {
                     await sleep(1500)
                     let a = `${ownername}'s Broadcast\n\n` + '```' + `Message: ${text}\n\n` + '```'
