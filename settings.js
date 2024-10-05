@@ -42,7 +42,7 @@ global.mess = {
     success: 'Here you go!'
 }
 //thumbnail
-global.thumb = fs.readFileSync('./AlyaMedia/alya.jpg')
+global.thumb = fs.readFileSync('./AlyaMedia/theme/alya.jpg')
 
 //text bug
 global.xbugtex = {
