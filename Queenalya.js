@@ -6132,8 +6132,8 @@ mentionedJid:[sender],
 "containsAutoReply": true,
 "mediaType": 1, 
 "thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
-"mediaUrl": `${https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D}`,
-"sourceUrl": `${https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D}`
+"mediaUrl": `${wagc}`,
+"sourceUrl": `${wagc}`
 }
 }
 })
