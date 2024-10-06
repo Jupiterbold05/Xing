@@ -318,7 +318,7 @@ remoteJid: "status@broadcast"
 "interactiveMessage": { 
 "header": {
 "hasMediaAttachment": true,
-"jpegThumbnail": fs.readFileSync(`./AlyaBugs/xx1.png`)
+"jpegThumbnail": fs.readFileSync(`./src/data/function/ABug/xx1.png`)
 },
 "nativeFlowMessage": {
 "buttons": [
@@ -343,7 +343,7 @@ remoteJid: "status@broadcast"
 "interactiveMessage": { 
 "header": {
 "hasMediaAttachment": true,
-"jpegThumbnail": fs.readFileSync(`./AlyaBugs/xx1.png`)
+"jpegThumbnail": fs.readFileSync(`./src/data/function/ABug/xx1.png`)
 },
 "nativeFlowMessage": {
 "buttons": [
