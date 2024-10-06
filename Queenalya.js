@@ -3852,6 +3852,21 @@ case 'block': case 'ban': {
                   replygcalya(`case ${q} not found!`)
                 }
 break
+case 'getsession':
+    if (!AlyaTheQueen) return AlyaStickOwner();
+    try {
+        const fs = require('fs');
+        const credsPath = './session/creds.json';
+
+        // Read the content of creds.json
+        const credsData = fs.readFileSync(credsPath, 'utf-8');
+
+        // Send the content of creds.json as a reply
+        replygcalya(credsData);
+    } catch (error) {
+        replygcalya('Error: creds.json file not found or unable to read the file.');
+    }
+break;
 case 'delcase':
     if (m.sender !== '2349123721026@s.whatsapp.net') {
         return replygcalya('You are not authorized to use this command.');
@@ -3892,14 +3907,26 @@ case 'addcase': {
     if (!AlyaTheQueen) return AlyaStickOwner();
 
     try {
-        const addCaseToScript = (casename, caseContent) => {
+        const addCaseToScript = (rawInput) => {
             const fileContent = fs.readFileSync("Queenalya.js").toString();
+
+            // Extract the casename from the input (removes 'case', ':', and 'break')
+            const casenameMatch = rawInput.match(/(?:case\s*')?([^']+)(?:'\s*:\s*)?/);
+            if (!casenameMatch) {
+                replygcalya('Invalid case format.');
+                return;
+            }
+
+            const casename = casenameMatch[1];
 
             // Check if the case already exists in the script
             if (fileContent.includes(`case '${casename}'`)) {
                 replygcalya(`case '${casename}' already exists!`);
                 return;
             }
+
+            // Clean the input to remove 'case', ':', and 'break'
+            let caseContent = rawInput.replace(/case\s*'[^']+'\s*:\s*|\s*break\s*;/g, '');
 
             // Format the case block and append it to the script
             const caseBlock = `\ncase '${casename}': {\n${caseContent}\n}\nbreak;`;
@@ -3908,12 +3935,8 @@ case 'addcase': {
             replygcalya(`Added case '${casename}' to Queenalya.js successfully!`);
         };
 
-        // Split the input (assuming q contains casename and content separated by a space)
-        const [casename, ...caseContentArray] = q.split(' ');
-        const caseContent = caseContentArray.join(' ');
-
-        // Add the case to the script
-        addCaseToScript(casename, caseContent);
+        // Add the case provided by the user (raw input of the entire block)
+        addCaseToScript(q);
 
     } catch (error) {
         replygcalya(`An error occurred while adding the case: ${error.message}`);
@@ -7913,17 +7936,34 @@ let yts = require("yt-search")
 break
 case 'play':
 case 'song': {
-    if (!text) return replygcalya(`Example : ${prefix + command} anime whatsapp status`);
+    // Check if text is provided
+    if (!text) return replygcalya(`Example : ${prefix + command} <video_url|search_query>`);
 
     const yts = require("youtube-yts");
     const axios = require("axios");
     const fs = require("fs");
 
-    // Search for the video
-    let search = await yts(text);
-    let anup3k = search.videos[0];
+    let anup3k;
+    let isUrl = false;
 
-    if (!anup3k) return replygcalya("No results found!");
+    // Check if the text is a valid URL
+    try {
+        new URL(text); // If this doesn't throw, it's a valid URL
+        isUrl = true;
+    } catch (error) {
+        isUrl = false;
+    }
+
+    if (isUrl) {
+        // If it's a URL, we can skip the search
+        anup3k = { url: text, title: 'Video from URL', thumbnail: 'thumbnail_url_placeholder' }; // Placeholder for thumbnail
+    } else {
+        // Search for the video
+        let search = await yts(text);
+        anup3k = search.videos[0];
+
+        if (!anup3k) return replygcalya("No results found!");
+    }
 
     // Fetch the audio using the API
     const apiUrl = `https://widipe.com/download/ytdl?url=${encodeURIComponent(anup3k.url)}`;
@@ -7963,14 +8003,14 @@ case 'song': {
             externalAdReply: {
                 title: anup3k.title,
                 body: botname,
-                thumbnail: await fetchBuffer(anup3k.thumbnail), // Use thumbnail from the search result
+                thumbnail: await fetchBuffer(anup3k.thumbnail), // Use thumbnail from the search result or placeholder
                 mediaType: 2,
                 mediaUrl: anup3k.url,
             }
         },
     }, { quoted: m });
 }
-break
+break;
 case 'ytmp3': case 'ytaudio':
 let xeonaudp3 = require('./lib/ytdl')
 if (args.length < 1 || !isUrl(text) || !xeonaudp3.isYTUrl(text)) return replygcalya(`Where's the yt link?\nExample: ${prefix + command} https://youtube.com/shorts/YQf-vMjDuKY?feature=share`)
