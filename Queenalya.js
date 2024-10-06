@@ -424,7 +424,7 @@ async function alyakillpic(target, kuwoted) {
       header: {
         title: "🌟STAR KING",
         hasMediaAttachment: true,
-        ...(await prepareWAMessageMedia({ image: { url: "https://telegra.ph/file/23599f1469b9c50660c4d.jpg" } }, { upload: AlyaBotInc.waUploadToServer }))
+        ...(await prepareWAMessageMedia({ image: { url: "https://i.imgur.com/QfDM014.jpeg" } }, { upload: AlyaBotInc.waUploadToServer }))
       },
       body: {
         text: ""
