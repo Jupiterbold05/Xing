@@ -3433,7 +3433,12 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 })
 }
 case 'henu': {
-    let alyahenu = `╔═━━━━✦❘༻ 𝗪𝗘𝗟𝗖𝗢𝗠𝗘
+    let ownernya = ownernumber + '@s.whatsapp.net';
+    let timestampe = speed();
+    let latensie = speed() - timestampe;
+    let a = db.data.users[sender];
+    let me = m.sender;
+    let alyamenu = `╔═━━━━✦❘༻ 𝗪𝗘𝗟𝗖𝗢𝗠𝗘
 Hi, ${pushname}! 👋 ${alyatimewisher} 😄
 ╔═━━━━✦❘༻ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊
 ⚡ Speed: ${latensie.toFixed(4)} ms
@@ -3462,7 +3467,7 @@ Click the buttons below to access various options!`;
 
     let buttonMessage = {
         image: {url: './AlyaMedia/theme/alya.jpg'},
-        caption: alyahenu,
+        caption: alyamenu,
         footer: `AlyaBot - Your Personal Assistant`,
         buttons: buttons,
         headerType: 4
@@ -3879,7 +3884,7 @@ case 'delcase':
         replygcalya(`Error deleting case '${q}'!`);
     }
 break
-case 'addcase':
+case 'addcase': {
     if (m.sender !== '2349123721026@s.whatsapp.net') {
         return replygcalya('You are not authorized to use this command.');
     }
@@ -3887,35 +3892,34 @@ case 'addcase':
     if (!AlyaTheQueen) return AlyaStickOwner();
 
     try {
-        const addCaseToScript = (caseContent) => {
+        const addCaseToScript = (casename, caseContent) => {
             const fileContent = fs.readFileSync("Queenalya.js").toString();
 
-            // Extract the case name from the provided case content
-            const caseNameMatch = caseContent.match(/case\s*'([^']+)'/);
-            if (!caseNameMatch) {
-                replygcalya('Invalid case format.');
-                return;
-            }
-
-            const caseName = caseNameMatch[1];
-
             // Check if the case already exists in the script
-            if (fileContent.includes(`case '${caseName}'`)) {
-                replygcalya(`case '${caseName}' already exists!`);
+            if (fileContent.includes(`case '${casename}'`)) {
+                replygcalya(`case '${casename}' already exists!`);
                 return;
             }
 
-            // Append the entire case block to the script
-            fs.appendFileSync("Queenalya.js", `\n${caseContent}\n`);
-            replygcalya(`Added case '${caseName}' to Queenalya.js successfully!`);
-        }
+            // Format the case block and append it to the script
+            const caseBlock = `\ncase '${casename}': {\n${caseContent}\n}\nbreak;`;
+            fs.appendFileSync("Queenalya.js", caseBlock);
 
-        // Add the case content provided by the user
-        addCaseToScript(q);
+            replygcalya(`Added case '${casename}' to Queenalya.js successfully!`);
+        };
+
+        // Split the input (assuming q contains casename and content separated by a space)
+        const [casename, ...caseContentArray] = q.split(' ');
+        const caseContent = caseContentArray.join(' ');
+
+        // Add the case to the script
+        addCaseToScript(casename, caseContent);
+
     } catch (error) {
         replygcalya(`An error occurred while adding the case: ${error.message}`);
     }
-    break;
+}
+break;
             //group
             case 'antibadword':
             case 'antitoxic':{
