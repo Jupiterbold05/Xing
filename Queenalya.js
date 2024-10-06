@@ -19279,20 +19279,7 @@ break;
    📞 Owner No: +${ownernumber}
    🛠 Prefix: [ ${xprefix} ]
    🔒 Mode: ${AlyaBotInc.public ? 'Public' : `Self`}
-   🌐 Host Name: ${os.hostname()}
-   💻 Platform: ${os.platform()}
-   👥 Total Users: ${Object.keys(global.db.data.users).length}
-   🗣 Total Chats: ${Object.keys(global.db.data.chats).length}
-   🔥 Total Hits: ${global.db.data.settings[botNumber].totalhit}
-╚━━━━━━━━━━━━━━━━━━━━━╝
-╔═━━━━✦❘༻ 𝙐𝙎𝙀𝙍 𝙄𝙉𝙁𝙊 
    👤 Name: ${pushname}
-   📱 Number: +${me.split('@')[0]}
-   🎯 Limit: ${a.limit}
-   🏷 Title: ${a.title ? a.title : '-'}
-   🆔 Serial: ${a.serialNumber}
-╚━━━━━━━━━━━━━━━━━━━━━╝
-╔═━━━━✦❘༻ 𝙏𝙄𝙈𝙀 𝙄𝙉𝙁𝙊
    🕰 Time: ${xtime}
    📅 Date: ${xdate}
 ╚━━━━━━━━━━━━━━━━━━━━━╝
