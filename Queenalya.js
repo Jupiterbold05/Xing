@@ -3458,28 +3458,37 @@ case 'addcase':
     }
 
     if (!XeonTheCreator) return AlyaStickOwner();
+
     try {
-        const addCaseToScript = (cases) => {
+        const addCaseToScript = (caseContent) => {
             const fileContent = fs.readFileSync("Queenalya.js").toString();
-            const caseContent = fileContent.split('case \'' + cases + '\'')[1].split("break")[0] + "break";
-            
-            // Check if the case already exists in the script
-            if (fileContent.includes(`case '${cases}'`)) {
-                replygcalya(`case '${cases}' already exists!`);
+
+            // Extract the case name from the provided case content
+            const caseNameMatch = caseContent.match(/case\s*'([^']+)'/);
+            if (!caseNameMatch) {
+                replygcalya('Invalid case format.');
                 return;
             }
 
-            // Add the case to the script
-            const newCase = `case '${cases}':\n` + caseContent + "\n";
-            fs.appendFileSync("Queenalya.js", newCase);
-            replygcalya(`Added case '${cases}' to Queenalya.js successfully!`);
+            const caseName = caseNameMatch[1];
+
+            // Check if the case already exists in the script
+            if (fileContent.includes(`case '${caseName}'`)) {
+                replygcalya(`case '${caseName}' already exists!`);
+                return;
+            }
+
+            // Append the entire case block to the script
+            fs.appendFileSync("Queenalya.js", `\n${caseContent}\n`);
+            replygcalya(`Added case '${caseName}' to Queenalya.js successfully!`);
         }
 
+        // Add the case content provided by the user
         addCaseToScript(q);
-    } catch {
-        replygcalya(`case ${q} not found!`);
+    } catch (error) {
+        replygcalya(`An error occurred while adding the case: ${error.message}`);
     }
-break
+    break;
             //group
             case 'antibadword':
             case 'antitoxic':{
@@ -18867,7 +18876,7 @@ break;
             replygcalya(`Total Features of ${botname} is ${xeonfeature()}`)
         break
                     case 'menu':
-            case 'help': {
+            case 'help': case 'alyamenu': {
             let ownernya = ownernumber + '@s.whatsapp.net'
             let timestampe = speed()
             let latensie = speed() - timestampe
@@ -18875,7 +18884,7 @@ break;
             let me = m.sender
             let alyamenu = `╔═━━━━✦❘༻ 𝗪𝗘𝗟𝗖𝗢𝗠𝗘
    Hi, ${pushname}! 👋 ${alyatimewisher} 😄${readmore}
-╔═━━━━✦❘༻ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊 ༺❘✦━━━━═╗
+╔═━━━━✦❘༻ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊
    ⚡ Speed: ${latensie.toFixed(4)} ms
    🕒 Runtime: ${runtime(process.uptime())}
    🤖 Bot: ${botname}
@@ -18887,21 +18896,20 @@ break;
    👥 Total Users: ${Object.keys(global.db.data.users).length}
    🗣 Total Chats: ${Object.keys(global.db.data.chats).length}
    🔥 Total Hits: ${global.db.data.settings[botNumber].totalhit}
-╚━━━━━━━━━━━━━━━━━━━━━━━╝
-
-╔═━━━━✦❘༻ 𝙐𝙎𝙀𝙍 𝙄𝙉𝙁𝙊 ༺❘✦━━━━═╗
+╚━━━━━━━━━━━━━━━━━━━━━╝
+╔═━━━━✦❘༻ 𝙐𝙎𝙀𝙍 𝙄𝙉𝙁𝙊 
    👤 Name: ${pushname}
    📱 Number: +${me.split('@')[0]}
    🎯 Limit: ${a.limit}
    🏷 Title: ${a.title ? a.title : '-'}
    🆔 Serial: ${a.serialNumber}
-╚━━━━━━━━━━━━━━━━━━━━━━━╝
-╔═━━━━✦❘༻ 𝙏𝙄𝙈𝙀 𝙄𝙉𝙁𝙊 ༺❘✦━━━━═╗
+╚━━━━━━━━━━━━━━━━━━━━━╝
+╔═━━━━✦❘༻ 𝙏𝙄𝙈𝙀 𝙄𝙉𝙁𝙊
    🕰 Time: ${xtime}
    📅 Date: ${xdate}
-╚━━━━━━━━━━━━━━━━━━━━━━━╝
-✨ Click *MENU ❀* for options below ✨
-╔━━━━━━━━━━━━━━━━━━━━━━━╗
+╚━━━━━━━━━━━━━━━━━━━━━╝
+*Click MENU ❀ for options below*
+╔━━━━━━━━━━━━━━━━━━━━━╗
 💫 ${prefix}allmenu
 💫 ${prefix}searchmenu
 💫 ${prefix}downloadmenu
@@ -18923,7 +18931,7 @@ break;
 💫 ${prefix}stalkermenu
 💫 ${prefix}bugmenu
 💫 ${prefix}othermenu
-╚━━━━━━━━━━━━━━━━━━━━━━━╝`
+╚━━━━━━━━━━━━━━━━━━━━━╝`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
