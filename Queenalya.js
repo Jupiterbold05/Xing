@@ -273,7 +273,7 @@ module.exports = AlyaBotInc = async (AlyaBotInc, m, msg, chatUpdate, store) => {
         const isGroupOwner = m.isGroup ? (groupOwner ? groupOwner : groupAdmins).includes(m.sender) : false
         const AntiNsfw = m.isGroup ? ntnsfw.includes(from) : false
         //anti media
-        const isXeonMedia = m.mtype
+        const isAlyaMedia = m.mtype
         //user status
         const isUser = xeonverifieduser.includes(sender)
         const AlyaTheQueen = [botNumber, ...owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
@@ -1099,7 +1099,7 @@ var xeonlod = [
 "《 ███████▒▒▒▒▒》60%",
 "《 ██████████▒▒》80%",
 "《 ████████████》100%",
-"𝙻𝙾𝙰𝙳𝙸𝙽𝙶 𝙲𝙾𝙼𝙿𝙻𝙴𝚃𝙴𝙳 🇰🇪..."
+"𝙻𝙾𝙰𝙳𝙸𝙽𝙶 𝙲𝙾𝙼𝙿𝙻𝙴𝚃𝙴𝙳 👑..."
 ]
 let { key } = await AlyaBotInc.sendMessage(from, {text: 'ʟᴏᴀᴅɪɴɢ...'})
 
@@ -1389,8 +1389,8 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
     return AlyaBotInc.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
         }
   }
-        if (db.data.chats[m.chat].image && isXeonMedia) {
-    if(isXeonMedia === "imageMessage"){
+        if (db.data.chats[m.chat].image && isAlyaMedia) {
+    if(isAlyaMedia === "imageMessage"){
         if (AlyaTheQueen || isAdmins || !isBotAdmins){		  
         } else {
           replygcalya(`\`\`\`「 Image Detected 」\`\`\`\n\nSorry, but I have to delete it, because the admin/owner has activated anti-image for this group`)
@@ -1398,8 +1398,8 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
         }
     }
   }
-        if (db.data.chats[m.chat].antivideo && isXeonMedia) {
-    if(isXeonMedia === "videoMessage"){
+        if (db.data.chats[m.chat].antivideo && isAlyaMedia) {
+    if(isAlyaMedia === "videoMessage"){
         if (AlyaTheQueen || isAdmins || !isBotAdmins){		  
         } else {
           replygcalya(`\`\`\`「 Video Detected 」\`\`\`\n\nSorry, but I have to delete it, because the admin/owner has activated anti-video for this group`)
@@ -1407,8 +1407,8 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
         }
     }
   }
-        if (db.data.chats[m.chat].antisticker && isXeonMedia) {
-    if(isXeonMedia === "stickerMessage"){
+        if (db.data.chats[m.chat].antisticker && isAlyaMedia) {
+    if(isAlyaMedia === "stickerMessage"){
         if (AlyaTheQueen || isAdmins || !isBotAdmins){		  
         } else {
           replygcalya(`\`\`\`「 Sticker Detected 」\`\`\`\n\nSorry, but I have to delete it, because the admin/owner has activated anti-sticker for this group`)
@@ -1416,8 +1416,8 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
         }
     }
   }
-        if (db.data.chats[m.chat].antiaudio && isXeonMedia) {
-    if(isXeonMedia === "audioMessage"){
+        if (db.data.chats[m.chat].antiaudio && isAlyaMedia) {
+    if(isAlyaMedia === "audioMessage"){
         if (AlyaTheQueen || isAdmins || !isBotAdmins){		  
         } else {
           replygcalya(`\`\`\`「 Audio Detected 」\`\`\`\n\nSorry, but I have to delete it, because the admin/owner has activated anti-audio for this group`)
@@ -1425,8 +1425,8 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
         }
     }
   }
-       if (db.data.chats[m.chat].antipoll && isXeonMedia) {
-    if(isXeonMedia === "pollCreationMessage"){
+       if (db.data.chats[m.chat].antipoll && isAlyaMedia) {
+    if(isAlyaMedia === "pollCreationMessage"){
         if (AlyaTheQueen || isAdmins || !isBotAdmins){		  
         } else {
           replygcalya(`\`\`\`「 Poll Detected 」\`\`\`\n\nSorry, but I have to delete it, because the admin/owner has activated anti-poll for this group`)
@@ -1434,8 +1434,8 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
         }
     }
   }
-       if (db.data.chats[m.chat].antilocation && isXeonMedia) {
-    if(isXeonMedia === "locationMessage"){
+       if (db.data.chats[m.chat].antilocation && isAlyaMedia) {
+    if(isAlyaMedia === "locationMessage"){
         if (AlyaTheQueen || isAdmins || !isBotAdmins){		  
         } else {
           replygcalya(`\`\`\`「 Location Detected 」\`\`\`\n\nSorry, but I have to delete it, because the admin/owner has activated anti-location for this group`)
@@ -1443,8 +1443,8 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
         }
     }
   }
-       if (db.data.chats[m.chat].antidocument && isXeonMedia) {
-    if(isXeonMedia === "documentMessage"){
+       if (db.data.chats[m.chat].antidocument && isAlyaMedia) {
+    if(isAlyaMedia === "documentMessage"){
         if (AlyaTheQueen || isAdmins || !isBotAdmins){		  
         } else {
           replygcalya(`\`\`\`「 Document Detected 」\`\`\`\n\nSorry, but I have to delete it, because the admin/owner has activated anti-document for this group`)
@@ -1452,8 +1452,8 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
         }
     }
   }
-      if (db.data.chats[m.chat].anticontact && isXeonMedia) {
-    if(isXeonMedia === "contactMessage"){
+      if (db.data.chats[m.chat].anticontact && isAlyaMedia) {
+    if(isAlyaMedia === "contactMessage"){
         if (AlyaTheQueen || isAdmins || !isBotAdmins){		  
         } else {
           replygcalya(`\`\`\`「 Contact Detected 」\`\`\`\n\nSorry, but I have to delete it, because the admin/owner has activated anti-contact for this group`)
@@ -3432,6 +3432,45 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
   messageId: msg.key.id
 })
 }
+case 'henu': {
+    let alyahenu = `╔═━━━━✦❘༻ 𝗪𝗘𝗟𝗖𝗢𝗠𝗘
+Hi, ${pushname}! 👋 ${alyatimewisher} 😄
+╔═━━━━✦❘༻ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊
+⚡ Speed: ${latensie.toFixed(4)} ms
+🕒 Runtime: ${runtime(process.uptime())}
+🤖 Bot: ${botname}
+📞 Owner No: +${ownernumber}
+🛠 Prefix: [ ${xprefix} ]
+🔒 Mode: ${AlyaBotInc.public ? 'Public' : `Self`}
+👤 Name: ${pushname}
+🕰 Time: ${xtime}
+📅 Date: ${xdate}
+╚━━━━━━━━━━━━━━━━━━━━━╝
+Click the buttons below to access various options!`;
+
+    let buttons = [
+        {buttonId: `${prefix}allmenu`, buttonText: {displayText: '📋 All Menu'}, type: 1},
+        {buttonId: `${prefix}searchmenu`, buttonText: {displayText: '🔍 Search Menu'}, type: 1},
+        {buttonId: `${prefix}downloadmenu`, buttonText: {displayText: '⬇️ Download Menu'}, type: 1},
+        {buttonId: `${prefix}gamemenu`, buttonText: {displayText: '🎮 Game Menu'}, type: 1},
+        {buttonId: `${prefix}funmenu`, buttonText: {displayText: '😂 Fun Menu'}, type: 1},
+        {buttonId: `${prefix}aimenu`, buttonText: {displayText: '🤖 AI Menu'}, type: 1},
+        {buttonId: `${prefix}groupmenu`, buttonText: {displayText: '👥 Group Menu'}, type: 1},
+        {buttonId: `${prefix}ownermenu`, buttonText: {displayText: '🛠 Owner Menu'}, type: 1},
+        {buttonId: `${prefix}convertmenu`, buttonText: {displayText: '🔄 Convert Menu'}, type: 1}
+    ];
+
+    let buttonMessage = {
+        image: {url: './AlyaMedia/theme/alya.jpg'},
+        caption: alyahenu,
+        footer: `AlyaBot - Your Personal Assistant`,
+        buttons: buttons,
+        headerType: 4
+    };
+
+    await AlyaBotInc.sendMessage(m.chat, buttonMessage, {quoted: m});
+}
+break;
             break
             case 'onlyindo':
             case 'onlyindonumber':
