@@ -1,105 +1,221 @@
-// Import required modules
-require('./settings');
-const pino = require('pino');
-const { Boom } = require('@hapi/boom');
-const fs = require('fs');
-const chalk = require('chalk');
-const { Low, JSONFile } = require('./lib/lowdb');
-const yargs = require('yargs/yargs');
-const NodeCache = require("node-cache");
-const { default: makeWASocket, useMultiFileAuthState, fetchLatestBaileysVersion, Browsers } = require("@whiskeysockets/baileys");
-const readline = require("readline");
+//base by DGAlya (Alya Bot Inc.)
+//YouTube: @DGAlya
+//Instagram: unicorn_alya13
+//Telegram: t.me/AlyaBotInc
+//GitHub: @DGAlya
+//WhatsApp: +2348100835767
+//want more free bot scripts? subscribe to my youtube channel: https://youtube.com/@DGAlya
 
-const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-const question = (text) => new Promise((resolve) => rl.question(text, resolve));
+require('./settings')
+const pino = require('pino')
+const { Boom } = require('@hapi/boom')
+const fs = require('fs')
+const chalk = require('chalk')
+const { color } = require('./lib/color')
+const FileType = require('file-type')
+const path = require('path')
+const axios = require('axios')
+const _ = require('lodash')
+const { uncache, nocache } = require('./lib/loader')
+const yargs = require('yargs/yargs')
+const { Low, JSONFile } = require('./lib/lowdb')
+const moment = require('moment-timezone')
+const PhoneNumber = require('awesome-phonenumber')
+const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif')
+const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetch, await, sleep, reSize } = require('./lib/myfunc')
+const { default: AlyaBotIncConnect, delay, PHONENUMBER_MCC, makeCacheableSignalKeyStore, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto, Browsers } = require("@whiskeysockets/baileys")
+const NodeCache = require("node-cache")
+const Pino = require("pino")
+const readline = require("readline")
+const { parsePhoneNumber } = require("libphonenumber-js")
+const makeWASocket = require("@whiskeysockets/baileys").default
 
-// Define session directory and file
-const sessionDir = './session';
-const sessionFile = `${sessionDir}/creds.json`;
+const store = makeInMemoryStore({
+    logger: pino().child({
+        level: 'silent',
+        stream: 'store'
+    })
+})
 
-// Check if session directory exists
-if (!fs.existsSync(sessionDir)) {
-    fs.mkdirSync(sessionDir, { recursive: true });
+global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
+global.db = new Low(new JSONFile(`src/database.json`))
+
+global.DATABASE = global.db
+global.loadDatabase = async function loadDatabase() {
+  if (global.db.READ) return new Promise((resolve) => setInterval(function () { (!global.db.READ ? (clearInterval(this), resolve(global.db.data == null ? global.loadDatabase() : global.db.data)) : null) }, 1 * 1000))
+  if (global.db.data !== null) return
+  global.db.READ = true
+  await global.db.read()
+  global.db.READ = false
+  global.db.data = {
+    users: {},
+    database: {},
+    chats: {},
+    game: {},
+    settings: {},
+    message: {},
+    ...(global.db.data || {})
+  }
+  global.db.chain = _.chain(global.db.data)
 }
+loadDatabase()
 
-// Load SESSION_ID from environment or use default
-global.SESSION_ID = process.env.SESSION_ID || {
-    // default session data structure (modify as per your needs)
-    "noiseKey": { "private": { "type": "Buffer", "data": "iMr76cDGEhCvAI194Q0Q+2efmqRikjVeDYQGI98/PUo=" }, "public": { "type": "Buffer", "data": "HYPsmSxeaW/mIMROPeJKuof+eUYl9YRncZqVxK979Xk=" } },
-    // Add other default session values if needed
-};
+if (global.db) setInterval(async () => {
+   if (global.db.data) await global.db.write()
+}, 30 * 1000)
 
-// Function to load the session or credentials
-async function loadSession() {
-    let state;
-    
-    // Check if creds.json exists and load it
-    if (fs.existsSync(sessionFile)) {
-        const sessionData = JSON.parse(fs.readFileSync(sessionFile));
-        state = {
-            creds: sessionData.SESSION_ID || global.SESSION_ID,  // Use loaded creds or fallback
-            keys: {}, // Adjust this if you have keys stored separately
-        };
-        console.log(chalk.green('Loaded credentials from creds.json'));
-    } else {
-        // If creds.json doesn't exist, use global.SESSION_ID
-        state = {
-            creds: global.SESSION_ID, // Use SESSION_ID directly
-            keys: {}, // Adjust if needed
-        };
-        console.log(chalk.yellow('No creds.json found. Using SESSION_ID.'));
-    }
+require('./Queenalya.js')
+nocache('../Queenalya.js', module => console.log(color('[ CHANGE ]', 'green'), color(`'${module}'`, 'green'), 'Updated'))
+require('./main.js')
+nocache('../main.js', module => console.log(color('[ CHANGE ]', 'green'), color(`'${module}'`, 'green'), 'Updated'))
 
-    return state;
-}
+let phoneNumber = "2348100835767"
+let owner = JSON.parse(fs.readFileSync('./src/data/role/owner.json'))
 
+const pairingCode = !!phoneNumber || process.argv.includes("--pairing-code")
+const useMobile = process.argv.includes("--mobile")
+
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
+const question = (text) => new Promise((resolve) => rl.question(text, resolve))
+         
 async function startAlyaBotInc() {
-    let { version, isLatest } = await fetchLatestBaileysVersion();
-    const state = await loadSession(); // Load session credentials
-
-    const msgRetryCounterCache = new NodeCache();
+//------------------------------------------------------
+let { version, isLatest } = await fetchLatestBaileysVersion()
+const {  state, saveCreds } =await useMultiFileAuthState(`./session`)
+    const msgRetryCounterCache = new NodeCache() // for retry message, "waiting message"
     const AlyaBotInc = makeWASocket({
         logger: pino({ level: 'silent' }),
-        browser: Browsers.windows('Firefox'),
-        auth: {
-            creds: state.creds,
-            keys: state.keys,
-        },
-        msgRetryCounterCache,
-    });
-
-    // Save credentials function
-    const saveCredentialsToFile = async () => {
-        const sessionData = { SESSION_ID: state.creds };
-        fs.writeFileSync(sessionFile, JSON.stringify(sessionData, null, 2));
-        console.log(chalk.green('Saved new credentials to creds.json'));
-    };
-
-    AlyaBotInc.ev.on('creds.update', async () => {
-        await saveCredentialsToFile(); // Save credentials to file on update
-    });
-
-    // Connection update handling
-    AlyaBotInc.ev.on('connection.update', async (update) => {
-        const { connection, lastDisconnect } = update;
-        try {
-            if (connection === 'close') {
-                const reason = new Boom(lastDisconnect?.error)?.output.statusCode;
-                console.log(`Connection closed with reason: ${reason}`);
-                startAlyaBotInc();
-            } else if (connection === 'open') {
-                console.log(color(`Connected as: ${JSON.stringify(AlyaBotInc.user, null, 2)}`, 'yellow'));
-                // Further logic here...
+        printQRInTerminal: !pairingCode, // popping up QR in terminal log
+      browser: Browsers.windows('Firefox'), // for this issues https://github.com/WhiskeySockets/Baileys/issues/328
+      patchMessageBeforeSending: (message) => {
+            const requiresPatch = !!(
+                message.buttonsMessage ||
+                message.templateMessage ||
+                message.listMessage
+            );
+            if (requiresPatch) {
+                message = {
+                    viewOnceMessage: {
+                        message: {
+                            messageContextInfo: {
+                                deviceListMetadataVersion: 2,
+                                deviceListMetadata: {},
+                            },
+                            ...message,
+                        },
+                    },
+                };
             }
-        } catch (err) {
-            console.log('Error in connection update: ' + err);
-            startAlyaBotInc();
-        }
-    });
-}
+            return message;
+        },
+     auth: {
+         creds: state.creds,
+         keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
+      },
+      markOnlineOnConnect: true, // set false for offline
+      generateHighQualityLinkPreview: true, // make high preview link
+      getMessage: async (key) => {
+            if (store) {
+                const msg = await store.loadMessage(key.remoteJid, key.id)
+                return msg.message || undefined
+            }
+            return {
+                conversation: "Alya Bot Here!"
+            }
+        },
+      msgRetryCounterCache, // Resolve waiting messages
+      defaultQueryTimeoutMs: undefined, // for this issues https://github.com/WhiskeySockets/Baileys/issues/276
+   })
+   
+   store.bind(AlyaBotInc.ev)
 
-// Start the bot
-startAlyaBotInc();
+    // login use pairing code
+   // source code https://github.com/WhiskeySockets/Baileys/blob/master/Example/example.ts#L61
+   if (pairingCode && !AlyaBotInc.authState.creds.registered) {
+      if (useMobile) throw new Error('Cannot use pairing code with mobile api')
+
+      let phoneNumber
+      if (!!phoneNumber) {
+         phoneNumber = phoneNumber.replace(/[^0-9]/g, '')
+
+         if (!Object.keys(PHONENUMBER_MCC).some(v => phoneNumber.startsWith(v))) {
+            console.log(chalk.bgBlack(chalk.redBright("Start with country code of your WhatsApp Number, Example : +2348100835767")))
+            process.exit(0)
+         }
+      } else {
+         phoneNumber = await question(chalk.bgBlack(chalk.greenBright(`Please type your WhatsApp number 😍\nFor example: +2348100835767 : `)))
+         phoneNumber = phoneNumber.replace(/[^0-9]/g, '')
+
+         // Ask again when entering the wrong number
+         if (!Object.keys(PHONENUMBER_MCC).some(v => phoneNumber.startsWith(v))) {
+            console.log(chalk.bgBlack(chalk.redBright("Start with country code of your WhatsApp Number, Example : +2348100835767")))
+
+            phoneNumber = await question(chalk.bgBlack(chalk.greenBright(`Please type your WhatsApp number 😍\nFor example: +2348100835767 : `)))
+            phoneNumber = phoneNumber.replace(/[^0-9]/g, '')
+            rl.close()
+         }
+      }
+
+      setTimeout(async () => {
+         let code = await AlyaBotInc.requestPairingCode(phoneNumber)
+         code = code?.match(/.{1,4}/g)?.join("-") || code
+         console.log(chalk.black(chalk.bgGreen(`Your Pairing Code : `)), chalk.black(chalk.white(code)))
+      }, 3000)
+   }
+   
+   AlyaBotInc.ev.on('connection.update', async (update) => {
+	const {
+		connection,
+		lastDisconnect
+	} = update
+try{
+		if (connection === 'close') {
+			let reason = new Boom(lastDisconnect?.error)?.output.statusCode
+			if (reason === DisconnectReason.badSession) {
+				console.log(`Bad Session File, Please Delete Session and Scan Again`);
+				startAlyaBotInc()
+			} else if (reason === DisconnectReason.connectionClosed) {
+				console.log("Connection closed, reconnecting....");
+				startAlyaBotInc();
+			} else if (reason === DisconnectReason.connectionLost) {
+				console.log("Connection Lost from Server, reconnecting...");
+				startAlyaBotInc();
+			} else if (reason === DisconnectReason.connectionReplaced) {
+				console.log("Connection Replaced, Another New Session Opened, Please Close Current Session First");
+				startAlyaBotInc()
+			} else if (reason === DisconnectReason.loggedOut) {
+				console.log(`Device Logged Out, Please Delete Session and Scan Again.`);
+				startAlyaBotInc();
+			} else if (reason === DisconnectReason.restartRequired) {
+				console.log("Restart Required, Restarting...");
+				startAlyaBotInc();
+			} else if (reason === DisconnectReason.timedOut) {
+				console.log("Connection TimedOut, Reconnecting...");
+				startAlyaBotInc();
+			} else AlyaBotInc.end(`Unknown DisconnectReason: ${reason}|${connection}`)
+		}
+		if (update.connection == "connecting" || update.receivedPendingNotifications == "false") {
+			console.log(color(`\n🌿Connecting...`, 'yellow'))
+		}
+		if (update.connection == "open" || update.receivedPendingNotifications == "true") {
+			console.log(color(` `,'magenta'))
+            console.log(color(`🌿Connected to => ` + JSON.stringify(AlyaBotInc.user, null, 2), 'yellow'))
+            console.log(chalk.yellow(`\n\n               ${chalk.bold.blue(`[ ${botname} ]`)}\n\n`))
+            console.log(color(`< ================================================== >`, 'cyan'))
+	        console.log(color(`\n${themeemoji} YT CHANNEL: Alya`,'magenta'))
+            console.log(color(`${themeemoji} GITHUB: DGAlya `,'magenta'))
+            console.log(color(`${themeemoji} INSTAGRAM: @unicorn_alya `,'magenta'))
+            console.log(color(`${themeemoji} WA NUMBER: ${owner}`,'magenta'))
+            console.log(color(`${themeemoji} CREDIT: ${wm}\n`,'magenta'))
+		}
+	
+} catch (err) {
+	  console.log('Error in Connection.update '+err)
+	  startAlyaBotInc()
+	}
+})
+AlyaBotInc.ev.on('creds.update', saveCreds)
+AlyaBotInc.ev.on("messages.upsert",  () => { })
 //------------------------------------------------------
 
 //farewell/welcome
@@ -743,7 +859,7 @@ return [...text.matchAll(/@([0-9]{5,16}|0)/g)].map(v => v[1] + '@s.whatsapp.net'
         return buffer
     }
     return AlyaBotInc
-
+}
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
