@@ -99,9 +99,8 @@ async function startAlyaBotInc() {
 }
 
 // Start the bot
-startAlyaBotInc()
-	}
-})
+startAlyaBotInc();
+	
 AlyaBotInc.ev.on('creds.update', saveCreds)
 AlyaBotInc.ev.on("messages.upsert",  () => { })
 //------------------------------------------------------
