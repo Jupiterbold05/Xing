@@ -124,7 +124,7 @@ let premium = JSON.parse(fs.readFileSync('./src/data/role/premium.json'))
 const owner = JSON.parse(fs.readFileSync('./src/data/role/owner.json'))
 //media
 const VoiceNoteXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyavn.json'))
-const StickerXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyaSticker.json'))
+const StickerXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyasticker.json'))
 const ImageXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyaimage.json'))
 const VideoXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyavideo.json'))
 const DocXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/doc.json'))
