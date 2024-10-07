@@ -1481,48 +1481,47 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
         }
         //auto download #ctto
         if (db.data.settings[botNumber].autodownload && !m.key.fromMe && !isCmd2) {
-try {
-if (budy.match(`instagram.com`)) {
-    await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️", key: m.key }});
-    let anu = await fetchJson(`https://widipe.com/download/igdl?url=${budy}`);
-    AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result[0].url }, caption: `Auto Download ✅` }, { quoted: m });}   
-} else if (budy.match(`tiktok.com`)) {
-await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️",key: m.key,}})   
-let anu = await fetchJson(`https://widipe.com/download/tiktokdl?url=${budy}`)
-AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result.video}, caption: `Auto Download ✅`}, {quoted: m})
-await AlyaBotInc.sendMessage(m.chat, { react: { text: "☑️",key: m.key,}})   
-} else if (budy.match(`facebook.com`)) {
-    await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️", key: m.key }});
-    let anu = await fetchJson(`https://itzpire.com/download/facebook?url=${budy}`);
-    AlyaBotInc.sendMessage(m.chat, { video: { url: anu.data.video_sd }, caption: `Auto Download ✅` }, { quoted: m });
-} else if (budy.match(`mediafire.com`)) {
-    await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️", key: m.key }});
-    let anu = await fetchJson(`https://widipe.com/mediafire?link=${budy}`);
-    
-    await AlyaBotInc.sendMessage(m.chat, {
-        document: { url: anu.result.url },
-        mimetype: 'application/zip',
-        fileName: anu.result.filename
-    }, { quoted: m });
-} else if (budy.match(`pin.it`)) {
-    await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️", key: m.key }});
-    let anu = await fetchJson(`https://widipe.com/download/pindl?url=${budy}`);
-    
-    if (anu.result.data.media_type === "video/mp4") {
-        AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result.data.image }, caption: `Auto Download ✅` }, { quoted: m });
-    } else if (anu.result.data.media_type === "image/jpeg") {
-        AlyaBotInc.sendMessage(m.chat, { image: { url: anu.result.data.image }, caption: `Auto Download ✅` }, { quoted: m });
+    try {
+        if (budy.match(`instagram.com`)) {
+            await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️", key: m.key } });
+            let anu = await fetchJson(`https://widipe.com/download/igdl?url=${budy}`);
+            AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result[0].url }, caption: `Auto Download ✅` }, { quoted: m });
+        } else if (budy.match(`tiktok.com`)) {
+            await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️", key: m.key } });
+            let anu = await fetchJson(`https://widipe.com/download/tiktokdl?url=${budy}`);
+            AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result.video }, caption: `Auto Download ✅` }, { quoted: m });
+            await AlyaBotInc.sendMessage(m.chat, { react: { text: "☑️", key: m.key } });
+        } else if (budy.match(`facebook.com`)) {
+            await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️", key: m.key } });
+            let anu = await fetchJson(`https://itzpire.com/download/facebook?url=${budy}`);
+            AlyaBotInc.sendMessage(m.chat, { video: { url: anu.data.video_sd }, caption: `Auto Download ✅` }, { quoted: m });
+        } else if (budy.match(`mediafire.com`)) {
+            await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️", key: m.key } });
+            let anu = await fetchJson(`https://widipe.com/mediafire?link=${budy}`);
+            await AlyaBotInc.sendMessage(m.chat, {
+                document: { url: anu.result.url },
+                mimetype: 'application/zip',
+                fileName: anu.result.filename
+            }, { quoted: m });
+        } else if (budy.match(`pin.it`)) {
+            await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️", key: m.key } });
+            let anu = await fetchJson(`https://widipe.com/download/pindl?url=${budy}`);
+            
+            if (anu.result.data.media_type === "video/mp4") {
+                AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result.data.image }, caption: `Auto Download ✅` }, { quoted: m });
+            } else if (anu.result.data.media_type === "image/jpeg") {
+                AlyaBotInc.sendMessage(m.chat, { image: { url: anu.result.data.image }, caption: `Auto Download ✅` }, { quoted: m });
+            }
+        } else if (budy.match(`youtube.com|youtu.be`)) {
+            await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️", key: m.key } });
+            let anu = await fetchJson(`https://widipe.com/download/ytdl?url=${budy}`);
+            AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result.mp4 }, caption: `` }, { quoted: m });
+            await AlyaBotInc.sendMessage(m.chat, { react: { text: "☑️", key: m.key } });
+        }
+    } catch (err) {
+        await AlyaBotInc.sendMessage(m.chat, { react: { text: "✖️", key: m.key } });
     }
-} else if (budy.match(`youtube.com|youtu.be`)) {
-await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️",key: m.key,}})   
-let anu = await fetchJson(`https://widipe.com/download/ytdl?url=${budy}`)
-AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result.mp4}, caption: ``}, {quoted: m})
-await AlyaBotInc.sendMessage(m.chat, { react: { text: "☑️",key: m.key,}})   
-} 
-} catch (err) {
-await AlyaBotInc.sendMessage(m.chat, { react: { text: "✖️",key: m.key,}})   
 }
-} 
         
         //autosticker
         if (db.data.settings[botNumber].autosticker) {
