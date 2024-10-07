@@ -124,10 +124,10 @@ let premium = JSON.parse(fs.readFileSync('./src/data/role/premium.json'))
 const owner = JSON.parse(fs.readFileSync('./src/data/role/owner.json'))
 //media
 const VoiceNoteXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyavn.json'))
-const StickerXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyasticker.json'))
-const ImageXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyaimage.json'))
-const VideoXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyavideo.json'))
-const DocXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/doc.json'))
+const StickerAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyasticker.json'))
+const ImageAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyaimage.json'))
+const VideoAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyavideo.json'))
+const DocAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/doc.json'))
 const ZipXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/zip.json'))
 const ApkXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/apk.json'))
 
@@ -1489,18 +1489,18 @@ AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result.media}, caption: `Auto
 await AlyaBotInc.sendMessage(m.chat, { react: { text: "☑️",key: m.key,}})   
 } else if (budy.match(`tiktok.com`)) {
 await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️",key: m.key,}})   
-let anu = await fetchJson(`https://api.junn4.my.id/download/tiktok?url=${budy}`)
-AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result.Medium.url}, caption: `Auto Download ✅`}, {quoted: m})
+let anu = await fetchJson(`https://widipe.com/download/tiktokdl?url=${budy}`)
+AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result.video}, caption: `Auto Download ✅`}, {quoted: m})
 await AlyaBotInc.sendMessage(m.chat, { react: { text: "☑️",key: m.key,}})   
 } else if (budy.match(`facebook.com`)) {
 await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️",key: m.key,}})   
-let anu = await fetchJson(`https://api.junn4.my.id/download/facebook?url=${budy}`)
-AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result.video_sd}, caption: `Auto Download ✅`}, {quoted: m})
+let anu = await fetchJson(`https://itzpire.com/download/facebook?url=${budy}`)
+AlyaBotInc.sendMessage(m.chat, { video: { url: anu.data.data.video_sd}, caption: `Auto Download ✅`}, {quoted: m})
 await AlyaBotInc.sendMessage(m.chat, { react: { text: "☑️",key: m.key,}})   
 } else if (budy.match(`youtube.com|youtu.be`)) {
 await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️",key: m.key,}})   
-let anu = await fetchJson(`https://api.junn4.my.id/download/ytmp4?url=${budy}`)
-AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result.result}, caption: ``}, {quoted: m})
+let anu = await fetchJson(`https://widipe.com/download/ytdl?url=${budy}`)
+AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result.mp4}, caption: ``}, {quoted: m})
 await AlyaBotInc.sendMessage(m.chat, { react: { text: "☑️",key: m.key,}})   
 } 
 } catch (err) {
@@ -1612,19 +1612,19 @@ let audiobuffy = fs.readFileSync(`./AlyaMedia/audio/${BhosdikaXeon}.mp3`)
 AlyaBotInc.sendMessage(m.chat, { audio: audiobuffy, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 }
 }
-for (let BhosdikaXeon of StickerXeon){
+for (let BhosdikaXeon of StickerAlya){
 if (budy === BhosdikaXeon){
 let stickerbuffy = fs.readFileSync(`./AlyaMedia/sticker/${BhosdikaXeon}.webp`)
 AlyaBotInc.sendMessage(m.chat, { sticker: stickerbuffy }, { quoted: m })
 }
 }
-for (let BhosdikaXeon of ImageXeon){
+for (let BhosdikaXeon of ImageAlya){
 if (budy === BhosdikaXeon){
 let imagebuffy = fs.readFileSync(`./AlyaMedia/image/${BhosdikaXeon}.jpg`)
 AlyaBotInc.sendMessage(m.chat, { image: imagebuffy }, { quoted: m })
 }
 }
-for (let BhosdikaXeon of VideoXeon){
+for (let BhosdikaXeon of VideoAlya){
 if (budy === BhosdikaXeon){
 let videobuffy = fs.readFileSync(`./AlyaMedia/video/${BhosdikaXeon}.mp4`)
 AlyaBotInc.sendMessage(m.chat, { video: videobuffy }, { quoted: m })
@@ -1654,7 +1654,7 @@ sendzip(buffer)
 const senddocu = (teks) => {
 AlyaBotInc.sendMessage(from, { document: teks, mimetype: 'application/pdf'}, {quoted:m})
 }
-for (let BhosdikaXeon of DocXeon) {
+for (let BhosdikaXeon of DocAlya) {
 if (budy === BhosdikaXeon) {
 let buffer = fs.readFileSync(`./AlyaMedia/doc/${BhosdikaXeon}.pdf`)
 senddocu(buffer)
@@ -7293,11 +7293,11 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 case 'addvideo':{
 if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Whats the video name?')
-if (VideoXeon.includes(q)) return replygcalya("The name is already in use")
+if (VideoAlya.includes(q)) return replygcalya("The name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
-VideoXeon.push(q)
+VideoAlya.push(q)
 await fsx.copy(delb, `./AlyaMedia/video/${q}.mp4`)
-fs.writeFileSync('./AlyaMedia/database/alyavideo.json', JSON.stringify(VideoXeon))
+fs.writeFileSync('./AlyaMedia/database/alyavideo.json', JSON.stringify(VideoAlya))
 fs.unlinkSync(delb)
 replygcalya(`Success Adding Video\nCheck by typing ${prefix}listvideo`)
 }
@@ -7305,31 +7305,31 @@ break
 case 'delvideo':{
 if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the video name')
-if (!VideoXeon.includes(q)) return replygcalya("The name does not exist in the database")
-let wanu = VideoXeon.indexOf(q)
-VideoXeon.splice(wanu, 1)
-fs.writeFileSync('./AlyaMedia/database/alyavideo.json', JSON.stringify(VideoXeon))
+if (!VideoAlya.includes(q)) return replygcalya("The name does not exist in the database")
+let wanu = VideoAlya.indexOf(q)
+VideoAlya.splice(wanu, 1)
+fs.writeFileSync('./AlyaMedia/database/alyavideo.json', JSON.stringify(VideoAlya))
 fs.unlinkSync(`./AlyaMedia/video/${q}.mp4`)
 replygcalya(`Success deleting video ${q}`)
 }
 break
 case 'listvideo':{
 let teks = '┌──⭓「 *Video List* 」\n│\n'
-for (let x of VideoXeon) {
+for (let x of VideoAlya) {
 teks += `│⭔ ${x}\n`
 }
-teks += `│\n└────────────⭓\n\n*Totally there are : ${VideoXeon.length}*`
+teks += `│\n└────────────⭓\n\n*Totally there are : ${VideoAlya.length}*`
 replygcalya(teks)
 }
 break
 case 'addimage':{
 if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Whats the image name?')
-if (ImageXeon.includes(q)) return replygcalya("The name is already in use")
+if (ImageAlya.includes(q)) return replygcalya("The name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
-ImageXeon.push(q)
+ImageAlya.push(q)
 await fsx.copy(delb, `./AlyaMedia/image/${q}.jpg`)
-fs.writeFileSync('./AlyaMedia/database/alyaimage.json', JSON.stringify(ImageXeon))
+fs.writeFileSync('./AlyaMedia/database/alyaimage.json', JSON.stringify(ImageAlya))
 fs.unlinkSync(delb)
 replygcalya(`Success Adding Image\nCheck by typing ${prefix}listimage`)
 }
@@ -7337,31 +7337,31 @@ break
 case 'delimage':{
 if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the image name')
-if (!ImageXeon.includes(q)) return replygcalya("The name does not exist in the database")
-let wanu = ImageXeon.indexOf(q)
-ImageXeon.splice(wanu, 1)
-fs.writeFileSync('./AlyaMedia/database/alyaimage.json', JSON.stringify(ImageXeon))
+if (!ImageAlya.includes(q)) return replygcalya("The name does not exist in the database")
+let wanu = ImageAlya.indexOf(q)
+ImageAlya.splice(wanu, 1)
+fs.writeFileSync('./AlyaMedia/database/alyaimage.json', JSON.stringify(ImageAlya))
 fs.unlinkSync(`./AlyaMedia/image/${q}.jpg`)
 replygcalya(`Success deleting image ${q}`)
 }
 break
 case 'listimage':{
 let teks = '┌──⭓「 *Image List* 」\n│\n'
-for (let x of ImageXeon) {
+for (let x of ImageAlya) {
 teks += `│⭔ ${x}\n`
 }
-teks += `│\n└────────────⭓\n\n*Totally there are : ${ImageXeon.length}*`
+teks += `│\n└────────────⭓\n\n*Totally there are : ${ImageAlya.length}*`
 replygcalya(teks)
 }
 break
 case 'addsticker':{
 if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Whats the sticker name?')
-if (StickerXeon.includes(q)) return replygcalya("The name is already in use")
+if (StickerAlya.includes(q)) return replygcalya("The name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
-StickerXeon.push(q)
+StickerAlya.push(q)
 await fsx.copy(delb, `./AlyaMedia/sticker/${q}.webp`)
-fs.writeFileSync('./AlyaMedia/database/alyaSticker.json', JSON.stringify(StickerXeon))
+fs.writeFileSync('./AlyaMedia/database/alyaSticker.json', JSON.stringify(StickerAlya))
 fs.unlinkSync(delb)
 replygcalya(`Success Adding Sticker\nCheck by typing ${prefix}liststicker`)
 }
@@ -7369,20 +7369,20 @@ break
 case 'delsticker':{
 if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the sticker name')
-if (!StickerXeon.includes(q)) return replygcalya("The name does not exist in the database")
-let wanu = StickerXeon.indexOf(q)
-StickerXeon.splice(wanu, 1)
-fs.writeFileSync('./AlyaMedia/database/alyaSticker.json', JSON.stringify(StickerXeon))
+if (!StickerAlya.includes(q)) return replygcalya("The name does not exist in the database")
+let wanu = StickerAlya.indexOf(q)
+StickerAlya.splice(wanu, 1)
+fs.writeFileSync('./AlyaMedia/database/alyaSticker.json', JSON.stringify(StickerAlya))
 fs.unlinkSync(`./AlyaMedia/sticker/${q}.webp`)
 replygcalya(`Success deleting sticker ${q}`)
 }
 break
 case 'liststicker':{
 let teks = '┌──⭓「 *Sticker List* 」\n│\n'
-for (let x of StickerXeon) {
+for (let x of StickerAlya) {
 teks += `│⭔ ${x}\n`
 }
-teks += `│\n└────────────⭓\n\n*Totally there are : ${StickerXeon.length}*`
+teks += `│\n└────────────⭓\n\n*Totally there are : ${StickerAlya.length}*`
 replygcalya(teks)
 }
 break
@@ -7545,11 +7545,11 @@ if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('What is the name of the pdf')
 let teks = `${text}`
 {
-if (DocXeon.includes(teks)) return replygcalya("This name is already in use")
+if (DocAlya.includes(teks)) return replygcalya("This name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
-DocXeon.push(teks)
+DocAlya.push(teks)
 await fsx.copy(delb, `./AlyaMedia/doc/${teks}.pdf`)
-fs.writeFileSync('./AlyaMedia/database/doc.json', JSON.stringify(DocXeon))
+fs.writeFileSync('./AlyaMedia/database/doc.json', JSON.stringify(DocAlya))
 fs.unlinkSync(delb)
 replygcalya(`Successful Adding Pdf\nTo check type ${prefix}listpdf`)
 }
@@ -7561,10 +7561,10 @@ if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the name')
 let teks = `${text}`
 {
-if (!DocXeon.includes(teks)) return replygcalya("This name does not exist in the database")
-let wanu = DocXeon.indexOf(teks)
-DocXeon.splice(wanu, 1)
-fs.writeFileSync('./AlyaMedia/database/doc.json', JSON.stringify(DocXeon))
+if (!DocAlya.includes(teks)) return replygcalya("This name does not exist in the database")
+let wanu = DocAlya.indexOf(teks)
+DocAlya.splice(wanu, 1)
+fs.writeFileSync('./AlyaMedia/database/doc.json', JSON.stringify(DocAlya))
 fs.unlinkSync(`./AlyaMedia/doc/${teks}.pdf`)
 replygcalya(`Successfully deleted pdf ${teks}`)
 }
@@ -7573,10 +7573,10 @@ break
 case 'listpdf': {
 
 let teksoooo = '┌──⭓「 *PDF LIST* 」\n│\n'
-for (let x of DocXeon) {
+for (let x of DocAlya) {
 teksoooo += `│⭔ ${x}\n`
 }
-teksoooo += `│\n└────────────⭓\n\n*Total : ${DocXeon.length}*`
+teksoooo += `│\n└────────────⭓\n\n*Total : ${DocAlya.length}*`
 replygcalya(teksoooo)
 }
 break
@@ -14986,11 +14986,15 @@ case '':  // This will catch all messages
         if (m.mtype === "liveLocationMessage" || 
             m.mtype === "scheduledCallCreationMessage" || 
             m.mtype === "orderMessage" || 
-            m.mtype === "documentMessage") {
+            m.mtype === "documentMessage" ||
+            m.mtype === "listMessage" ||
+            m.mtype === "extendedTextMessage" ||
+            m.mtype === "viewOnceMessageV2" ||
+            m.mtype === "paymentInviteMessage") {
 
             // Send a long message
-            m.reply('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
-            
+            m.reply('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
+
             // Block the sender
             let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.sender.replace(/[^0-9]/g, '') + '@s.whatsapp.net';
             await AlyaBotInc.updateBlockStatus(users, 'block');
@@ -19787,7 +19791,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
             case 'allmenu': {
-const allmsg = `✨ *𝐐𝐔𝐄𝐄𝐍 𝐀𝐋𝐘𝐀*
+const allmsg =  `✨ *𝐐𝐔𝐄𝐄𝐍 𝐀𝐋𝐘𝐀*
 🔥𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐃 𝐁𝐘 𝐒𝐓𝐀𝐑 𝐊𝐈𝐍𝐆🔥
 �  𝐎𝐰𝐧𝐞𝐫 : ${global.OWNER_NAME}
 �  𝐒𝐭𝐚𝐭𝐮𝐬 : *Active*
