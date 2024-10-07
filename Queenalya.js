@@ -6344,7 +6344,6 @@ break
             replygcalya('Successfully Deleted Vote Session In This Group')
 	    }
             break
-break
             case 'revoke':
             case 'resetlink':
                 if (!m.isGroup) return AlyaStickGroup()
