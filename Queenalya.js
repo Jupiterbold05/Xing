@@ -20490,7 +20490,7 @@ let allmsg = `✨ *𝐐𝐔𝐄𝐄𝐍 𝐀𝐋𝐘𝐀*
 }
 await AlyaBotInc.sendMessage(m.chat, { text: allmsg }, { quoted: m });
      }
-break
+break;
             case 'ownermenu': {
 let alyamenu = `Hi ${pushname}${readmore}\n\n${ownermenu(prefix, hituet)}`
 if (typemenu === 'v1') {
