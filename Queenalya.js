@@ -3436,8 +3436,6 @@ case 'henu': {
     let ownernya = ownernumber + '@s.whatsapp.net';
     let timestampe = speed();
     let latensie = speed() - timestampe;
-    let a = db.data.users[sender];
-    let me = m.sender;
     let alyamenu = `╔═━━━━✦❘༻ 𝗪𝗘𝗟𝗖𝗢𝗠𝗘
 Hi, ${pushname}! 👋 ${alyatimewisher} 😄
 ╔═━━━━✦❘༻ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊
@@ -3450,30 +3448,65 @@ Hi, ${pushname}! 👋 ${alyatimewisher} 😄
 👤 Name: ${pushname}
 🕰 Time: ${xtime}
 📅 Date: ${xdate}
-╚━━━━━━━━━━━━━━━━━━━━━╝
-Click the buttons below to access various options!`;
+╚━━━━━━━━━━━━━━━━━━━━━╝`;
 
-    let buttons = [
-        {buttonId: `${prefix}allmenu`, buttonText: {displayText: '📋 All Menu'}, type: 1},
-        {buttonId: `${prefix}searchmenu`, buttonText: {displayText: '🔍 Search Menu'}, type: 1},
-        {buttonId: `${prefix}downloadmenu`, buttonText: {displayText: '⬇️ Download Menu'}, type: 1},
-        {buttonId: `${prefix}gamemenu`, buttonText: {displayText: '🎮 Game Menu'}, type: 1},
-        {buttonId: `${prefix}funmenu`, buttonText: {displayText: '😂 Fun Menu'}, type: 1},
-        {buttonId: `${prefix}aimenu`, buttonText: {displayText: '🤖 AI Menu'}, type: 1},
-        {buttonId: `${prefix}groupmenu`, buttonText: {displayText: '👥 Group Menu'}, type: 1},
-        {buttonId: `${prefix}ownermenu`, buttonText: {displayText: '🛠 Owner Menu'}, type: 1},
-        {buttonId: `${prefix}convertmenu`, buttonText: {displayText: '🔄 Convert Menu'}, type: 1}
-    ];
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: ownername
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        title: alyamenu,
+                        subtitle: themeemoji,
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                            },
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                            },
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+                            },
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+                            },
+                            {
+                                "name": "quick_reply",
+                                "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
+                            },
+                            {
+                                "name": "quick_reply",
+                                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
+                            },
+                            {
+                                "name": "quick_reply",
+                                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
+                            }
+                        ],
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
 
-    let buttonMessage = {
-        image: {url: './AlyaMedia/theme/alya.jpg'},
-        caption: alyamenu,
-        footer: `AlyaBot - Your Personal Assistant`,
-        buttons: buttons,
-        headerType: 4
-    };
-
-    await AlyaBotInc.sendMessage(m.chat, buttonMessage, {quoted: m});
+    await AlyaBotInc.relayWAMessage(msg);
 }
 break;
             break
@@ -3907,35 +3940,32 @@ case 'addcase': {
     if (!AlyaTheQueen) return AlyaStickOwner();
 
     try {
-        const addCaseToScript = (rawInput) => {
+        const addCaseToScript = (caseContent) => {
             const fileContent = fs.readFileSync("Queenalya.js").toString();
 
-            // Extract the casename from the input (removes 'case', ':', and 'break')
-            const casenameMatch = rawInput.match(/(?:case\s*')?([^']+)(?:'\s*:\s*)?/);
-            if (!casenameMatch) {
+            // Extract all case names from the provided content
+            const caseNameMatches = caseContent.match(/case\s*'([^']+)'/g);
+
+            if (!caseNameMatches) {
                 replygcalya('Invalid case format.');
                 return;
             }
 
-            const casename = casenameMatch[1];
-
-            // Check if the case already exists in the script
-            if (fileContent.includes(`case '${casename}'`)) {
-                replygcalya(`case '${casename}' already exists!`);
-                return;
+            // Check if any of the case names already exist
+            for (const caseNameMatch of caseNameMatches) {
+                const caseName = caseNameMatch.replace("case ", "").replace(/'/g, "");
+                if (fileContent.includes(`case '${caseName}'`)) {
+                    replygcalya(`case '${caseName}' already exists!`);
+                    return;
+                }
             }
 
-            // Clean the input to remove 'case', ':', and 'break'
-            let caseContent = rawInput.replace(/case\s*'[^']+'\s*:\s*|\s*break\s*;/g, '');
-
-            // Format the case block and append it to the script
-            const caseBlock = `\ncase '${casename}': {\n${caseContent}\n}\nbreak;`;
-            fs.appendFileSync("Queenalya.js", caseBlock);
-
-            replygcalya(`Added case '${casename}' to Queenalya.js successfully!`);
+            // Append the entire case block to the script as it is
+            fs.appendFileSync("Queenalya.js", `\n${caseContent}\n`);
+            replygcalya(`Added case(s) to Queenalya.js successfully!`);
         };
 
-        // Add the case provided by the user (raw input of the entire block)
+        // Add the case content provided by the user (raw input of the entire block)
         addCaseToScript(q);
 
     } catch (error) {
