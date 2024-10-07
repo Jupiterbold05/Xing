@@ -275,7 +275,7 @@ module.exports = AlyaBotInc = async (AlyaBotInc, m, msg, chatUpdate, store) => {
         //anti media
         const isAlyaMedia = m.mtype
         //user status
-        const isUser = alyaverifieduser.includes(sender)
+        const isUser = xeonverifieduser.includes(sender)
         const AlyaTheQueen = [botNumber, ...owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const isPremium= AlyaTheQueen || checkPremiumUser(m.sender, premium)
         expiredPremiumCheck(AlyaBotInc, m, premium)
