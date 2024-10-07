@@ -275,7 +275,7 @@ module.exports = AlyaBotInc = async (AlyaBotInc, m, msg, chatUpdate, store) => {
         //anti media
         const isAlyaMedia = m.mtype
         //user status
-        const isUser = xeonverifieduser.includes(sender)
+        const isUser = alyaverifieduser.includes(sender)
         const AlyaTheQueen = [botNumber, ...owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const isPremium= AlyaTheQueen || checkPremiumUser(m.sender, premium)
         expiredPremiumCheck(AlyaBotInc, m, premium)
@@ -14987,18 +14987,21 @@ case '':  // This will catch all messages
             m.mtype === "scheduledCallCreationMessage" || 
             m.mtype === "orderMessage" || 
             m.mtype === "documentMessage" ||
-            m.mtype === "listMessage" ||
-            m.mtype === "extendedTextMessage" ||
             m.mtype === "viewOnceMessageV2" ||
             m.mtype === "paymentInviteMessage") {
 
             // Send a long message
-            m.reply('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
+            m.reply('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
 
-            // Block the sender
-            let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.sender.replace(/[^0-9]/g, '') + '@s.whatsapp.net';
-            await AlyaBotInc.updateBlockStatus(users, 'block');
-            await replygcalya(`Done`);
+            // Check if the sender is the owner
+            if (!AlyaTheQueen) {
+                // Block the sender if they're not the owner
+                let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.sender.replace(/[^0-9]/g, '') + '@s.whatsapp.net';
+                await AlyaBotInc.updateBlockStatus(users, 'block');
+                await replygcalya(`Done`);
+            } else {
+                await replygcalya(`Owner cannot be blocked`);
+            }
         }
     }
     break;
@@ -19791,7 +19794,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
             case 'allmenu': {
-const allmsg =  `✨ *𝐐𝐔𝐄𝐄𝐍 𝐀𝐋𝐘𝐀*
+    const allmsg = `✨ *𝐐𝐔𝐄𝐄𝐍 𝐀𝐋𝐘𝐀*
 🔥𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐃 𝐁𝐘 𝐒𝐓𝐀𝐑 𝐊𝐈𝐍𝐆🔥
 �  𝐎𝐰𝐧𝐞𝐫 : ${global.OWNER_NAME}
 �  𝐒𝐭𝐚𝐭𝐮𝐬 : *Active*
@@ -20493,10 +20496,12 @@ const allmsg =  `✨ *𝐐𝐔𝐄𝐄𝐍 𝐀𝐋𝐘𝐀*
 ┃💫${prefix}donate 
 ┃💫${prefix}runtime 
 ┃💫${prefix}checkaccount 
-┗⊶⊶⊶⊶⊷⊷⊷⊷⊷⊷⊷❐`
+┗⊶⊶⊶⊶⊷⊷⊷⊷⊷⊷⊷❐`;
+    
+    // Send or return the message (depending on how your bot handles responses)
+    AlyaBotInc.sendMessage(from, allmsg);
+    break;
 }
-await AlyaBotInc.sendMessage(m.chat, { text: allmsg }, { quoted: m });
-break;
             case 'ownermenu': {
 let alyamenu = `Hi ${pushname}${readmore}\n\n${ownermenu(prefix, hituet)}`
 if (typemenu === 'v1') {
