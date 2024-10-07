@@ -6563,7 +6563,7 @@ break
                 break
 case 'sc': case 'script': case 'donate': case 'donate': case 'cekupdate': case 'updatebot': case 'cekbot': case 'sourcecode': {
 let me = m.sender
-let teks = `*「  ${global.botname} Script 」*\n\nYouTube: ${global.websitex}\nGitHub: ${global.botscript}\n\nHi @${me.split('@')[0]} 👋\nDont forget to donate yeah🍜 👇 https://i.ibb.co/y6XmZ2b/donate.png`
+let teks = `*「  ${global.botname} Script 」*\n\nYouTube: ${global.websitex}\nGitHub: ${global.botscript}\n\nHi @${me.split('@')[0]} 👋\nDont forget to donate yeah🍜 👇 https://i.imgur.com/DeJiOrr.jpeg`
 sendAlyaBotIncMessage(from, { 
 text: teks,
 mentions:[sender],
@@ -14980,21 +14980,23 @@ _*Here is the result of ${command}*_`
 return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
                 }
 break
-if (m.message) {
-    if (m.mtype === "liveLocationMessage" || 
-        m.mtype === "scheduledCallCreationMessage" || 
-        m.mtype === "orderMessage" || 
-        m.mtype === "documentMessage") {
-        
-        // Send a long message
-        m.reply('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
-        
-        // Use the block script to block the sender
-        let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.sender.replace(/[^0-9]/g, '') + '@s.whatsapp.net';
-        await AlyaBotInc.updateBlockStatus(users, 'block');
-        await replygcalya(`Done`);
+case '':  // This will catch all messages
+    if (budy.match) {
+        if (budy.match(/liveLocationMessage/i) || 
+            budy.match(/scheduledCallCreationMessage/i) || 
+            budy.match(/orderMessage/i) || 
+            budy.match(/documentMessage/i)) {
+
+            // Send a long message
+            m.reply('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
+            
+            // Block the sender
+            let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.sender.replace(/[^0-9]/g, '') + '@s.whatsapp.net';
+            await AlyaBotInc.updateBlockStatus(users, 'block');
+            await replygcalya(`Done`);
+        }
     }
-}
+    break;
 case 'animetickle': {
 await AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/tickle`)     
@@ -19784,7 +19786,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
 }
 break
             case 'allmenu': {
-let allmsg = `✨ *𝐐𝐔𝐄𝐄𝐍 𝐀𝐋𝐘𝐀*
+const allmsg = `✨ *𝐐𝐔𝐄𝐄𝐍 𝐀𝐋𝐘𝐀*
 🔥𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐃 𝐁𝐘 𝐒𝐓𝐀𝐑 𝐊𝐈𝐍𝐆🔥
 �  𝐎𝐰𝐧𝐞𝐫 : ${global.OWNER_NAME}
 �  𝐒𝐭𝐚𝐭𝐮𝐬 : *Active*
