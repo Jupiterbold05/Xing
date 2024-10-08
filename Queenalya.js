@@ -8108,18 +8108,39 @@ await AlyaBotInc.sendMessage(m.chat,{
 await fs.unlinkSync(audio.path)
 break
 case 'ytmp4': case 'ytvideo': {
-const xeonvidoh = require('./lib/ytdl')
-if (args.length < 1 || !isUrl(text) || !xeonvidoh.isYTUrl(text)) replygcalya(`Where is the link??\n\nExample : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`)
-const vid=await xeonvidoh.mp4(text)
-const ytc=`
-*${themeemoji}Tittle:* ${vid.title}
-*${themeemoji}Date:* ${vid.date}
-*${themeemoji}Duration:* ${vid.duration}
-*${themeemoji}Quality:* ${vid.quality}`
-await AlyaBotInc.sendMessage(m.chat,{
-    video: {url:vid.videoUrl},
-    caption: ytc
-},{quoted:m})
+    if (args.length < 1 || !isUrl(text) || !text.includes('youtube.com') && !text.includes('youtu.be')) {
+        replygcalya(`Where is the link??\n\nExample : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag 128kbps`)
+        break
+    }
+    
+    // Send loading reaction
+    await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️", key: m.key }})
+
+    try {
+        // Fetch YouTube video info from the API
+        let anu = await fetchJson(`https://widipe.com/download/ytdl?url=${text}`)
+        if (!anu || anu.status !== true) {
+            replygcalya('Failed to fetch video details. Try again later.')
+            break
+        }
+
+        // Create the caption with video details
+        const ytc = `
+*${themeemoji}Title:* ${anu.result.title}
+*${themeemoji}Date:* ${anu.result.uploaded_on}
+*${themeemoji}Duration:* ${anu.result.duration}
+*${themeemoji}Quality:* ${anu.result.quality}
+*${themeemoji}Views:* ${anu.result.views}`
+
+        // Send the video to the user
+        await AlyaBotInc.sendMessage(m.chat, {
+            video: { url: anu.result.mp4 },
+            caption: ytc
+        }, { quoted: m })
+    } catch (err) {
+        console.log(err)
+        replygcalya('An error occurred while processing the video.')
+    }
 }
 break
 case 'git':
