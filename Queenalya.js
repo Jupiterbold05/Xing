@@ -19629,156 +19629,95 @@ case 'help': case 'alyamenu': {
     });
 }
 break;
-// Function to generate and send the menu message with channel button
-const generateMenuMessage = async (menuText, m) => {
-    let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-            message: {
-                "messageContextInfo": {
-                    "deviceListMetadata": {},
-                    "deviceListMetadataVersion": 2
-                },
-                interactiveMessage: proto.Message.InteractiveMessage.create({
-                    body: proto.Message.InteractiveMessage.Body.create({
-                        text: menuText
-                    }),
-                    footer: proto.Message.InteractiveMessage.Footer.create({
-                        text: botname
-                    }),
-                    header: proto.Message.InteractiveMessage.Header.create({
-                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
-                        title: '',
-                        hasMediaAttachment: false
-                    }),
-                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                        buttons: [
-                            {
-                                "name": "cta_url",
-                                "buttonParamsJson": `{
-                                    "display_text":"Channel 💬",
-                                    "url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09"
-                                }`
-                            }
-                        ]
-                    })
-                })
-            }
-        }
-    }, { quoted: m });
+// Define the constant list of menu names
+const menuNames = [
+    'ownermenu',
+    'othermenu',
+    'downloadmenu',
+    'groupmenu',
+    'gamemenu',
+    'funmenu',
+    'stalkermenu',
+    'randomphotomenu',
+    'randomvideomenu',
+    'nsfwmenu',
+    'animemenu',
+    'stickermenu',
+    'databasemenu',
+    'searchmenu',
+    'storemenu',
+    'aimenu',
+    'religionmenu',
+    'listmenu',
+    'convertmenu',
+    'bugmenu',
+    'allmenu'
+];
 
-    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-    });
-};
-
-// Case structure for all menus
+// Command handler (assuming you have this somewhere in your bot code)
 switch(command) {
-    case 'allmenu': {
-        let alyamenu = `Hi ${pushname}\n\n${allmenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'ownermenu': {
-        let alyamenu = `Hi ${pushname}\n\n${ownermenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'othermenu': {
-        let alyamenu = `Hi ${pushname}\n\n${othermenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'downloadmenu': {
-        let alyamenu = `Hi ${pushname}\n\n${downloadmenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'groupmenu': {
-        let alyamenu = `Hi ${pushname}\n\n${groupmenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'gamemenu': {
-        let alyamenu = `Hi ${pushname}\n\n${gamemenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'funmenu': {
-        let alyamenu = `Hi ${pushname}\n\n${funmenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'stalkermenu': {
-        let alyamenu = `Hi ${pushname}\n\n${stalkermenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'randomphotomenu': {
-        let alyamenu = `Hi ${pushname}\n\n${randphotomenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'randomvideomenu': {
-        let alyamenu = `Hi ${pushname}\n\n${randvideomenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'nsfwmenu': {
-        let alyamenu = `Hi ${pushname}\n\n${nsfwmenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'animemenu': {
-        let alyamenu = `Hi ${pushname}\n\n${animemenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'stickermenu': {
-        let alyamenu = `Hi ${pushname}\n\n${stickermenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'databasemenu': {
-        let alyamenu = `Hi ${pushname}\n\n${databasemenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'searchmenu': {
-        let alyamenu = `Hi ${pushname}\n\n${searchmenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'storemenu': {
-        let alyamenu = `Hi ${pushname}\n\n${storemenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'aimenu': {
-        let alyamenu = `Hi ${pushname}\n\n${aimenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'religionmenu': {
-        let alyamenu = `Hi ${pushname}\n\n${religionmenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'listmenu': {
-        let alyamenu = `Hi ${pushname}\n\n${listmenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
-    case 'convertmenu': {
-        let alyamenu = `Hi ${pushname}\n\n${convertmenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
-    }
+    case 'allmenu':
+    case 'ownermenu':
+    case 'othermenu':
+    case 'downloadmenu':
+    case 'groupmenu':
+    case 'gamemenu':
+    case 'funmenu':
+    case 'stalkermenu':
+    case 'randomphotomenu':
+    case 'randomvideomenu':
+    case 'nsfwmenu':
+    case 'animemenu':
+    case 'stickermenu':
+    case 'databasemenu':
+    case 'searchmenu':
+    case 'storemenu':
+    case 'aimenu':
+    case 'religionmenu':
+    case 'listmenu':
+    case 'convertmenu':
     case 'bugmenu': {
-        let alyamenu = `Hi ${pushname}\n\n${bugmenu(prefix, hituet)}`;
-        await generateMenuMessage(alyamenu, m);
-        break;
+        let menuName = command; // Get the current command name
+        let alyamenu = `Hi ${pushname}\n\n${menuName}`; // Replace const cases with the command name
+
+        let msg = generateWAMessageFromContent(from, {
+            viewOnceMessage: {
+                message: {
+                    "messageContextInfo": {
+                        "deviceListMetadata": {},
+                        "deviceListMetadataVersion": 2
+                    },
+                    interactiveMessage: proto.Message.InteractiveMessage.create({
+                        body: proto.Message.InteractiveMessage.Body.create({
+                            text: alyamenu
+                        }),
+                        footer: proto.Message.InteractiveMessage.Footer.create({
+                            text: botname
+                        }),
+                        header: proto.Message.InteractiveMessage.Header.create({
+                            ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                            title: '',
+                            hasMediaAttachment: false
+                        }),
+                        nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                            buttons: [
+                                {
+                                    "name": "cta_url",
+                                    "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                                }
+                            ]
+                        })
+                    })
+                }
+            }
+        }, { quoted: m });
+
+        await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+            messageId: msg.key.id
+        });
     }
 }
+break;
             case 'checkaccount':
             case 'account': {
                let a = db.data.users[sender]
