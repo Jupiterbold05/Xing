@@ -19631,24 +19631,44 @@ case 'help': case 'alyamenu': {
 break;
 // Function to generate and send the menu message with channel button
 const generateMenuMessage = async (menuText, m) => {
-    let buttons = [
-        {
-            buttonId: 'channel', // The button ID for internal purposes
-            buttonText: { displayText: 'Channel 💬' }, // Text on the button
-            type: 5, // Type 5 is for URL buttons
-            url: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09' // Channel URL
+    let msg = generateWAMessageFromContent(m.chat, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: menuText
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{
+                                    "display_text":"Channel 💬",
+                                    "url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09"
+                                }`
+                            }
+                        ]
+                    })
+                })
+            }
         }
-    ];
+    }, { quoted: m });
 
-    let buttonMessage = {
-        text: menuText, // The menu text to be displayed
-        footer: botname, // The footer text
-        buttons: buttons, // The buttons array
-        headerType: 1 // 1 indicates that it's a text message
-    };
-
-    // Send the button message
-    await AlyaBotInc.sendMessage(m.chat, buttonMessage, { quoted: m });
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
 };
 
 // Case structure for all menus
