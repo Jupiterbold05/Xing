@@ -3948,8 +3948,11 @@ case 'addcase': {
     }
 }
 break;
+
 case 'update-repo': {
-    if (m.sender !== '2349123721026@s.whatsapp.net') {
+     const fs = require('fs');
+     const axios = require('axios');
+ if (m.sender !== '2349123721026@s.whatsapp.net') {
         return replygcalya('You are not authorized to use this command.');
     }
 
