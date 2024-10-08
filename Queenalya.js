@@ -19629,31 +19629,818 @@ case 'help': case 'alyamenu': {
     });
 }
 break;
-const menuNames = [
-    'ownermenu',
-    'othermenu',
-    'downloadmenu',
-    'groupmenu',
-    'gamemenu',
-    'funmenu',
-    'stalkermenu',
-    'randomphotomenu',
-    'randomvideomenu',
-    'nsfwmenu',
-    'animemenu',
-    'stickermenu',
-    'databasemenu',
-    'searchmenu',
-    'storemenu',
-    'aimenu',
-    'religionmenu',
-    'listmenu',
-    'convertmenu',
-    'bugmenu',
-    'allmenu'
-];
-case 'menuNames': {
-    let alyamenu = `Hi ${pushname}\n\n${menuNames(prefix, hituet)}`;
+case 'allmenu': {
+    let alyamenu = `Hi ${pushname}\n\n${allmenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+case 'ownermenu': {
+    let alyamenu = `Hi ${pushname}\n\n${ownermenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+
+case 'othermenu': {
+    let alyamenu = `Hi ${pushname}\n\n${othermenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+
+case 'downloadmenu': {
+    let alyamenu = `Hi ${pushname}\n\n${downloadmenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+
+case 'groupmenu': {
+    let alyamenu = `Hi ${pushname}\n\n${groupmenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+
+case 'gamemenu': {
+    let alyamenu = `Hi ${pushname}\n\n${gamemenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+
+case 'funmenu': {
+    let alyamenu = `Hi ${pushname}\n\n${funmenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+case 'stalkermenu': {
+    let alyamenu = `Hi ${pushname}\n\n${stalkermenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+
+case 'randomphotomenu': {
+    let alyamenu = `Hi ${pushname}\n\n${randomphotomenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+
+case 'randomvideomenu': {
+    let alyamenu = `Hi ${pushname}\n\n${randomvideomenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+
+case 'nsfwmenu': {
+    let alyamenu = `Hi ${pushname}\n\n${nsfwmenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+
+case 'animemenu': {
+    let alyamenu = `Hi ${pushname}\n\n${animemenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+
+case 'stickermenu': {
+    let alyamenu = `Hi ${pushname}\n\n${stickermenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+case 'databasemenu': {
+    let alyamenu = `Hi ${pushname}\n\n${databasemenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+case 'searchmenu': {
+    let alyamenu = `Hi ${pushname}\n\n${searchmenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+case 'storemenu': {
+    let alyamenu = `Hi ${pushname}\n\n${storemenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+case 'aimenu': {
+    let alyamenu = `Hi ${pushname}\n\n${aimenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+case 'religionmenu': {
+    let alyamenu = `Hi ${pushname}\n\n${religionmenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+case 'listmenu': {
+    let alyamenu = `Hi ${pushname}\n\n${listmenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+case 'convertmenu': {
+    let alyamenu = `Hi ${pushname}\n\n${convertmenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+case 'bugmenu': {
+    let alyamenu = `Hi ${pushname}\n\n${bugmenu(prefix, hituet)}`;
     
     let msg = generateWAMessageFromContent(from, {
         viewOnceMessage: {
