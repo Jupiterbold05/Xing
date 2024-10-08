@@ -19913,7 +19913,7 @@ let msg = generateWAMessageFromContent(m.chat, {
     // Add break here to exit the case
     break;
 }
-case 'allmenu': {
+  case 'allmenu': {
 let alyamenu = `Hi ${pushname}${readmore}\n\n${allmenu(prefix, hituet)}`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
