@@ -19832,7 +19832,7 @@ let msg = generateWAMessageFromContent(m.chat, {
         messageId: msg.key.id
     })
 }
-break
+break;
 case 'allmenu': {
 let alyamenu = `Hi ${pushname}${readmore}\n\n${allmenu(prefix, hituet)}`
 if (typemenu === 'v1') {
