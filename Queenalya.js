@@ -19670,7005 +19670,869 @@ break;
 }
 break;
             case 'ownermenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${ownermenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
-}
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${ownermenu(prefix, hituet)}`;
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+    // General message configuration
+    const messageConfig = {
+        text: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: ownername,
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
+        }
+    };
+
+    // Sending message with only the channel button
+    const msg = generateWAMessageFromContent(m.chat, {
+        interactiveMessage: proto.Message.InteractiveMessage.create({
+            body: proto.Message.InteractiveMessage.Body.create({
+                text: alyamenu,
+            }),
+            footer: proto.Message.InteractiveMessage.Footer.create({
+                text: botname,
+            }),
+            header: proto.Message.InteractiveMessage.Header.create({
+                title: '',
+                subtitle: ownername,
+                hasMediaAttachment: false
+            }),
+            nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                buttons: [
+                    {
+                        "name": "cta_url",
+                        "buttonParamsJson": "{\"display_text\":\"Channel 💬\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
+                    }
+                ]
+            })
+        })
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
         messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
+    });
 }
-}
-break
+break;
 case 'othermenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${othermenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
-}
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${othermenu(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(m.chat, {
         viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
+            message: {
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        title: 'Menu',
+                        subtitle: ownername,
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": "{\"display_text\":\"Channel 📢\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
+                            }
+                        ],
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
 }
-}
-break
+break;
 case 'downloadmenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${downloadmenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
-}
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${downloadmenu(prefix, hituet)}`;
+    AlyaBotInc.sendMessage(m.chat, {
+        text: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: '',
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
+        }
+    }, {
+        quoted: m
+    });
+    
+    // Channel button as the only button in the interactive message
+    let msg = generateWAMessageFromContent(m.chat, {
         viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: ''
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        title: '',
+                        subtitle: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": "{\"display_text\":\"Visit Our Channel 💬\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
 }
-}
-break
+break;
 case 'groupmenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${groupmenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
-}
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${groupmenu(prefix, hituet)}`;
+    
+    // Unified response with the channel button only
+    AlyaBotInc.sendMessage(m.chat, {
+        text: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: ownername,
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
         },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
+        buttons: [
+            {
+                buttonId: 'channel_button',
+                buttonText: { displayText: 'Join Channel 📢' },
+                type: 1,
+            },
+        ],
+        footer: `Click the button to join our channel!`,
+    }, {
+        quoted: m,
+    });
 }
-}
-break
+break;
 case 'gamemenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${gamemenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${gamemenu(prefix, hituet)}`;
+    AlyaBotInc.sendMessage(m.chat, {
+        text: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: ownername,
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
+        }
+    }, {
+        quoted: m
+    });
 }
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-}
-}
-break
+break;
 case 'funmenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${funmenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
-}
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${funmenu(prefix, hituet)}`;
+    
+    // Send the image message with the caption
+    AlyaBotInc.sendMessage(m.chat, {
+        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+        caption: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: ownername,
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: wagc,
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
+        }
+    }, {
+        quoted: m
+    });
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+    // Create interactive message with only the channel button
+    let msg = generateWAMessageFromContent(m.chat, {
+        interactiveMessage: proto.Message.InteractiveMessage.create({
+            body: proto.Message.InteractiveMessage.Body.create({
+                text: alyamenu
+            }),
+            footer: proto.Message.InteractiveMessage.Footer.create({
+                text: botname
+            }),
+            header: proto.Message.InteractiveMessage.Header.create({
+                title: ownername,
+                subtitle: botname,
+                hasMediaAttachment: false
+            }),
+            nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                buttons: [
+                    {
+                        "name": "cta_url",
+                        "buttonParamsJson": "{\"display_text\":\"Channel 📢\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\"}"
+                    }
+                ]
+            }),
+            contextInfo: {
+                mentionedJid: [m.sender],
+                forwardingScore: 999,
+                isForwarded: true
+            }
+        })
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
         messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
+    });
 }
-}
-break
+break;
 case 'stalkermenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${stalkermenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
-}
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${stalkermenu(prefix, hituet)}`;
+    
+    AlyaBotInc.sendMessage(m.chat, {
+        text: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: ownername,
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: wagc,
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
+        }
+    }, {
+        quoted: m
+    });
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
+    let msg = generateWAMessageFromContent(m.chat, {
         viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ??",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        title: botname,
+                        subtitle: ownername,
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": "{\"display_text\":\"Join Our Channel 📢\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
 }
-}
-break
+break;
 case 'randomphotomenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${randphotomenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
-}
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${randphotomenu(prefix, hituet)}`;
+    let msgContent = {
+        text: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: ownername,
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: wagc,
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
+        }
+    };
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+    let button = [
+        {
+            "name": "cta_url",
+            "buttonParamsJson": "{\"display_text\":\"Channel 📺\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
+        }
+    ];
+
+    let msg = generateWAMessageFromContent(m.chat, {
+        interactiveMessage: proto.Message.InteractiveMessage.create({
+            body: proto.Message.InteractiveMessage.Body.create({
+                text: alyamenu
+            }),
+            footer: proto.Message.InteractiveMessage.Footer.create({
+                text: botname
+            }),
+            header: proto.Message.InteractiveMessage.Header.create({
+                title: ownername,
+                subtitle: '', // Can be used for an additional subtitle if needed
+                hasMediaAttachment: true
+            }),
+            nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                buttons: button
+            })
+        })
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(m.key.remoteJid, msg.message, {
         messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
+    });
 }
-}
-break
+break;
 case 'randomvideomenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${randvideomenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
-}
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${randvideomenu(prefix, hituet)}`;
+    
+    // Create a single message with only the channel button
+    const channelButtonMessage = {
+        text: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: ownername,
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09', // Channel link
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
         },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
+        footer: "Join our channel",
+        buttons: [
+            {
+                buttonId: "channel_button",
+                buttonText: { displayText: "Join Channel" },
+                type: 1
+            }
+        ]
+    };
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
+    AlyaBotInc.sendMessage(m.chat, channelButtonMessage, { quoted: m });
 }
-}
-break
+break;
 case 'nsfwmenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${nsfwmenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
-}
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${nsfwmenu(prefix, hituet)}`;
+    
+    const channelButton = [
+        {
+            "name": "cta_url",
+            "buttonParamsJson": "{\"display_text\":\"Join Channel 📢\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
+        }
+    ];
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
+    AlyaBotInc.sendMessage(m.chat, {
+        text: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: ownername,
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: wagc,
+                mediaType: 1,
+                renderLargerThumbnail: true
+            },
+            interactiveMessage: proto.Message.InteractiveMessage.create({
                 nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
+                    buttons: channelButton
+                })
+            })
+        }
+    }, { quoted: m });
 }
-}
-break
+break;
 case 'animemenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${animemenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
-}
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${animemenu(prefix, hituet)}`;
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
+    const channelButton = [
+        {
+            "name": "cta_url",
+            "buttonParamsJson": "{\"display_text\":\"Join Channel 📢\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
+        }
+    ];
+
+    AlyaBotInc.sendMessage(m.chat, {
+        text: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: ownername,
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: wagc,
+                mediaType: 1,
+                renderLargerThumbnail: true
+            },
+            interactiveMessage: proto.Message.InteractiveMessage.create({
                 nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
+                    buttons: channelButton
+                })
+            })
+        }
+    }, { quoted: m });
 }
-}
-break
+break;
 case 'stickermenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${stickermenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${stickermenu(prefix, hituet)}`;
+    
+    AlyaBotInc.sendMessage(m.chat, {
+        text: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: '',
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
+        }
+    }, {
+        quoted: m
+    });
 }
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-}
-}
-break
+break;
 case 'databasemenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${databasemenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
-}
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${databasemenu(prefix, hituet)}`;
+    
+    AlyaBotInc.sendMessage(m.chat, {
+        text: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: '', // Removed owner name
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
+        }
+    }, {
+        quoted: m
+    });
+    
+    // Adding channel button
+    let msg = generateWAMessageFromContent(m.chat, {
         viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        title: '', // No title
+                        gifPlayback: true,
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": "{\"display_text\":\"Join Channel 📲\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
 }
-}
-break
+break;
 case 'searchmenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${searchmenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
-}
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${searchmenu(prefix, hituet)}`;
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
+    // Send the message with only the channel button
+    AlyaBotInc.sendMessage(m.chat, {
+        text: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: '',
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
+        }
+    }, {
+        quoted: m
+    });
+
+    // Using a single button for the channel link
+    let msg = generateWAMessageFromContent(m.chat, {
         viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        title: 'Join Our Channel!',
+                        subtitle: 'Click the button below',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": "{\"display_text\":\"Join Channel 💬\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
 }
-}
-break
+break;
 case 'storemenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${storemenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
-}
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${storemenu(prefix, hituet)}`;
+    
+    AlyaBotInc.sendMessage(m.chat, {
+        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+        caption: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: '',
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
         },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
+        buttons: [
+            {
+                buttonId: 'channel_button',
+                buttonText: { displayText: 'Join Channel 💬' },
+                type: 1
+            }
+        ]
+    }, {
+        quoted: m
+    });
 }
-}
-break
+break;
 case 'aimenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${aimenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
-}
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${aimenu(prefix, hituet)}`;
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
+    // Using image message
+    AlyaBotInc.sendMessage(m.chat, {
+        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+        caption: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: '',
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
         },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
+        buttons: [
+            {
+                buttonId: 'channel_button',
+                buttonText: { displayText: 'Join Channel 💬' },
+                type: 1
+            }
+        ]
+    }, {
+        quoted: m
+    });
 }
-}
-break
+break;
 case 'religionmenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${religionmenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
-}
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${religionmenu(prefix, hituet)}`;
+    
+    // Send image response
+    AlyaBotInc.sendMessage(m.chat, {
+        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+        caption: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: ownername,
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: wagc,
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
+        }
+    }, { quoted: m });
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
+    // Interactive message with channel button
+    let msg = generateWAMessageFromContent(m.chat, {
         viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        title: alyamenu,
+                        subtitle: ownername,
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": "{\"display_text\":\"Join Channel 💬\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
 }
-}
-break
+break;
 case 'listmenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${listmenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
-}
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${listmenu(prefix, hituet)}`;
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
+    // Send image response
+    AlyaBotInc.sendMessage(m.chat, {
+        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+        caption: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: '',
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: wagc,
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
+        }
+    }, { quoted: m });
+
+    // Interactive message with channel button
+    let msg = generateWAMessageFromContent(m.chat, {
         viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        title: alyamenu,
+                        subtitle: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": "{\"display_text\":\"Join Channel 💬\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
 }
-}
-break
+break;
 case 'convertmenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${convertmenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
-}
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${convertmenu(prefix, hituet)}`;
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+    AlyaBotInc.sendMessage(m.chat, {
+        text: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: ownername,
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
+        }
+    }, { quoted: m });
+
+    let msg = generateWAMessageFromContent(m.chat, {
+        interactiveMessage: proto.Message.InteractiveMessage.create({
+            body: proto.Message.InteractiveMessage.Body.create({
+                text: alyamenu
+            }),
+            footer: proto.Message.InteractiveMessage.Footer.create({
+                text: botname
+            }),
+            header: proto.Message.InteractiveMessage.Header.create({
+                title: ownername,
+                subtitle: '',
+                hasMediaAttachment: false
+            }),
+            nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                buttons: [
+                    {
+                        "name": "cta_url",
+                        "buttonParamsJson": "{\"display_text\":\"Join Channel 💬\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
+                    }
+                ]
+            })
+        })
+    }, { quoted: m });
+
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
         messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
-
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
+    });
 }
-}
-break
+break;
 case 'bugmenu': {
-let alyamenu = `Hi ${pushname}${readmore}\n\n${bugmenu(prefix, hituet)}`
-if (typemenu === 'v1') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v2') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        text: alyamenu,
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: m
-                    })
-                }   if (typemenu === 'v3') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v4') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-                        caption: alyamenu,
-                        gifPlayback: true
-                    }, {
-                        quoted: m
-                    })
-                } else if (typemenu === 'v5') {
-                    AlyaBotInc.relayMessage(m.chat, {
-                        scheduledCallCreationMessage: {
-                            callType: "AUDIO",
-                            scheduledTimestampMs: 1200,
-                            title: alyamenu
-                        }
-                    }, { quoted: m })
-                } else if (typemenu === 'v6') {
-                    AlyaBotInc.relayMessage(m.chat,  {
-                       requestPaymentMessage: {
-                          currencyCodeIso4217: 'INR',
-                          amount1000: '9999999900',
-                          requestFrom: m.sender,
-                          noteMessage: {
-                             extendedTextMessage: {
-                                text: alyamenu,
-                                contextInfo: {
-                                   externalAdReply: {
-                                       showAdAttribution: true
-                                   }
-                                }
-                             }
-                          }
-                       }
-                    }, { quoted: m })
-                } else if (typemenu === 'v7') {
-                    AlyaBotInc.sendMessage(m.chat, {
-                        document: {
-                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
-                        },
-                        caption: alyamenu,
-                        mimetype: 'application/zip',
-                        fileName: ownername,
-                        fileLength: "99999999999",
-                        contextInfo: {
-                            externalAdReply: {
-                                showAdAttribution: true,
-                                title: botname,
-                                body: ownername,
-                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    }, {
-                        quoted: fstatus 
-                    })
-                } else if (typemenu === 'v8') {
-                	AlyaBotInc.sendMessage(m.chat, {
-      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-      gifPlayback: true,
-      caption: alyamenu,
-      contextInfo: {
-      externalAdReply: {
-      title: botname,
-      body: ownername,
-      thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-      sourceUrl: ``,
-      mediaType: 1,
-      renderLargerThumbnail: true
-      }
-      }
-      }, {
-                        quoted: m
-                    })
-                    } else if (typemenu === 'v9') {
-                	AlyaBotInc.sendMessage(m.chat, {
-video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
-caption: alyamenu,
-gifPlayback: true,
-contextInfo: {
-forwardingScore: 999,
-isForwarded: true,
-mentionedJid: [sender],
-forwardedNewsletterMessageInfo: {
-newsletterName: ownername,
-newsletterJid: "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
-},
-externalAdReply: {
-showAdAttribution: true,
-title: ownername,
-body: botname,
-thumbnailUrl: "https://i.imgur.com/QfDM014.jpeg",
-sourceUrl: websitex,
-mediaType: 1,
-renderLargerThumbnail: true
-}
-}
-}, {
-quoted: m
-})
-} else if (typemenu === 'v10') {
-let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: ownername
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            title: alyamenu,
-            subtitle: themeemoji,
-            hasMediaAttachment: false
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          })
-        })
-    }
-  }
-}, { quoted: m })
+    let alyamenu = `Hi ${pushname}${readmore}\n\n${bugmenu(prefix, hituet)}`;
+    
+    AlyaBotInc.sendMessage(m.chat, {
+        text: alyamenu,
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: botname,
+                body: '',
+                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
+        }
+    }, {
+        quoted: m
+    });
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-} else if (typemenu === 'v11') {
-let msg = generateWAMessageFromContent(m.chat, {
+    // The channel button
+    let msg = generateWAMessageFromContent(m.chat, {
         viewOnceMessage: {
-          message: {
-              "messageContextInfo": {
-                "deviceListMetadata": {},
-                "deviceListMetadataVersion": 2
-              },
-              interactiveMessage: proto.Message.InteractiveMessage.create({
-                body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.create({
-                  text: botname
-                }),
-                header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                  buttons: [
-             {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },              
-              {
-  "name": "quick_reply",
-  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
-   },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-                                  ],
-                }),
-                contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-              }
-              })
-          }
-        },
-      }, { quoted: m })
-      
-      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-        })
-        } else if (typemenu === 'v12') {
-        let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${ownername}",
-"highlight_label":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        title: '',
+                        subtitle: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": "{\"display_text\":\"Join Channel 💬\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
+                            }
+                        ]
+                    })
+                })
+            }
+        }
+    }, { quoted: m });
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
 }
-}
-break
+break;
             case 'checkaccount':
             case 'account': {
                let a = db.data.users[sender]
