@@ -19629,7 +19629,6 @@ case 'help': case 'alyamenu': {
     });
 }
 break;
-// Define the constant list of menu names
 const menuNames = [
     'ownermenu',
     'othermenu',
@@ -19653,69 +19652,44 @@ const menuNames = [
     'bugmenu',
     'allmenu'
 ];
-
-// Command handler (assuming you have this somewhere in your bot code)
-switch(command) {
-    case 'allmenu':
-    case 'ownermenu':
-    case 'othermenu':
-    case 'downloadmenu':
-    case 'groupmenu':
-    case 'gamemenu':
-    case 'funmenu':
-    case 'stalkermenu':
-    case 'randomphotomenu':
-    case 'randomvideomenu':
-    case 'nsfwmenu':
-    case 'animemenu':
-    case 'stickermenu':
-    case 'databasemenu':
-    case 'searchmenu':
-    case 'storemenu':
-    case 'aimenu':
-    case 'religionmenu':
-    case 'listmenu':
-    case 'convertmenu':
-    case 'bugmenu': {
-        let menuName = command; // Get the current command name
-        let alyamenu = `Hi ${pushname}\n\n${menuName}`; // Replace const cases with the command name
-
-        let msg = generateWAMessageFromContent(from, {
-            viewOnceMessage: {
-                message: {
-                    "messageContextInfo": {
-                        "deviceListMetadata": {},
-                        "deviceListMetadataVersion": 2
-                    },
-                    interactiveMessage: proto.Message.InteractiveMessage.create({
-                        body: proto.Message.InteractiveMessage.Body.create({
-                            text: alyamenu
-                        }),
-                        footer: proto.Message.InteractiveMessage.Footer.create({
-                            text: botname
-                        }),
-                        header: proto.Message.InteractiveMessage.Header.create({
-                            ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
-                            title: '',
-                            hasMediaAttachment: false
-                        }),
-                        nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                            buttons: [
-                                {
-                                    "name": "cta_url",
-                                    "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
-                                }
-                            ]
-                        })
+case 'menuNames': {
+    let alyamenu = `Hi ${pushname}\n\n${menuNames(prefix, hituet)}`;
+    
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "cta_url",
+                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
+                            }
+                        ]
                     })
-                }
+                })
             }
-        }, { quoted: m });
+        }
+    }, { quoted: m });
 
-        await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-            messageId: msg.key.id
-        });
-    }
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
 }
 break;
             case 'checkaccount':
