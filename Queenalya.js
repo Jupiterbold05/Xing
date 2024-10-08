@@ -4000,7 +4000,9 @@ case 'update-repo': {
                 
                 // Notify the user and restart the bot
                 replygcalya('Queenalya.js has been updated. Restarting the bot...');
-                restartBot(); // Ensure you have a restartBot function
+                // Call the shutdown function to restart the bot
+                await sleep(3000); // Optional sleep before restarting
+                process.exit();
             } catch (fileError) {
                 console.error(`Error downloading the update for ${filePath}:`, fileError);
                 replygcalya(`Failed to download the update for ${filePath}. Please try again later.`);
