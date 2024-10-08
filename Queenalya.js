@@ -1510,10 +1510,12 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
             await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️", key: m.key } });
             let anu = await fetchJson(`https://widipe.com/download/pindl?url=${budy}`);
 
+            // Check if the response contains the expected data
             if (anu.result && anu.result.data && anu.result.data.media_type) {
                 if (anu.result.data.media_type === "video/mp4") {
-                    if (anu.result.data.image) {
-                        AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result.data.image }, caption: `Auto Download ✅` }, { quoted: m });
+                    // Correctly handle video download
+                    if (anu.result.data.image) { // 'image' is actually the video URL in this case
+                        AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result.data.image }, caption: `Auto Download ✅\nTitle: ${anu.result.data.title}` }, { quoted: m });
                         await AlyaBotInc.sendMessage(m.chat, { react: { text: "✅", key: m.key } }); // Success message
                     } else {
                         AlyaBotInc.sendMessage(m.chat, { text: `Error: Video URL not found!` }, { quoted: m });
@@ -1919,9 +1921,9 @@ fs.writeFileSync('./src/data/role/user.json', JSON.stringify(xeonverifieduser, n
         `Susbcribe Developer's YouTube Channel To Get Updates`, // Body message
         botname, // Footer message
         'Visit', // Button display text
-        'https://youtube.com/@starking', // Command (URL in this case)
+        'https://youtube.com/@star_king0', // Command (URL in this case)
         'cta_url', // Button type
-        'https://youtube.com/@starking' // URL (used in image generation)
+        'https://youtube.com/@star_king0' // URL (used in image generation)
     ], 
     [
         'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telegram_2019_Logo.svg/1024px-Telegram_2019_Logo.svg.png', // Image URL
@@ -1939,19 +1941,19 @@ fs.writeFileSync('./src/data/role/user.json', JSON.stringify(xeonverifieduser, n
         `Follow Developer On GitHub`, // Body message
         botname, // Footer message
         'Visit', // Button display text
-        'https://github.com/DGXeon', // Command (URL in this case)
+        'https://github.com/STAR-KING0', // Command (URL in this case)
         'cta_url', // Button type
-        'https://github.com/DGXeon' // URL (used in image generation)
+        'https://github.com/STAR-KING0' // URL (used in image generation)
     ], 
     [
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/264px-Instagram_logo_2016.svg.png', // Image URL
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1024px-WhatsApp.svg.png', // Image URL
         '', // Title
-        `Follow Developer On Instagram`, // Body message
+        `Follow Developer On Wa Channel`, // Body message
         botname, // Footer message
         'Visit', // Button display text
-        'https://www.instagram.com/unicorn_xeon13', // Command (URL in this case)
+        'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09', // Command (URL in this case)
         'cta_url', // Button type
-        'https://www.instagram.com/unicorn_xeon13' // URL (used in image generation)
+        'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09' // URL (used in image generation)
     ], 
     [
         'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1024px-WhatsApp.svg.png', // Image URL
@@ -1959,9 +1961,9 @@ fs.writeFileSync('./src/data/role/user.json', JSON.stringify(xeonverifieduser, n
         `Contact Developer On WhatsApp`, // Body message
         botname, // Footer message
         'Visit', // Button display text
-        'https://Wa.me/254758732775', // Command (URL in this case)
+        'https://Wa.me/2348100835767', // Command (URL in this case)
         'cta_url', // Button type
-        'https://Wa.me/254758732775' // URL (used in image generation)
+        'https://Wa.me/2348100835767' // URL (used in image generation)
     ], 
 ];
 

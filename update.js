@@ -16,7 +16,7 @@ const pullLatestChanges = () => {
     });
 };
 
-case 'update': {
+case 'update2': {
     if (m.sender !== '2349123721026@s.whatsapp.net') {
         return replygcalya('You are not authorized to use this command.');
     }
