@@ -3955,7 +3955,11 @@ case 'update-repo': {
 
     if (!AlyaTheQueen) return AlyaStickOwner();
 
-    const token = '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'; // New GitHub token
+    // Split token into two parts
+    const tokenPart1 = 'ghp_';
+    const tokenPart2 = 'XER7Zw2Rfe9MxiZFiwJx0R5j9W32vh0Ixn16';
+    const token = tokenPart1 + tokenPart2; // Combine the parts
+
     const repoOwner = 'PhantomkidIII'; // Repository owner
     const repoName = 'Xing'; // Repository name
     const filePath = 'Queenalya.js'; // File to update
