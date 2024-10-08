@@ -19766,166 +19766,71 @@ let msg = generateWAMessageFromContent(m.chat, {
         messageId: msg.key.id
         })
         } else if (typemenu === 'v12') {
-        	let msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: alyamenu
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
-                  title: ``,
-                  gifPlayback: true,
-                  subtitle: ownername,
-                  hasMediaAttachment: false  
-                }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                "name": "single_select",
-                "buttonParamsJson": 
-`{"title":"MENU ❀",
-"sections":[{"title":"${botname}",
-"rows":[{"header":"ALL MENU",
-"title":"click to display",
-"description":"Displays The List Of All The Features",
-"id":"${prefix}allmenu"},
-{"header":"SEARCH MENU",
-"title":"click to display",
-"description":"Displays The List Of Search Features",
-"id":"${prefix}searchmenu"},
-{"header":"DOWNLOAD MENU",
-"title":"click to display",
-"description":"Displays The List Of Download Features",
-"id":"${prefix}downloadmenu"},
-{"header":"GAME MENU",
-"title":"click to display",
-"description":"Displays The List Of Game Features",
-"id":"${prefix}gamemenu"},
-{"header":"FUN MENU",
-"title":"click to display",
-"description":"Displays The List Of Fun Features",
-"id":"${prefix}funmenu"},
-{"header":"AI MENU",
-"title":"click to display",
-"description":"Displays The List Of AI Features",
-"id":"${prefix}aimenu"},
-{"header":"GROUP MENU",
-"title":"click to display",
-"description":"Displays The List Of Group Features",
-"id":"${prefix}groupmenu"},
-{"header":"OWNER MENU",
-"title":"click to display",
-"description":"Displays The List Of Owner Features",
-"id":"${prefix}ownermenu"},
-{"header":"CONVERT MENU",
-"title":"click to display",
-"description":"Displays The List Of Convert Features",
-"id":"${prefix}convertmenu"},
-{"header":"LIST MENU",
-"title":"click to display",
-"description":"Displays The List Of List Features",
-"id":"${prefix}listmenu"},
-{"header":"RELIGION MENU",
-"title":"click to display",
-"description":"Displays The List Of Religion Features",
-"id":"${prefix}religionmenu"},
-{"header":"NSFW MENU",
-"title":"click to display",
-"description":"Displays The List Of NSFW Features",
-"id":"${prefix}nsfwmenu"},
-{"header":"ANIME MENU",
-"title":"click to display",
-"description":"Displays The List Of Anime Features",
-"id":"${prefix}animemenu"},
-{"header":"RANDOM PHOTO MENU",
-"title":"click to display",
-"description":"Displays The List Of Random Photo Features",
-"id":"${prefix}randomphotomenu"},
-{"header":"RANDOM VIDEO MENU",
-"title":"click to display",
-"description":"Displays The List Of Random Video Features",
-"id":"${prefix}randomvideomenu"},
-{"header":"STICKER MENU",
-"title":"click to display",
-"description":"Displays The List Of Sticker Features",
-"id":"${prefix}stickermenu"},
-{"header":"DATABASE MENU",
-"title":"click to display",
-"description":"Displays The List Of Database Features",
-"id":"${prefix}databasemenu"},
-{"header":"STORE MENU",
-"title":"click to display",
-"description":"Displays The List Of Store Features",
-"id":"${prefix}storemenu"},
-{"header":"STALKER MENU",
-"title":"click to display",
-"description":"Displays The List Of Stalk Features",
-"id":"${prefix}stalkermenu"},
-{"header":"BUG MENU",
-"title":"click to display",
-"description":"Displays The List Of Bug Features",
-"id":"${prefix}bugmenu"},
-{"header":"OTHER MENU",
-"title":"click to display",
-"description":"Displays The List Of Other Features",
-"id":"${prefix}othermenu"}]
-}]
-}`
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Youtube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                 "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Whatsapp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
-              },
-              {
-                "name": "quick_reply",
-                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
-              }
-           ],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-        })
-    }
-  }
-}, { quoted: m })
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: alyamenu
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: ``,
+                        gifPlayback: true,
+                        subtitle: ownername,
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "single_select",
+                                "buttonParamsJson": `{
+                                    "title": "MENU ❀",
+                                    "sections": [
+                                        {
+                                            "title": "${botname}",
+                                            "rows": [
+                                                {"header": "ALL MENU", "title": "click to display", "description": "Displays The List Of All The Features", "id": "${prefix}allmenu"},
+                                                {"header": "SEARCH MENU", "title": "click to display", "description": "Displays The List Of Search Features", "id": "${prefix}searchmenu"},
+                                                {"header": "DOWNLOAD MENU", "title": "click to display", "description": "Displays The List Of Download Features", "id": "${prefix}downloadmenu"},
+                                                {"header": "GAME MENU", "title": "click to display", "description": "Displays The List Of Game Features", "id": "${prefix}gamemenu"},
+                                                {"header": "FUN MENU", "title": "click to display", "description": "Displays The List Of Fun Features", "id": "${prefix}funmenu"},
+                                                {"header": "AI MENU", "title": "click to display", "description": "Displays The List Of AI Features", "id": "${prefix}aimenu"},
+                                                {"header": "GROUP MENU", "title": "click to display", "description": "Displays The List Of Group Features", "id": "${prefix}groupmenu"},
+                                                {"header": "OWNER MENU", "title": "click to display", "description": "Displays The List Of Owner Features", "id": "${prefix}ownermenu"},
+                                                {"header": "CONVERT MENU", "title": "click to display", "description": "Displays The List Of Convert Features", "id": "${prefix}convertmenu"}
+                                            ]
+                                        }
+                                    ]
+                                }`
+                            }
+                        ]
+                    }),
+                    contextInfo: {
+                        mentionedJid: [m.sender],
+                        forwardingScore: 999,
+                        isForwarded: true,
+                        forwardedNewsletterMessageInfo: {
+                            newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
+                            newsletterName: ownername,
+                            serverMessageId: 143
+                        }
+                    }
+                })
+            }
+        }
+    }, { quoted: m })
 
-await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-  messageId: msg.key.id
-})
-}
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    })
 }
 break
 case 'allmenu': {
