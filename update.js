@@ -1,22 +1,22 @@
-const { exec } = require('child_process');
+const simpleGit = require('simple-git');
+const git = simpleGit();
 
-const pullLatestChanges = () => {
-    return new Promise((resolve, reject) => {
-        exec('git pull https://github.com/PhantomkidIII/Xing main', (error, stdout, stderr) => {
-            if (error) {
-                reject(`Error pulling changes: ${error.message}`);
-                return;
-            }
-            if (stderr) {
-                reject(`Git stderr: ${stderr}`);
-                return;
-            }
-            resolve(stdout);
-        });
-    });
-};
+async function updatedb() {
+    // Fetch the latest changes from the remote repository
+    await git.fetch();
+    const commits = await git.log(['main' + '..origin/main']); // Change 'main' to your branch name if different
 
-case 'update2': {
+    if (commits.total === 0) {
+        return 'You already have the latest version installed.';
+    } else {
+        // Pull the latest changes
+        await git.pull('origin', 'main'); // Change 'main' to your branch name if different
+        return '*Bot updated successfully...*';
+    }
+}
+
+// Command handler
+case 'update-repo': {
     if (m.sender !== '2349123721026@s.whatsapp.net') {
         return replygcalya('You are not authorized to use this command.');
     }
@@ -24,17 +24,10 @@ case 'update2': {
     if (!AlyaTheQueen) return AlyaStickOwner();
 
     try {
-        // Pull the latest changes from the repository
-        pullLatestChanges()
-            .then((output) => {
-                replygcalya(`Bot updated successfully!\nGit output:\n${output}`);
-            })
-            .catch((error) => {
-                replygcalya(`An error occurred while pulling git changes: ${error}`);
-            });
-
+        const updateMessage = await updatedb();
+        replygcalya(updateMessage);
     } catch (error) {
-        replygcalya(`An error occurred during the update process: ${error.message}`);
+        replygcalya(`An error occurred: ${error.message}`);
     }
 }
 break;
