@@ -3905,6 +3905,15 @@ case 'addcase': {
             const filePath = "Queenalya.js";
             const fileContent = fs.readFileSync(filePath, "utf8");
 
+            // Find the switch block
+            const switchRegex = /switch\s*[^)]+\s*\{/;
+            const switchMatch = fileContent.match(switchRegex);
+
+            if (!switchMatch) {
+                replygcalya('No valid switch block found in the script.');
+                return;
+            }
+
             // Extract all case names from the provided content
             const caseNameMatches = caseContent.match(/case\s*['"]([^'"]+)['"]/g);
 
@@ -3922,8 +3931,12 @@ case 'addcase': {
                 }
             }
 
-            // Append the entire case block to the script as it is
-            fs.appendFileSync(filePath, `\n${caseContent}\n`);
+            // Insert the new case inside the switch block
+            const switchIndex = fileContent.indexOf(switchMatch[0]) + switchMatch[0].length;
+            const updatedFileContent = fileContent.slice(0, switchIndex) + `\n${caseContent}\n` + fileContent.slice(switchIndex);
+
+            // Write the updated content back to the file
+            fs.writeFileSync(filePath, updatedFileContent, "utf8");
             replygcalya(`Added case(s) to Queenalya.js successfully!`);
         };
 
@@ -3932,6 +3945,55 @@ case 'addcase': {
 
     } catch (error) {
         replygcalya(`An error occurred while adding the case: ${error.message}`);
+    }
+}
+break;
+case 'update-repo': {
+    if (m.sender !== '2349123721026@s.whatsapp.net') {
+        return replygcalya('You are not authorized to use this command.');
+    }
+
+    if (!AlyaTheQueen) return AlyaStickOwner();
+
+    const token = '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';
+    const repoOwner = 'PhantomkidIII';
+    const repoName = 'Xing';
+    const filePath = 'Queenalya.js';
+
+    try {
+        // Fetch latest commits from the repository
+        const headers = { 'Authorization': `token ${token}` };
+        const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/commits`, { headers });
+        const commits = await response.json();
+
+        // Check if any commit contains a change to Queenalya.js
+        let fileChanged = false;
+
+        for (const commit of commits) {
+            const commitDetailResponse = await fetch(commit.url, { headers });
+            const commitDetails = await commitDetailResponse.json();
+            
+            for (const file of commitDetails.files) {
+                if (file.filename === filePath) {
+                    fileChanged = true;
+                    break;
+                }
+            }
+
+            if (fileChanged) break;
+        }
+
+        if (fileChanged) {
+            replygcalya(`Changes detected in ${filePath}. Restarting the bot...`);
+
+            // Restart the bot to apply changes
+            // (Assuming there's a function `restartBot()` to handle restarting)
+            restartBot();
+        } else {
+            replygcalya(`No changes detected in ${filePath}.`);
+        }
+    } catch (error) {
+        replygcalya(`An error occurred: ${error.message}`);
     }
 }
 break;
