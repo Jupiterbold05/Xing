@@ -3948,7 +3948,6 @@ case 'addcase': {
     }
 }
 break;
-
 case 'update-repo': {
     if (m.sender !== '2349123721026@s.whatsapp.net') {
         return replygcalya('You are not authorized to use this command.');
@@ -3956,67 +3955,64 @@ case 'update-repo': {
 
     if (!AlyaTheQueen) return AlyaStickOwner();
 
-    const token = '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';
-    const repoOwner = 'PhantomkidIII';
-    const repoName = 'Xing';
-    const filePath = 'Queenalya.js';
-    const commitFile = './temp_commits.txt'; // File to store commit history
+    const token = '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'; // Your GitHub token
+    const repoOwner = 'PhantomkidIII'; // Repository owner
+    const repoName = 'Xing'; // Repository name
+    const filePath = 'Queenalya.js'; // File to update
+    const commitFile = './current_commit.txt'; // File to store the latest commit SHA
 
     try {
-        // Fetch latest commit for Queenalya.js from the repository
-        const headers = { 'Authorization': `token ${token}` };
-        const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/commits?path=${filePath}`, { headers });
-
-        if (!response.ok) {
-            throw new Error('Failed to fetch commits.');
-        }
-
-        const commits = await response.json();
-
-        if (!Array.isArray(commits) || commits.length === 0) {
-            return replygcalya('No commits found for Queenalya.js.');
-        }
-
-        const latestCommitSha = commits[0].sha; // Get the latest commit SHA
-
-        // Read the stored commits from the temp file (if it exists)
-        let storedCommits = '';
-        if (fs.existsSync(commitFile)) {
-            storedCommits = await fs.promises.readFile(commitFile, 'utf-8');
-        }
-
-        // If the latest commit is not in the stored file, we update
-        if (!storedCommits.includes(latestCommitSha)) {
-            replygcalya('Updating Queenalya.js...');
-
-            // Fetch the latest Queenalya.js file content from the repository
-            const fileResponse = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}?ref=${latestCommitSha}`, { headers });
-            const fileData = await fileResponse.json();
-
-            if (!fileData.content) {
-                throw new Error('Failed to retrieve file content.');
+        // Fetch latest commits from the repository
+        const response = await axios.get(`https://api.github.com/repos/${repoOwner}/${repoName}/commits`, {
+            headers: {
+                'Authorization': `token ${token}`
             }
+        });
 
-            // Decode Base64 file content
-            const remoteFileContent = Buffer.from(fileData.content, 'base64').toString('utf-8');
+        const latestCommitSha = response.data[0].sha; // Latest commit SHA
 
-            // Update the local Queenalya.js file
-            await fs.promises.writeFile(`./${filePath}`, remoteFileContent);
+        let storedCommitSha = '';
+        try {
+            // Read the stored commit SHA
+            storedCommitSha = await fs.promises.readFile(commitFile, 'utf8');
+        } catch (err) {
+            console.log("No current_commit.txt found, assuming first run.");
+        }
 
-            // Update the commit log
-            await fs.promises.writeFile(commitFile, latestCommitSha + '\n' + storedCommits);
+        // Check if the latest commit is different from the stored one
+        if (latestCommitSha !== storedCommitSha) {
+            replygcalya('Update available! Downloading the update...');
 
-            // Restart the bot to apply changes
+            // Fetch and update the Queenalya.js file
+            await updateFile(latestCommitSha, filePath, `./${filePath}`);
+
+            // Store the latest commit SHA
+            await fs.promises.writeFile(commitFile, latestCommitSha, 'utf8');
+
             replygcalya('Queenalya.js has been updated. Restarting the bot...');
-            restartBot();
+            restartBot(); // Ensure you have a restartBot function
         } else {
-            replygcalya('Your bot is the latest version.');
+            replygcalya('You are using the latest version of the bot.');
         }
     } catch (error) {
-        replygcalya(`An error occurred: ${error.message}`);
+        console.error("Error checking for updates:", error.message);
+        replygcalya('Failed to check for updates. Please try again later.');
     }
 }
 break;
+
+// Function to update the file from GitHub
+async function updateFile(commitSha, remoteFile, localFile) {
+    const fileUrl = `https://raw.githubusercontent.com/${repoOwner}/${repoName}/${commitSha}/${remoteFile}`;
+    try {
+        const fileResponse = await axios.get(fileUrl);
+        fs.writeFileSync(localFile, fileResponse.data);
+        console.log(`${remoteFile} updated successfully.`);
+    } catch (error) {
+        console.error(`Error downloading the update for ${remoteFile}:`, error);
+        replygcalya(`Failed to download the update for ${remoteFile}. Please try again later.`);
+    }
+}
             //group
             case 'antibadword':
             case 'antitoxic':{
