@@ -19781,11 +19781,11 @@ let msg = generateWAMessageFromContent(m.chat, {
                         text: botname
                     }),
                     header: proto.Message.InteractiveMessage.Header.create({
-                        ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer })),
                         title: ``,
                         gifPlayback: true,
                         subtitle: ownername,
-                        hasMediaAttachment: false  
+                        hasMediaAttachment: false
                     }),
                     nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
                         buttons: [
@@ -19889,10 +19889,10 @@ let msg = generateWAMessageFromContent(m.chat, {
 }]
 }`
                             }
-                        ],
+                        ]
                     }),
                     contextInfo: {
-                        mentionedJid: [m.sender], 
+                        mentionedJid: [m.sender],
                         forwardingScore: 999,
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
@@ -19909,7 +19909,7 @@ let msg = generateWAMessageFromContent(m.chat, {
     await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
         messageId: msg.key.id
     });
-    
+
     // Add break here to exit the case
     break;
 }
