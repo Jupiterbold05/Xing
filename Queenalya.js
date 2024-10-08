@@ -3948,17 +3948,14 @@ case 'addcase': {
     }
 }
 break;
-
 case 'update-repo': {
-     const fs = require('fs');
-     const axios = require('axios');
- if (m.sender !== '2349123721026@s.whatsapp.net') {
+    if (m.sender !== '2349123721026@s.whatsapp.net') {
         return replygcalya('You are not authorized to use this command.');
     }
 
     if (!AlyaTheQueen) return AlyaStickOwner();
 
-    const token = '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'; // Your GitHub token
+    const token = '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'; // GitHub token
     const repoOwner = 'PhantomkidIII'; // Repository owner
     const repoName = 'Xing'; // Repository name
     const filePath = 'Queenalya.js'; // File to update
@@ -3976,7 +3973,7 @@ case 'update-repo': {
 
         let storedCommitSha = '';
         try {
-            // Read the stored commit SHA
+            // Read the stored commit SHA from current_commit.txt
             storedCommitSha = await fs.promises.readFile(commitFile, 'utf8');
         } catch (err) {
             console.log("No current_commit.txt found, assuming first run.");
@@ -3986,37 +3983,33 @@ case 'update-repo': {
         if (latestCommitSha !== storedCommitSha) {
             replygcalya('Update available! Downloading the update...');
 
-            // Fetch and update the Queenalya.js file
-            await updateFile(latestCommitSha, filePath, `./${filePath}`);
+            // Fetch and update Queenalya.js
+            const fileUrl = `https://raw.githubusercontent.com/${repoOwner}/${repoName}/${latestCommitSha}/${filePath}`;
+            try {
+                const fileResponse = await axios.get(fileUrl);
+                // Save the updated content to the local file
+                fs.writeFileSync(`./${filePath}`, fileResponse.data);
+                console.log(`${filePath} updated successfully.`);
 
-            // Store the latest commit SHA
-            await fs.promises.writeFile(commitFile, latestCommitSha, 'utf8');
-
-            replygcalya('Queenalya.js has been updated. Restarting the bot...');
-            restartBot(); // Ensure you have a restartBot function
+                // Store the latest commit SHA
+                await fs.promises.writeFile(commitFile, latestCommitSha, 'utf8');
+                
+                // Notify the user and restart the bot
+                replygcalya('Queenalya.js has been updated. Restarting the bot...');
+                restartBot(); // Ensure you have a restartBot function
+            } catch (fileError) {
+                console.error(`Error downloading the update for ${filePath}:`, fileError);
+                replygcalya(`Failed to download the update for ${filePath}. Please try again later.`);
+            }
         } else {
             replygcalya('You are using the latest version of the bot.');
         }
     } catch (error) {
-        console.error("Error checking for updates:", error.message);
+        console.error("Error checking for updates:", error.response ? error.response.data : error.message);
         replygcalya('Failed to check for updates. Please try again later.');
     }
 }
 break;
-
-// Function to update the file from GitHub
-async function updateFile(commitSha, remoteFile, localFile) {
-    const fileUrl = `https://raw.githubusercontent.com/${repoOwner}/${repoName}/${commitSha}/${remoteFile}`;
-    try {
-        const fileResponse = await axios.get(fileUrl);
-        fs.writeFileSync(localFile, fileResponse.data);
-        console.log(`${remoteFile} updated successfully.`);
-    } catch (error) {
-        console.error(`Error downloading the update for ${remoteFile}:`, error);
-        replygcalya(`Failed to download the update for ${remoteFile}. Please try again later.`);
-    }
-}
-            //group
             case 'antibadword':
             case 'antitoxic':{
 		         if (!m.isGroup) return AlyaStickGroup()
