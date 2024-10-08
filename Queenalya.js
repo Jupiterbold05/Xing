@@ -8087,32 +8087,12 @@ case 'song': {
     }, { quoted: m });
 }
 break;
-case 'ytmp3': case 'ytaudio':
-let xeonaudp3 = require('./lib/ytdl')
-if (args.length < 1 || !isUrl(text) || !xeonaudp3.isYTUrl(text)) return replygcalya(`Where's the yt link?\nExample: ${prefix + command} https://youtube.com/shorts/YQf-vMjDuKY?feature=share`)
-let audio = await xeonaudp3.mp3(text)
-await AlyaBotInc.sendMessage(m.chat,{
-    audio: fs.readFileSync(audio.path),
-    mimetype: 'audio/mp4', ptt: true,
-    contextInfo:{
-        externalAdReply:{
-            title:audio.meta.title,
-            body: botname,
-            thumbnail: await fetchBuffer(audio.meta.image),
-            mediaType:2,
-            mediaUrl:text,
-        }
-
-    },
-},{quoted:m})
-await fs.unlinkSync(audio.path)
-break
 case 'ytmp4': case 'ytvideo': {
     if (args.length < 1 || !isUrl(text) || !text.includes('youtube.com') && !text.includes('youtu.be')) {
         replygcalya(`Where is the link??\n\nExample : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag 128kbps`)
         break
     }
-    
+
     // Send loading reaction
     await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️", key: m.key }})
 
@@ -8124,18 +8104,9 @@ case 'ytmp4': case 'ytvideo': {
             break
         }
 
-        // Create the caption with video details
-        const ytc = `
-*${themeemoji}Title:* ${anu.result.title}
-*${themeemoji}Date:* ${anu.result.uploaded_on}
-*${themeemoji}Duration:* ${anu.result.duration}
-*${themeemoji}Quality:* ${anu.result.quality}
-*${themeemoji}Views:* ${anu.result.views}`
-
-        // Send the video to the user
+        // Send the video to the user without any caption
         await AlyaBotInc.sendMessage(m.chat, {
-            video: { url: anu.result.mp4 },
-            caption: ytc
+            video: { url: anu.result.mp4 }
         }, { quoted: m })
     } catch (err) {
         console.log(err)
