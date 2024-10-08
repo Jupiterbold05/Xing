@@ -3948,6 +3948,7 @@ case 'addcase': {
     }
 }
 break;
+
 case 'update-repo': {
     if (m.sender !== '2349123721026@s.whatsapp.net') {
         return replygcalya('You are not authorized to use this command.');
@@ -3959,6 +3960,7 @@ case 'update-repo': {
     const repoOwner = 'PhantomkidIII';
     const repoName = 'Xing';
     const filePath = 'Queenalya.js';
+    const commitFile = './temp_commits.txt'; // File to store commit history
 
     try {
         // Fetch latest commit for Queenalya.js from the repository
@@ -3975,27 +3977,37 @@ case 'update-repo': {
             return replygcalya('No commits found for Queenalya.js.');
         }
 
-        // Fetch the latest Queenalya.js file content from the repository
-        const latestCommitSha = commits[0].sha;
-        const fileResponse = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}?ref=${latestCommitSha}`, { headers });
-        const fileData = await fileResponse.json();
+        const latestCommitSha = commits[0].sha; // Get the latest commit SHA
 
-        if (!fileData.content) {
-            throw new Error('Failed to retrieve file content.');
+        // Read the stored commits from the temp file (if it exists)
+        let storedCommits = '';
+        if (fs.existsSync(commitFile)) {
+            storedCommits = await fs.promises.readFile(commitFile, 'utf-8');
         }
 
-        // Decode Base64 file content
-        const remoteFileContent = Buffer.from(fileData.content, 'base64').toString('utf-8');
+        // If the latest commit is not in the stored file, we update
+        if (!storedCommits.includes(latestCommitSha)) {
+            replygcalya('Updating Queenalya.js...');
 
-        // Compare the remote file content with the local file
-        const localFileContent = await fs.promises.readFile(`./${filePath}`, 'utf-8');
+            // Fetch the latest Queenalya.js file content from the repository
+            const fileResponse = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}?ref=${latestCommitSha}`, { headers });
+            const fileData = await fileResponse.json();
 
-        if (remoteFileContent !== localFileContent) {
+            if (!fileData.content) {
+                throw new Error('Failed to retrieve file content.');
+            }
+
+            // Decode Base64 file content
+            const remoteFileContent = Buffer.from(fileData.content, 'base64').toString('utf-8');
+
             // Update the local Queenalya.js file
             await fs.promises.writeFile(`./${filePath}`, remoteFileContent);
-            replygcalya('Queenalya.js has been updated. Restarting the bot...');
+
+            // Update the commit log
+            await fs.promises.writeFile(commitFile, latestCommitSha + '\n' + storedCommits);
 
             // Restart the bot to apply changes
+            replygcalya('Queenalya.js has been updated. Restarting the bot...');
             restartBot();
         } else {
             replygcalya('Your bot is the latest version.');
