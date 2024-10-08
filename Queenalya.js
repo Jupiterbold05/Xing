@@ -19465,8 +19465,8 @@ case 'help': case 'alyamenu': {
     let latensie = speed() - timestampe
     let a = db.data.users[sender]
     let me = m.sender
-    let alyamenu = `╔═━━━━✦❘༻ 𝗪𝗘𝗟𝗖𝗢𝗠𝗘
-    Hi, ${pushname}! 👋 ${alyatimewisher} ╔═━━━━✦❘༻ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊
+    let alyamenu = `╔═━━━━✦❘ 𝗪𝗘𝗟𝗖𝗢𝗠𝗘
+    Hi, ${pushname}! 👋 ${alyatimewisher} ╔═━━━━✦❘ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊
     🕒 Runtime: ${runtime(process.uptime())}
     🤖 Bot: ${botname}
     📞 Owner No: +${ownernumber}
