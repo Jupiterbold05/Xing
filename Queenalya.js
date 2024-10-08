@@ -19781,44 +19781,122 @@ let msg = generateWAMessageFromContent(m.chat, {
                         text: botname
                     }),
                     header: proto.Message.InteractiveMessage.Header.create({
-                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
                         title: ``,
                         gifPlayback: true,
                         subtitle: ownername,
-                        hasMediaAttachment: false
+                        hasMediaAttachment: false  
                     }),
                     nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
                         buttons: [
                             {
                                 "name": "single_select",
-                                "buttonParamsJson": `{
-                                    "title": "MENU ❀",
-                                    "sections": [
-                                        {
-                                            "title": "${botname}",
-                                            "rows": [
-                                                {"header": "ALL MENU", "title": "click to display", "description": "Displays The List Of All The Features", "id": "${prefix}allmenu"},
-                                                {"header": "SEARCH MENU", "title": "click to display", "description": "Displays The List Of Search Features", "id": "${prefix}searchmenu"},
-                                                {"header": "DOWNLOAD MENU", "title": "click to display", "description": "Displays The List Of Download Features", "id": "${prefix}downloadmenu"},
-                                                {"header": "GAME MENU", "title": "click to display", "description": "Displays The List Of Game Features", "id": "${prefix}gamemenu"},
-                                                {"header": "FUN MENU", "title": "click to display", "description": "Displays The List Of Fun Features", "id": "${prefix}funmenu"},
-                                                {"header": "AI MENU", "title": "click to display", "description": "Displays The List Of AI Features", "id": "${prefix}aimenu"},
-                                                {"header": "GROUP MENU", "title": "click to display", "description": "Displays The List Of Group Features", "id": "${prefix}groupmenu"},
-                                                {"header": "OWNER MENU", "title": "click to display", "description": "Displays The List Of Owner Features", "id": "${prefix}ownermenu"},
-                                                {"header": "CONVERT MENU", "title": "click to display", "description": "Displays The List Of Convert Features", "id": "${prefix}convertmenu"}
-                                            ]
-                                        }
-                                    ]
-                                }`
+                                "buttonParamsJson": 
+`{"title":"MENU ❀",
+"sections":[{"title":"${botname}",
+"rows":[{"header":"ALL MENU",
+"title":"click to display",
+"description":"Displays The List Of All The Features",
+"id":"${prefix}allmenu"},
+{"header":"SEARCH MENU",
+"title":"click to display",
+"description":"Displays The List Of Search Features",
+"id":"${prefix}searchmenu"},
+{"header":"DOWNLOAD MENU",
+"title":"click to display",
+"description":"Displays The List Of Download Features",
+"id":"${prefix}downloadmenu"},
+{"header":"GAME MENU",
+"title":"click to display",
+"description":"Displays The List Of Game Features",
+"id":"${prefix}gamemenu"},
+{"header":"FUN MENU",
+"title":"click to display",
+"description":"Displays The List Of Fun Features",
+"id":"${prefix}funmenu"},
+{"header":"AI MENU",
+"title":"click to display",
+"description":"Displays The List Of AI Features",
+"id":"${prefix}aimenu"},
+{"header":"GROUP MENU",
+"title":"click to display",
+"description":"Displays The List Of Group Features",
+"id":"${prefix}groupmenu"},
+{"header":"OWNER MENU",
+"title":"click to display",
+"description":"Displays The List Of Owner Features",
+"id":"${prefix}ownermenu"},
+{"header":"CONVERT MENU",
+"title":"click to display",
+"description":"Displays The List Of Convert Features",
+"id":"${prefix}convertmenu"},
+{"header":"LIST MENU",
+"title":"click to display",
+"description":"Displays The List Of List Features",
+"id":"${prefix}listmenu"},
+{"header":"RELIGION MENU",
+"title":"click to display",
+"description":"Displays The List Of Religion Features",
+"id":"${prefix}religionmenu"},
+{"header":"NSFW MENU",
+"title":"click to display",
+"description":"Displays The List Of NSFW Features",
+"id":"${prefix}nsfwmenu"},
+{"header":"ANIME MENU",
+"title":"click to display",
+"description":"Displays The List Of Anime Features",
+"id":"${prefix}animemenu"},
+{"header":"RANDOM PHOTO MENU",
+"title":"click to display",
+"description":"Displays The List Of Random Photo Features",
+"id":"${prefix}randomphotomenu"},
+{"header":"RANDOM VIDEO MENU",
+"title":"click to display",
+"description":"Displays The List Of Random Video Features",
+"id":"${prefix}randomvideomenu"},
+{"header":"STICKER MENU",
+"title":"click to display",
+"description":"Displays The List Of Sticker Features",
+"id":"${prefix}stickermenu"},
+{"header":"DATABASE MENU",
+"title":"click to display",
+"description":"Displays The List Of Database Features",
+"id":"${prefix}databasemenu"},
+{"header":"STORE MENU",
+"title":"click to display",
+"description":"Displays The List Of Store Features",
+"id":"${prefix}storemenu"},
+{"header":"STALKER MENU",
+"title":"click to display",
+"description":"Displays The List Of Stalk Features",
+"id":"${prefix}stalkermenu"},
+{"header":"BUG MENU",
+"title":"click to display",
+"description":"Displays The List Of Bug Features",
+"id":"${prefix}bugmenu"},
+{"header":"OTHER MENU",
+"title":"click to display",
+"description":"Displays The List Of Other Features",
+"id":"${prefix}othermenu"},
+{"header":"OWNER",
+"title":"Owner 👤",
+"description":"Contact the bot owner",
+"id":"${prefix}owner"},
+{"header":"SCRIPT",
+"title":"Script 📃",
+"description":"View the bot's script",
+"id":"${prefix}script"}]
+}]
+}`
                             }
-                        ]
+                        ],
                     }),
                     contextInfo: {
-                        mentionedJid: [m.sender],
+                        mentionedJid: [m.sender], 
                         forwardingScore: 999,
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
-                            newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
+                            newsletterJid: '',
                             newsletterName: ownername,
                             serverMessageId: 143
                         }
@@ -19826,13 +19904,15 @@ let msg = generateWAMessageFromContent(m.chat, {
                 })
             }
         }
-    }, { quoted: m })
+    }, { quoted: m });
 
     await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
         messageId: msg.key.id
-    })
+    });
+    
+    // Add break here to exit the case
+    break;
 }
-break;
 case 'allmenu': {
 let alyamenu = `Hi ${pushname}${readmore}\n\n${allmenu(prefix, hituet)}`
 if (typemenu === 'v1') {
