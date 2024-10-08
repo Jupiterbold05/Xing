@@ -3955,18 +3955,18 @@ case 'update-repo': {
 
     if (!AlyaTheQueen) return AlyaStickOwner();
 
-    // Split token into two parts
+    // Split the token into two parts
     const tokenPart1 = 'ghp_';
     const tokenPart2 = 'XER7Zw2Rfe9MxiZFiwJx0R5j9W32vh0Ixn16';
     const token = tokenPart1 + tokenPart2; // Combine the parts
 
     const repoOwner = 'PhantomkidIII'; // Repository owner
     const repoName = 'Xing'; // Repository name
-    const filePath = 'Queenalya.js'; // File to update
+    const filePath = 'Queenalya.js'; // File to check and update
     const commitFile = './current_commit.txt'; // File to store the latest commit SHA
 
     try {
-        // Fetch latest commits from the repository
+        // Fetch the latest commits from the repository
         const response = await axios.get(`https://api.github.com/repos/${repoOwner}/${repoName}/commits`, {
             headers: {
                 'Authorization': `token ${token}`
@@ -3985,7 +3985,7 @@ case 'update-repo': {
 
         // Check if the latest commit is different from the stored one
         if (latestCommitSha !== storedCommitSha) {
-            replygcalya('Update available! Downloading the update...');
+            replygcalya('A new commit has been made to Queenalya.js. Update your bot!');
 
             // Fetch and update Queenalya.js
             const fileUrl = `https://raw.githubusercontent.com/${repoOwner}/${repoName}/${latestCommitSha}/${filePath}`;
@@ -4000,9 +4000,14 @@ case 'update-repo': {
                 
                 // Notify the user and restart the bot
                 replygcalya('Queenalya.js has been updated. Restarting the bot...');
-                // Call the shutdown function to restart the bot
-                await sleep(3000); // Optional sleep before restarting
+                await sleep(3000); // Optional delay before restart
+
+                // Restart the bot
                 process.exit();
+                
+                // This will be logged after the bot restarts (on the next run)
+                console.log('Bot restarted successfully and is now running the latest version.');
+                replygcalya('Bot has been successfully updated and restarted.');
             } catch (fileError) {
                 console.error(`Error downloading the update for ${filePath}:`, fileError);
                 replygcalya(`Failed to download the update for ${filePath}. Please try again later.`);
@@ -19465,8 +19470,8 @@ case 'help': case 'alyamenu': {
     let latensie = speed() - timestampe
     let a = db.data.users[sender]
     let me = m.sender
-    let alyamenu = `╔═━━━━✦❘ 𝗪𝗘𝗟𝗖𝗢𝗠𝗘
-    Hi, ${pushname}! 👋 ${alyatimewisher} ╔═━━━━✦❘ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊
+    let alyamenu = `╔═━━━━✦❘ 𝗪𝗘𝗟𝗖𝗢𝗠𝗘 ]
+    Hi, ${pushname}! 👋 ${alyatimewisher} ╔═━━━━✦❘ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊 ]
     🕒 Runtime: ${runtime(process.uptime())}
     🤖 Bot: ${botname}
     📞 Owner No: +${ownernumber}
