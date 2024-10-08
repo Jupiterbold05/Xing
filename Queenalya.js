@@ -1512,13 +1512,15 @@ AlyaBotInc.sendMessage(`${ownernumber}@s.whatsapp.net`,{text: `Hi Owner! wa.me/$
 
             // Check if the response contains the expected data
             if (anu.result && anu.result.data && anu.result.data.media_type) {
+                // Handle video download specifically
                 if (anu.result.data.media_type === "video/mp4") {
-                    // Correctly handle video download
-                    if (anu.result.data.image) { // 'image' is actually the video URL in this case
-                        AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result.data.image }, caption: `Auto Download ✅\nTitle: ${anu.result.data.title}` }, { quoted: m });
+                    // Check if the image URL ends with .mp4
+                    const videoUrl = anu.result.data.image; // 'image' is the video URL
+                    if (videoUrl.endsWith('.mp4')) {
+                        AlyaBotInc.sendMessage(m.chat, { video: { url: videoUrl }, caption: `Auto Download ✅\nTitle: ${anu.result.data.title}` }, { quoted: m });
                         await AlyaBotInc.sendMessage(m.chat, { react: { text: "✅", key: m.key } }); // Success message
                     } else {
-                        AlyaBotInc.sendMessage(m.chat, { text: `Error: Video URL not found!` }, { quoted: m });
+                        AlyaBotInc.sendMessage(m.chat, { text: `Error: Video URL is not valid!` }, { quoted: m });
                     }
                 } else if (anu.result.data.media_type === "image/jpeg") {
                     if (anu.result.data.image) {
