@@ -19670,7 +19670,7 @@ break;
 }
 break;
             case 'ownermenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${ownermenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${ownermenu(prefix, hituet)}`;
 
     // General message configuration
     const messageConfig = {
@@ -19719,7 +19719,7 @@ break;
 }
 break;
 case 'othermenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${othermenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${othermenu(prefix, hituet)}`;
     
     let msg = generateWAMessageFromContent(m.chat, {
         viewOnceMessage: {
@@ -19755,7 +19755,7 @@ case 'othermenu': {
 }
 break;
 case 'downloadmenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${downloadmenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${downloadmenu(prefix, hituet)}`;
     AlyaBotInc.sendMessage(m.chat, {
         text: alyamenu,
         contextInfo: {
@@ -19812,7 +19812,7 @@ case 'downloadmenu': {
 }
 break;
 case 'groupmenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${groupmenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${groupmenu(prefix, hituet)}`;
     
     // Unified response with the channel button only
     AlyaBotInc.sendMessage(m.chat, {
@@ -19842,7 +19842,7 @@ case 'groupmenu': {
 }
 break;
 case 'gamemenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${gamemenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${gamemenu(prefix, hituet)}`;
     AlyaBotInc.sendMessage(m.chat, {
         text: alyamenu,
         contextInfo: {
@@ -19862,7 +19862,7 @@ case 'gamemenu': {
 }
 break;
 case 'funmenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${funmenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${funmenu(prefix, hituet)}`;
     
     // Send the image message with the caption
     AlyaBotInc.sendMessage(m.chat, {
@@ -19919,7 +19919,7 @@ case 'funmenu': {
 }
 break;
 case 'stalkermenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${stalkermenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${stalkermenu(prefix, hituet)}`;
     
     AlyaBotInc.sendMessage(m.chat, {
         text: alyamenu,
@@ -19976,7 +19976,7 @@ case 'stalkermenu': {
 }
 break;
 case 'randomphotomenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${randphotomenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${randphotomenu(prefix, hituet)}`;
     let msgContent = {
         text: alyamenu,
         contextInfo: {
@@ -20024,7 +20024,7 @@ case 'randomphotomenu': {
 }
 break;
 case 'randomvideomenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${randvideomenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${randvideomenu(prefix, hituet)}`;
     
     // Create a single message with only the channel button
     const channelButtonMessage = {
@@ -20054,7 +20054,7 @@ case 'randomvideomenu': {
 }
 break;
 case 'nsfwmenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${nsfwmenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${nsfwmenu(prefix, hituet)}`;
     
     const channelButton = [
         {
@@ -20085,7 +20085,7 @@ case 'nsfwmenu': {
 }
 break;
 case 'animemenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${animemenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${animemenu(prefix, hituet)}`;
 
     const channelButton = [
         {
@@ -20116,7 +20116,7 @@ case 'animemenu': {
 }
 break;
 case 'stickermenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${stickermenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${stickermenu(prefix, hituet)}`;
     
     AlyaBotInc.sendMessage(m.chat, {
         text: alyamenu,
@@ -20137,7 +20137,7 @@ case 'stickermenu': {
 }
 break;
 case 'databasemenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${databasemenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${databasemenu(prefix, hituet)}`;
     
     AlyaBotInc.sendMessage(m.chat, {
         text: alyamenu,
@@ -20195,7 +20195,7 @@ case 'databasemenu': {
 }
 break;
 case 'searchmenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${searchmenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${searchmenu(prefix, hituet)}`;
 
     // Send the message with only the channel button
     AlyaBotInc.sendMessage(m.chat, {
@@ -20254,7 +20254,7 @@ case 'searchmenu': {
 }
 break;
 case 'storemenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${storemenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${storemenu(prefix, hituet)}`;
     
     AlyaBotInc.sendMessage(m.chat, {
         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
@@ -20283,7 +20283,7 @@ case 'storemenu': {
 }
 break;
 case 'aimenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${aimenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${aimenu(prefix, hituet)}`;
 
     // Using image message
     AlyaBotInc.sendMessage(m.chat, {
@@ -20313,7 +20313,7 @@ case 'aimenu': {
 }
 break;
 case 'religionmenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${religionmenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${religionmenu(prefix, hituet)}`;
     
     // Send image response
     AlyaBotInc.sendMessage(m.chat, {
@@ -20371,7 +20371,7 @@ case 'religionmenu': {
 }
 break;
 case 'listmenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${listmenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${listmenu(prefix, hituet)}`;
 
     // Send image response
     AlyaBotInc.sendMessage(m.chat, {
@@ -20429,7 +20429,7 @@ case 'listmenu': {
 }
 break;
 case 'convertmenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${convertmenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${convertmenu(prefix, hituet)}`;
 
     AlyaBotInc.sendMessage(m.chat, {
         text: alyamenu,
@@ -20476,7 +20476,7 @@ case 'convertmenu': {
 }
 break;
 case 'bugmenu': {
-    let alyamenu = `Hi ${pushname}${readmore}\n\n${bugmenu(prefix, hituet)}`;
+    let alyamenu = `Hi ${pushname}\n\n${bugmenu(prefix, hituet)}`;
     
     AlyaBotInc.sendMessage(m.chat, {
         text: alyamenu,
