@@ -19467,7 +19467,6 @@ case 'help': case 'alyamenu': {
     let me = m.sender
     let alyamenu = `╔═━━━━✦❘༻ 𝗪𝗘𝗟𝗖𝗢𝗠𝗘
     Hi, ${pushname}! 👋 ${alyatimewisher} ╔═━━━━✦❘༻ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊
-    ⚡ Speed: ${latensie.toFixed(4)} ms
     🕒 Runtime: ${runtime(process.uptime())}
     🤖 Bot: ${botname}
     📞 Owner No: +${ownernumber}
