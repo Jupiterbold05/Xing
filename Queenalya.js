@@ -19477,30 +19477,7 @@ case 'help': case 'alyamenu': {
     🕰 Time: ${xtime}
     📅 Date: ${xdate}
 ╚━━━━━━━━━━━━━━━━━━━━━╝
-*Click MENU ❀ for options below*
-╔━━━━━━━━━━━━━━━━━━━━━╗
-💫 ${prefix}allmenu
-💫 ${prefix}searchmenu
-💫 ${prefix}downloadmenu
-💫 ${prefix}gamemenu
-💫 ${prefix}funmenu
-💫 ${prefix}aimenu
-💫 ${prefix}groupmenu
-💫 ${prefix}ownermenu
-💫 ${prefix}convertmenu
-💫 ${prefix}listmenu
-💫 ${prefix}religionmenu
-💫 ${prefix}animemenu
-💫 ${prefix}nsfwmenu
-💫 ${prefix}randomphotomenu
-💫 ${prefix}randomvideomenu
-💫 ${prefix}stickermenu
-💫 ${prefix}databasemenu
-💫 ${prefix}storemenu
-💫 ${prefix}stalkermenu
-💫 ${prefix}bugmenu
-💫 ${prefix}othermenu
-╚━━━━━━━━━━━━━━━━━━━━━╝`
+*Click MENU ❀ for options below*`
 
     // Using v12 menu style
     let msg = generateWAMessageFromContent(from, {
