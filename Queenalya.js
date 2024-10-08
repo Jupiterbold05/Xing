@@ -3902,10 +3902,11 @@ case 'addcase': {
 
     try {
         const addCaseToScript = (caseContent) => {
-            const fileContent = fs.readFileSync("Queenalya.js").toString();
+            const filePath = "Queenalya.js";
+            const fileContent = fs.readFileSync(filePath, "utf8");
 
             // Extract all case names from the provided content
-            const caseNameMatches = caseContent.match(/case\s*'([^']+)'/g);
+            const caseNameMatches = caseContent.match(/case\s*['"]([^'"]+)['"]/g);
 
             if (!caseNameMatches) {
                 replygcalya('Invalid case format.');
@@ -3914,15 +3915,15 @@ case 'addcase': {
 
             // Check if any of the case names already exist
             for (const caseNameMatch of caseNameMatches) {
-                const caseName = caseNameMatch.replace("case ", "").replace(/'/g, "");
-                if (fileContent.includes(`case '${caseName}'`)) {
+                const caseName = caseNameMatch.replace(/case\s*['"]([^'"]+)['"]/, "$1");
+                if (fileContent.includes(`case '${caseName}'`) || fileContent.includes(`case "${caseName}"`)) {
                     replygcalya(`case '${caseName}' already exists!`);
                     return;
                 }
             }
 
             // Append the entire case block to the script as it is
-            fs.appendFileSync("Queenalya.js", `\n${caseContent}\n`);
+            fs.appendFileSync(filePath, `\n${caseContent}\n`);
             replygcalya(`Added case(s) to Queenalya.js successfully!`);
         };
 
