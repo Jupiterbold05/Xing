@@ -19629,151 +19629,8 @@ case 'help': case 'alyamenu': {
     });
 }
 break;
-  case 'allmenu': {
-    let alyamenu = `Hi ${pushname}\n\n${allmenu(prefix, hituet)}`;
-    
-    let msg = generateWAMessageFromContent(from, {
-        viewOnceMessage: {
-            message: {
-                "messageContextInfo": {
-                    "deviceListMetadata": {},
-                    "deviceListMetadataVersion": 2
-                },
-                interactiveMessage: proto.Message.InteractiveMessage.create({
-                    body: proto.Message.InteractiveMessage.Body.create({
-                        text: alyamenu
-                    }),
-                    footer: proto.Message.InteractiveMessage.Footer.create({
-                        text: botname
-                    }),
-                    header: proto.Message.InteractiveMessage.Header.create({
-                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
-                        title: '',
-                        hasMediaAttachment: false
-                    }),
-                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                        buttons: [
-                            {
-                                "name": "cta_url",
-                                "buttonParamsJson": `{"display_text":"Channel 💬","url":"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09","merchant_url":"https://www.google.com"}`
-                            }
-                        ]
-                    })
-                })
-            }
-        }
-    }, { quoted: m });
-
-    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-    });
-}
-break;
-            case 'ownermenu': {
-    let alyamenu = `Hi ${pushname}\n\n${ownermenu(prefix, hituet)}`;
-
-    // General message configuration
-    const messageConfig = {
-        text: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: ownername,
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
-                mediaType: 1,
-                renderLargerThumbnail: true
-            }
-        }
-    };
-
-    // Sending message with only the channel button
-    const msg = generateWAMessageFromContent(m.chat, {
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-            body: proto.Message.InteractiveMessage.Body.create({
-                text: alyamenu,
-            }),
-            footer: proto.Message.InteractiveMessage.Footer.create({
-                text: botname,
-            }),
-            header: proto.Message.InteractiveMessage.Header.create({
-                title: '',
-                subtitle: ownername,
-                hasMediaAttachment: false
-            }),
-            nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                buttons: [
-                    {
-                        "name": "cta_url",
-                        "buttonParamsJson": "{\"display_text\":\"Channel 💬\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
-                    }
-                ]
-            })
-        })
-    }, { quoted: m });
-
-    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-    });
-}
-break;
-case 'othermenu': {
-    let alyamenu = `Hi ${pushname}\n\n${othermenu(prefix, hituet)}`;
-    
-    let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-            message: {
-                interactiveMessage: proto.Message.InteractiveMessage.create({
-                    body: proto.Message.InteractiveMessage.Body.create({
-                        text: alyamenu
-                    }),
-                    footer: proto.Message.InteractiveMessage.Footer.create({
-                        text: botname
-                    }),
-                    header: proto.Message.InteractiveMessage.Header.create({
-                        title: 'Menu',
-                        subtitle: ownername,
-                        hasMediaAttachment: false
-                    }),
-                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                        buttons: [
-                            {
-                                "name": "cta_url",
-                                "buttonParamsJson": "{\"display_text\":\"Channel 📢\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
-                            }
-                        ],
-                    })
-                })
-            }
-        }
-    }, { quoted: m });
-
-    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-    });
-}
-break;
-case 'downloadmenu': {
-    let alyamenu = `Hi ${pushname}\n\n${downloadmenu(prefix, hituet)}`;
-    AlyaBotInc.sendMessage(m.chat, {
-        text: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: '',
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
-                mediaType: 1,
-                renderLargerThumbnail: true
-            }
-        }
-    }, {
-        quoted: m
-    });
-    
-    // Channel button as the only button in the interactive message
+// Function to generate and send the menu message with channel button
+const generateMenuMessage = async (menuText, m) => {
     let msg = generateWAMessageFromContent(m.chat, {
         viewOnceMessage: {
             message: {
@@ -19783,743 +19640,20 @@ case 'downloadmenu': {
                 },
                 interactiveMessage: proto.Message.InteractiveMessage.create({
                     body: proto.Message.InteractiveMessage.Body.create({
-                        text: alyamenu
-                    }),
-                    footer: proto.Message.InteractiveMessage.Footer.create({
-                        text: ''
-                    }),
-                    header: proto.Message.InteractiveMessage.Header.create({
-                        title: '',
-                        subtitle: '',
-                        hasMediaAttachment: false
-                    }),
-                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                        buttons: [
-                            {
-                                "name": "cta_url",
-                                "buttonParamsJson": "{\"display_text\":\"Visit Our Channel 💬\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
-                            }
-                        ]
-                    })
-                })
-            }
-        }
-    }, { quoted: m });
-
-    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-    });
-}
-break;
-case 'groupmenu': {
-    let alyamenu = `Hi ${pushname}\n\n${groupmenu(prefix, hituet)}`;
-    
-    // Unified response with the channel button only
-    AlyaBotInc.sendMessage(m.chat, {
-        text: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: ownername,
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
-                mediaType: 1,
-                renderLargerThumbnail: true
-            }
-        },
-        buttons: [
-            {
-                buttonId: 'channel_button',
-                buttonText: { displayText: 'Join Channel 📢' },
-                type: 1,
-            },
-        ],
-        footer: `Click the button to join our channel!`,
-    }, {
-        quoted: m,
-    });
-}
-break;
-case 'gamemenu': {
-    let alyamenu = `Hi ${pushname}\n\n${gamemenu(prefix, hituet)}`;
-    AlyaBotInc.sendMessage(m.chat, {
-        text: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: ownername,
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
-                mediaType: 1,
-                renderLargerThumbnail: true
-            }
-        }
-    }, {
-        quoted: m
-    });
-}
-break;
-case 'funmenu': {
-    let alyamenu = `Hi ${pushname}\n\n${funmenu(prefix, hituet)}`;
-    
-    // Send the image message with the caption
-    AlyaBotInc.sendMessage(m.chat, {
-        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-        caption: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: ownername,
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: wagc,
-                mediaType: 1,
-                renderLargerThumbnail: true
-            }
-        }
-    }, {
-        quoted: m
-    });
-
-    // Create interactive message with only the channel button
-    let msg = generateWAMessageFromContent(m.chat, {
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-            body: proto.Message.InteractiveMessage.Body.create({
-                text: alyamenu
-            }),
-            footer: proto.Message.InteractiveMessage.Footer.create({
-                text: botname
-            }),
-            header: proto.Message.InteractiveMessage.Header.create({
-                title: ownername,
-                subtitle: botname,
-                hasMediaAttachment: false
-            }),
-            nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                buttons: [
-                    {
-                        "name": "cta_url",
-                        "buttonParamsJson": "{\"display_text\":\"Channel 📢\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\"}"
-                    }
-                ]
-            }),
-            contextInfo: {
-                mentionedJid: [m.sender],
-                forwardingScore: 999,
-                isForwarded: true
-            }
-        })
-    }, { quoted: m });
-
-    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-    });
-}
-break;
-case 'stalkermenu': {
-    let alyamenu = `Hi ${pushname}\n\n${stalkermenu(prefix, hituet)}`;
-    
-    AlyaBotInc.sendMessage(m.chat, {
-        text: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: ownername,
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: wagc,
-                mediaType: 1,
-                renderLargerThumbnail: true
-            }
-        }
-    }, {
-        quoted: m
-    });
-
-    let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-            message: {
-                "messageContextInfo": {
-                    "deviceListMetadata": {},
-                    "deviceListMetadataVersion": 2
-                },
-                interactiveMessage: proto.Message.InteractiveMessage.create({
-                    body: proto.Message.InteractiveMessage.Body.create({
-                        text: alyamenu
-                    }),
-                    footer: proto.Message.InteractiveMessage.Footer.create({
-                        text: botname
-                    }),
-                    header: proto.Message.InteractiveMessage.Header.create({
-                        title: botname,
-                        subtitle: ownername,
-                        hasMediaAttachment: false
-                    }),
-                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                        buttons: [
-                            {
-                                "name": "cta_url",
-                                "buttonParamsJson": "{\"display_text\":\"Join Our Channel 📢\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
-                            }
-                        ]
-                    })
-                })
-            }
-        }
-    }, { quoted: m });
-
-    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-    });
-}
-break;
-case 'randomphotomenu': {
-    let alyamenu = `Hi ${pushname}\n\n${randphotomenu(prefix, hituet)}`;
-    let msgContent = {
-        text: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: ownername,
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: wagc,
-                mediaType: 1,
-                renderLargerThumbnail: true
-            }
-        }
-    };
-
-    let button = [
-        {
-            "name": "cta_url",
-            "buttonParamsJson": "{\"display_text\":\"Channel 📺\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
-        }
-    ];
-
-    let msg = generateWAMessageFromContent(m.chat, {
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-            body: proto.Message.InteractiveMessage.Body.create({
-                text: alyamenu
-            }),
-            footer: proto.Message.InteractiveMessage.Footer.create({
-                text: botname
-            }),
-            header: proto.Message.InteractiveMessage.Header.create({
-                title: ownername,
-                subtitle: '', // Can be used for an additional subtitle if needed
-                hasMediaAttachment: true
-            }),
-            nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                buttons: button
-            })
-        })
-    }, { quoted: m });
-
-    await AlyaBotInc.relayMessage(m.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-    });
-}
-break;
-case 'randomvideomenu': {
-    let alyamenu = `Hi ${pushname}\n\n${randvideomenu(prefix, hituet)}`;
-    
-    // Create a single message with only the channel button
-    const channelButtonMessage = {
-        text: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: ownername,
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09', // Channel link
-                mediaType: 1,
-                renderLargerThumbnail: true
-            }
-        },
-        footer: "Join our channel",
-        buttons: [
-            {
-                buttonId: "channel_button",
-                buttonText: { displayText: "Join Channel" },
-                type: 1
-            }
-        ]
-    };
-
-    AlyaBotInc.sendMessage(m.chat, channelButtonMessage, { quoted: m });
-}
-break;
-case 'nsfwmenu': {
-    let alyamenu = `Hi ${pushname}\n\n${nsfwmenu(prefix, hituet)}`;
-    
-    const channelButton = [
-        {
-            "name": "cta_url",
-            "buttonParamsJson": "{\"display_text\":\"Join Channel 📢\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
-        }
-    ];
-
-    AlyaBotInc.sendMessage(m.chat, {
-        text: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: ownername,
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: wagc,
-                mediaType: 1,
-                renderLargerThumbnail: true
-            },
-            interactiveMessage: proto.Message.InteractiveMessage.create({
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                    buttons: channelButton
-                })
-            })
-        }
-    }, { quoted: m });
-}
-break;
-case 'animemenu': {
-    let alyamenu = `Hi ${pushname}\n\n${animemenu(prefix, hituet)}`;
-
-    const channelButton = [
-        {
-            "name": "cta_url",
-            "buttonParamsJson": "{\"display_text\":\"Join Channel 📢\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
-        }
-    ];
-
-    AlyaBotInc.sendMessage(m.chat, {
-        text: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: ownername,
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: wagc,
-                mediaType: 1,
-                renderLargerThumbnail: true
-            },
-            interactiveMessage: proto.Message.InteractiveMessage.create({
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                    buttons: channelButton
-                })
-            })
-        }
-    }, { quoted: m });
-}
-break;
-case 'stickermenu': {
-    let alyamenu = `Hi ${pushname}\n\n${stickermenu(prefix, hituet)}`;
-    
-    AlyaBotInc.sendMessage(m.chat, {
-        text: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: '',
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
-                mediaType: 1,
-                renderLargerThumbnail: true
-            }
-        }
-    }, {
-        quoted: m
-    });
-}
-break;
-case 'databasemenu': {
-    let alyamenu = `Hi ${pushname}\n\n${databasemenu(prefix, hituet)}`;
-    
-    AlyaBotInc.sendMessage(m.chat, {
-        text: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: '', // Removed owner name
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
-                mediaType: 1,
-                renderLargerThumbnail: true
-            }
-        }
-    }, {
-        quoted: m
-    });
-    
-    // Adding channel button
-    let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-            message: {
-                "messageContextInfo": {
-                    "deviceListMetadata": {},
-                    "deviceListMetadataVersion": 2
-                },
-                interactiveMessage: proto.Message.InteractiveMessage.create({
-                    body: proto.Message.InteractiveMessage.Body.create({
-                        text: alyamenu
-                    }),
-                    footer: proto.Message.InteractiveMessage.Footer.create({
-                        text: botname
-                    }),
-                    header: proto.Message.InteractiveMessage.Header.create({
-                        title: '', // No title
-                        gifPlayback: true,
-                        hasMediaAttachment: false
-                    }),
-                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                        buttons: [
-                            {
-                                "name": "cta_url",
-                                "buttonParamsJson": "{\"display_text\":\"Join Channel 📲\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
-                            }
-                        ]
-                    })
-                })
-            }
-        }
-    }, { quoted: m });
-
-    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-    });
-}
-break;
-case 'searchmenu': {
-    let alyamenu = `Hi ${pushname}\n\n${searchmenu(prefix, hituet)}`;
-
-    // Send the message with only the channel button
-    AlyaBotInc.sendMessage(m.chat, {
-        text: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: '',
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
-                mediaType: 1,
-                renderLargerThumbnail: true
-            }
-        }
-    }, {
-        quoted: m
-    });
-
-    // Using a single button for the channel link
-    let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-            message: {
-                "messageContextInfo": {
-                    "deviceListMetadata": {},
-                    "deviceListMetadataVersion": 2
-                },
-                interactiveMessage: proto.Message.InteractiveMessage.create({
-                    body: proto.Message.InteractiveMessage.Body.create({
-                        text: alyamenu
-                    }),
-                    footer: proto.Message.InteractiveMessage.Footer.create({
-                        text: botname
-                    }),
-                    header: proto.Message.InteractiveMessage.Header.create({
-                        title: 'Join Our Channel!',
-                        subtitle: 'Click the button below',
-                        hasMediaAttachment: false
-                    }),
-                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                        buttons: [
-                            {
-                                "name": "cta_url",
-                                "buttonParamsJson": "{\"display_text\":\"Join Channel 💬\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
-                            }
-                        ]
-                    })
-                })
-            }
-        }
-    }, { quoted: m });
-
-    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-    });
-}
-break;
-case 'storemenu': {
-    let alyamenu = `Hi ${pushname}\n\n${storemenu(prefix, hituet)}`;
-    
-    AlyaBotInc.sendMessage(m.chat, {
-        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-        caption: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: '',
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
-                mediaType: 1,
-                renderLargerThumbnail: true
-            }
-        },
-        buttons: [
-            {
-                buttonId: 'channel_button',
-                buttonText: { displayText: 'Join Channel 💬' },
-                type: 1
-            }
-        ]
-    }, {
-        quoted: m
-    });
-}
-break;
-case 'aimenu': {
-    let alyamenu = `Hi ${pushname}\n\n${aimenu(prefix, hituet)}`;
-
-    // Using image message
-    AlyaBotInc.sendMessage(m.chat, {
-        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-        caption: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: '',
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
-                mediaType: 1,
-                renderLargerThumbnail: true
-            }
-        },
-        buttons: [
-            {
-                buttonId: 'channel_button',
-                buttonText: { displayText: 'Join Channel 💬' },
-                type: 1
-            }
-        ]
-    }, {
-        quoted: m
-    });
-}
-break;
-case 'religionmenu': {
-    let alyamenu = `Hi ${pushname}\n\n${religionmenu(prefix, hituet)}`;
-    
-    // Send image response
-    AlyaBotInc.sendMessage(m.chat, {
-        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-        caption: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: ownername,
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: wagc,
-                mediaType: 1,
-                renderLargerThumbnail: true
-            }
-        }
-    }, { quoted: m });
-
-    // Interactive message with channel button
-    let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-            message: {
-                "messageContextInfo": {
-                    "deviceListMetadata": {},
-                    "deviceListMetadataVersion": 2
-                },
-                interactiveMessage: proto.Message.InteractiveMessage.create({
-                    body: proto.Message.InteractiveMessage.Body.create({
-                        text: alyamenu
-                    }),
-                    footer: proto.Message.InteractiveMessage.Footer.create({
-                        text: botname
-                    }),
-                    header: proto.Message.InteractiveMessage.Header.create({
-                        title: alyamenu,
-                        subtitle: ownername,
-                        hasMediaAttachment: false
-                    }),
-                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                        buttons: [
-                            {
-                                "name": "cta_url",
-                                "buttonParamsJson": "{\"display_text\":\"Join Channel 💬\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
-                            }
-                        ]
-                    })
-                })
-            }
-        }
-    }, { quoted: m });
-
-    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-    });
-}
-break;
-case 'listmenu': {
-    let alyamenu = `Hi ${pushname}\n\n${listmenu(prefix, hituet)}`;
-
-    // Send image response
-    AlyaBotInc.sendMessage(m.chat, {
-        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-        caption: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: '',
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: wagc,
-                mediaType: 1,
-                renderLargerThumbnail: true
-            }
-        }
-    }, { quoted: m });
-
-    // Interactive message with channel button
-    let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-            message: {
-                "messageContextInfo": {
-                    "deviceListMetadata": {},
-                    "deviceListMetadataVersion": 2
-                },
-                interactiveMessage: proto.Message.InteractiveMessage.create({
-                    body: proto.Message.InteractiveMessage.Body.create({
-                        text: alyamenu
-                    }),
-                    footer: proto.Message.InteractiveMessage.Footer.create({
-                        text: botname
-                    }),
-                    header: proto.Message.InteractiveMessage.Header.create({
-                        title: alyamenu,
-                        subtitle: '',
-                        hasMediaAttachment: false
-                    }),
-                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                        buttons: [
-                            {
-                                "name": "cta_url",
-                                "buttonParamsJson": "{\"display_text\":\"Join Channel 💬\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
-                            }
-                        ]
-                    })
-                })
-            }
-        }
-    }, { quoted: m });
-
-    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-    });
-}
-break;
-case 'convertmenu': {
-    let alyamenu = `Hi ${pushname}\n\n${convertmenu(prefix, hituet)}`;
-
-    AlyaBotInc.sendMessage(m.chat, {
-        text: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: ownername,
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
-                mediaType: 1,
-                renderLargerThumbnail: true
-            }
-        }
-    }, { quoted: m });
-
-    let msg = generateWAMessageFromContent(m.chat, {
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-            body: proto.Message.InteractiveMessage.Body.create({
-                text: alyamenu
-            }),
-            footer: proto.Message.InteractiveMessage.Footer.create({
-                text: botname
-            }),
-            header: proto.Message.InteractiveMessage.Header.create({
-                title: ownername,
-                subtitle: '',
-                hasMediaAttachment: false
-            }),
-            nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                buttons: [
-                    {
-                        "name": "cta_url",
-                        "buttonParamsJson": "{\"display_text\":\"Join Channel 💬\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
-                    }
-                ]
-            })
-        })
-    }, { quoted: m });
-
-    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-    });
-}
-break;
-case 'bugmenu': {
-    let alyamenu = `Hi ${pushname}\n\n${bugmenu(prefix, hituet)}`;
-    
-    AlyaBotInc.sendMessage(m.chat, {
-        text: alyamenu,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: botname,
-                body: '',
-                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                sourceUrl: 'https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09',
-                mediaType: 1,
-                renderLargerThumbnail: true
-            }
-        }
-    }, {
-        quoted: m
-    });
-
-    // The channel button
-    let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-            message: {
-                "messageContextInfo": {
-                    "deviceListMetadata": {},
-                    "deviceListMetadataVersion": 2
-                },
-                interactiveMessage: proto.Message.InteractiveMessage.create({
-                    body: proto.Message.InteractiveMessage.Body.create({
-                        text: alyamenu
+                        text: menuText
                     }),
                     footer: proto.Message.InteractiveMessage.Footer.create({
                         text: botname
                     }),
                     header: proto.Message.InteractiveMessage.Header.create({
                         title: '',
-                        subtitle: '',
                         hasMediaAttachment: false
                     }),
                     nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
                         buttons: [
                             {
                                 "name": "cta_url",
-                                "buttonParamsJson": "{\"display_text\":\"Join Channel 💬\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\",\"merchant_url\":\"https://www.google.com\"}"
+                                "buttonParamsJson": "{\"display_text\":\"Channel 💬\",\"url\":\"https://whatsapp.com/channel/0029VamU5H1DuMRYiHQ9vI09\"}"
                             }
                         ]
                     })
@@ -20531,6 +19665,115 @@ case 'bugmenu': {
     await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
         messageId: msg.key.id
     });
+};
+
+// Case structure for all menus
+switch(command) {
+    case 'allmenu': {
+        let alyamenu = `Hi ${pushname}\n\n${allmenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'ownermenu': {
+        let alyamenu = `Hi ${pushname}\n\n${ownermenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'othermenu': {
+        let alyamenu = `Hi ${pushname}\n\n${othermenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'downloadmenu': {
+        let alyamenu = `Hi ${pushname}\n\n${downloadmenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'groupmenu': {
+        let alyamenu = `Hi ${pushname}\n\n${groupmenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'gamemenu': {
+        let alyamenu = `Hi ${pushname}\n\n${gamemenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'funmenu': {
+        let alyamenu = `Hi ${pushname}\n\n${funmenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'stalkermenu': {
+        let alyamenu = `Hi ${pushname}\n\n${stalkermenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'randomphotomenu': {
+        let alyamenu = `Hi ${pushname}\n\n${randphotomenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'randomvideomenu': {
+        let alyamenu = `Hi ${pushname}\n\n${randvideomenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'nsfwmenu': {
+        let alyamenu = `Hi ${pushname}\n\n${nsfwmenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'animemenu': {
+        let alyamenu = `Hi ${pushname}\n\n${animemenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'stickermenu': {
+        let alyamenu = `Hi ${pushname}\n\n${stickermenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'databasemenu': {
+        let alyamenu = `Hi ${pushname}\n\n${databasemenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'searchmenu': {
+        let alyamenu = `Hi ${pushname}\n\n${searchmenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'storemenu': {
+        let alyamenu = `Hi ${pushname}\n\n${storemenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'aimenu': {
+        let alyamenu = `Hi ${pushname}\n\n${aimenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'religionmenu': {
+        let alyamenu = `Hi ${pushname}\n\n${religionmenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'listmenu': {
+        let alyamenu = `Hi ${pushname}\n\n${listmenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'convertmenu': {
+        let alyamenu = `Hi ${pushname}\n\n${convertmenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        break;
+    }
+    case 'bugmenu': {
+        let alyamenu = `Hi ${pushname}\n\n${bugmenu(prefix, hituet)}`;
+        await generateMenuMessage(alyamenu, m);
+        
+    }
 }
 break;
             case 'checkaccount':
