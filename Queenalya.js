@@ -19772,7 +19772,6 @@ switch(command) {
     case 'bugmenu': {
         let alyamenu = `Hi ${pushname}\n\n${bugmenu(prefix, hituet)}`;
         await generateMenuMessage(alyamenu, m);
-        
     }
 }
 break;
