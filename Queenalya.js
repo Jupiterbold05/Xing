@@ -8465,14 +8465,12 @@ let yts = require("yt-search")
   }
 }
 break
-case 'play':
-case 'song': {
+case 'play': {
     // Check if text is provided
     if (!text) return replygcalya(`Example : ${prefix + command} <video_url|search_query>`);
 
     const yts = require("youtube-yts");
     const axios = require("axios");
-    const fs = require("fs");
 
     let anup3k;
     let isUrl = false;
@@ -8486,89 +8484,110 @@ case 'song': {
     }
 
     if (isUrl) {
-        // If it's a URL, we can skip the search
-        anup3k = { url: text, title: 'Video from URL', thumbnail: 'thumbnail_url_placeholder' }; // Placeholder for thumbnail
+        if (text.includes('youtube.com') || text.includes('youtu.be')) {
+            // Fetch details of the YouTube video from yts using the URL
+            let search = await yts({ videoId: new URL(text).searchParams.get("v") });
+            anup3k = search;
+        } else {
+            return replygcalya(`Invalid YouTube link. Please use a valid YouTube URL.`);
+        }
     } else {
-        // Search for the video
+        // If it's a query, search YouTube for the result
         let search = await yts(text);
         anup3k = search.videos[0];
 
         if (!anup3k) return replygcalya("No results found!");
     }
 
-    // Fetch the audio using the API
-    const apiUrl = `https://widipe.com/download/ytdl?url=${encodeURIComponent(anup3k.url)}`;
-    let audioResponse;
+    // Display video details and prompt user for selection
+    const videoDetails = `*Queen_Alya • YOUTUBE ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
 
-    try {
-        audioResponse = await axios.get(apiUrl);
-    } catch (error) {
-        console.error("Error fetching audio:", error);
-        return replygcalya("Failed to download the audio. Please try again.");
-    }
+*Title :* ${anup3k.title}
+*Url :* ${anup3k.url}
+*Description :* ${anup3k.description || "No description available"}
+*Views :* ${anup3k.views}
+*Uploaded :* ${anup3k.ago}
+*Author :* ${anup3k.author.name}
 
-    // Check if the API response is successful
-    if (!audioResponse.data.status) {
-        return replygcalya("Failed to retrieve audio URL. Please try again.");
-    }
+_Alya is singing..._`;
 
-    const mp3Url = audioResponse.data.result.mp3;
+    replygcalya(videoDetails);
+    replygcalya("Reply with '1' for music or '2' for video.");
 
-    // Download the MP3 file
-    let mp3Buffer;
-    try {
-        const mp3DownloadResponse = await axios.get(mp3Url, { responseType: 'arraybuffer' });
-        mp3Buffer = Buffer.from(mp3DownloadResponse.data);
-    } catch (error) {
-        console.error("Error downloading MP3:", error);
-        return replygcalya("Failed to download the MP3. Please try again.");
-    }
+    // Wait for user's response to choose music or video
+    AlyaBotInc.on('chat-update', async (chatUpdate) => {
+        if (!chatUpdate.hasNewMessage) return;
+        const m = chatUpdate.messages.all()[0];
+        const budy = m.message.conversation;
 
-    // Send the audio message
-    await AlyaBotInc.sendMessage(m.chat, {
-        audio: mp3Buffer,
-        fileName: anup3k.title + '.mp3',
-        mimetype: 'audio/mp4',
-        ptt: true,
-        contextInfo: {
-            externalAdReply: {
-                title: anup3k.title,
-                body: botname,
-                thumbnail: await fetchBuffer(anup3k.thumbnail), // Use thumbnail from the search result or placeholder
-                mediaType: 2,
-                mediaUrl: anup3k.url,
+        // Check if the user replied with '1' for music or '2' for video
+        if (budy.match(/1/)) {
+            // User chose music, fetch and send the audio
+            const apiUrl = `https://widipe.com/download/ytdl?url=${encodeURIComponent(anup3k.url)}`;
+            let audioResponse;
+
+            try {
+                audioResponse = await axios.get(apiUrl);
+            } catch (error) {
+                console.error("Error fetching audio:", error);
+                return replygcalya("Failed to download the audio. Please try again.");
             }
-        },
-    }, { quoted: m });
+
+            if (!audioResponse.data.status) {
+                return replygcalya("Failed to retrieve audio URL. Please try again.");
+            }
+
+            const mp3Url = audioResponse.data.result.mp3;
+
+            // Download the MP3 file
+            let mp3Buffer;
+            try {
+                const mp3DownloadResponse = await axios.get(mp3Url, { responseType: 'arraybuffer' });
+                mp3Buffer = Buffer.from(mp3DownloadResponse.data);
+            } catch (error) {
+                console.error("Error downloading MP3:", error);
+                return replygcalya("Failed to download the MP3. Please try again.");
+            }
+
+            // Send the audio message
+            await AlyaBotInc.sendMessage(m.chat, {
+                audio: mp3Buffer,
+                fileName: anup3k.title + '.mp3',
+                mimetype: 'audio/mp4',
+                ptt: true,
+                contextInfo: {
+                    externalAdReply: {
+                        title: anup3k.title,
+                        body: botname,
+                        thumbnail: await fetchBuffer(anup3k.thumbnail),
+                        mediaType: 2,
+                        mediaUrl: anup3k.url,
+                    }
+                },
+            }, { quoted: m });
+
+        } else if (budy.match(/2/)) {
+            // User chose video, fetch and send the video
+            try {
+                let anu = await axios.get(`https://widipe.com/download/ytdl?url=${anup3k.url}`);
+                if (!anu || anu.data.status !== true) {
+                    return replygcalya('Failed to fetch video details. Try again later.');
+                }
+
+                // Send the video to the user
+                await AlyaBotInc.sendMessage(m.chat, {
+                    video: { url: anu.data.result.mp4 }
+                }, { quoted: m });
+            } catch (err) {
+                console.error("Error fetching video:", err);
+                replygcalya('An error occurred while processing the video.');
+            }
+        } else {
+            replygcalya("Invalid response. Reply with '1' for music or '2' for video.");
+        }
+    });
 }
 break;
-case 'ytmp4': case 'ytvideo': {
-    if (args.length < 1 || !isUrl(text) || !text.includes('youtube.com') && !text.includes('youtu.be')) {
-        replygcalya(`Where is the link??\n\nExample : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag 128kbps`)
-        break
-    }
-
-    // Send loading reaction
-    await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️", key: m.key }})
-
-    try {
-        // Fetch YouTube video info from the API
-        let anu = await fetchJson(`https://widipe.com/download/ytdl?url=${text}`)
-        if (!anu || anu.status !== true) {
-            replygcalya('Failed to fetch video details. Try again later.')
-            break
-        }
-
-        // Send the video to the user without any caption
-        await AlyaBotInc.sendMessage(m.chat, {
-            video: { url: anu.result.mp4 }
-        }, { quoted: m })
-    } catch (err) {
-        console.log(err)
-        replygcalya('An error occurred while processing the video.')
-    }
-}
-break
 case 'git':
 case 'gitclone':
     if (!args[0]) return replygcalya(`Where is the link?\nExample :\n${prefix}${command} https://github.com/STAR-KING0/Queen_Alya`);
