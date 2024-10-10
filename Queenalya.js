@@ -8791,7 +8791,7 @@ case 'fb': {
     const axios = require("axios");
     let fbUrl = text;
 
-    // Fetch data from Facebook API first, to extract relevant info
+    // Fetch data from the Facebook API
     let fbResponse;
     try {
         fbResponse = await axios.get(`https://itzpire.com/download/facebook?url=${encodeURIComponent(fbUrl)}`);
@@ -8803,7 +8803,7 @@ case 'fb': {
 
     const fbData = fbResponse.data.data;
 
-    // Now, create the button message using proto.Message.InteractiveMessage
+    // Create the button message for FB options (HD, SD, Audio)
     let msg = generateWAMessageFromContent(from, {
         viewOnceMessage: {
             message: {
@@ -8877,14 +8877,14 @@ Choose an option below:
         messageId: msg.key.id
     });
 
-    // Handle button response
+    // Handle button responses for different download options
     AlyaBotInc.ev.on('messages.upsert', async (chatUpdate) => {
         const reply = chatUpdate.messages[0];
         if (!reply.message.buttonsResponseMessage) return;
 
         const buttonResponse = reply.message.buttonsResponseMessage.selectedButtonId;
 
-        // Handle HD Video
+        // Handle HD Video download
         if (buttonResponse.startsWith(`${prefix}fbhd`)) {
             if (!fbData.video_hd) return replygcalya("HD video not available.");
             await AlyaBotInc.sendMessage(m.chat, {
@@ -8892,7 +8892,7 @@ Choose an option below:
             }, { quoted: m });
         }
 
-        // Handle SD Video
+        // Handle SD Video download
         if (buttonResponse.startsWith(`${prefix}fbsd`)) {
             if (!fbData.video_sd) return replygcalya("SD video not available.");
             await AlyaBotInc.sendMessage(m.chat, {
@@ -8900,7 +8900,7 @@ Choose an option below:
             }, { quoted: m });
         }
 
-        // Handle Audio
+        // Handle Audio download
         if (buttonResponse.startsWith(`${prefix}fbaudio`)) {
             if (!fbData.audio) return replygcalya("Audio not available.");
             await AlyaBotInc.sendMessage(m.chat, {
