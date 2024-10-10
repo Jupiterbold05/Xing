@@ -1141,7 +1141,7 @@ remoteJid: "status@broadcast"
 "interactiveMessage": { 
 "header": {
 "hasMediaAttachment": true,
-"jpegThumbnail": fs.readFileSync(`./lib/image/latx.png`)
+"jpegThumbnail": fs.readFileSync(`./src/data/function/ABug/xx1.png`)
 },
 "nativeFlowMessage": {
 "buttons": [
