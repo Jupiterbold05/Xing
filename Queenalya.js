@@ -8790,7 +8790,19 @@ case 'fb': {
     if (!text) return replygcalya(`Example: ${prefix + command} <facebook_video_url>`);
 
     const fbUrl = text; // Store the provided URL
+    let isValidUrl = false;
 
+    // Check if the text is a valid URL
+    try {
+        new URL(fbUrl); // This checks if the URL is valid
+        isValidUrl = true;
+    } catch (error) {
+        isValidUrl = false;
+    }
+
+    if (!isValidUrl) return replygcalya("Invalid URL. Please try again.");
+
+    // Create the message with buttons
     let msg = generateWAMessageFromContent(from, {
         viewOnceMessage: {
             message: {
@@ -8800,7 +8812,11 @@ case 'fb': {
                 },
                 interactiveMessage: proto.Message.InteractiveMessage.create({
                     body: proto.Message.InteractiveMessage.Body.create({
-                        text: `*Queen_Alya • FACEBOOK ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*\n\n*Url :* ${fbUrl}\n\nChoose an option below:\n1. FB HD Video\n2. FB SD Video\n3. FB Audio`
+                        text: `*Queen_Alya • FACEBOOK ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
+
+*Url:* ${fbUrl}
+
+Choose an option below:`
                     }),
                     footer: proto.Message.InteractiveMessage.Footer.create({
                         text: botname
@@ -8818,18 +8834,10 @@ case 'fb': {
                                 "name": "single_select",
                                 "buttonParamsJson": `{"title":"SELECT FB DOWNLOAD OPTION",
                                 "sections":[{"title":"CHOOSE FORMAT",
-                                "rows":[{"header":"HD Video 🎥",
-                                "title":"1. FB HD Video",
-                                "description":"Download high-quality video",
-                                "id":"${prefix}fbhd ${fbUrl}"},
-                                {"header":"SD Video 🎥",
-                                "title":"2. FB SD Video",
-                                "description":"Download standard quality video",
-                                "id":"${prefix}fbsd ${fbUrl}"},
-                                {"header":"Audio 🎶",
-                                "title":"3. FB Audio",
-                                "description":"Download audio only",
-                                "id":"${prefix}fbaudio ${fbUrl}"}
+                                "rows":[
+                                    {"header":"HD Video 🎥","title":"1. FB HD Video","description":"Download high-quality video","id":"${prefix}fbhd ${fbUrl}"},
+                                    {"header":"SD Video 🎥","title":"2. FB SD Video","description":"Download standard quality video","id":"${prefix}fbsd ${fbUrl}"},
+                                    {"header":"Audio 🎶","title":"3. FB Audio","description":"Download audio only","id":"${prefix}fbaudio ${fbUrl}"}
                                 ]
                                 }
                                 ]
@@ -8859,94 +8867,70 @@ case 'fb': {
     break;
 }
 
-// Handle HD Video download
+// Handle FB HD Video download
 case 'fbhd': {
-    const url = text.split(' ').slice(1).join(' '); // Extract URL from the buttonId
-
-    if (!url) return replygcalya("Invalid URL. Please try again.");
+    if (!text) return replygcalya("Please provide a valid Facebook video URL.");
+    const fbUrl = text;
 
     try {
-        const response = await axios.get(`https://itzpire.com/download/facebook?url=${encodeURIComponent(url)}`);
-        if (!response.data.status) {
-            return replygcalya("Failed to retrieve HD video. Please try again.");
+        const response = await axios.get(`https://itzpire.com/download/facebook?url=${encodeURIComponent(fbUrl)}`);
+        if (response.data.status !== "success") {
+            return replygcalya("Failed to fetch HD video. Please try again.");
         }
 
-        const videoHdUrl = response.data.data.video_hd;
         await AlyaBotInc.sendMessage(m.chat, {
-            video: { url: videoHdUrl },
-            caption: "Here is your HD Video."
+            video: { url: response.data.data.video_hd }
         }, { quoted: m });
-
     } catch (error) {
         console.error("Error fetching HD video:", error);
-        replygcalya("Failed to download HD video. Please try again.");
+        replygcalya("An error occurred while processing the HD video.");
     }
     break;
 }
 
-// Handle SD Video download
+// Handle FB SD Video download
 case 'fbsd': {
-    const url = text.split(' ').slice(1).join(' '); // Extract URL from the buttonId
-
-    if (!url) return replygcalya("Invalid URL. Please try again.");
+    if (!text) return replygcalya("Please provide a valid Facebook video URL.");
+    const fbUrl = text;
 
     try {
-        const response = await axios.get(`https://itzpire.com/download/facebook?url=${encodeURIComponent(url)}`);
-        if (!response.data.status) {
-            return replygcalya("Failed to retrieve SD video. Please try again.");
+        const response = await axios.get(`https://itzpire.com/download/facebook?url=${encodeURIComponent(fbUrl)}`);
+        if (response.data.status !== "success") {
+            return replygcalya("Failed to fetch SD video. Please try again.");
         }
 
-        const videoSdUrl = response.data.data.video_sd;
         await AlyaBotInc.sendMessage(m.chat, {
-            video: { url: videoSdUrl },
-            caption: "Here is your SD Video."
+            video: { url: response.data.data.video_sd }
         }, { quoted: m });
-
     } catch (error) {
         console.error("Error fetching SD video:", error);
-        replygcalya("Failed to download SD video. Please try again.");
+        replygcalya("An error occurred while processing the SD video.");
     }
     break;
 }
 
-// Handle Audio download
+// Handle FB Audio download
 case 'fbaudio': {
-    const url = text.split(' ').slice(1).join(' '); // Extract URL from the buttonId
-
-    if (!url) return replygcalya("Invalid URL. Please try again.");
+    if (!text) return replygcalya("Please provide a valid Facebook video URL.");
+    const fbUrl = text;
 
     try {
-        const response = await axios.get(`https://itzpire.com/download/facebook?url=${encodeURIComponent(url)}`);
-        if (!response.data.status) {
-            return replygcalya("Failed to retrieve audio. Please try again.");
+        const response = await axios.get(`https://itzpire.com/download/facebook?url=${encodeURIComponent(fbUrl)}`);
+        if (response.data.status !== "success") {
+            return replygcalya("Failed to fetch audio. Please try again.");
         }
 
-        const audioUrl = response.data.data.audio;
-        const audioResponse = await axios.get(audioUrl, { responseType: 'arraybuffer' });
-        const audioBuffer = Buffer.from(audioResponse.data);
-
         await AlyaBotInc.sendMessage(m.chat, {
-            audio: audioBuffer,
-            fileName: "Audio.mp4", // Using .mp4 for audio
+            audio: { url: response.data.data.audio },
             mimetype: 'audio/mp4',
-            ptt: true,
-            contextInfo: {
-                externalAdReply: {
-                    title: "Audio Download",
-                    body: botname,
-                    thumbnail: await fetchBuffer(response.data.data.thumbnail || 'default_thumbnail_url'), // Use a placeholder or fetched thumbnail
-                    mediaType: 2,
-                    mediaUrl: url,
-                }
-            },
+            ptt: true
         }, { quoted: m });
-
     } catch (error) {
         console.error("Error fetching audio:", error);
-        replygcalya("Failed to download audio. Please try again.");
+        replygcalya("An error occurred while processing the audio.");
     }
+    break;
 }
-break;
 case 'tiktokstalk': {
 	  if (!text) return replygcalya(`Username? `)
   let res = await fg.ttStalk(args[0])
