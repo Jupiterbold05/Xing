@@ -8471,6 +8471,7 @@ case 'play': {
 
     const yts = require("youtube-yts");
     const axios = require("axios");
+    const fs = require("fs");
 
     let anup3k;
     let isUrl = false;
@@ -8499,8 +8500,17 @@ case 'play': {
         if (!anup3k) return replygcalya("No results found!");
     }
 
-    // Generate a button message for user selection (audio or video)
-    const videoDetails = `*Queen_Alya • YOUTUBE ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
+    // Create buttons and interactive message using proto.Message.InteractiveMessage
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: `*Queen_Alya • YOUTUBE ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
 
 *Title :* ${anup3k.title}
 *Url :* ${anup3k.url}
@@ -8511,22 +8521,58 @@ case 'play': {
 
 Choose an option below:
 1. Audio (Music)
-2. Video`;
-
-    const buttons = [
-        { buttonId: `${prefix}1 ${anup3k.url}`, buttonText: { displayText: '1. Audio' }, type: 1 },
-        { buttonId: `${prefix}2 ${anup3k.url}`, buttonText: { displayText: '2. Video' }, type: 1 }
-    ];
-
-    const buttonMessage = {
-        text: videoDetails,
-        footer: botname,
-        buttons: buttons,
-        headerType: 1
-    };
+2. Video`
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        gifPlayback: true,
+                        subtitle: ownername,
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "single_select",
+                                "buttonParamsJson": `{"title":"SELECT AUDIO/VIDEO",
+                                "sections":[{"title":"CHOOSE OPTION",
+                                "rows":[{"header":"AUDIO 🎶",
+                                "title":"1. Audio",
+                                "description":"Download as MP3",
+                                "id":"${prefix}1 ${anup3k.url}"},
+                                {"header":"VIDEO 🎥",
+                                "title":"2. Video",
+                                "description":"Download as MP4",
+                                "id":"${prefix}2 ${anup3k.url}"}
+                                ]
+                                }
+                                ]
+                                }`
+                            }
+                        ],
+                    }),
+                    contextInfo: {
+                        mentionedJid: [m.sender],
+                        forwardingScore: 999,
+                        isForwarded: true,
+                        forwardedNewsletterMessageInfo: {
+                            newsletterJid: 'https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09',
+                            newsletterName: ownername,
+                            serverMessageId: 143
+                        }
+                    }
+                })
+            }
+        }
+    }, { quoted: m });
 
     // Send the button message
-    await AlyaBotInc.sendMessage(m.chat, buttonMessage, { quoted: m });
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
 }
 break;
 
