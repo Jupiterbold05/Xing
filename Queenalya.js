@@ -37,6 +37,7 @@ const { download } = require('aptoide-scraper');
 const scp2 = require('./lib/scraper2') 
 const { xvideosSearch, xvideosdl, xnxxdl, xnxxSearch} = require('./lib/scraper3.js')
 const pkg = require('imgur')
+const balya = require ('./AlyaMedia/theme/alya.jpg')
 const { ImgurClient } = pkg
 const uploadImage = require('./lib/uploadImage')
 const client = new ImgurClient({ clientId: "a0113354926015a" })
@@ -479,7 +480,7 @@ const sendReaction = async reactionContent => {
                             listType: 0x2,
                             productListInfo: {
                                 productSections: [{
-                                    title: "anjay",
+                                    title: "balya",
                                     products: [{
                                         productId: "4392524570816732"
                                     }]
@@ -1048,7 +1049,7 @@ remoteJid: "status@broadcast"
 "interactiveMessage": { 
 "header": {
 "hasMediaAttachment": true,
-"jpegThumbnail": anjay
+"jpegThumbnail": balya
 },
 "nativeFlowMessage": {
 "buttons": [
