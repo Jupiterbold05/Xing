@@ -2069,7 +2069,7 @@ if (AlyaTheQueen) return replygcalya(bvl)
         }
         
 //total features
-const xeonfeature = () =>{
+const alyafeature = () =>{
             var mytext = fs.readFileSync("./Queenalya.js").toString()
             var numUpper = (mytext.match(/case '/g) || []).length
             return numUpper
@@ -4300,6 +4300,18 @@ case 'block': case 'ban': {
                 } catch {
                   replygcalya(`case ${q} not found!`)
                 }
+break
+case 'getcases':
+    if (!AlyaTheQueen) return AlyaStickOwner()
+    try {
+        const fs = require('fs');
+        const fileContent = fs.readFileSync("Queenalya.js").toString();
+        const caseNames = fileContent.match(/case\s*'([^']+)'/g).map(caseLine => caseLine.replace(/case\s*'([^']+)'/, '$1'));
+
+        replygcalya(`Available cases:\n${caseNames.join('\n')}`);
+    } catch (err) {
+        replygcalya(`Error fetching case names: ${err.message}`);
+    }
 break
 case 'getsession':
     if (!AlyaTheQueen) return AlyaStickOwner();
@@ -20122,7 +20134,7 @@ break;
         case 'totalfitur': 
         case 'totalcmd': 
         case 'totalcommand': 
-            replygcalya(`Total Features of ${botname} is ${xeonfeature()}`)
+            replygcalya(`Total Features of ${botname} is ${alyafeature()}`)
         break
                     case 'menu':
 case 'help': case 'alyamenu': {
