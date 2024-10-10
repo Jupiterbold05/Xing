@@ -8578,9 +8578,36 @@ break;
 
 // Function for downloading audio
 case '1': {
-    if (!text) return replygcalya("Please provide a YouTube URL.");
+    if (!text) return replygcalya(`Example : ${prefix + command} <video_url|search_query>`);
 
-    const apiUrl = `https://widipe.com/download/ytdl?url=${encodeURIComponent(text)}`;
+    const yts = require("youtube-yts");
+    const axios = require("axios");
+    const fs = require("fs");
+
+    let anup3k;
+    let isUrl = false;
+
+    // Check if the text is a valid URL
+    try {
+        new URL(text); // If this doesn't throw, it's a valid URL
+        isUrl = true;
+    } catch (error) {
+        isUrl = false;
+    }
+
+    if (isUrl) {
+        // If it's a URL, we can skip the search
+        anup3k = { url: text, title: 'Video from URL', thumbnail: 'thumbnail_url_placeholder' }; // Placeholder for thumbnail
+    } else {
+        // Search for the video
+        let search = await yts(text);
+        anup3k = search.videos[0];
+
+        if (!anup3k) return replygcalya("No results found!");
+    }
+
+    // Fetch the audio using the API
+    const apiUrl = `https://widipe.com/download/ytdl?url=${encodeURIComponent(anup3k.url)}`;
     let audioResponse;
 
     try {
@@ -8590,6 +8617,7 @@ case '1': {
         return replygcalya("Failed to download the audio. Please try again.");
     }
 
+    // Check if the API response is successful
     if (!audioResponse.data.status) {
         return replygcalya("Failed to retrieve audio URL. Please try again.");
     }
@@ -8609,14 +8637,14 @@ case '1': {
     // Send the audio message
     await AlyaBotInc.sendMessage(m.chat, {
         audio: mp3Buffer,
-        fileName: `${anup3k.title}.mp3`,
+        fileName: anup3k.title + '.mp3',
         mimetype: 'audio/mp4',
         ptt: true,
         contextInfo: {
             externalAdReply: {
                 title: anup3k.title,
                 body: botname,
-                thumbnail: await fetchBuffer(anup3k.thumbnail),
+                thumbnail: await fetchBuffer(anup3k.thumbnail), // Use thumbnail from the search result or placeholder
                 mediaType: 2,
                 mediaUrl: anup3k.url,
             }
