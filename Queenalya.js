@@ -8499,7 +8499,7 @@ case 'play': {
         if (!anup3k) return replygcalya("No results found!");
     }
 
-    // Display video details and prompt user for selection
+    // Generate a button message for user selection (audio or video)
     const videoDetails = `*Queen_Alya • YOUTUBE ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
 
 *Title :* ${anup3k.title}
@@ -8509,82 +8509,94 @@ case 'play': {
 *Uploaded :* ${anup3k.ago}
 *Author :* ${anup3k.author.name}
 
-Reply with '1' for music or '2' for video.`;
+Choose an option below:
+1. Audio (Music)
+2. Video`;
 
-    replygcalya(videoDetails);
+    const buttons = [
+        { buttonId: `${prefix}1 ${anup3k.url}`, buttonText: { displayText: '1. Audio' }, type: 1 },
+        { buttonId: `${prefix}2 ${anup3k.url}`, buttonText: { displayText: '2. Video' }, type: 1 }
+    ];
 
-    // Wait for user's response to choose music or video
-    AlyaBotInc.on('chat-update', async (chatUpdate) => {
-        if (!chatUpdate.hasNewMessage) return;
-        const m = chatUpdate.messages.all()[0];
-        const budy = m.message.conversation;
+    const buttonMessage = {
+        text: videoDetails,
+        footer: botname,
+        buttons: buttons,
+        headerType: 1
+    };
 
-        // Check if the user replied with '1' for music or '2' for video
-        if (budy.match('1')) {
-            // User chose music, fetch and send the audio
-            const apiUrl = `https://widipe.com/download/ytdl?url=${encodeURIComponent(anup3k.url)}`;
-            let audioResponse;
+    // Send the button message
+    await AlyaBotInc.sendMessage(m.chat, buttonMessage, { quoted: m });
+}
+break;
 
-            try {
-                audioResponse = await axios.get(apiUrl);
-            } catch (error) {
-                console.error("Error fetching audio:", error);
-                return replygcalya("Failed to download the audio. Please try again.");
+// Function for downloading audio
+case '1': {
+    if (!text) return replygcalya("Please provide a YouTube URL.");
+
+    const apiUrl = `https://widipe.com/download/ytdl?url=${encodeURIComponent(text)}`;
+    let audioResponse;
+
+    try {
+        audioResponse = await axios.get(apiUrl);
+    } catch (error) {
+        console.error("Error fetching audio:", error);
+        return replygcalya("Failed to download the audio. Please try again.");
+    }
+
+    if (!audioResponse.data.status) {
+        return replygcalya("Failed to retrieve audio URL. Please try again.");
+    }
+
+    const mp3Url = audioResponse.data.result.mp3;
+
+    // Download the MP3 file
+    let mp3Buffer;
+    try {
+        const mp3DownloadResponse = await axios.get(mp3Url, { responseType: 'arraybuffer' });
+        mp3Buffer = Buffer.from(mp3DownloadResponse.data);
+    } catch (error) {
+        console.error("Error downloading MP3:", error);
+        return replygcalya("Failed to download the MP3. Please try again.");
+    }
+
+    // Send the audio message
+    await AlyaBotInc.sendMessage(m.chat, {
+        audio: mp3Buffer,
+        fileName: `${anup3k.title}.mp3`,
+        mimetype: 'audio/mp4',
+        ptt: true,
+        contextInfo: {
+            externalAdReply: {
+                title: anup3k.title,
+                body: botname,
+                thumbnail: await fetchBuffer(anup3k.thumbnail),
+                mediaType: 2,
+                mediaUrl: anup3k.url,
             }
+        },
+    }, { quoted: m });
+}
+break;
 
-            if (!audioResponse.data.status) {
-                return replygcalya("Failed to retrieve audio URL. Please try again.");
-            }
+// Function for downloading video
+case '2': {
+    if (!text) return replygcalya("Please provide a YouTube URL.");
 
-            const mp3Url = audioResponse.data.result.mp3;
-
-            // Download the MP3 file
-            let mp3Buffer;
-            try {
-                const mp3DownloadResponse = await axios.get(mp3Url, { responseType: 'arraybuffer' });
-                mp3Buffer = Buffer.from(mp3DownloadResponse.data);
-            } catch (error) {
-                console.error("Error downloading MP3:", error);
-                return replygcalya("Failed to download the MP3. Please try again.");
-            }
-
-            // Send the audio message
-            await AlyaBotInc.sendMessage(m.chat, {
-                audio: mp3Buffer,
-                fileName: anup3k.title + '.mp3',
-                mimetype: 'audio/mp4',
-                ptt: true,
-                contextInfo: {
-                    externalAdReply: {
-                        title: anup3k.title,
-                        body: botname,
-                        thumbnail: await fetchBuffer(anup3k.thumbnail),
-                        mediaType: 2,
-                        mediaUrl: anup3k.url,
-                    }
-                },
-            }, { quoted: m });
-
-        } else if (budy.match('2')) {
-            // User chose video, fetch and send the video
-            try {
-                let anu = await axios.get(`https://widipe.com/download/ytdl?url=${anup3k.url}`);
-                if (!anu || anu.data.status !== true) {
-                    return replygcalya('Failed to fetch video details. Try again later.');
-                }
-
-                // Send the video to the user
-                await AlyaBotInc.sendMessage(m.chat, {
-                    video: { url: anu.data.result.mp4 }
-                }, { quoted: m });
-            } catch (err) {
-                console.error("Error fetching video:", err);
-                replygcalya('An error occurred while processing the video.');
-            }
-        } else {
-            replygcalya("Invalid response. Reply with '1' for music or '2' for video.");
+    try {
+        let anu = await axios.get(`https://widipe.com/download/ytdl?url=${text}`);
+        if (!anu || anu.data.status !== true) {
+            return replygcalya('Failed to fetch video details. Try again later.');
         }
-    });
+
+        // Send the video to the user
+        await AlyaBotInc.sendMessage(m.chat, {
+            video: { url: anu.data.result.mp4 }
+        }, { quoted: m });
+    } catch (err) {
+        console.error("Error fetching video:", err);
+        replygcalya('An error occurred while processing the video.');
+    }
 }
 break;
 case 'git':
