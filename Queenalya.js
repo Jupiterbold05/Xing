@@ -8803,181 +8803,69 @@ case 'fb': {
 
     const fbData = fbResponse.data.data;
 
-    // Create the button message for FB options (HD, SD, Audio)
-    let msg = generateWAMessageFromContent(from, {
-        viewOnceMessage: {
-            message: {
-                "messageContextInfo": {
-                    "deviceListMetadata": {},
-                    "deviceListMetadataVersion": 2
-                },
-                interactiveMessage: proto.Message.InteractiveMessage.create({
-                    body: proto.Message.InteractiveMessage.Body.create({
-                        text: `*Queen_Alya • FACEBOOK ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
+    // Send button message with FB download options
+    const buttons = [
+        { buttonId: `${prefix}fbhd ${fbUrl}`, buttonText: { displayText: 'FB HD Video 🎥' }, type: 1 },
+        { buttonId: `${prefix}fbsd ${fbUrl}`, buttonText: { displayText: 'FB SD Video 🎥' }, type: 1 },
+        { buttonId: `${prefix}fbaudio ${fbUrl}`, buttonText: { displayText: 'FB Audio 🎶' }, type: 1 }
+    ];
 
-*Url :* ${fbUrl}
+    const buttonMessage = {
+        text: `*Queen_Alya • FACEBOOK ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*\n\n*Url :* ${fbUrl}\n\nChoose an option below:`,
+        footer: botname,
+        buttons: buttons,
+        headerType: 1,
+        image: { url: './AlyaMedia/theme/alya.jpg' }
+    };
 
-Choose an option below:
-1. FB HD Video
-2. FB SD Video
-3. FB Audio`
-                    }),
-                    footer: proto.Message.InteractiveMessage.Footer.create({
-                        text: botname
-                    }),
-                    header: proto.Message.InteractiveMessage.Header.create({
-                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
-                        title: '',
-                        gifPlayback: true,
-                        subtitle: ownername,
-                        hasMediaAttachment: false
-                    }),
-                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                        buttons: [
-                            {
-                                "name": "single_select",
-                                "buttonParamsJson": `{"title":"SELECT FB DOWNLOAD OPTION",
-                                "sections":[{"title":"CHOOSE FORMAT",
-                                "rows":[{"header":"HD Video 🎥",
-                                "title":"1. FB HD Video",
-                                "description":"Download high-quality video",
-                                "id":"${prefix}fbhd ${fbUrl}"},
-                                {"header":"SD Video 🎥",
-                                "title":"2. FB SD Video",
-                                "description":"Download standard quality video",
-                                "id":"${prefix}fbsd ${fbUrl}"},
-                                {"header":"Audio 🎶",
-                                "title":"3. FB Audio",
-                                "description":"Download audio only",
-                                "id":"${prefix}fbaudio ${fbUrl}"}
-                                ]
-                                }
-                                ]
-                                }`
-                            }
-                        ],
-                    }),
-                    contextInfo: {
-                        mentionedJid: [m.sender],
-                        forwardingScore: 999,
-                        isForwarded: true,
-                        forwardedNewsletterMessageInfo: {
-                            newsletterJid: 'https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09',
-                            newsletterName: ownername,
-                            serverMessageId: 143
-                        }
-                    }
-                })
-            }
-        }
-    }, { quoted: m });
+    await AlyaBotInc.sendMessage(from, buttonMessage, { quoted: m });
 
-    // Send the button message
-    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-        messageId: msg.key.id
-    });
-
-    // Listen for the button response
+    // Button response handler
     AlyaBotInc.ev.on('messages.upsert', async (chatUpdate) => {
         const reply = chatUpdate.messages[0];
         if (!reply.message.buttonsResponseMessage) return;
 
-        const buttonResponse = reply.message.buttonsResponseMessage.selectedButtonId;
+        const buttonResponse = reply.message.buttonsResponseMessage.selectedButtonId.split(" ")[0];
 
-        // Handle HD Video download
-        if (buttonResponse.startsWith(`${prefix}fbhd`)) {
-            if (!fbData.video_hd) return replygcalya("HD video not available.");
+        const handleDownload = async (url, type, filename) => {
             try {
-                const videoResponse = await axios({
-                    url: fbData.video_hd,
-                    method: 'GET',
-                    responseType: 'stream'
-                });
-                const tempFilePath = path.join(__dirname, `${Date.now()}_HD.mp4`);
+                const response = await axios({ url, method: 'GET', responseType: 'stream' });
+                const tempFilePath = path.join(__dirname, `${Date.now()}_${filename}`);
                 const writer = fs.createWriteStream(tempFilePath);
-                videoResponse.data.pipe(writer);
+                response.data.pipe(writer);
 
                 await new Promise((resolve, reject) => {
                     writer.on('finish', resolve);
                     writer.on('error', reject);
                 });
 
-                await AlyaBotInc.sendMessage(m.chat, {
-                    video: { url: tempFilePath },
-                    caption: 'Here is your HD video',
-                    fileName: `${Date.now()}.mp4`,
-                    mimetype: "video/mp4"
-                }, { quoted: m });
+                const messageOptions = type === 'audio' 
+                    ? { audio: { url: tempFilePath }, mimetype: 'audio/mp4', ptt: true, fileName: `${Date.now()}.mp3` }
+                    : { video: { url: tempFilePath }, caption: `Here is your ${filename}`, fileName: `${Date.now()}.mp4`, mimetype: "video/mp4" };
 
+                await AlyaBotInc.sendMessage(m.chat, messageOptions, { quoted: m });
                 fs.unlinkSync(tempFilePath);
             } catch (error) {
-                console.error("Error downloading HD video:", error);
-                return replygcalya("Failed to download HD video. Please try again.");
+                console.error(`Error downloading ${filename}:`, error);
+                return replygcalya(`Failed to download ${filename}. Please try again.`);
             }
-        }
+        };
 
-        // Handle SD Video download
-        if (buttonResponse.startsWith(`${prefix}fbsd`)) {
-            if (!fbData.video_sd) return replygcalya("SD video not available.");
-            try {
-                const videoResponse = await axios({
-                    url: fbData.video_sd,
-                    method: 'GET',
-                    responseType: 'stream'
-                });
-                const tempFilePath = path.join(__dirname, `${Date.now()}_SD.mp4`);
-                const writer = fs.createWriteStream(tempFilePath);
-                videoResponse.data.pipe(writer);
-
-                await new Promise((resolve, reject) => {
-                    writer.on('finish', resolve);
-                    writer.on('error', reject);
-                });
-
-                await AlyaBotInc.sendMessage(m.chat, {
-                    video: { url: tempFilePath },
-                    caption: 'Here is your SD video',
-                    fileName: `${Date.now()}.mp4`,
-                    mimetype: "video/mp4"
-                }, { quoted: m });
-
-                fs.unlinkSync(tempFilePath);
-            } catch (error) {
-                console.error("Error downloading SD video:", error);
-                return replygcalya("Failed to download SD video. Please try again.");
-            }
-        }
-
-        // Handle Audio download
-        if (buttonResponse.startsWith(`${prefix}fbaudio`)) {
-            if (!fbData.audio) return replygcalya("Audio not available.");
-            try {
-                const audioResponse = await axios({
-                    url: fbData.audio,
-                    method: 'GET',
-                    responseType: 'stream'
-                });
-                const tempFilePath = path.join(__dirname, `${Date.now()}.mp3`);
-                const writer = fs.createWriteStream(tempFilePath);
-                audioResponse.data.pipe(writer);
-
-                await new Promise((resolve, reject) => {
-                    writer.on('finish', resolve);
-                    writer.on('error', reject);
-                });
-
-                await AlyaBotInc.sendMessage(m.chat, {
-                    audio: { url: tempFilePath },
-                    mimetype: 'audio/mp4',
-                    ptt: true,
-                    fileName: `${Date.now()}.mp3`
-                }, { quoted: m });
-
-                fs.unlinkSync(tempFilePath);
-            } catch (error) {
-                console.error("Error downloading audio:", error);
-                return replygcalya("Failed to download audio. Please try again.");
-            }
+        switch (buttonResponse) {
+            case `${prefix}fbhd`:
+                if (!fbData.video_hd) return replygcalya("HD video not available.");
+                await handleDownload(fbData.video_hd, 'video', 'HD.mp4');
+                break;
+            case `${prefix}fbsd`:
+                if (!fbData.video_sd) return replygcalya("SD video not available.");
+                await handleDownload(fbData.video_sd, 'video', 'SD.mp4');
+                break;
+            case `${prefix}fbaudio`:
+                if (!fbData.audio) return replygcalya("Audio not available.");
+                await handleDownload(fbData.audio, 'audio', 'Audio.mp3');
+                break;
+            default:
+                break;
         }
     });
 }
