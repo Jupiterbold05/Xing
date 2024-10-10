@@ -8791,7 +8791,7 @@ case 'fb': {
     const axios = require("axios");
     let fbUrl = text;
 
-    // Fetch data from the Facebook API
+    // Call the Facebook downloader API
     let fbResponse;
     try {
         fbResponse = await axios.get(`https://itzpire.com/download/facebook?url=${encodeURIComponent(fbUrl)}`);
@@ -8840,7 +8840,7 @@ Choose an option below:
                                 "sections":[{"title":"CHOOSE FORMAT",
                                 "rows":[{"header":"HD Video 🎥",
                                 "title":"1. FB HD Video",
-                                "description":"Download high quality video",
+                                "description":"Download high-quality video",
                                 "id":"${prefix}fbhd ${fbUrl}"},
                                 {"header":"SD Video 🎥",
                                 "title":"2. FB SD Video",
@@ -8877,7 +8877,7 @@ Choose an option below:
         messageId: msg.key.id
     });
 
-    // Handle button responses for different download options
+    // Listen for the button response
     AlyaBotInc.ev.on('messages.upsert', async (chatUpdate) => {
         const reply = chatUpdate.messages[0];
         if (!reply.message.buttonsResponseMessage) return;
@@ -8887,27 +8887,97 @@ Choose an option below:
         // Handle HD Video download
         if (buttonResponse.startsWith(`${prefix}fbhd`)) {
             if (!fbData.video_hd) return replygcalya("HD video not available.");
-            await AlyaBotInc.sendMessage(m.chat, {
-                video: { url: fbData.video_hd }
-            }, { quoted: m });
+            try {
+                const videoResponse = await axios({
+                    url: fbData.video_hd,
+                    method: 'GET',
+                    responseType: 'stream'
+                });
+                const tempFilePath = path.join(__dirname, `${Date.now()}_HD.mp4`);
+                const writer = fs.createWriteStream(tempFilePath);
+                videoResponse.data.pipe(writer);
+
+                await new Promise((resolve, reject) => {
+                    writer.on('finish', resolve);
+                    writer.on('error', reject);
+                });
+
+                await AlyaBotInc.sendMessage(m.chat, {
+                    video: { url: tempFilePath },
+                    caption: 'Here is your HD video',
+                    fileName: `${Date.now()}.mp4`,
+                    mimetype: "video/mp4"
+                }, { quoted: m });
+
+                fs.unlinkSync(tempFilePath);
+            } catch (error) {
+                console.error("Error downloading HD video:", error);
+                return replygcalya("Failed to download HD video. Please try again.");
+            }
         }
 
         // Handle SD Video download
         if (buttonResponse.startsWith(`${prefix}fbsd`)) {
             if (!fbData.video_sd) return replygcalya("SD video not available.");
-            await AlyaBotInc.sendMessage(m.chat, {
-                video: { url: fbData.video_sd }
-            }, { quoted: m });
+            try {
+                const videoResponse = await axios({
+                    url: fbData.video_sd,
+                    method: 'GET',
+                    responseType: 'stream'
+                });
+                const tempFilePath = path.join(__dirname, `${Date.now()}_SD.mp4`);
+                const writer = fs.createWriteStream(tempFilePath);
+                videoResponse.data.pipe(writer);
+
+                await new Promise((resolve, reject) => {
+                    writer.on('finish', resolve);
+                    writer.on('error', reject);
+                });
+
+                await AlyaBotInc.sendMessage(m.chat, {
+                    video: { url: tempFilePath },
+                    caption: 'Here is your SD video',
+                    fileName: `${Date.now()}.mp4`,
+                    mimetype: "video/mp4"
+                }, { quoted: m });
+
+                fs.unlinkSync(tempFilePath);
+            } catch (error) {
+                console.error("Error downloading SD video:", error);
+                return replygcalya("Failed to download SD video. Please try again.");
+            }
         }
 
         // Handle Audio download
         if (buttonResponse.startsWith(`${prefix}fbaudio`)) {
             if (!fbData.audio) return replygcalya("Audio not available.");
-            await AlyaBotInc.sendMessage(m.chat, {
-                audio: { url: fbData.audio },
-                mimetype: 'audio/mp4',
-                ptt: true
-            }, { quoted: m });
+            try {
+                const audioResponse = await axios({
+                    url: fbData.audio,
+                    method: 'GET',
+                    responseType: 'stream'
+                });
+                const tempFilePath = path.join(__dirname, `${Date.now()}.mp3`);
+                const writer = fs.createWriteStream(tempFilePath);
+                audioResponse.data.pipe(writer);
+
+                await new Promise((resolve, reject) => {
+                    writer.on('finish', resolve);
+                    writer.on('error', reject);
+                });
+
+                await AlyaBotInc.sendMessage(m.chat, {
+                    audio: { url: tempFilePath },
+                    mimetype: 'audio/mp4',
+                    ptt: true,
+                    fileName: `${Date.now()}.mp3`
+                }, { quoted: m });
+
+                fs.unlinkSync(tempFilePath);
+            } catch (error) {
+                console.error("Error downloading audio:", error);
+                return replygcalya("Failed to download audio. Please try again.");
+            }
         }
     });
 }
