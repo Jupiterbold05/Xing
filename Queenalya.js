@@ -8785,43 +8785,133 @@ if (!text) return replygcalya('What location?')
            )
            }
            break
-           case 'facebook2': case 'fb2':{
-if (!text) return replygcalya(`Enter the link!!!`)
-if (!isUrl(args[0])) return replygcalya(`Where is the link?`)
-await AlyaBotInc.sendMessage(m.chat, { react: { text: "⏱️",key: m.key,}})   
-try{
-let anu = await fetchJson(`https://aemt.me/download/fbdown?url=${text}`)
-AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result.url.urls[0].hd }, caption: 'Here you go!' }, { quoted: m })
-await AlyaBotInc.sendMessage(m.chat, { react: { text: "☑️",key: m.key,}})   
-}catch (error) {
-await AlyaBotInc.sendMessage(m.chat, { react: { text: "✖️",key: m.key,}})   
+case 'fb': {
+    if (!text) return replygcalya(`Example : ${prefix + command} <facebook_video_url>`);
+
+    const axios = require("axios");
+    let fbUrl = text;
+
+    // Fetch data from Facebook API first, to extract relevant info
+    let fbResponse;
+    try {
+        fbResponse = await axios.get(`https://itzpire.com/download/facebook?url=${encodeURIComponent(fbUrl)}`);
+        if (!fbResponse.data || !fbResponse.data.data) return replygcalya("Invalid Facebook URL or no download available.");
+    } catch (error) {
+        console.error("Error fetching Facebook data:", error);
+        return replygcalya("Failed to download from Facebook. Please try again.");
+    }
+
+    const fbData = fbResponse.data.data;
+
+    // Now, create the button message using proto.Message.InteractiveMessage
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: `*Queen_Alya • FACEBOOK ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
+
+*Url :* ${fbUrl}
+
+Choose an option below:
+1. FB HD Video
+2. FB SD Video
+3. FB Audio`
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        gifPlayback: true,
+                        subtitle: ownername,
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "single_select",
+                                "buttonParamsJson": `{"title":"SELECT FB DOWNLOAD OPTION",
+                                "sections":[{"title":"CHOOSE FORMAT",
+                                "rows":[{"header":"HD Video 🎥",
+                                "title":"1. FB HD Video",
+                                "description":"Download high quality video",
+                                "id":"${prefix}fbhd ${fbUrl}"},
+                                {"header":"SD Video 🎥",
+                                "title":"2. FB SD Video",
+                                "description":"Download standard quality video",
+                                "id":"${prefix}fbsd ${fbUrl}"},
+                                {"header":"Audio 🎶",
+                                "title":"3. FB Audio",
+                                "description":"Download audio only",
+                                "id":"${prefix}fbaudio ${fbUrl}"}
+                                ]
+                                }
+                                ]
+                                }`
+                            }
+                        ],
+                    }),
+                    contextInfo: {
+                        mentionedJid: [m.sender],
+                        forwardingScore: 999,
+                        isForwarded: true,
+                        forwardedNewsletterMessageInfo: {
+                            newsletterJid: 'https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09',
+                            newsletterName: ownername,
+                            serverMessageId: 143
+                        }
+                    }
+                })
+            }
+        }
+    }, { quoted: m });
+
+    // Send the button message
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+
+    // Handle button response
+    AlyaBotInc.ev.on('messages.upsert', async (chatUpdate) => {
+        const reply = chatUpdate.messages[0];
+        if (!reply.message.buttonsResponseMessage) return;
+
+        const buttonResponse = reply.message.buttonsResponseMessage.selectedButtonId;
+
+        // Handle HD Video
+        if (buttonResponse.startsWith(`${prefix}fbhd`)) {
+            if (!fbData.video_hd) return replygcalya("HD video not available.");
+            await AlyaBotInc.sendMessage(m.chat, {
+                video: { url: fbData.video_hd }
+            }, { quoted: m });
+        }
+
+        // Handle SD Video
+        if (buttonResponse.startsWith(`${prefix}fbsd`)) {
+            if (!fbData.video_sd) return replygcalya("SD video not available.");
+            await AlyaBotInc.sendMessage(m.chat, {
+                video: { url: fbData.video_sd }
+            }, { quoted: m });
+        }
+
+        // Handle Audio
+        if (buttonResponse.startsWith(`${prefix}fbaudio`)) {
+            if (!fbData.audio) return replygcalya("Audio not available.");
+            await AlyaBotInc.sendMessage(m.chat, {
+                audio: { url: fbData.audio },
+                mimetype: 'audio/mp4',
+                ptt: true
+            }, { quoted: m });
+        }
+    });
 }
-}
-break
-           case 'fb':
-           case 'facebook':
-case 'facebookvid': {
-           if (!args[0]) {
-    return replygcalya(`Please send the link of a Facebook video\n\nEXAMPLE :\n*${prefix + command}* https://fb.watch/pLLTM4AFrO/?mibextid=Nif5oz`)
-  }
-  const urlRegex = /^(?:https?:\/\/)?(?:www\.)?(?:facebook\.com|fb\.watch)\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i;
-  if (!urlRegex.test(args[0])) {
-    return replygcalya('Url invalid')
-  }
-  try {
-    const result = await fg.fbdl(args[0]);
-    const tex = `
-        [ FACEBOOK DL ]
-${themeemoji} Title: ${result.title}`;
-    const response = await fetch(result.videoUrl)
-    const arrayBuffer = await response.arrayBuffer()
-    const videoBuffer = Buffer.from(arrayBuffer)
-    AlyaBotInc.sendMessage(m.chat, {video: videoBuffer, caption: tex}, {quoted: m})
-  } catch (error) {
-    replygcalya('Maybe private video!')
-  }
-  }
-  break
+break;
 case 'tiktokstalk': {
 	  if (!text) return replygcalya(`Username? `)
   let res = await fg.ttStalk(args[0])
