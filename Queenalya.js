@@ -8509,10 +8509,9 @@ case 'play': {
 *Uploaded :* ${anup3k.ago}
 *Author :* ${anup3k.author.name}
 
-_Alya is singing..._`;
+Reply with '1' for music or '2' for video.`;
 
     replygcalya(videoDetails);
-    replygcalya("Reply with '1' for music or '2' for video.");
 
     // Wait for user's response to choose music or video
     AlyaBotInc.on('chat-update', async (chatUpdate) => {
@@ -8521,7 +8520,7 @@ _Alya is singing..._`;
         const budy = m.message.conversation;
 
         // Check if the user replied with '1' for music or '2' for video
-        if (budy.match(/1/)) {
+        if (budy.match('1')) {
             // User chose music, fetch and send the audio
             const apiUrl = `https://widipe.com/download/ytdl?url=${encodeURIComponent(anup3k.url)}`;
             let audioResponse;
@@ -8566,7 +8565,7 @@ _Alya is singing..._`;
                 },
             }, { quoted: m });
 
-        } else if (budy.match(/2/)) {
+        } else if (budy.match('2')) {
             // User chose video, fetch and send the video
             try {
                 let anu = await axios.get(`https://widipe.com/download/ytdl?url=${anup3k.url}`);
