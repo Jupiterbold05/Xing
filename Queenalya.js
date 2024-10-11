@@ -8804,12 +8804,12 @@ break
 
 // TikTok Video Script
 case 'tiktokvideo': {
-    if (!text) return reply('Please provide a TikTok video URL.')
+    if (!text) return replygcalya('Please provide a TikTok video URL.')
 
     try {
         let response = await axios.get(`https://itzpire.com/download/tiktok?url=${text}`)
         if (!response || response.data.status !== 'success') {
-            return reply('Failed to fetch video details. Try again later.')
+            return replygcalya('Failed to fetch video details. Try again later.')
         }
 
         // Send the video to the user
@@ -8826,12 +8826,12 @@ break
 
 // TikTok Audio Script
 case 'tiktokaudio': {
-    if (!text) return reply('Please provide a TikTok audio URL.')
+    if (!text) return replygcalya('Please provide a TikTok audio URL.')
 
     try {
         let response = await axios.get(`https://itzpire.com/download/tiktok?url=${text}`)
         if (!response || response.data.status !== 'success') {
-            return reply('Failed to fetch audio details. Try again later.')
+            return replygcalya('Failed to fetch audio details. Try again later.')
         }
 
         const audioUrl = response.data.data.music
@@ -8843,7 +8843,7 @@ case 'tiktokaudio': {
             mp3Buffer = Buffer.from(mp3DownloadResponse.data)
         } catch (error) {
             console.error("Error downloading MP3:", error)
-            return reply('Failed to download the MP3. Please try again.')
+            return replygcalya('Failed to download the MP3. Please try again.')
         }
 
         // Send the audio message
