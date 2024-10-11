@@ -8712,21 +8712,20 @@ case 'gitclone':
     }
     break;
 case 'tiktok': {
-    if (!args[0]) return reply('Please provide a TikTok video URL.')
+    if (!text) return replygcalya(`Example: ${prefix + command} <tiktok_url>`);
 
-    let tiktokUrl = args[0]
-    let apiUrl = `https://itzpire.com/download/tiktok?url=${tiktokUrl}`
+    let tiktokUrl = text;
+    const axios = require("axios");
 
     try {
-        let response = await fetch(apiUrl)
-        let data = await response.json()
+        let response = await axios.get(`https://itzpire.com/download/tiktok?url=${encodeURIComponent(tiktokUrl)}`);
+        
+        if (response.data.status !== 'success') {
+            return replygcalya("Failed to retrieve data. Please try again.");
+        }
 
-        if (data.status !== 'success') return reply('Failed to fetch TikTok video. Please try again.')
+        let tiktokData = response.data.data;
 
-        let videoUrl = data.data.video
-        let audioUrl = data.data.music
-
-        // Generate interactive message with buttons for TikTok download options
         let msg = generateWAMessageFromContent(from, {
             viewOnceMessage: {
                 message: {
@@ -8736,13 +8735,7 @@ case 'tiktok': {
                     },
                     interactiveMessage: proto.Message.InteractiveMessage.create({
                         body: proto.Message.InteractiveMessage.Body.create({
-                            text: `*Queen_Alya • TIKTOK ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
-
-*Url :* ${tiktokUrl}
-
-Choose an option below:
-1. TikTok Video
-2. TikTok Audio`
+                            text: `*Queen_Alya • TIKTOK DOWNLOADER*\n\n*Url:* ${tiktokUrl}\n\nChoose an option below:\n1. TikTok HD Video\n2. TikTok SD Video\n3. TikTok Audio`
                         }),
                         footer: proto.Message.InteractiveMessage.Footer.create({
                             text: botname
@@ -8760,14 +8753,18 @@ Choose an option below:
                                     "name": "single_select",
                                     "buttonParamsJson": `{"title":"SELECT TIKTOK DOWNLOAD OPTION",
                                     "sections":[{"title":"CHOOSE FORMAT",
-                                    "rows":[{"header":"Video 🎥",
-                                    "title":"1. TikTok Video",
-                                    "description":"Download TikTok video",
-                                    "id":"${prefix}tiktokvideo ${videoUrl}"},
+                                    "rows":[{"header":"HD Video 🎥",
+                                    "title":"1. TikTok HD Video",
+                                    "description":"Download high-quality video",
+                                    "id":"${prefix}tiktokhd ${tiktokUrl}"},
+                                    {"header":"SD Video 🎥",
+                                    "title":"2. TikTok SD Video",
+                                    "description":"Download standard quality video",
+                                    "id":"${prefix}tiktoksd ${tiktokUrl}"},
                                     {"header":"Audio 🎶",
-                                    "title":"2. TikTok Audio",
-                                    "description":"Download TikTok audio",
-                                    "id":"${prefix}tiktokaudio ${audioUrl}"}
+                                    "title":"3. TikTok Audio",
+                                    "description":"Download audio only",
+                                    "id":"${prefix}tiktokaudio ${tiktokUrl}"}
                                     ]
                                     }
                                     ]
@@ -8788,78 +8785,59 @@ Choose an option below:
                     })
                 }
             }
-        }, { quoted: m })
+        }, { quoted: m });
 
-        // Send the button message
         await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             messageId: msg.key.id
-        })
-
+        });
     } catch (error) {
-        reply('Error fetching TikTok data. Please try again.')
-        console.error(error)
+        console.error("Error fetching TikTok data:", error);
+        return replygcalya('An error occurred while fetching TikTok content.');
     }
 }
-break
+break;
 
-// TikTok Video Script
-case 'tiktokvideo': {
-    if (!text) return replygcalya('Please provide a TikTok video URL.')
+case 'tiktokhd': {
+    if (!text) return replygcalya("Please provide a TikTok URL.");
 
     try {
-        let response = await axios.get(`https://itzpire.com/download/tiktok?url=${text}`)
-        if (!response || response.data.status !== 'success') {
-            return replygcalya('Failed to fetch video details. Try again later.')
-        }
+        let response = await axios.get(`https://itzpire.com/download/tiktok?url=${encodeURIComponent(text)}`);
+        if (response.data.status !== 'success') return replygcalya('Failed to fetch video details.');
 
-        // Send the video to the user
+        let videoUrl = response.data.data.video;
+
         await AlyaBotInc.sendMessage(m.chat, {
-            video: { url: response.data.data.video },
-            caption: 'Here is your TikTok video 🎥'
-        }, { quoted: m })
-    } catch (error) {
-        console.error("Error fetching video:", error)
-        reply('An error occurred while processing the video.')
+            video: { url: videoUrl }
+        }, { quoted: m });
+
+    } catch (err) {
+        console.error("Error fetching video:", err);
+        replygcalya('An error occurred while processing the video.');
     }
 }
-break
+break;
 
-// TikTok Audio Script
 case 'tiktokaudio': {
-    if (!text) return replygcalya('Please provide a TikTok audio URL.')
+    if (!text) return replygcalya("Please provide a TikTok URL.");
 
     try {
-        let response = await axios.get(`https://itzpire.com/download/tiktok?url=${text}`)
-        if (!response || response.data.status !== 'success') {
-            return replygcalya('Failed to fetch audio details. Try again later.')
-        }
+        let response = await axios.get(`https://itzpire.com/download/tiktok?url=${encodeURIComponent(text)}`);
+        if (response.data.status !== 'success') return replygcalya('Failed to fetch audio details.');
 
-        const audioUrl = response.data.data.music
+        let audioUrl = response.data.data.music;
 
-        // Download the MP3 file
-        let mp3Buffer
-        try {
-            const mp3DownloadResponse = await axios.get(audioUrl, { responseType: 'arraybuffer' })
-            mp3Buffer = Buffer.from(mp3DownloadResponse.data)
-        } catch (error) {
-            console.error("Error downloading MP3:", error)
-            return replygcalya('Failed to download the MP3. Please try again.')
-        }
-
-        // Send the audio message
         await AlyaBotInc.sendMessage(m.chat, {
-            audio: mp3Buffer,
-            fileName: 'tiktok-audio.mp3',
+            audio: { url: audioUrl },
             mimetype: 'audio/mp4',
             ptt: true
-        }, { quoted: m })
+        }, { quoted: m });
 
-    } catch (error) {
-        console.error("Error fetching audio:", error)
-        reply('An error occurred while processing the audio.')
+    } catch (err) {
+        console.error("Error fetching audio:", err);
+        replygcalya('An error occurred while processing the audio.');
     }
 }
-break
+break;
 case 'google': {
 if (!q) return replygcalya(`Example : ${prefix + command} ${botname}`)
 await AlyaStickWait()
