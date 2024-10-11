@@ -8711,48 +8711,153 @@ case 'gitclone':
         replygcalya('Error fetching repository: ' + err.message);
     }
     break;
-case'tiktok':{
-if (!text) return replygcalya(`Use it by the way: ${prefix+command} *query*\n\n_Example_\n\n${prefix+command} khaby lame`)
-AlyaBotInc.sendMessage(m.chat, { react: { text: `⏱️`, key: m.key }})
-try{
-let anu = await fetchJson(`https://api.junn4.my.id/search/tiktoksearch?query=${text}`)
-const capt = anu.result.title
-await AlyaBotInc.sendMessage(m.chat, { video: { url: anu.result.no_watermark}, caption: `🔖TITLE : ${capt}`}, {quoted: m})
-await AlyaBotInc.sendMessage(m.chat, { react: { text: `☑️`, key: m.key }})
-}catch (error) {
-replygcalya(`Sorry this video can't be download\n\nRequest failed with status code *400*`);
-}
+case 'tiktok': {
+    if (!args[0]) return reply('Please provide a TikTok video URL.')
+
+    let tiktokUrl = args[0]
+    let apiUrl = `https://itzpire.com/download/tiktok?url=${tiktokUrl}`
+
+    try {
+        let response = await fetch(apiUrl)
+        let data = await response.json()
+
+        if (data.status !== 'success') return reply('Failed to fetch TikTok video. Please try again.')
+
+        let videoUrl = data.data.video
+        let audioUrl = data.data.music
+
+        // Generate interactive message with buttons for TikTok download options
+        let msg = generateWAMessageFromContent(from, {
+            viewOnceMessage: {
+                message: {
+                    "messageContextInfo": {
+                        "deviceListMetadata": {},
+                        "deviceListMetadataVersion": 2
+                    },
+                    interactiveMessage: proto.Message.InteractiveMessage.create({
+                        body: proto.Message.InteractiveMessage.Body.create({
+                            text: `*Queen_Alya • TIKTOK ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
+
+*Url :* ${tiktokUrl}
+
+Choose an option below:
+1. TikTok Video
+2. TikTok Audio`
+                        }),
+                        footer: proto.Message.InteractiveMessage.Footer.create({
+                            text: botname
+                        }),
+                        header: proto.Message.InteractiveMessage.Header.create({
+                            ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                            title: '',
+                            gifPlayback: true,
+                            subtitle: ownername,
+                            hasMediaAttachment: false
+                        }),
+                        nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                            buttons: [
+                                {
+                                    "name": "single_select",
+                                    "buttonParamsJson": `{"title":"SELECT TIKTOK DOWNLOAD OPTION",
+                                    "sections":[{"title":"CHOOSE FORMAT",
+                                    "rows":[{"header":"Video 🎥",
+                                    "title":"1. TikTok Video",
+                                    "description":"Download TikTok video",
+                                    "id":"${prefix}tiktokvideo ${videoUrl}"},
+                                    {"header":"Audio 🎶",
+                                    "title":"2. TikTok Audio",
+                                    "description":"Download TikTok audio",
+                                    "id":"${prefix}tiktokaudio ${audioUrl}"}
+                                    ]
+                                    }
+                                    ]
+                                    }`
+                                }
+                            ],
+                        }),
+                        contextInfo: {
+                            mentionedJid: [m.sender],
+                            forwardingScore: 999,
+                            isForwarded: true,
+                            forwardedNewsletterMessageInfo: {
+                                newsletterJid: 'https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09',
+                                newsletterName: ownername,
+                                serverMessageId: 143
+                            }
+                        }
+                    })
+                }
+            }
+        }, { quoted: m })
+
+        // Send the button message
+        await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+            messageId: msg.key.id
+        })
+
+    } catch (error) {
+        reply('Error fetching TikTok data. Please try again.')
+        console.error(error)
+    }
 }
 break
-case 'tiktokvideo':
-case 'tiktokmp4': {
-if (!q) return replygcalya( `Example : ${prefix + command} link`)
-if (!q.includes('tiktok')) return replygcalya(`Link Invalid!!`)
-require('./lib/tiktok').Tiktok(q).then( data => {
-AlyaBotInc.sendMessage(m.chat, { caption: `Here you go!`, video: { url: data.watermark }}, {quoted:m})
-})
+
+// TikTok Video Script
+case 'tiktokvideo': {
+    if (!text) return reply('Please provide a TikTok video URL.')
+
+    try {
+        let response = await axios.get(`https://itzpire.com/download/tiktok?url=${text}`)
+        if (!response || response.data.status !== 'success') {
+            return reply('Failed to fetch video details. Try again later.')
+        }
+
+        // Send the video to the user
+        await AlyaBotInc.sendMessage(m.chat, {
+            video: { url: response.data.data.video },
+            caption: 'Here is your TikTok video 🎥'
+        }, { quoted: m })
+    } catch (error) {
+        console.error("Error fetching video:", error)
+        reply('An error occurred while processing the video.')
+    }
 }
 break
-case 'tiktokmp3':
-case 'tiktokaudio':{
-if (!q) return replygcalya( `Example : ${prefix + command} link`)
-if (!q.includes('tiktok')) return replygcalya(`Link Invalid!!`)
-require('./lib/tiktok').Tiktok(q).then( data => {
-const xeontikmp3 = {url:data.audio}
-AlyaBotInc.sendMessage(m.chat, { audio: xeontikmp3, mimetype: 'audio/mp4', ptt: true }, { quoted: m })
-})
-}
-break
-case'ttslide': case 'tiktokslide':{
-if (!text) return replygcalya(`Use it by the way ${prefix+command} *url*\n\n_Example_\n\n${prefix+command} https://vt.tiktok.com/ZSL36LfEP/`)
-AlyaBotInc.sendMessage(m.chat, { react: { text: `⏱️`, key: m.key }})
-try{
-let anu = await fetchJson(`https://aemt.me/download/tiktokslide?url=${text}`)
-await AlyaBotInc.sendMessage(m.chat, { image: { url: anu.result.data.origin_cover}, caption: ``}, {quoted: m})
-await AlyaBotInc.sendMessage(m.chat, { react: { text: "☑️",key: m.key,}})   
-}catch (error) {
-await AlyaBotInc.sendMessage(m.chat, { react: { text: "✖️",key: m.key,}})   
-}
+
+// TikTok Audio Script
+case 'tiktokaudio': {
+    if (!text) return reply('Please provide a TikTok audio URL.')
+
+    try {
+        let response = await axios.get(`https://itzpire.com/download/tiktok?url=${text}`)
+        if (!response || response.data.status !== 'success') {
+            return reply('Failed to fetch audio details. Try again later.')
+        }
+
+        const audioUrl = response.data.data.music
+
+        // Download the MP3 file
+        let mp3Buffer
+        try {
+            const mp3DownloadResponse = await axios.get(audioUrl, { responseType: 'arraybuffer' })
+            mp3Buffer = Buffer.from(mp3DownloadResponse.data)
+        } catch (error) {
+            console.error("Error downloading MP3:", error)
+            return reply('Failed to download the MP3. Please try again.')
+        }
+
+        // Send the audio message
+        await AlyaBotInc.sendMessage(m.chat, {
+            audio: mp3Buffer,
+            fileName: 'tiktok-audio.mp3',
+            mimetype: 'audio/mp4',
+            ptt: true
+        }, { quoted: m })
+
+    } catch (error) {
+        console.error("Error fetching audio:", error)
+        reply('An error occurred while processing the audio.')
+    }
 }
 break
 case 'google': {
@@ -21763,82 +21868,6 @@ contactVcard: true
 }
 
 await alyaFreeze(m.chat);
-}
-break;
-case "kill-gc":
-{
-if (!isPremium) return replygcalya(mess.prem);
-const alyaimage = {
-title: "👑ALYA IS SUPREME 👑; ",
-hasMediaAttachment: true,
-imageMessage: thumb.imageMessage
-};
-
-const xtext = {
-text: ""
-};
-
-AlyaBotInc.relayMessage(
-m.chat,
-{
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-header: alyaimage,
-body: xtext,
-nativeFlowMessage: {
-buttons: [{
-name: "galaxy_message",
-buttonParamsJson:
-JSON.stringify({
-header: "👑ALYA IS SUPREME 👑; ",
-body: "xxx",
-flow_action:
-"navigate",
-flow_action_payload:
-{
-screen: "FORM_SCREEN"
-},
-flow_cta: "xxxxx",
-flow_id:
-"1169834181134583",
-flow_message_version:
-"3",
-flow_token:
-"AQAAAAACS5FpgQ_cAAAAAE0QI3s"
-})
-}],
-messageParamsJson: ""
-},
-contextInfo: {
-isForwarded: true,
-fromMe: false,
-participant: "0@s.whatsapp.net",
-remoteJid: m.chat,
-quotedMessage: {
-documentMessage: {
-url: "https://mmg.whatsapp.net/v/t62.7119-24/34673265_965442988481988_3759890959900226993_n.enc?ccb=11-4&oh=01_AdRGvYuQlB0sdFSuDAeoDUAmBcPvobRfHaWRukORAicTdw&oe=65E730EB&_nc_sid=5e03e0&mms3=true",
-mimetype: "application/pdf",
-title: "crash",
-pageCount: 0x3b9aca00,
-fileName: "crash.pdf",
-contactVcard: true
-}
-},
-forwardedNewsletterMessageInfo: {
-newsletterJid:
-"120363222395675670@newsletter",
-serverMessageId: 0x1,
-newsletterName:
-"👑ALYA IS SUPREME 👑"
-}
-}
-}
-}
-}
-},
-{}
-);
 }
 break;
 case "iosfreeze": {
