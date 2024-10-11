@@ -8790,12 +8790,12 @@ case 'tiktokvideo': {
     const tiktokUrl = text;
 
     try {
-        const response = await axios.get(`https://itzpire.com/download/tiktok?url=${encodeURIComponent(tiktokUrl)}`);
+        const response = await axios.get(`https://widipe.com/download/tiktokdl?url=${encodeURIComponent(tiktokUrl)}`);
         if (response.data.status !== "success") {
             return replygcalya("Failed to fetch video. Please try again.");
         }
 
-        const videoUrl = response.data.data.video; // Get video URL from the API response
+        const videoUrl = response.result.video; // Get video URL from the API response
 
         await AlyaBotInc.sendMessage(m.chat, {
             video: { url: videoUrl } // Send the video URL without a caption
@@ -8813,12 +8813,12 @@ case 'tiktokaudio': {
     const tiktokUrl = text;
 
     try {
-        const response = await axios.get(`https://itzpire.com/download/tiktok?url=${encodeURIComponent(tiktokUrl)}`);
+        const response = await axios.get(`https://widipe.com/download/tiktokdl?url=${encodeURIComponent(tiktokUrl)}`);
         if (response.data.status !== "success") {
             return replygcalya("Failed to fetch audio. Please try again.");
         }
 
-        const audioUrl = response.data.data.music; // Get audio URL from the API response
+        const audioUrl = response.result.music; // Get audio URL from the API response
 
         await AlyaBotInc.sendMessage(m.chat, {
             audio: { url: audioUrl }, // Send the audio URL without a caption
