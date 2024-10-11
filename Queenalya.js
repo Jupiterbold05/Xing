@@ -8711,10 +8711,13 @@ case 'gitclone':
         replygcalya('Error fetching repository: ' + err.message);
     }
     break;
+// TikTok Main Command
 case 'tiktok': {
     const tiktokUrl = text; // Assuming 'text' contains the TikTok URL
 
-    let msg = generateWAMessageFromContent(from, {
+    if (!tiktokUrl) return await m.reply("*Provide a TikTok video URL*");
+
+    let msg = generateWAMessageFromContent(m.from, {
         viewOnceMessage: {
             message: {
                 "messageContextInfo": {
@@ -8723,13 +8726,7 @@ case 'tiktok': {
                 },
                 interactiveMessage: proto.Message.InteractiveMessage.create({
                     body: proto.Message.InteractiveMessage.Body.create({
-                        text: `*Queen_Alya • TIKTOK ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
-
-*Url :* ${tiktokUrl}
-
-Choose an option below:
-1. TikTok Video
-2. TikTok Audio`
+                        text: `*Queen_Alya • TIKTOK ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*\n\n*Url:* ${tiktokUrl}\n\nChoose an option below:\n1. TikTok Video\n2. TikTok Audio`
                     }),
                     footer: proto.Message.InteractiveMessage.Footer.create({
                         text: botname
@@ -8766,11 +8763,6 @@ Choose an option below:
                         mentionedJid: [m.sender],
                         forwardingScore: 999,
                         isForwarded: true,
-                        forwardedNewsletterMessageInfo: {
-                            newsletterJid: 'https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09',
-                            newsletterName: ownername,
-                            serverMessageId: 143
-                        }
                     }
                 })
             }
@@ -8781,49 +8773,73 @@ Choose an option below:
     await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
         messageId: msg.key.id
     });
+    break;
 }
-break;
 
-// Handle TikTok Video download (HD or SD)
+// Handle TikTok Video Download
 case 'tiktokvideo': {
-    if (!text) return replygcalya("Please provide a valid TikTok video URL.");
+    if (!text) return await m.reply("*Provide a TikTok video URL*");
+
     const tiktokUrl = text;
 
     try {
-        const response = await axios.get(`https://itzpire.com/download/tiktok?url=${encodeURIComponent(tiktokUrl)}`);
-        if (response.data.status !== "success") {
-            return replygcalya("Failed to fetch video. Please try again.");
-        }
+        const apiUrl = `https://itzpire.com/download/tiktok?url=${encodeURIComponent(tiktokUrl)}`;
+        const response = await axios.get(apiUrl);
+        const data = response.data;
 
-        await AlyaBotInc.sendMessage(m.chat, {
-            video: { url: response.data.data.video }
-        }, { quoted: m });
+        console.log("API Response:", data); // Log the API response for debugging
+
+        if (data.status === "success" && data.data.video) {
+            const videoDownloadUrl = data.data.video; // Extract the video URL
+
+            // Send the video to the user
+            await AlyaBotInc.sendMessage(m.chat, {
+                video: { url: videoDownloadUrl },
+                caption: 'Here is your downloaded TikTok video.',
+                fileName: `${Date.now()}.mp4`,
+                mimetype: "video/mp4"
+            }, { quoted: m });
+        } else {
+            console.log("Error: Could not retrieve the video download URL, API response:", data);
+            await m.reply("*Error: Could not retrieve the video download URL. Please try again later!*");
+        }
     } catch (error) {
-        console.error("Error fetching video:", error);
-        replygcalya("An error occurred while processing the video.");
+        console.error("Caught Error:", error);
+        await m.reply("*An error occurred while processing the command!*");
     }
     break;
 }
 
-// Handle TikTok Audio download
+// Handle TikTok Audio Download
 case 'tiktokaudio': {
-    if (!text) return replygcalya("Please provide a valid TikTok video URL.");
+    if (!text) return await m.reply("*Provide a TikTok video URL*");
+
     const tiktokUrl = text;
 
     try {
-        const response = await axios.get(`https://itzpire.com/download/tiktok?url=${encodeURIComponent(tiktokUrl)}`);
-        if (response.data.status !== "success") {
-            return replygcalya("Failed to fetch audio. Please try again.");
-        }
+        const apiUrl = `https://itzpire.com/download/tiktok?url=${encodeURIComponent(tiktokUrl)}`;
+        const response = await axios.get(apiUrl);
+        const data = response.data;
 
-        await AlyaBotInc.sendMessage(m.chat, {
-            audio: { url: response.data.data.music },
-            mimetype: 'audio/mp4',
-            ptt: true
-        }, { quoted: m });
+        console.log("API Response:", data); // Log the API response for debugging
+
+        if (data.status === "success" && data.data.music) {
+            const audioDownloadUrl = data.data.music; // Extract the audio URL
+
+            // Send the audio to the user
+            await AlyaBotInc.sendMessage(m.chat, {
+                audio: { url: audioDownloadUrl },
+                mimetype: 'audio/mp4',
+                ptt: true,
+                fileName: `${Date.now()}.mp3`
+            }, { quoted: m });
+        } else {
+            console.log("Error: Could not retrieve the audio download URL, API response:", data);
+            await m.reply("*Error: Could not retrieve the audio download URL. Please try again later!*");
+        }
     } catch (error) {
-        console.error("Error fetching audio:", error);
-        replygcalya("An error occurred while processing the audio.");
+        console.error("Caught Error:", error);
+        await m.reply("*An error occurred while processing the command!*");
     }
     break;
 }
