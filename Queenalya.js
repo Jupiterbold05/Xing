@@ -21299,7 +21299,7 @@ case "alyacrash": {
         await sendSystemCrashMessage(whatsappNumber, force);
         await sendPaymentInfoMessage(whatsappNumber, painbug);
         await ngeloc(whatsappNumber, force2);
-        await abug2(whatsappNumber, alyaCrashyios);
+        await abug2(whatsappNumber, alyaCrashyIos);
 
          if (j === 1) {
             // Additional logic if needed
