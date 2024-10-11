@@ -8784,18 +8784,18 @@ Choose an option below:
 }
 break;
 
-// Handle TikTok Video download (HD or SD)
+// Handle TikTok Video download
 case 'tiktokvideo': {
     if (!text) return replygcalya("Please provide a valid TikTok video URL.");
     const tiktokUrl = text;
 
     try {
         const response = await axios.get(`https://widipe.com/download/tiktokdl?url=${encodeURIComponent(tiktokUrl)}`);
-        if (response.data.status !== "success") {
+        if (!response.data.result || !response.data.result.video) {
             return replygcalya("Failed to fetch video. Please try again.");
         }
 
-        const videoUrl = response.result.video; // Get video URL from the API response
+        const videoUrl = response.data.result.video; // Get video URL from the API response
 
         await AlyaBotInc.sendMessage(m.chat, {
             video: { url: videoUrl } // Send the video URL without a caption
@@ -8814,11 +8814,11 @@ case 'tiktokaudio': {
 
     try {
         const response = await axios.get(`https://widipe.com/download/tiktokdl?url=${encodeURIComponent(tiktokUrl)}`);
-        if (response.data.status !== "success") {
+        if (!response.data.result || !response.data.result.music) {
             return replygcalya("Failed to fetch audio. Please try again.");
         }
 
-        const audioUrl = response.result.music; // Get audio URL from the API response
+        const audioUrl = response.data.result.music; // Get audio URL from the API response
 
         await AlyaBotInc.sendMessage(m.chat, {
             audio: { url: audioUrl }, // Send the audio URL without a caption
