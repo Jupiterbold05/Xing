@@ -8712,132 +8712,121 @@ case 'gitclone':
     }
     break;
 case 'tiktok': {
-    if (!text) return replygcalya(`Example: ${prefix + command} <tiktok_url>`);
+    const tiktokUrl = text; // Assuming 'text' contains the TikTok URL
 
-    let tiktokUrl = text;
-    const axios = require("axios");
+    let msg = generateWAMessageFromContent(from, {
+        viewOnceMessage: {
+            message: {
+                "messageContextInfo": {
+                    "deviceListMetadata": {},
+                    "deviceListMetadataVersion": 2
+                },
+                interactiveMessage: proto.Message.InteractiveMessage.create({
+                    body: proto.Message.InteractiveMessage.Body.create({
+                        text: `*Queen_Alya • TIKTOK ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
+
+*Url :* ${tiktokUrl}
+
+Choose an option below:
+1. TikTok Video
+2. TikTok Audio`
+                    }),
+                    footer: proto.Message.InteractiveMessage.Footer.create({
+                        text: botname
+                    }),
+                    header: proto.Message.InteractiveMessage.Header.create({
+                        ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
+                        title: '',
+                        gifPlayback: true,
+                        subtitle: ownername,
+                        hasMediaAttachment: false
+                    }),
+                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                        buttons: [
+                            {
+                                "name": "single_select",
+                                "buttonParamsJson": `{"title":"SELECT TIKTOK DOWNLOAD OPTION",
+                                "sections":[{"title":"CHOOSE FORMAT",
+                                "rows":[{"header":"Video 🎥",
+                                "title":"1. TikTok Video",
+                                "description":"Download TikTok video",
+                                "id":"${prefix}tiktokvideo ${tiktokUrl}"},
+                                {"header":"Audio 🎶",
+                                "title":"2. TikTok Audio",
+                                "description":"Download TikTok audio",
+                                "id":"${prefix}tiktokaudio ${tiktokUrl}"}
+                                ]
+                                }
+                                ]
+                                }`
+                            }
+                        ],
+                    }),
+                    contextInfo: {
+                        mentionedJid: [m.sender],
+                        forwardingScore: 999,
+                        isForwarded: true,
+                        forwardedNewsletterMessageInfo: {
+                            newsletterJid: 'https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09',
+                            newsletterName: ownername,
+                            serverMessageId: 143
+                        }
+                    }
+                })
+            }
+        }
+    }, { quoted: m });
+
+    // Send the button message
+    await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+    });
+}
+break;
+
+// Handle TikTok Video download (HD or SD)
+case 'tiktokvideo': {
+    if (!text) return replygcalya("Please provide a valid TikTok video URL.");
+    const tiktokUrl = text;
 
     try {
-        let response = await axios.get(`https://itzpire.com/download/tiktok?url=${encodeURIComponent(tiktokUrl)}`);
-        
-        if (response.data.status !== 'success') {
-            return replygcalya("Failed to retrieve data. Please try again.");
+        const response = await axios.get(`https://itzpire.com/download/tiktok?url=${encodeURIComponent(tiktokUrl)}`);
+        if (response.data.status !== "success") {
+            return replygcalya("Failed to fetch video. Please try again.");
         }
 
-        let tiktokData = response.data.data;
-
-        let msg = generateWAMessageFromContent(from, {
-            viewOnceMessage: {
-                message: {
-                    "messageContextInfo": {
-                        "deviceListMetadata": {},
-                        "deviceListMetadataVersion": 2
-                    },
-                    interactiveMessage: proto.Message.InteractiveMessage.create({
-                        body: proto.Message.InteractiveMessage.Body.create({
-                            text: `*Queen_Alya • TIKTOK DOWNLOADER*\n\n*Url:* ${tiktokUrl}\n\nChoose an option below:\n1. TikTok HD Video\n2. TikTok SD Video\n3. TikTok Audio`
-                        }),
-                        footer: proto.Message.InteractiveMessage.Footer.create({
-                            text: botname
-                        }),
-                        header: proto.Message.InteractiveMessage.Header.create({
-                            ...(await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })),
-                            title: '',
-                            gifPlayback: true,
-                            subtitle: ownername,
-                            hasMediaAttachment: false
-                        }),
-                        nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                            buttons: [
-                                {
-                                    "name": "single_select",
-                                    "buttonParamsJson": `{"title":"SELECT TIKTOK DOWNLOAD OPTION",
-                                    "sections":[{"title":"CHOOSE FORMAT",
-                                    "rows":[{"header":"HD Video 🎥",
-                                    "title":"1. TikTok HD Video",
-                                    "description":"Download high-quality video",
-                                    "id":"${prefix}tiktokhd ${tiktokUrl}"},
-                                    {"header":"SD Video 🎥",
-                                    "title":"2. TikTok SD Video",
-                                    "description":"Download standard quality video",
-                                    "id":"${prefix}tiktoksd ${tiktokUrl}"},
-                                    {"header":"Audio 🎶",
-                                    "title":"3. TikTok Audio",
-                                    "description":"Download audio only",
-                                    "id":"${prefix}tiktokaudio ${tiktokUrl}"}
-                                    ]
-                                    }
-                                    ]
-                                    }`
-                                }
-                            ],
-                        }),
-                        contextInfo: {
-                            mentionedJid: [m.sender],
-                            forwardingScore: 999,
-                            isForwarded: true,
-                            forwardedNewsletterMessageInfo: {
-                                newsletterJid: 'https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09',
-                                newsletterName: ownername,
-                                serverMessageId: 143
-                            }
-                        }
-                    })
-                }
-            }
+        await AlyaBotInc.sendMessage(m.chat, {
+            video: { url: response.data.data.video }
         }, { quoted: m });
-
-        await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
-            messageId: msg.key.id
-        });
     } catch (error) {
-        console.error("Error fetching TikTok data:", error);
-        return replygcalya('An error occurred while fetching TikTok content.');
+        console.error("Error fetching video:", error);
+        replygcalya("An error occurred while processing the video.");
     }
+    break;
 }
-break;
 
-case 'tiktokhd': {
-    if (!text) return replygcalya("Please provide a TikTok URL.");
-
-    try {
-        let response = await axios.get(`https://itzpire.com/download/tiktok?url=${encodeURIComponent(text)}`);
-        if (response.data.status !== 'success') return replygcalya('Failed to fetch video details.');
-
-        let videoUrl = response.data.data.video;
-
-        await AlyaBotInc.sendMessage(m.chat, {
-            video: { url: videoUrl }
-        }, { quoted: m });
-
-    } catch (err) {
-        console.error("Error fetching video:", err);
-        replygcalya('An error occurred while processing the video.');
-    }
-}
-break;
-
+// Handle TikTok Audio download
 case 'tiktokaudio': {
-    if (!text) return replygcalya("Please provide a TikTok URL.");
+    if (!text) return replygcalya("Please provide a valid TikTok video URL.");
+    const tiktokUrl = text;
 
     try {
-        let response = await axios.get(`https://itzpire.com/download/tiktok?url=${encodeURIComponent(text)}`);
-        if (response.data.status !== 'success') return replygcalya('Failed to fetch audio details.');
-
-        let audioUrl = response.data.data.music;
+        const response = await axios.get(`https://itzpire.com/download/tiktok?url=${encodeURIComponent(tiktokUrl)}`);
+        if (response.data.status !== "success") {
+            return replygcalya("Failed to fetch audio. Please try again.");
+        }
 
         await AlyaBotInc.sendMessage(m.chat, {
-            audio: { url: audioUrl },
+            audio: { url: response.data.data.music },
             mimetype: 'audio/mp4',
             ptt: true
         }, { quoted: m });
-
-    } catch (err) {
-        console.error("Error fetching audio:", err);
-        replygcalya('An error occurred while processing the audio.');
+    } catch (error) {
+        console.error("Error fetching audio:", error);
+        replygcalya("An error occurred while processing the audio.");
     }
+    break;
 }
-break;
 case 'google': {
 if (!q) return replygcalya(`Example : ${prefix + command} ${botname}`)
 await AlyaStickWait()
