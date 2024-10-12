@@ -19093,16 +19093,27 @@ const conversationFile = './lib/conversation.json';
 
 // Function to load conversation history from file
 const loadConversationHistory = () => {
-    if (fs.existsSync(conversationFile)) {
-        return JSON.parse(fs.readFileSync(conversationFile));
-    } else {
+    try {
+        if (fs.existsSync(conversationFile)) {
+            return JSON.parse(fs.readFileSync(conversationFile));
+        } else {
+            // Create file if it doesn't exist
+            fs.writeFileSync(conversationFile, JSON.stringify({}));
+            return {};
+        }
+    } catch (err) {
+        console.error('Error loading conversation history:', err);
         return {};
     }
 };
 
 // Function to save conversation history to file
 const saveConversationHistory = (data) => {
-    fs.writeFileSync(conversationFile, JSON.stringify(data, null, 2));
+    try {
+        fs.writeFileSync(conversationFile, JSON.stringify(data, null, 2));
+    } catch (err) {
+        console.error('Error saving conversation history:', err);
+    }
 };
 
 let conversationHistory = loadConversationHistory();
@@ -19115,17 +19126,7 @@ case 'bingai': {
         // Call the AI API
         let gpt = await (await fetch(`https://itzpire.com/ai/bing-ai?model=Balanced&q=${text}`)).json();
 
-        // Save conversation
-        if (!conversationHistory[m.sender]) conversationHistory[m.sender] = [];
-        conversationHistory[m.sender].push({
-            question: text,
-            answer: gpt.result
-        });
-
-        // Save updated conversation history to file
-        saveConversationHistory(conversationHistory);
-
-        // Send the message
+        // Send the reply to the user first
         let msgs = generateWAMessageFromContent(m.chat, {
             viewOnceMessage: {
                 message: {
@@ -19164,8 +19165,18 @@ case 'bingai': {
                 }
             }
         }, { quoted: m });
-        
+
         await AlyaBotInc.relayMessage(m.chat, msgs.message, {});
+
+        // After replying, save the conversation
+        if (!conversationHistory[m.sender]) conversationHistory[m.sender] = [];
+        conversationHistory[m.sender].push({
+            question: text,
+            answer: gpt.result
+        });
+
+        // Save updated conversation history to file
+        saveConversationHistory(conversationHistory);
 
     } catch (e) {
         return replygcalya("`*Error*`");
@@ -19173,8 +19184,8 @@ case 'bingai': {
 }
 break;
 
-// Case for recalling the last conversation
-case 'bingai-recall': {
+// Case for recalling the last conversation (bing-recall)
+case 'bing-recall': {
     conversationHistory = loadConversationHistory(); // Reload the history from the file
 
     if (conversationHistory[m.sender] && conversationHistory[m.sender].length > 0) {
