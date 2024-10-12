@@ -19124,9 +19124,18 @@ case 'bingai': {
 
     try {
         // Call the AI API
-        let gpt = await (await fetch(`https://itzpire.com/ai/bing-ai?model=Balanced&q=${text}`)).json();
+        let response = await fetch(`https://itzpire.com/ai/bing-ai?model=Balanced&q=${text}`);
+        if (!response.ok) {
+            return replygcalya(`Error: Failed to fetch the response from the API.`);
+        }
+        let gpt = await response.json();
 
-        // Send the reply to the user first
+        // Check if the API response has the expected result
+        if (!gpt || !gpt.result) {
+            return replygcalya(`Error: Invalid response from the API.`);
+        }
+
+        // Reply to the user before saving the conversation
         let msgs = generateWAMessageFromContent(m.chat, {
             viewOnceMessage: {
                 message: {
@@ -19168,7 +19177,7 @@ case 'bingai': {
 
         await AlyaBotInc.relayMessage(m.chat, msgs.message, {});
 
-        // After replying, save the conversation
+        // Save conversation after replying
         if (!conversationHistory[m.sender]) conversationHistory[m.sender] = [];
         conversationHistory[m.sender].push({
             question: text,
@@ -19184,7 +19193,7 @@ case 'bingai': {
 }
 break;
 
-// Case for recalling the last conversation (bing-recall)
+// Case for recalling the last conversation (renamed to 'bing-recall')
 case 'bing-recall': {
     conversationHistory = loadConversationHistory(); // Reload the history from the file
 
