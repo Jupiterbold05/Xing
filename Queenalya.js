@@ -19089,7 +19089,7 @@ await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 }
     break
-case'bingai': {
+    case 'bingai': {
 	if (!text) return replygcalya(`*• Example:* ${prefix + command} what is your name`);   
         try {
 let gpt = await (await fetch(`https://itzpire.com/ai/bing-ai?model=Balanced&q=${text}`)).json()
@@ -19103,6 +19103,54 @@ let msgs = generateWAMessageFromContent(m.chat, {
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
             text: '> Bing AI\n\n' + gpt.result
+          }),
+          footer: proto.Message.InteractiveMessage.Footer.create({
+            text: botname
+          }),
+          header: proto.Message.InteractiveMessage.Header.create({
+          hasMediaAttachment: false,
+          ...await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })  
+          }),
+          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+            buttons: [{
+            "name": "quick_reply",
+              "buttonParamsJson": `{\"display_text\":\"Nice 👀\",\"id\":\"\"}`
+            }],
+          }),
+          contextInfo: {
+                  mentionedJid: [m.sender], 
+                  forwardingScore: 999,
+                  isForwarded: true,
+                forwardedNewsletterMessageInfo: {
+                  newsletterJid: 'https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09',
+                  newsletterName: ownername,
+                  serverMessageId: 143
+                }
+                }
+       })
+    }
+  }
+}, { quoted: m })
+await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
+ } catch(e) {
+ return replygcalya("`*Error*`")
+}
+}
+    break
+    case 'blackboxai': {
+	if (!text) return replygcalya(`*• Example:* ${prefix + command} write a program to delete file`);   
+        try {
+let gpt = await (await fetch(`https://itzpire.com/ai/blackbox-ai?q=${text}`)).json()
+let msgs = generateWAMessageFromContent(m.chat, {
+  viewOnceMessage: {
+    message: {
+        "messageContextInfo": {
+          "deviceListMetadata": {},
+          "deviceListMetadataVersion": 2
+        },
+        interactiveMessage: proto.Message.InteractiveMessage.create({
+          body: proto.Message.InteractiveMessage.Body.create({
+            text: '> Blackbox AI\n\n' + gpt.result
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
