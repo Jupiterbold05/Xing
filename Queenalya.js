@@ -19089,128 +19089,54 @@ await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 }
     break
-const conversationFile = path.join(__dirname, './lib/conversation.json');
-
-// Function to load conversation history from file
-const loadConversationHistory = () => {
-    try {
-        if (fs.existsSync(conversationFile)) {
-            const data = fs.readFileSync(conversationFile, 'utf-8');
-            return JSON.parse(data);
-        } else {
-            // Create file if it doesn't exist
-            fs.writeFileSync(conversationFile, JSON.stringify({}));
-            return {};
-        }
-    } catch (err) {
-        console.error('Error loading conversation history:', err);
-        return {};
-    }
-};
-
-// Function to save conversation history to file
-const saveConversationHistory = (data) => {
-    try {
-        fs.writeFileSync(conversationFile, JSON.stringify(data, null, 2));
-    } catch (err) {
-        console.error('Error saving conversation history:', err);
-    }
-};
-
-// Initialize conversation history
-let conversationHistory = loadConversationHistory();
-
-// Case for 'bingai'
-case 'bingai': {
-    if (!text) return replygcalya(`*• Example:* ${prefix + command} what is your name`);
-
-    try {
-        // Call the AI API
-        let response = await fetch(`https://itzpire.com/ai/bing-ai?model=Balanced&q=${text}`);
-        if (!response.ok) {
-            return replygcalya(`Error: Failed to fetch the response from the API.`);
-        }
-        let gpt = await response.json();
-
-        // Check if the API response has the expected result
-        if (!gpt || !gpt.result) {
-            return replygcalya(`Error: Invalid response from the API.`);
-        }
-
-        // Reply to the user before saving the conversation
-        let msgs = generateWAMessageFromContent(m.chat, {
-            viewOnceMessage: {
-                message: {
-                    "messageContextInfo": {
-                        "deviceListMetadata": {},
-                        "deviceListMetadataVersion": 2
-                    },
-                    interactiveMessage: proto.Message.InteractiveMessage.create({
-                        body: proto.Message.InteractiveMessage.Body.create({
-                            text: '> Bing AI\n\n' + gpt.result
-                        }),
-                        footer: proto.Message.InteractiveMessage.Footer.create({
-                            text: botname
-                        }),
-                        header: proto.Message.InteractiveMessage.Header.create({
-                            hasMediaAttachment: false,
-                            ...await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })
-                        }),
-                        nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                            buttons: [{
-                                "name": "quick_reply",
-                                "buttonParamsJson": `{\"display_text\":\"Nice 👀\",\"id\":\"\"}`
-                            }],
-                        }),
-                        contextInfo: {
-                            mentionedJid: [m.sender],
-                            forwardingScore: 999,
-                            isForwarded: true,
-                            forwardedNewsletterMessageInfo: {
-                                newsletterJid: 'https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09',
-                                newsletterName: ownername,
-                                serverMessageId: 143
-                            }
-                        }
-                    })
+case'bingai': {
+	if (!text) return replygcalya(`*• Example:* ${prefix + command} what is your name`);   
+        try {
+let gpt = await (await fetch(`https://itzpire.com/ai/bing-ai?model=Balanced&q=${text}`)).json()
+let msgs = generateWAMessageFromContent(m.chat, {
+  viewOnceMessage: {
+    message: {
+        "messageContextInfo": {
+          "deviceListMetadata": {},
+          "deviceListMetadataVersion": 2
+        },
+        interactiveMessage: proto.Message.InteractiveMessage.create({
+          body: proto.Message.InteractiveMessage.Body.create({
+            text: '> Bing AI\n\n' + gpt.result
+          }),
+          footer: proto.Message.InteractiveMessage.Footer.create({
+            text: botname
+          }),
+          header: proto.Message.InteractiveMessage.Header.create({
+          hasMediaAttachment: false,
+          ...await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })  
+          }),
+          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+            buttons: [{
+            "name": "quick_reply",
+              "buttonParamsJson": `{\"display_text\":\"Nice 👀\",\"id\":\"\"}`
+            }],
+          }),
+          contextInfo: {
+                  mentionedJid: [m.sender], 
+                  forwardingScore: 999,
+                  isForwarded: true,
+                forwardedNewsletterMessageInfo: {
+                  newsletterJid: 'https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09',
+                  newsletterName: ownername,
+                  serverMessageId: 143
                 }
-            }
-        }, { quoted: m });
-
-        await AlyaBotInc.relayMessage(m.chat, msgs.message, {});
-
-        // Save conversation after replying
-        if (!conversationHistory[m.sender]) conversationHistory[m.sender] = [];
-        conversationHistory[m.sender].push({
-            question: text,
-            answer: gpt.result
-        });
-
-        // Save updated conversation history to file
-        saveConversationHistory(conversationHistory);
-
-    } catch (e) {
-        console.error(e);
-        return replygcalya("`*Error*`");
+                }
+       })
     }
+  }
+}, { quoted: m })
+await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
+ } catch(e) {
+ return replygcalya("`*Error*`")
 }
-break;
-
-// Case for recalling the last conversation (renamed to 'bing-recall')
-case 'bing-recall': {
-    // Reload the history from the file to ensure we have the latest data
-    conversationHistory = loadConversationHistory();
-
-    // Check if there's any saved conversation for the user
-    if (conversationHistory[m.sender] && conversationHistory[m.sender].length > 0) {
-        let lastConversation = conversationHistory[m.sender][conversationHistory[m.sender].length - 1];
-        let message = `Here's what we talked about last time:\n\n*Question:* ${lastConversation.question}\n*Answer:* ${lastConversation.answer}`;
-        replygcalya(message);
-    } else {
-        replygcalya("It seems we haven't talked before.");
-    }
 }
-break;
+    break
     case 'travel-assistant': {
 	if (!text) return replygcalya(`*• Example:* ${prefix + command} how can i visit taj mahal`);   
         try {
