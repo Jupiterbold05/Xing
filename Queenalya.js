@@ -19115,7 +19115,35 @@ const saveConversationHistory = (data) => {
         console.error('Error saving conversation history:', err);
     }
 };
+const conversationFile = path.join(__dirname, './lib/conversation.json');
 
+// Function to load conversation history from file
+const loadConversationHistory = () => {
+    try {
+        if (fs.existsSync(conversationFile)) {
+            const data = fs.readFileSync(conversationFile, 'utf-8');
+            return JSON.parse(data);
+        } else {
+            // Create file if it doesn't exist
+            fs.writeFileSync(conversationFile, JSON.stringify({}));
+            return {};
+        }
+    } catch (err) {
+        console.error('Error loading conversation history:', err);
+        return {};
+    }
+};
+
+// Function to save conversation history to file
+const saveConversationHistory = (data) => {
+    try {
+        fs.writeFileSync(conversationFile, JSON.stringify(data, null, 2));
+    } catch (err) {
+        console.error('Error saving conversation history:', err);
+    }
+};
+
+// Initialize conversation history
 let conversationHistory = loadConversationHistory();
 
 // Case for 'bingai'
@@ -19188,6 +19216,7 @@ case 'bingai': {
         saveConversationHistory(conversationHistory);
 
     } catch (e) {
+        console.error(e);
         return replygcalya("`*Error*`");
     }
 }
@@ -19195,8 +19224,10 @@ break;
 
 // Case for recalling the last conversation (renamed to 'bing-recall')
 case 'bing-recall': {
-    conversationHistory = loadConversationHistory(); // Reload the history from the file
+    // Reload the history from the file to ensure we have the latest data
+    conversationHistory = loadConversationHistory();
 
+    // Check if there's any saved conversation for the user
     if (conversationHistory[m.sender] && conversationHistory[m.sender].length > 0) {
         let lastConversation = conversationHistory[m.sender][conversationHistory[m.sender].length - 1];
         let message = `Here's what we talked about last time:\n\n*Question:* ${lastConversation.question}\n*Answer:* ${lastConversation.answer}`;
