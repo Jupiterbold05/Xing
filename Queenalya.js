@@ -19089,7 +19089,23 @@ await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 }
     break
-    let conversationHistory = {};
+const conversationFile = './lib/conversation.json';
+
+// Function to load conversation history from file
+const loadConversationHistory = () => {
+    if (fs.existsSync(conversationFile)) {
+        return JSON.parse(fs.readFileSync(conversationFile));
+    } else {
+        return {};
+    }
+};
+
+// Function to save conversation history to file
+const saveConversationHistory = (data) => {
+    fs.writeFileSync(conversationFile, JSON.stringify(data, null, 2));
+};
+
+let conversationHistory = loadConversationHistory();
 
 // Case for 'bingai'
 case 'bingai': {
@@ -19105,6 +19121,9 @@ case 'bingai': {
             question: text,
             answer: gpt.result
         });
+
+        // Save updated conversation history to file
+        saveConversationHistory(conversationHistory);
 
         // Send the message
         let msgs = generateWAMessageFromContent(m.chat, {
@@ -19155,7 +19174,9 @@ case 'bingai': {
 break;
 
 // Case for recalling the last conversation
-case 'bingai what did we talk about last time': {
+case 'bingai-recall': {
+    conversationHistory = loadConversationHistory(); // Reload the history from the file
+
     if (conversationHistory[m.sender] && conversationHistory[m.sender].length > 0) {
         let lastConversation = conversationHistory[m.sender][conversationHistory[m.sender].length - 1];
         let message = `Here's what we talked about last time:\n\n*Question:* ${lastConversation.question}\n*Answer:* ${lastConversation.answer}`;
@@ -19165,54 +19186,6 @@ case 'bingai what did we talk about last time': {
     }
 }
 break;
-    case 'blackboxai': {
-	if (!text) return replygcalya(`*• Example:* ${prefix + command} write a program to delete file`);   
-        try {
-let gpt = await (await fetch(`https://itzpire.com/ai/blackbox-ai?q=${text}`)).json()
-let msgs = generateWAMessageFromContent(m.chat, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: '> Blackbox AI\n\n' + gpt.result
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-          hasMediaAttachment: false,
-          ...await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })  
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [{
-            "name": "quick_reply",
-              "buttonParamsJson": `{\"display_text\":\"Nice 👀\",\"id\":\"\"}`
-            }],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-       })
-    }
-  }
-}, { quoted: m })
-await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
- } catch(e) {
- return replygcalya("`*Error*`")
-}
-}
-    break
     case 'travel-assistant': {
 	if (!text) return replygcalya(`*• Example:* ${prefix + command} how can i visit taj mahal`);   
         try {
