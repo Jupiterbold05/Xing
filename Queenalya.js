@@ -19089,32 +19089,6 @@ await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 }
     break
-const conversationFile = './lib/conversation.json';
-
-// Function to load conversation history from file
-const loadConversationHistory = () => {
-    try {
-        if (fs.existsSync(conversationFile)) {
-            return JSON.parse(fs.readFileSync(conversationFile));
-        } else {
-            // Create file if it doesn't exist
-            fs.writeFileSync(conversationFile, JSON.stringify({}));
-            return {};
-        }
-    } catch (err) {
-        console.error('Error loading conversation history:', err);
-        return {};
-    }
-};
-
-// Function to save conversation history to file
-const saveConversationHistory = (data) => {
-    try {
-        fs.writeFileSync(conversationFile, JSON.stringify(data, null, 2));
-    } catch (err) {
-        console.error('Error saving conversation history:', err);
-    }
-};
 const conversationFile = path.join(__dirname, './lib/conversation.json');
 
 // Function to load conversation history from file
