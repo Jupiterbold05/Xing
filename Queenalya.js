@@ -1254,7 +1254,7 @@ await AlyaBotInc.relayMessage(target, {"paymentInviteMessage": {serviceType: "FB
                         title: botname,
                         body: ownername,
                         thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        sourceUrl: websitex,
+                        sourceUrl: https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09,
                         mediaType: 1,
                         renderLargerThumbnail: true
                      }
@@ -1280,7 +1280,7 @@ showAdAttribution: true,
 title: botname,
 body: ownername,
 thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-sourceUrl: websitex
+sourceUrl: https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09
 },
 },
 text: txt,
@@ -7154,7 +7154,7 @@ break
                 break
 case 'sc': case 'script': case 'donate': case 'donate': case 'cekupdate': case 'updatebot': case 'cekbot': case 'sourcecode': {
 let me = m.sender
-let teks = `*「  ${global.botname} Script 」*\n\nYouTube: ${global.websitex}\nGitHub: ${global.botscript}\n\nHi @${me.split('@')[0]} 👋\nDont forget to donate yeah🍜 👇 https://i.imgur.com/DeJiOrr.jpeg`
+let teks = `*「  ${global.botname} Script 」*\n\nYouTube: ${https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09}\nGitHub: ${global.botscript}\n\nHi @${me.split('@')[0]} 👋\nDont forget to donate yeah🍜 👇 https://i.imgur.com/DeJiOrr.jpeg`
 sendAlyaBotIncMessage(from, { 
 text: teks,
 mentions:[sender],
@@ -9158,7 +9158,7 @@ case 'spotify':{
                 title: `PLAYING TO ${name}`,
                 body: botname,
                 thumbnailUrl: coverimage,
-                sourceUrl: websitex,
+                sourceUrl: https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09,
                 mediaType: 1,
                 renderLargerThumbnail: true
               }
