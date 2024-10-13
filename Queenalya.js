@@ -8497,15 +8497,8 @@ case 'play': {
     }
 
     if (isUrl) {
-        if (text.includes('youtube.com') || text.includes('youtu.be')) {
-            // Extract video ID from YouTube URL
-            let videoId = new URL(text).searchParams.get("v") || text.split('/').pop();
-            // Fetch details of the YouTube video using yts
-            let search = await yts({ videoId });
-            anup3k = search;
-        } else {
-            return replygcalya(`Invalid YouTube link. Please provide a valid YouTube URL.`);
-        }
+        // If it's a valid URL, use it directly
+        anup3k = { url: text, title: 'Video from URL', description: 'No description available', views: 'Unknown', ago: 'Unknown', author: { name: 'Unknown' } };
     } else {
         // If it's a query, search YouTube for the result
         let search = await yts(text);
