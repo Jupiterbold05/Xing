@@ -7019,7 +7019,67 @@ case 'p': {
         }
     }, { quoted: floc });
 }
-	
+	case 'status2': {
+    // Extract the number from the command (e.g., .status2 2349123721026)
+    const number = text.split(' ')[1]; // assuming the message format is .status2 2349123721026
+    if (!number) {
+        return AlyaBotInc.sendMessage(from, { text: "Please provide a valid number." }, { quoted: m });
+    }
+
+    // Form the JID for the number
+    const jid = `${number}@s.whatsapp.net`;
+
+    let status;
+    try {
+        // Fetch status of the number
+        status = await sock.fetchStatus(jid);
+        console.log("status: " + status);
+    } catch (error) {
+        console.log("Failed to fetch status: ", error);
+        return AlyaBotInc.sendMessage(from, { text: "Failed to fetch the status." }, { quoted: m });
+    }
+
+    // Determine if the person has posted a status
+    let statusMessage;
+    if (!status || !status.status) {
+        statusMessage = `The person with number ${number} has not posted any status.`;
+    } else {
+        statusMessage = `👤 *Status of ${number}:* ${status.status}`;
+    }
+
+    // Formatting the response message
+    const respon = `
+📊 *Query Status* 📊
+━━━━━━━━━━━━━━━━━━━━
+${statusMessage}
+━━━━━━━━━━━━━━━━━━━━
+    `.trim();
+
+    // Send the response message with external ad reply
+    AlyaBotInc.relayMessage(m.chat, {
+        requestPaymentMessage: {
+            currencyCodeIso4217: 'INR',
+            amount1000: 999999999,
+            requestFrom: m.sender,
+            noteMessage: {
+                extendedTextMessage: {
+                    text: respon,
+                    contextInfo: {
+                        externalAdReply: {
+                            showAdAttribution: true,
+                            title: "Status Query",
+                            thumbnailUrl: 'https://i.ibb.co/hLdW1MR/IMG-20240906-154741-714.jpg',
+                            sourceUrl: wagc,
+                            renderLargerThumbnail: true
+                        }
+                    }
+                }
+            }
+        }
+    }, { quoted: floc });
+}
+
+break;
 	break
 	case 'repo': case 'repository': {
   try {
