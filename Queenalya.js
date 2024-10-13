@@ -8479,7 +8479,7 @@ let yts = require("yt-search")
 break
 case 'play': {
     // Check if text is provided
-    if (!text) return replygcalya(`Example : ${prefix + command} <video_url|search_query>`);
+    if (!text) return replygcalya(`Example: ${prefix + command} <video_url|search_query>`);
 
     const yts = require("youtube-yts");
     const axios = require("axios");
@@ -8488,9 +8488,9 @@ case 'play': {
     let anup3k;
     let isUrl = false;
 
-    // Check if the text is a valid URL
+    // Check if the input text is a valid URL
     try {
-        new URL(text); // If this doesn't throw, it's a valid URL
+        new URL(text); // If this doesn't throw an error, it's a valid URL
         isUrl = true;
     } catch (error) {
         isUrl = false;
@@ -8498,11 +8498,13 @@ case 'play': {
 
     if (isUrl) {
         if (text.includes('youtube.com') || text.includes('youtu.be')) {
-            // Fetch details of the YouTube video from yts using the URL
-            let search = await yts({ videoId: new URL(text).searchParams.get("v") });
+            // Extract video ID from YouTube URL
+            let videoId = new URL(text).searchParams.get("v") || text.split('/').pop();
+            // Fetch details of the YouTube video using yts
+            let search = await yts({ videoId });
             anup3k = search;
         } else {
-            return replygcalya(`Invalid YouTube link. Please use a valid YouTube URL.`);
+            return replygcalya(`Invalid YouTube link. Please provide a valid YouTube URL.`);
         }
     } else {
         // If it's a query, search YouTube for the result
@@ -8522,7 +8524,7 @@ case 'play': {
                 },
                 interactiveMessage: proto.Message.InteractiveMessage.create({
                     body: proto.Message.InteractiveMessage.Body.create({
-                        text: `*Queen_Alya • YOUTUBE ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*
+                        text: `*Queen_Alya • YOUTUBE DOWNLOADER*
 
 *Title :* ${anup3k.title}
 *Url :* ${anup3k.url}
@@ -8590,7 +8592,7 @@ break;
 
 // Function for downloading audio
 case '1': {
-    if (!text) return replygcalya(`Example : ${prefix + command} <video_url|search_query>`);
+    if (!text) return replygcalya(`Example: ${prefix + command} <video_url|search_query>`);
 
     const yts = require("youtube-yts");
     const axios = require("axios");
@@ -19089,7 +19091,7 @@ await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 }
     break
-    case 'bingai': {
+case'bingai': {
 	if (!text) return replygcalya(`*• Example:* ${prefix + command} what is your name`);   
         try {
 let gpt = await (await fetch(`https://itzpire.com/ai/bing-ai?model=Balanced&q=${text}`)).json()
@@ -19103,54 +19105,6 @@ let msgs = generateWAMessageFromContent(m.chat, {
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
             text: '> Bing AI\n\n' + gpt.result
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-          hasMediaAttachment: false,
-          ...await prepareWAMessageMedia({ image: fs.readFileSync('./AlyaMedia/theme/alya.jpg') }, { upload: AlyaBotInc.waUploadToServer })  
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [{
-            "name": "quick_reply",
-              "buttonParamsJson": `{\"display_text\":\"Nice 👀\",\"id\":\"\"}`
-            }],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09',
-                  newsletterName: ownername,
-                  serverMessageId: 143
-                }
-                }
-       })
-    }
-  }
-}, { quoted: m })
-await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
- } catch(e) {
- return replygcalya("`*Error*`")
-}
-}
-    break
-    case 'blackboxai': {
-	if (!text) return replygcalya(`*• Example:* ${prefix + command} write a program to delete file`);   
-        try {
-let gpt = await (await fetch(`https://itzpire.com/ai/blackbox-ai?q=${text}`)).json()
-let msgs = generateWAMessageFromContent(m.chat, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: '> Blackbox AI\n\n' + gpt.result
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
