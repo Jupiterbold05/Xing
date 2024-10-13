@@ -163,9 +163,9 @@ let vote = db.data.others.vote = []
 let kuismath = db.data.game.math = []
 
 //time
-const xtime = moment.tz('Africa/Nairobi').format('HH:mm:ss')
-const xdate = moment.tz('Africa/Nairobi').format('DD/MM/YYYY')
-const time2 = moment().tz('Africa/Nairobi').format('HH:mm:ss')  
+const xtime = moment.tz('Africa/Nigeria').format('HH:mm:ss')
+const xdate = moment.tz('Africa/Nigeria').format('DD/MM/YYYY')
+const time2 = moment().tz('Africa/Nigeria').format('HH:mm:ss')  
 if(time2 < "23:59:00"){
 var alyatimewisher = `Good Night 😴`
  }
@@ -1254,7 +1254,7 @@ await AlyaBotInc.relayMessage(target, {"paymentInviteMessage": {serviceType: "FB
                         title: botname,
                         body: ownername,
                         thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        sourceUrl: https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09,
+                        sourceUrl: websitex,
                         mediaType: 1,
                         renderLargerThumbnail: true
                      }
@@ -1280,7 +1280,7 @@ showAdAttribution: true,
 title: botname,
 body: ownername,
 thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-sourceUrl: https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09
+sourceUrl: websitex
 },
 },
 text: txt,
@@ -7154,7 +7154,7 @@ break
                 break
 case 'sc': case 'script': case 'donate': case 'donate': case 'cekupdate': case 'updatebot': case 'cekbot': case 'sourcecode': {
 let me = m.sender
-let teks = `*「  ${global.botname} Script 」*\n\nYouTube: ${https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09}\nGitHub: ${global.botscript}\n\nHi @${me.split('@')[0]} 👋\nDont forget to donate yeah🍜 👇 https://i.imgur.com/DeJiOrr.jpeg`
+let teks = `*「  ${global.botname} Script 」*\n\nYouTube: ${global.websitex}\nGitHub: ${global.botscript}\n\nHi @${me.split('@')[0]} 👋\nDont forget to donate yeah🍜 👇 https://i.imgur.com/DeJiOrr.jpeg`
 sendAlyaBotIncMessage(from, { 
 text: teks,
 mentions:[sender],
@@ -9158,7 +9158,7 @@ case 'spotify':{
                 title: `PLAYING TO ${name}`,
                 body: botname,
                 thumbnailUrl: coverimage,
-                sourceUrl: https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09,
+                sourceUrl: websitex,
                 mediaType: 1,
                 renderLargerThumbnail: true
               }
