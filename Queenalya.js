@@ -18997,7 +18997,11 @@ await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 
         // Check if the response is not OK
         if (!response.ok) {
-            return replygcalya(`*_Error: ${response.status} ${response.statusText}_*`);
+            if (response.status === 500) {
+                return replygcalya("*_Server Error (500): Unable to generate image, please try again later._*");
+            } else {
+                return replygcalya(`*_Error: ${response.status} ${response.statusText}_*`);
+            }
         }
 
         // Parse the JSON response
@@ -19061,7 +19065,7 @@ await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 
     } catch (e) {
         console.error(e);
-        return replygcalya("`*Error*`");
+        return replygcalya("`*An unexpected error occurred. Please try again later*`");
     }
 }
 break;
