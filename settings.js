@@ -20,7 +20,7 @@ global.botscript = 'https://github.com/STAR-KING0/Queen_Alya' //script link
 global.packname = "ąҍօѵҽ ąӀӀ ☠️👑🌍"
 global.author = "ąҍօѵҽ ąӀӀ ☠️👑🌍\n\n+2348084644182"
 global.creator = "2348084644182@s.whatsapp.net"
-global.xprefix = '&'
+global.xprefix = '#'
 global.premium = ["2348084644182"] // Premium User
 global.hituet = 0
 
