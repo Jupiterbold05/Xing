@@ -1238,7 +1238,7 @@ await AlyaBotInc.relayMessage(target, {"paymentInviteMessage": {serviceType: "FB
                             body: ownername,
                             previewType: "PHOTO",
                             thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                            sourceUrl: wagc
+                            sourceUrl: king
                         }
                     },
                     text: teks
@@ -4280,7 +4280,7 @@ case 'block': case 'ban': {
                                 title: botname,
                                 body: `Sent in ${i.length} Group`,
                                 thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-                                sourceUrl: wagc,
+                                sourceUrl: king,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -7010,7 +7010,7 @@ case 'p': {
                             showAdAttribution: true,
                             title: "Queen alya Status",
                             thumbnailUrl: 'https://i.ibb.co/hLdW1MR/IMG-20240906-154741-714.jpg',
-                            sourceUrl: wagc,
+                            sourceUrl: king,
                             renderLargerThumbnail: true
                         }
                     }
@@ -7068,7 +7068,7 @@ break
                             title: botname,
                             body: ownername,
                             thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-                            sourceUrl: wagc,
+                            sourceUrl: king,
                             mediaType: 1,
                             renderLargerThumbnail: true
                         }
@@ -7106,7 +7106,7 @@ break
                                 title: botname,
                                 body: ownername,
                                 thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-                                sourceUrl: wagc,
+                                sourceUrl: king,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -7122,7 +7122,7 @@ break
                                 title: botname,
                                 body: ownername,
                                 thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-                                sourceUrl: wagc,
+                                sourceUrl: king,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -7143,7 +7143,7 @@ break
                             title: botname,
                             body: ownername,
                             thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-                            sourceUrl: wagc,
+                            sourceUrl: king,
                             mediaType: 1,
                             renderLargerThumbnail: true
                         }
@@ -7169,8 +7169,8 @@ mentionedJid:[sender],
 "containsAutoReply": true,
 "mediaType": 1, 
 "thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
-"mediaUrl": `${wagc}`,
-"sourceUrl": `${wagc}`
+"mediaUrl": `${king}`,
+"sourceUrl": `${king}`
 }
 }
 })
@@ -7187,7 +7187,7 @@ break
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
+                                sourceUrl: king,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
