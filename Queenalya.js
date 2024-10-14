@@ -18989,7 +18989,7 @@ await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 	if (!text) return replygcalya(`*• Example:* ${prefix + command} a cat chasing mouse`);   
         try {
 let gpt = await (await fetch(`https://itzpire.com/ai/animediff2?prompt=${text}`)).json()
-const response = await axios.get(gpt.data.image_urls, { responseType: 'arraybuffer' })
+const response = await axios.get(gpt.data.photoUrl, { responseType: 'arraybuffer' })
 const buffer = Buffer.from(response.data, "utf-8")
 var fetchedgif = await GIFBufferToVideoBuffer(buffer)
 let msgs = generateWAMessageFromContent(m.chat, {
