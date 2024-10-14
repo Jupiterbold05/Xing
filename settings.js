@@ -9,19 +9,19 @@ global.socialm = "GitHub: STAR-KING0" //ur github or insta name
 global.location = "Africa,Nigeria" //ur location
 
 //new
-global.botname = 'QUEEN ALYA' //ur bot name
-global.ownernumber = '2349123721026' //ur owner number
-global.ownername = 'KING' //ur owner name
+global.botname = 'ąҍօѵҽ ąӀӀ ☠️👑🌍' //ur bot name
+global.ownernumber = '2348084644182' //ur owner number
+global.ownername = 'Ͳհҽ օղҽ ąҍօѵҽ ąӀӀ ☠️👑🌍' //ur owner name
 global.websitex = "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D"
 global.wagc = "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D"
-global.themeemoji = '👑'
-global.wm = "Queen Alya"
+global.themeemoji = '☠️'
+global.wm = "ąҍօѵҽ ąӀӀ ☠️👑🌍"
 global.botscript = 'https://github.com/STAR-KING0/Queen_Alya' //script link
-global.packname = "Sticker By"
-global.author = "KING\n\n+2349123721026"
-global.creator = "2349123721026@s.whatsapp.net"
-global.xprefix = '.'
-global.premium = ["2349123721026"] // Premium User
+global.packname = "ąҍօѵҽ ąӀӀ ☠️👑🌍"
+global.author = "ąҍօѵҽ ąӀӀ ☠️👑🌍\n\n+2348084644182"
+global.creator = "2348084644182@s.whatsapp.net"
+global.xprefix = '&'
+global.premium = ["2348084644182"] // Premium User
 global.hituet = 0
 
 //bot sett
@@ -31,7 +31,7 @@ global.autoblocknumber = '263' //set autoblock country code
 global.antiforeignnumber = '263' //set anti foreign number country code
 global.welcome = false //welcome/left in groups
 global.anticall = true //bot blocks user when called
-global.autoswview = true //auto status/story view
+global.autoswview = false //auto status/story view
 global.adminevent = false //show promote/demote message
 global.groupevent = false //show update messages in group chat
 //msg
