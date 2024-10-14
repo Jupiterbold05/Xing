@@ -161,7 +161,7 @@ settings: {},
 
 let vote = db.data.others.vote = []
 let kuismath = db.data.game.math = []
-let king = ('https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09')
+const king = ('https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09')
 //time
 const xtime = moment.tz('Africa/Nigeria').format('HH:mm:ss')
 const xdate = moment.tz('Africa/Nigeria').format('DD/MM/YYYY')
