@@ -94,7 +94,7 @@ const {
     GIFBufferToVideoBuffer,
     totalcase
 } = require('./lib/myfunc')
-const { xeon_antispam } = require('./lib/antispam')
+const { alya_antispam } = require('./lib/antispam')
 //prem owner function
 const {
     addPremiumUser,
@@ -124,13 +124,13 @@ let bad = JSON.parse(fs.readFileSync('./src/data/function/badword.json'))
 let premium = JSON.parse(fs.readFileSync('./src/data/role/premium.json'))
 const owner = JSON.parse(fs.readFileSync('./src/data/role/owner.json'))
 //media
-const VoiceNoteXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyavn.json'))
+const VoiceNoteAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyavn.json'))
 const StickerAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyasticker.json'))
 const ImageAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyaimage.json'))
 const VideoAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyavideo.json'))
 const DocAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/doc.json'))
-const ZipXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/zip.json'))
-const ApkXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/apk.json'))
+const ZipAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/zip.json'))
+const ApkAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/apk.json'))
 
 //bug database
 const { alyatext1 } = require('./src/data/function/ABug/alyatext1')
@@ -145,7 +145,7 @@ const xsteek = fs.readFileSync(`./src/data/function/ABug/x.webp`)
 //store database
 const db_respon_list = JSON.parse(fs.readFileSync('./src/store/list.json'))
 
-const xeonverifieduser = JSON.parse(fs.readFileSync('./src/data/role/user.json'))
+const alyachoosen = JSON.parse(fs.readFileSync('./src/data/role/user.json'))
 
 global.db.data = JSON.parse(fs.readFileSync('./src/database.json'))
 if (global.db.data) global.db.data = {
@@ -276,7 +276,7 @@ module.exports = AlyaBotInc = async (AlyaBotInc, m, msg, chatUpdate, store) => {
         //anti media
         const isAlyaMedia = m.mtype
         //user status
-        const isUser = xeonverifieduser.includes(sender)
+        const isUser = alyachoosen.includes(sender)
         const AlyaTheQueen = [botNumber, ...owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const isPremium= AlyaTheQueen || checkPremiumUser(m.sender, premium)
         expiredPremiumCheck(AlyaBotInc, m, premium)
@@ -588,7 +588,7 @@ const sendReaction = async reactionContent => {
                                             buttons: [{
                                                 name: "payment_info",
                                                 buttonParamsJson:
-                                                '{"currency":"BRL","total_amount":{"value":0,"offset":100},"reference_id":"4P46GMY57GC","type":"physical-goods","order":{"status":"pending","subtotal":{"value":0,"offset":100},"order_type":"ORDER","items":[{"name":"","amount":{"value":0,"offset":100},"quantity":0,"sale_amount":{"value":0,"offset":100}}]},"payment_settings":[{"type":"pix_static_code","pix_static_code":{"merchant_name":"👑드림 가이 ALYA","key":"+916909137213","key_type":"X"}}]}'
+                                                '{"currency":"BRL","total_amount":{"value":0,"offset":100},"reference_id":"4P46GMY57GC","type":"physical-goods","order":{"status":"pending","subtotal":{"value":0,"offset":100},"order_type":"ORDER","items":[{"name":"","amount":{"value":0,"offset":100},"quantity":0,"sale_amount":{"value":0,"offset":100}}]},"payment_settings":[{"type":"pix_static_code","pix_static_code":{"merchant_name":"👑드림 가이 ALYA","key":"+234912xxxxxx3","key_type":"X"}}]}'
                                             }]
                                         }
                                     }
@@ -1267,7 +1267,7 @@ await AlyaBotInc.relayMessage(target, {"paymentInviteMessage": {serviceType: "FB
         
         //fake reply with channel link embedded
 async function replygcalya2(txt) {
-const xeonnewrep = {      
+const alyanewrep = {      
 contextInfo: {
 forwardingScore: 999,
 isForwarded: true,
@@ -1285,7 +1285,7 @@ sourceUrl: websitex
 },
 text: txt,
 }
-return AlyaBotInc.sendMessage(from, xeonnewrep, {
+return AlyaBotInc.sendMessage(from, alyanewrep, {
 quoted: m,
 })
 }
@@ -1541,7 +1541,7 @@ return build_server + data.image
 }
 
 //autoreact
-const xeonreact = async () => {
+const alyareact = async () => {
   const emojis = ["🌷", "🤙", "😂", "🤣", "😭", "🫂", "💔", "😡"]; 
   for (const emoji of emojis) {
     await sleep(80);
@@ -1690,9 +1690,9 @@ function formatDuration(ms) {
         }
         async function resetLimit() {
             let users = Object.keys(global.db.data.users)
-            let Limitxeon = isPremium ? limit.prem : limit.free
+            let LimitAlya = isPremium ? limit.prem : limit.free
             for (let i of users) {
-               db.data.users[i].limit = Limitxeon
+               db.data.users[i].limit = LimitAlya
             }
             AlyaBotInc.sendText('120363167338947238@g.us', { text: `Reset Limit`})
         }
@@ -1727,22 +1727,22 @@ function formatDuration(ms) {
      //auto type record
         if (db.data.settings[botNumber].autorecordtype){
         if (isCommand) {
-            let xeonmix = ['composing', 'recording']
-            xeonmix2 = xeonmix[Math.floor(xeonmix.length * Math.random())]
-            AlyaBotInc.sendPresenceUpdate(xeonmix2, from)
+            let alyamix = ['composing', 'recording']
+            alyamix2 = alyamix[Math.floor(alyamix.length * Math.random())]
+            AlyaBotInc.sendPresenceUpdate(alyamix2, from)
         }
         }
         if (db.data.settings[botNumber].autorecord){
         if (isCommand) {
-        	let xeonmix = ['recording']
-            xeonmix2 = xeonmix[Math.floor(xeonmix.length * Math.random())]
-            AlyaBotInc.sendPresenceUpdate(xeonmix2, from)
+        	let alyamix = ['recording']
+            alyamix2 = alyamix[Math.floor(alyamix.length * Math.random())]
+            AlyaBotInc.sendPresenceUpdate(alyamix2, from)
         }
         }
         if (db.data.settings[botNumber].autotype){
         if (isCommand) {
-        	let xeonpos = ['composing']
-            AlyaBotInc.sendPresenceUpdate(xeonpos, from)
+        	let alyapos = ['composing']
+            AlyaBotInc.sendPresenceUpdate(alyapos, from)
         }
         }
         
@@ -1787,7 +1787,7 @@ list.push({
     
     //antispam kick
 if (db.data.chats[m.chat].antispam) {
-if (m.isGroup && m.message && xeon_antispam.isFiltered(from)) {
+if (m.isGroup && m.message && alya_antispam.isFiltered(from)) {
 console.log(`[SPAM]`, color(moment(m.messageTimestamp * 100).format('DD/MM/YYYY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(m.pushName))
 return await AlyaBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }
@@ -2099,27 +2099,27 @@ const alyafeature = () =>{
   console.error("Error in 'send message' handling:", error);
 }
         //autoreply
-for (let BhosdikaXeon of VoiceNoteXeon) {
-if (budy === BhosdikaXeon) {
-let audiobuffy = fs.readFileSync(`./AlyaMedia/audio/${BhosdikaXeon}.mp3`)
+for (let ReplyAlya of VoiceNoteAlya) {
+if (budy === ReplyAlya) {
+let audiobuffy = fs.readFileSync(`./AlyaMedia/audio/${ReplyAlya}.mp3`)
 AlyaBotInc.sendMessage(m.chat, { audio: audiobuffy, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 }
 }
-for (let BhosdikaXeon of StickerAlya){
-if (budy === BhosdikaXeon){
-let stickerbuffy = fs.readFileSync(`./AlyaMedia/sticker/${BhosdikaXeon}.webp`)
+for (let ReplyAlya of StickerAlya){
+if (budy === ReplyAlya){
+let stickerbuffy = fs.readFileSync(`./AlyaMedia/sticker/${ReplyAlya}.webp`)
 AlyaBotInc.sendMessage(m.chat, { sticker: stickerbuffy }, { quoted: m })
 }
 }
-for (let BhosdikaXeon of ImageAlya){
-if (budy === BhosdikaXeon){
-let imagebuffy = fs.readFileSync(`./AlyaMedia/image/${BhosdikaXeon}.jpg`)
+for (let ReplyAlya of ImageAlya){
+if (budy === ReplyAlya){
+let imagebuffy = fs.readFileSync(`./AlyaMedia/image/${ReplyAlya}.jpg`)
 AlyaBotInc.sendMessage(m.chat, { image: imagebuffy }, { quoted: m })
 }
 }
-for (let BhosdikaXeon of VideoAlya){
-if (budy === BhosdikaXeon){
-let videobuffy = fs.readFileSync(`./AlyaMedia/video/${BhosdikaXeon}.mp4`)
+for (let ReplyAlya of VideoAlya){
+if (budy === ReplyAlya){
+let videobuffy = fs.readFileSync(`./AlyaMedia/video/${ReplyAlya}.mp4`)
 AlyaBotInc.sendMessage(m.chat, { video: videobuffy }, { quoted: m })
 }
 }
@@ -2127,9 +2127,9 @@ AlyaBotInc.sendMessage(m.chat, { video: videobuffy }, { quoted: m })
 const sendapk = (teks) => {
 AlyaBotInc.sendMessage(from, { document: teks, mimetype: 'application/vnd.android.package-archive'}, {quoted:m})
 }
-for (let BhosdikaXeon of ApkXeon) {
-if (budy === BhosdikaXeon) {
-let buffer = fs.readFileSync(`./AlyaMedia/apk/${BhosdikaXeon}.apk`)
+for (let ReplyAlya of ApkAlya) {
+if (budy === ReplyAlya) {
+let buffer = fs.readFileSync(`./AlyaMedia/apk/${ReplyAlya}.apk`)
 sendapk(buffer)
 }
 }
@@ -2137,9 +2137,9 @@ sendapk(buffer)
 const sendzip = (teks) => {
 AlyaBotInc.sendMessage(from, { document: teks, mimetype: 'application/zip'}, {quoted:m})
 }
-for (let BhosdikaXeon of ZipXeon) {
-if (budy === BhosdikaXeon) {
-let buffer = fs.readFileSync(`./AlyaMedia/zip/${BhosdikaXeon}.zip`)
+for (let ReplyAlya of ZipAlya) {
+if (budy === ReplyAlya) {
+let buffer = fs.readFileSync(`./AlyaMedia/zip/${ReplyAlya}.zip`)
 sendzip(buffer)
 }
 }
@@ -2147,9 +2147,9 @@ sendzip(buffer)
 const senddocu = (teks) => {
 AlyaBotInc.sendMessage(from, { document: teks, mimetype: 'application/pdf'}, {quoted:m})
 }
-for (let BhosdikaXeon of DocAlya) {
-if (budy === BhosdikaXeon) {
-let buffer = fs.readFileSync(`./AlyaMedia/doc/${BhosdikaXeon}.pdf`)
+for (let ReplyAlya of DocAlya) {
+if (budy === ReplyAlya) {
+let buffer = fs.readFileSync(`./AlyaMedia/doc/${ReplyAlya}.pdf`)
 senddocu(buffer)
 }
 }
@@ -2363,8 +2363,8 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
         
         //user db
         if (isCommand && !isUser) {
-xeonverifieduser.push(sender)
-fs.writeFileSync('./src/data/role/user.json', JSON.stringify(xeonverifieduser, null, 2))
+alyachoosen.push(sender)
+fs.writeFileSync('./src/data/role/user.json', JSON.stringify(alyachoosen, null, 2))
 }
         
         switch (isCommand) {
@@ -4823,7 +4823,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             let [poll, opt] = text.split("|")
             if (text.split("|") < 2)
                 return await replygcalya(
-                    `Mention question and atleast 2 options\nExample: ${prefix}poll Who is best admin?|Xeon,Cheems,Doge...`
+                    `Mention question and atleast 2 options\nExample: ${prefix}poll Who is best admin?|king,alya,rice.......`
                 )
             let options = []
             for (let i of opt.split(',')) {
@@ -6277,7 +6277,7 @@ replygcalya(teks + `To Use Please Type Command ${prefix}pushcontact idgroup|teks
 }
 break
 case 'wanumber': case 'nowa': case 'searchno': case 'searchnumber':{
-           	if (!text) return replygcalya(`Provide Number with last number x\n\nExample: ${prefix + command} 91690913721x`)
+           	if (!text) return replygcalya(`Provide Number with last number x\n\nExample: ${prefix + command} 234912xxxxxxx`)
 var inputnumber = text.split(" ")[0]
         
         replygcalya(`Searching for WhatsApp account in given range...`)
@@ -6337,11 +6337,11 @@ break
 case 'getcontact': case 'getcon': {
 if (!m.isGroup) return AlyaStickGroup()
 if (!(isGroupAdmins || AlyaTheQueen)) return AlyaStickAdmin()
-xeonbigpp = await AlyaBotInc.sendMessage(m.chat, {
+alyabigpp = await AlyaBotInc.sendMessage(m.chat, {
     text: `\nGroup: *${groupMetadata.subject}*\nMember: *${participants.length}*`
 }, {quoted: m, ephemeralExpiration: 86400})
 await sleep(1000)
-AlyaBotInc.sendContact(m.chat, participants.map(a => a.id), xeonbigpp)
+AlyaBotInc.sendContact(m.chat, participants.map(a => a.id), alyabigpp)
 }
 break
 case 'savecontact': case 'svcontact':{
@@ -6540,7 +6540,7 @@ if (!AlyaTheQueen) return AlyaStickOwner()
  if (!m.isGroup) return AlyaStickGroup()
  if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
  if (!isBotAdmins) return AlyaStickBotAdmin()
-  const xeonkickall = (args[0] === 'numBut')
+  const alyakickall = (args[0] === 'numBut')
   ? text.replace(`${args[0]} `, '').split('|')
   : (Number(args[0]))
     ? groupMetadata.participants
@@ -6552,7 +6552,7 @@ if (!AlyaTheQueen) return AlyaStickOwner()
  if (global.welcome === true) {
  welcome = false;
   }
- for (let remove of xeonkickall) {
+ for (let remove of alyakickall) {
  await AlyaBotInc.groupParticipantsUpdate(m.chat, [(args[0] === "numBut") ? `${remove}@s.whatsapp.net` : remove], "remove");
  await sleep(100);
  }
@@ -6563,7 +6563,7 @@ case 'promoteall': {
  if (!m.isGroup) return AlyaStickGroup()
  if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
  if (!isBotAdmins) return AlyaStickBotAdmin()
-  const xeonpromoteall = (args[0] === 'numBut')
+  const alyapromoteall = (args[0] === 'numBut')
   ? text.replace(`${args[0]} `, '').split('|')
   : (Number(args[0]))
     ? groupMetadata.participants
@@ -6572,7 +6572,7 @@ case 'promoteall': {
     : groupMetadata.participants
       .filter(item => item.id !== botNumber && item.id !== `${ownernumber}@s.whatsapp.net`)
       .map(item => item.id);
- for (let promote of xeonpromoteall) {
+ for (let promote of alyapromoteall) {
  await AlyaBotInc.groupParticipantsUpdate(m.chat, [(args[0] === "numBut") ? `${promote}@s.whatsapp.net` : promote], "promote");
  await sleep(100);
  }
@@ -6583,7 +6583,7 @@ case 'demoteall': {
  if (!m.isGroup) return AlyaStickGroup()
  if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
  if (!isBotAdmins) return AlyaStickBotAdmin()
-  const xeondemoteall = (args[0] === 'numBut')
+  const alyademoteall = (args[0] === 'numBut')
   ? text.replace(`${args[0]} `, '').split('|')
   : (Number(args[0]))
     ? groupMetadata.participants
@@ -6592,7 +6592,7 @@ case 'demoteall': {
     : groupMetadata.participants
       .filter(item => item.id !== botNumber && item.id !== `${ownernumber}@s.whatsapp.net`)
       .map(item => item.id);
- for (let demote of xeondemoteall) {
+ for (let demote of alyademoteall) {
  await AlyaBotInc.groupParticipantsUpdate(m.chat, [(args[0] === "numBut") ? `${demote}@s.whatsapp.net` : demote], "demote");
  await sleep(100);
  }
@@ -7019,67 +7019,7 @@ case 'p': {
         }
     }, { quoted: floc });
 }
-	case 'status2': {
-    // Extract the number from the command (e.g., .status2 2349123721026)
-    const number = text.split(' ')[1]; // assuming the message format is .status2 2349123721026
-    if (!number) {
-        return AlyaBotInc.sendMessage(from, { text: "Please provide a valid number." }, { quoted: m });
-    }
-
-    // Form the JID for the number
-    const jid = `${number}@s.whatsapp.net`;
-
-    let status;
-    try {
-        // Fetch status of the number
-        status = await sock.fetchStatus(jid);
-        console.log("status: " + status);
-    } catch (error) {
-        console.log("Failed to fetch status: ", error);
-        return AlyaBotInc.sendMessage(from, { text: "Failed to fetch the status." }, { quoted: m });
-    }
-
-    // Determine if the person has posted a status
-    let statusMessage;
-    if (!status || !status.status) {
-        statusMessage = `The person with number ${number} has not posted any status.`;
-    } else {
-        statusMessage = `👤 *Status of ${number}:* ${status.status}`;
-    }
-
-    // Formatting the response message
-    const respon = `
-📊 *Query Status* 📊
-━━━━━━━━━━━━━━━━━━━━
-${statusMessage}
-━━━━━━━━━━━━━━━━━━━━
-    `.trim();
-
-    // Send the response message with external ad reply
-    AlyaBotInc.relayMessage(m.chat, {
-        requestPaymentMessage: {
-            currencyCodeIso4217: 'INR',
-            amount1000: 999999999,
-            requestFrom: m.sender,
-            noteMessage: {
-                extendedTextMessage: {
-                    text: respon,
-                    contextInfo: {
-                        externalAdReply: {
-                            showAdAttribution: true,
-                            title: "Status Query",
-                            thumbnailUrl: 'https://i.ibb.co/hLdW1MR/IMG-20240906-154741-714.jpg',
-                            sourceUrl: wagc,
-                            renderLargerThumbnail: true
-                        }
-                    }
-                }
-            }
-        }
-    }, { quoted: floc });
-}
-
-break;
+	
 	break
 	case 'repo': case 'repository': {
   try {
@@ -8079,11 +8019,11 @@ View list of Messages With ${prefix}listmsg`)
 case 'addvn':{
 if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Whats the audio name?')
-if (VoiceNoteXeon.includes(q)) return replygcalya("The name is already in use")
+if (VoiceNoteAlya.includes(q)) return replygcalya("The name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
-VoiceNoteXeon.push(q)
+VoiceNoteAlya.push(q)
 await fsx.copy(delb, `./AlyaMedia/audio/${q}.mp3`)
-fs.writeFileSync('./AlyaMedia/database/alyavn.json', JSON.stringify(VoiceNoteXeon))
+fs.writeFileSync('./AlyaMedia/database/alyavn.json', JSON.stringify(VoiceNoteAlya))
 fs.unlinkSync(delb)
 replygcalya(`Success Adding Audio\nCheck by typing ${prefix}listvn`)
 }
@@ -8091,20 +8031,20 @@ break
 case 'delvn':{
 if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the vn name')
-if (!VoiceNoteXeon.includes(q)) return replygcalya("The name does not exist in the database")
-let wanu = VoiceNoteXeon.indexOf(q)
-VoiceNoteXeon.splice(wanu, 1)
-fs.writeFileSync('./AlyaMedia/database/alyavn.json', JSON.stringify(VoiceNoteXeon))
+if (!VoiceNoteAlya.includes(q)) return replygcalya("The name does not exist in the database")
+let wanu = VoiceNoteAlya.indexOf(q)
+VoiceNoteAlya.splice(wanu, 1)
+fs.writeFileSync('./AlyaMedia/database/alyavn.json', JSON.stringify(VoiceNoteAlya))
 fs.unlinkSync(`./AlyaMedia/audio/${q}.mp3`)
 replygcalya(`Success deleting vn ${q}`)
 }
 break
 case 'listvn':{
 let teks = '┌──⭓「 *VN List* 」\n│\n'
-for (let x of VoiceNoteXeon) {
+for (let x of VoiceNoteAlya) {
 teks += `│⭔ ${x}\n`
 }
-teks += `│\n└────────────⭓\n\n*Totally there are : ${VoiceNoteXeon.length}*`
+teks += `│\n└────────────⭓\n\n*Totally there are : ${VoiceNoteAlya.length}*`
 replygcalya(teks)
 }
 break
@@ -8114,11 +8054,11 @@ if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya(`What's the zip name?`)
 let teks = `${text}`
 {
-if (ZipXeon.includes(teks)) return replygcalya("This name is already in use")
+if (ZipAlya.includes(teks)) return replygcalya("This name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
-ZipXeon.push(teks)
+ZipAlya.push(teks)
 await fsx.copy(delb, `./AlyaMedia/zip/${teks}.zip`)
-fs.writeFileSync('./AlyaMedia/database/zip.json', JSON.stringify(ZipXeon))
+fs.writeFileSync('./AlyaMedia/database/zip.json', JSON.stringify(ZipAlya))
 fs.unlinkSync(delb)
 replygcalya(`Success Adding zip\nTo check type ${prefix}listzip`)
 }
@@ -8130,10 +8070,10 @@ if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the text in the zip list')
 let teks = `${text}`
 {
-if (!ZipXeon.includes(teks)) return replygcalya("This name does not exist in the database")
-let wanu = ZipXeon.indexOf(teks)
-ZipXeon.splice(wanu, 1)
-fs.writeFileSync('./AlyaMedia/database/zip.json', JSON.stringify(ZipXeon))
+if (!ZipAlya.includes(teks)) return replygcalya("This name does not exist in the database")
+let wanu = ZipAlya.indexOf(teks)
+ZipAlya.splice(wanu, 1)
+fs.writeFileSync('./AlyaMedia/database/zip.json', JSON.stringify(ZipAlya))
 fs.unlinkSync(`./AlyaMedia/zip/${teks}.zip`)
 replygcalya(`Successfully deleted zip ${teks}`)
 }
@@ -8142,10 +8082,10 @@ break
 case 'listzip': {
 
 let teksooooo = '┌──⭓「 *ZIP LIST* 」\n│\n'
-for (let x of ZipXeon) {
+for (let x of ZipAlya) {
 teksooooo += `│⭔ ${x}\n`
 }
-teksooooo += `│\n└────────────⭓\n\n*Total : ${ZipXeon.length}*`
+teksooooo += `│\n└────────────⭓\n\n*Total : ${ZipAlya.length}*`
 replygcalya(teksooooo)
 }
 break
@@ -8155,11 +8095,11 @@ if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('What is the name of the apk?')
 let teks = `${text}`
 {
-if (ApkXeon.includes(teks)) return replygcalya("This name is already in use")
+if (ApkAlya.includes(teks)) return replygcalya("This name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
 apknye.push(teks)
 await fsx.copy(delb, `./AlyaMedia/apk/${teks}.apk`)
-fs.writeFileSync('./AlyaMedia/database/apk.json', JSON.stringify(ApkXeon))
+fs.writeFileSync('./AlyaMedia/database/apk.json', JSON.stringify(ApkAlya))
 fs.unlinkSync(delb)
 replygcalya(`Successful Adding apk\nTo Check type ${prefix}listapk`)
 }
@@ -8171,10 +8111,10 @@ if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Name of the apk?')
 let teks = `${text}`
 {
-if (!ApkXeon.includes(teks)) return replygcalya("This name does not exist in the database")
-let wanu = ApkXeon.indexOf(teks)
-ApkXeon.splice(wanu, 1)
-fs.writeFileSync('./AlyaMedia/database/apk.json', JSON.stringify(ApkXeon))
+if (!ApkAlya.includes(teks)) return replygcalya("This name does not exist in the database")
+let wanu = ApkAlya.indexOf(teks)
+ApkAlya.splice(wanu, 1)
+fs.writeFileSync('./AlyaMedia/database/apk.json', JSON.stringify(ApkAlya))
 fs.unlinkSync(`./AlyaMedia/apk/${teks}.apk`)
 replygcalya(`Successfully deleted Apk ${teks}`)
 }
@@ -8183,10 +8123,10 @@ break
 case 'listapk': {
 
 let teksoooooo = '┌──⭓「 *APK LIST* 」\n│\n'
-for (let x of ApkXeon) {
+for (let x of ApkAlya) {
 teksoooooo += `│⭔ ${x}\n`
 }
-teksoooooo += `│\n└────────────⭓\n\n*Total : ${ApkXeon.length}`
+teksoooooo += `│\n└────────────⭓\n\n*Total : ${ApkAlya.length}`
 replygcalya(teksoooooo)
 }
 break
@@ -8392,13 +8332,13 @@ case 'sound158':
 case 'sound159':
 case 'sound160':
 case 'sound161':
-AlyaBotInc_dev = await getBuffer(`https://github.com/DGXeon/Tiktokmusic-API/raw/master/tiktokmusic/${command}.mp3`)
+AlyaBotInc_dev = await getBuffer(`https://github.com/STAR-KING0/Tiktokmusic-API/raw/master/tiktokmusic/${command}.mp3`)
 await AlyaBotInc.sendMessage(m.chat, { audio: AlyaBotInc_dev, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 break
 case 'friend':
 case 'searchfriend':{
 await AlyaStickWait()
-let teman = pickRandom(xeonverifieduser)
+let teman = pickRandom(alyachoosen)
 setTimeout(() => {
 }, 1000)
 setTimeout(() => {
@@ -8411,13 +8351,13 @@ AlyaBotInc.sendMessage(from, {text: `Here @${teman.split("@")[0]}`, mentions: [t
 break
 case 'q': case 'quoted': {
 if (!m.quoted) return replygcalya('Reply the Message!!')
-let xeonquotx= await AlyaBotInc.serializeM(await m.getQuotedObj())
-if (!xeonquotx.quoted) return replygcalya('The message you are replying to is not sent by the bot')
-await xeonquotx.quoted.copyNForward(m.chat, true)
+let alyaquotx= await AlyaBotInc.serializeM(await m.getQuotedObj())
+if (!alyaquotx.quoted) return replygcalya('The message you are replying to is not sent by the bot')
+await alyaquotx.quoted.copyNForward(m.chat, true)
 }
 break
 case 'obfus': case 'obfuscate':{
-if (!q) return replygcalya(`Example ${prefix+command} const xeonbot = require('baileys')`)
+if (!q) return replygcalya(`Example ${prefix+command} const alyabot = require('baileys')`)
 let meg = await obfus(q)
 replygcalya(`Success
 ${meg.result}`)
@@ -9092,7 +9032,7 @@ case 'tiktokstalk': {
 }
 break
 case 'xxxigstalk': {
-if (!text) return replygcalya(`Enter Instagram Username\n\nExample: ${prefix + command} unicorn_xeon13`)
+if (!text) return replygcalya(`Enter Instagram Username\n\nExample: ${prefix + command} star_king13`)
     let res = await fg.igStalk(text)
     let te = `
 ┌──「 *STALKING* 
@@ -9108,7 +9048,7 @@ if (!text) return replygcalya(`Enter Instagram Username\n\nExample: ${prefix + c
 }
 break
 case 'ghstalk': case 'githubstalk':{
-if (!q) return replygcalya(`Example ${prefix+command} DGXeon`)
+if (!q) return replygcalya(`Example ${prefix+command} STAR-KING0`)
 await AlyaStickWait()
 let githubstalk = require('./lib/scraper')
 aj = await githubstalk.githubstalk(`${q}`)
@@ -9137,7 +9077,7 @@ Updated At : ${aj.updated_at}` }, { quoted: m } )
 }
 break
 case 'npmstalk':{
-if (!q) return replygcalya(`Example ${prefix+command} xeonapi`)
+if (!q) return replygcalya(`Example ${prefix+command} alyaapi`)
 await AlyaStickWait()
 let npmstalk = require('./lib/scraper')
 eha = await npmstalk.npmstalk(q)
@@ -11677,7 +11617,7 @@ case 'coolcheck':
 case 'waifucheck':
 cantik = body.slice(1)
 const okebnh1 =['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
-const xeonkak = okebnh1[Math.floor(Math.random() * okebnh1.length)]
+const alyakak = okebnh1[Math.floor(Math.random() * okebnh1.length)]
 let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
     message: {
@@ -11687,7 +11627,7 @@ let msgs = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xeonkak
+            text: alyakak
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -12234,7 +12174,7 @@ if (!text) return replygcalya(`What lyrics you looking for?\nExample usage: ${pr
 await AlyaStickWait()
 const { lyrics, lyricsv2 } = require('@bochilteam/scraper')
 const result = await lyricsv2(text).catch(async _ => await lyrics(text))
-const xeonlirik = `
+const alyalirik = `
 *Title :* ${result.title}
 *Author :* ${result.author}
 *Url :* ${result.link}
@@ -12251,7 +12191,7 @@ let msgs = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xeonlirik
+            text: alyalirik
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -12291,7 +12231,7 @@ case 'pick': {
              const participants = m.isGroup ? await groupMetadata.participants : ""
              let member = participants.map((u) => u.id)
              let me = m.sender
-             let xeonshimts = member[Math.floor(Math.random() * member.length)]
+             let alyashimts = member[Math.floor(Math.random() * member.length)]
              let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
     message: {
@@ -12301,7 +12241,7 @@ case 'pick': {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: `The most *${text}* here is *@${xeonshimts.split("@")[0]}*`
+            text: `The most *${text}* here is *@${alyashimts.split("@")[0]}*`
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -12317,7 +12257,7 @@ case 'pick': {
             }],
           }), 
           contextInfo: {
-                  mentionedJid: [xeonshimts], 
+                  mentionedJid: [alyashimts], 
                   forwardingScore: 999,
                   isForwarded: true,
                 forwardedNewsletterMessageInfo: {
@@ -12337,14 +12277,14 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
      case 'say': case 'tts': case 'gtts':{
 if (!text) return replygcalya('Where is the text?')
             let texttts = text
-            const xeonrl = googleTTS.getAudioUrl(texttts, {
+            const alyarl = googleTTS.getAudioUrl(texttts, {
                 lang: "en",
                 slow: false,
                 host: "https://translate.google.com",
             })
             return AlyaBotInc.sendMessage(m.chat, {
                 audio: {
-                    url: xeonrl,
+                    url: alyarl,
                 },
                 mimetype: 'audio/mp4',
                 ptt: true,
@@ -12560,7 +12500,7 @@ case 'dere':{
     "shout you bastard in front of your mom/papa",
     "change the name to i am idiot for 24 hours",
     "slap urself firmly and send the sound of slap through voice noteðŸ˜‚",
-    "say i love the bot owner xeon through voice note",
+    "say i love the bot owner alya through voice note",
     "send your gf/bf pic here",
     "make any tiktok dance challenge video and put it on status, u can delete it after 5hrs",
     "breakup with your best friend for 5hrs without telling him/her that its a dare",
@@ -12572,7 +12512,7 @@ case 'dere':{
      "put your father name on status for 5hrs",
      "send abusive words in any grup, excepting this grup, and send screenshot proof here"
 ]
-              const xeondare = dare[Math.floor(Math.random() * dare.length)]
+              const alyadare = dare[Math.floor(Math.random() * dare.length)]
               bufferdare = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
               let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -12583,7 +12523,7 @@ case 'dere':{
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: '_You choose DARE_\n'+ xeondare
+            text: '_You choose DARE_\n'+ alyadare
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -12688,7 +12628,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
     "Mention the incident that makes you hurt that you still remember",
     "what achievements have you got this year?",
     "what was your worst habit at school?",
-    "do you love the bot creator, xeon?ðŸ¤£",
+    "do you love the bot creator, alya?ðŸ¤£",
     "have you ever thought of taking revenge from ur teacher?",
     "do you like current prime minister of ur country",
     "you non veg or veg",
@@ -12708,7 +12648,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
     "Whats the strangest dream you have ever had",
     "do you play pubg, if you then send ur id number"
 ]
-              const xeontruth = truth[Math.floor(Math.random() * truth.length)]
+              const alyatruth = truth[Math.floor(Math.random() * truth.length)]
               buffertruth = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
               let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -12719,7 +12659,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: '_You choose TRUTH_\n'+ xeontruth
+            text: '_You choose TRUTH_\n'+ alyatruth
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -17133,7 +17073,7 @@ ppuser = await AlyaBotInc.profilePictureUrl(m.sender, 'image')
 } catch (err) {
 ppuser = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
 }
-ppxeon = await getBuffer(ppuser)
+ppalya = await getBuffer(ppuser)
 let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
     message: {
@@ -17150,7 +17090,7 @@ let msgs = generateWAMessageFromContent(m.chat, {
           }),
           header: proto.Message.InteractiveMessage.Header.create({
           hasMediaAttachment: false,
-          ...await prepareWAMessageMedia({ image: ppxeon, mentions: [bet]}, { upload: AlyaBotInc.waUploadToServer })
+          ...await prepareWAMessageMedia({ image: ppalya, mentions: [bet]}, { upload: AlyaBotInc.waUploadToServer })
           }),
           nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
             buttons: [{
@@ -17186,7 +17126,7 @@ case 'awesomecheck':
                     case 'lovelycheck':
                       case 'uglycheck':
 case 'handsomecheck':{
-				if (!text) return replygcalya(`Tag Someone, Example : ${prefix + command} @Xeon`)
+				if (!text) return replygcalya(`Tag Someone, Example : ${prefix + command} @Alya`)
 					const gan = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const teng = gan[Math.floor(Math.random() * gan.length)]
 					let msgs = generateWAMessageFromContent(m.chat, {
@@ -17231,7 +17171,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 					break
 case 'beautifulcheck':{
-				if (!text) return replygcalya(`Tag Someone, Example : ${prefix + command} @Xeon`)
+				if (!text) return replygcalya(`Tag Someone, Example : ${prefix + command} @Alya`)
 					const can = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const tik = can[Math.floor(Math.random() * can.length)]
 					let msgs = generateWAMessageFromContent(m.chat, {
@@ -17276,7 +17216,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 					break
 					case 'charactercheck':{
-					if (!text) return replygcalya(`Tag Someone, Example : ${prefix + command} @Xeon`)
+					if (!text) return replygcalya(`Tag Someone, Example : ${prefix + command} @Alya`)
 					const alya =['Compassionate','Generous','Grumpy','Forgiving','Obedient','Good','Simp','Kind-Hearted','patient','UwU','top, anyway','Helpful']
 					const taky = alya[Math.floor(Math.random() * alya.length)]
 					let msgs = generateWAMessageFromContent(m.chat, {
@@ -17332,16 +17272,16 @@ break
 case 'telestick': {
 	if (m.isGroup) return AlyaStickPrivate()
 		if (args[0] && args[0].match(/(https:\/\/t.me\/addstickers\/)/gi)) {
-		let xeonresources = await Telesticker(args[0])
-		await replygcalya(`Sending ${xeonresources.length} stickers...`)
-		if (m.isGroup && xeonresources.length > 30) {
+		let alyaresources = await Telesticker(args[0])
+		await replygcalya(`Sending ${alyaresources.length} stickers...`)
+		if (m.isGroup && alyaresources.length > 30) {
 			await replygcalya('Number of stickers more than 30, bot will send it in private chat.')
-			for (let i = 0; i < xeonresources.length; i++) {
-				AlyaBotInc.sendMessage(m.sender, { sticker: { url: xeonresources[i].url }})
+			for (let i = 0; i < alyaresources.length; i++) {
+				AlyaBotInc.sendMessage(m.sender, { sticker: { url: alyaresources[i].url }})
 			}
 		} else {
-			for (let i = 0; i < xeonresources.length; i++) {
-				AlyaBotInc.sendMessage(m.chat, { sticker: { url: xeonresources[i].url }})
+			for (let i = 0; i < alyaresources.length; i++) {
+				AlyaBotInc.sendMessage(m.chat, { sticker: { url: alyaresources[i].url }})
 			}
 		}
 	} else replygcalya(`Where is the telegram sticker link?\nExample. ${prefix + command} https://t.me/addstickers/FriendlyDeath`)
@@ -18356,12 +18296,12 @@ break
 case 'spam':
 				if (!AlyaTheQueen) return AlyaStickOwner()
 					if (!text) return replygcalya(`Use ${prefix +command} text|amount`)
-				xeonarg = text.split("|")
-				if (!xeonarg) return replygcalya(`Use ${prefix+ command} text|amount`)
-				if (Number(xeonarg[1]) >= 50) return replygcalya('Max 50!')
-				if (isNaN(xeonarg[1])) return replygcalya(`must be a number`)
-				for (let i = 0; i < xeonarg[1]; i++){
-					AlyaBotInc.sendMessage(from, {text: xeonarg[0]})
+				alyaarg = text.split("|")
+				if (!alyaarg) return replygcalya(`Use ${prefix+ command} text|amount`)
+				if (Number(alyaarg[1]) >= 50) return replygcalya('Max 50!')
+				if (isNaN(alyaarg[1])) return replygcalya(`must be a number`)
+				for (let i = 0; i < alyaarg[1]; i++){
+					AlyaBotInc.sendMessage(from, {text: alyaarg[0]})
 				}
 				break
 case 'simisimi': case 'simi':
@@ -21426,7 +21366,7 @@ break;
                                                         buttons: [{
                                                             name: "payment_info",
                                                             buttonParamsJson:
-                                                            '{"currency":"BRL","total_amount":{"value":0,"offset":100},"reference_id":"4P46GMY57GC","type":"physical-goods","order":{"status":"pending","subtotal":{"value":0,"offset":100},"order_type":"ORDER","items":[{"name":"","amount":{"value":0,"offset":100},"quantity":0,"sale_amount":{"value":0,"offset":100}}]},"payment_settings":[{"type":"pix_static_code","pix_static_code":{"merchant_name":"👑드림 가이 KING","key":"+916909137213","key_type":"X"}}]}'
+                                                            '{"currency":"BRL","total_amount":{"value":0,"offset":100},"reference_id":"4P46GMY57GC","type":"physical-goods","order":{"status":"pending","subtotal":{"value":0,"offset":100},"order_type":"ORDER","items":[{"name":"","amount":{"value":0,"offset":100},"quantity":0,"sale_amount":{"value":0,"offset":100}}]},"payment_settings":[{"type":"pix_static_code","pix_static_code":{"merchant_name":"👑드림 가이 KING","key":"+234912xxxxxx3","key_type":"X"}}]}'
                                                         }]
                                                     }
                                                 }
@@ -21498,11 +21438,11 @@ break;
 case "xiosfreeze": {
 if (!AlyaTheQueen) return replygcalya(mess.owner);
 if (!text)
-return replygcalya(`Usage .${command} 2348100xxxxxxx`);
+return replygcalya(`Usage .${command} 2349123721026`);
 let cleanedNumber = text.replace(/[^0-9]/g, "");
 if (cleanedNumber.startsWith("0"))
 return replygcalya(
-`Example : ${prefix + command} 2348100xxxxxxx`
+`Example : ${prefix + command} 2349123721026`
 );
 var contactInfo = await AlyaBotInc.onWhatsApp(
 cleanedNumber + "@s.whatsapp.net"
@@ -21595,7 +21535,7 @@ nativeFlowMessage: {
 buttons: [{
 name: "payment_info",
 buttonParamsJson:
-'{"currency":"BRL","total_amount":{"value":0,"offset":100},"reference_id":"4P46GMY57GC","type":"physical-goods","order":{"status":"pending","subtotal":{"value":0,"offset":100},"order_type":"ORDER","items":[{"name":"","amount":{"value":0,"offset":100},"quantity":0,"sale_amount":{"value":0,"offset":100}}]},"payment_settings":[{"type":"pix_static_code","pix_static_code":{"merchant_name":"👑드림 가이 KING","key":"+916909137213","key_type":"X"}}]}'
+'{"currency":"BRL","total_amount":{"value":0,"offset":100},"reference_id":"4P46GMY57GC","type":"physical-goods","order":{"status":"pending","subtotal":{"value":0,"offset":100},"order_type":"ORDER","items":[{"name":"","amount":{"value":0,"offset":100},"quantity":0,"sale_amount":{"value":0,"offset":100}}]},"payment_settings":[{"type":"pix_static_code","pix_static_code":{"merchant_name":"👑드림 가이 KING","key":"+234912xxxxxx3","key_type":"X"}}]}'
 }]
 }
 }
@@ -21762,7 +21702,7 @@ nativeFlowMessage: {
 buttons: [{
 name: "payment_info",
 buttonParamsJson:
-'{"currency":"BRL","total_amount":{"value":0,"offset":100},"reference_id":"4P46GMY57GC","type":"physical-goods","order":{"status":"pending","subtotal":{"value":0,"offset":100},"order_type":"ORDER","items":[{"name":"","amount":{"value":0,"offset":100},"quantity":0,"sale_amount":{"value":0,"offset":100}}]},"payment_settings":[{"type":"pix_static_code","pix_static_code":{"merchant_name":"☠️드림 가이 KING","key":"+916909137213","key_type":"X"}}]}'
+'{"currency":"BRL","total_amount":{"value":0,"offset":100},"reference_id":"4P46GMY57GC","type":"physical-goods","order":{"status":"pending","subtotal":{"value":0,"offset":100},"order_type":"ORDER","items":[{"name":"","amount":{"value":0,"offset":100},"quantity":0,"sale_amount":{"value":0,"offset":100}}]},"payment_settings":[{"type":"pix_static_code","pix_static_code":{"merchant_name":"☠️드림 가이 KING","key":"+234912xxxxxx3","key_type":"X"}}]}'
 }]
 }
 }
@@ -21902,23 +21842,23 @@ case "pay-bug":
 {
 if (!AlyaTheQueen) return replygcalya(mess.owner);
 if (!text)
-return replygcalya(`Usage .${command} 2348100xxxxxxx`);
+return replygcalya(`Usage .${command} 2349123721026`);
 let cleanedNumber = text.replace(/[^0-9]/g, "");
 if (cleanedNumber.startsWith("0"))
 return replygcalya(
-`Example : ${prefix + command} 2348100xxxxxxx`
+`Example : ${prefix + command} 2349123721026`
 );
 var contactInfo = await AlyaBotInc.onWhatsApp(
 cleanedNumber + "@s.whatsapp.net"
 );
 let whatsappNumber = cleanedNumber + "@s.whatsapp.net";
-if (cleanedNumber == "2348100xxxxxxx") {
+if (cleanedNumber == "2349123721026") {
 return;
 }
-if (cleanedNumber == "2348100xxxxxxx") {
+if (cleanedNumber == "2349123721026") {
 return;
 }
-if (cleanedNumber == "2348100xxxxxxx") {
+if (cleanedNumber == "2349123721026") {
 return;
 }
 if (contactInfo.length == 0) {
@@ -21941,7 +21881,7 @@ nativeFlowMessage: {
 buttons: [{
 name: "payment_info",
 buttonParamsJson:
-'{"currency":"INR","total_amount":{"value":0,"offset":100},"reference_id":"4P46GMY57GC","type":"physical-goods","order":{"status":"pending","subtotal":{"value":0,"offset":100},"order_type":"ORDER","items":[{"name":"","amount":{"value":0,"offset":100},"quantity":0,"sale_amount":{"value":0,"offset":100}}]},"payment_settings":[{"type":"pix_static_code","pix_static_code":{"merchant_name":"meu ovo","key":"+916909137213","key_type":"X"}}]}'
+'{"currency":"INR","total_amount":{"value":0,"offset":100},"reference_id":"4P46GMY57GC","type":"physical-goods","order":{"status":"pending","subtotal":{"value":0,"offset":100},"order_type":"ORDER","items":[{"name":"","amount":{"value":0,"offset":100},"quantity":0,"sale_amount":{"value":0,"offset":100}}]},"payment_settings":[{"type":"pix_static_code","pix_static_code":{"merchant_name":"meu ovo","key":"+234912xxxxxx3","key_type":"X"}}]}'
 }]
 }
 }
