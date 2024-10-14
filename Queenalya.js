@@ -18986,56 +18986,85 @@ await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
     break
         case 'animate': {
-	if (!text) return replygcalya(`*• Example:* ${prefix + command} a cat chasing mouse`);   
-        try {
-let gpt = await (await fetch(`https://itzpire.com/ai/animediff2?prompt=${text}`)).json()
-const response = await fetch(gpt.data.photoUrl, { responseType: 'arraybuffer' })
-const buffer = Buffer.from(response.data, "utf-8")
-var fetchedgif = await GIFBufferToVideoBuffer(buffer)
-let msgs = generateWAMessageFromContent(m.chat, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: `> Animation AI\n\n_*Here is the result of: ${text}*_`
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-          hasMediaAttachment: false,
-          ...await prepareWAMessageMedia({ video: fetchedgif }, { upload: AlyaBotInc.waUploadToServer })  
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [{
-            "name": "quick_reply",
-              "buttonParamsJson": `{\"display_text\":\"Nice 👀\",\"id\":\"\"}`
-            }],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09',
-                  newsletterName: ownername,
-                  serverMessageId: 143
+    if (!text) return replygcalya(`*• Example:* ${prefix + command} a cat chasing mouse`);
+
+    try {
+        // Construct the API URL with the provided query
+        const apiUrl = `https://itzpire.com/ai/animediff2?prompt=${encodeURIComponent(text)}`;
+
+        // Fetch the response from the API
+        const response = await fetch(apiUrl);
+
+        // Check if the response is not OK
+        if (!response.ok) {
+            return replygcalya(`*_Error: ${response.status} ${response.statusText}_*`);
+        }
+
+        // Parse the JSON response
+        const data = await response.json();
+
+        // Check if the status in the response data is not "success"
+        if (data.status !== "success") {
+            return replygcalya("*_An error occurred while fetching the image._*");
+        }
+
+        // Extract the photo URL from the response data
+        const photoUrl = data.result;
+
+        // Fetch the image from the URL
+        const imgResponse = await fetch(photoUrl);
+        const buffer = await imgResponse.arrayBuffer();
+
+        // Prepare and send the image back to the user
+        let media = await prepareWAMessageMedia({ image: Buffer.from(buffer) }, { upload: AlyaBotInc.waUploadToServer });
+
+        let msgs = generateWAMessageFromContent(m.chat, {
+            viewOnceMessage: {
+                message: {
+                    "messageContextInfo": {
+                        "deviceListMetadata": {},
+                        "deviceListMetadataVersion": 2
+                    },
+                    interactiveMessage: proto.Message.InteractiveMessage.create({
+                        body: proto.Message.InteractiveMessage.Body.create({
+                            text: `> Animation AI\n\n_*Here is the result of: ${text}*_`
+                        }),
+                        footer: proto.Message.InteractiveMessage.Footer.create({
+                            text: botname
+                        }),
+                        header: proto.Message.InteractiveMessage.Header.create({
+                            hasMediaAttachment: true,
+                            ...media
+                        }),
+                        nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                            buttons: [{
+                                "name": "quick_reply",
+                                "buttonParamsJson": `{\"display_text\":\"Nice 👀\",\"id\":\"\"}`
+                            }],
+                        }),
+                        contextInfo: {
+                            mentionedJid: [m.sender],
+                            forwardingScore: 999,
+                            isForwarded: true,
+                            forwardedNewsletterMessageInfo: {
+                                newsletterJid: 'https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09',
+                                newsletterName: ownername,
+                                serverMessageId: 143
+                            }
+                        }
+                    })
                 }
-                }
-       })
+            }
+        }, { quoted: m });
+
+        await AlyaBotInc.relayMessage(m.chat, msgs.message, {});
+
+    } catch (e) {
+        console.error(e);
+        return replygcalya("`*Error*`");
     }
-  }
-}, { quoted: m })
-await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
- } catch(e) {
- return replygcalya("`*Error*`")
 }
-}
-    break
+break;
         case 'diffusion-anime': {
 	if (!text) return replygcalya(`*• Example:* ${prefix + command} what is your name`);   
         try {
@@ -19337,7 +19366,7 @@ let msgs = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: `> Claude AI\n\n${gpt.result.response}`
+            text: `> Claude AI\n\n${gpt.result}`
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
