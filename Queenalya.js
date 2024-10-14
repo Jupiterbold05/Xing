@@ -7154,7 +7154,7 @@ break
                 break
 case 'sc': case 'script': case 'donate': case 'donate': case 'cekupdate': case 'updatebot': case 'cekbot': case 'sourcecode': {
 let me = m.sender
-let teks = `*「 QUEEN ALYA Script 」*\n\nYouTube: ${king}\nGitHub: ${global.botscript}\n\nHi @${*('@')[0]} 👋\nDont forget to donate yeah🍜 👇 https://i.imgur.com/DeJiOrr.jpeg`
+let teks = `「 QUEEN ALYA Script 」\n\nChannel: ${king}\nGitHub: ${global.botscript}\n\nHi @${*('@')[0]} 👋\nDont forget to donate yeah🍜 👇 https://i.imgur.com/DeJiOrr.jpeg`
 sendAlyaBotIncMessage(from, { 
 text: teks,
 mentions:[sender],
